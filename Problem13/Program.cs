@@ -131,9 +131,9 @@ namespace Problem13
 
             BigInteger sum = 0;
 
-            foreach(BigInteger n in numbersList)
+            foreach(BigInteger number in numbersList)
             {
-                sum += n;
+                sum += number;
             }
 
             return sum;
