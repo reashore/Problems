@@ -6,7 +6,6 @@ namespace Problem7
 {
     class Program
     {
-        // Problem 7 from www.projecteuler.net
         static void Main()
         {
             Console.WriteLine("Problem 7");
