@@ -4,37 +4,41 @@ namespace Problem4
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Problem 4");
-            const int number = 1000 * 1000;
 
-            //bool isPalindromicNumber = IsPalindromicNumber(10001);
+            int maxPalindrome = Solve();
+            Console.WriteLine($"maxPalindrome = {maxPalindrome}");
 
-            int result = GetLargestPalindromicNumber(number);
-            Console.WriteLine($"{result} x {result} = {result * result}");
-
+            Console.WriteLine("Done");
             Console.ReadKey();
         }
 
-        private static int GetLargestPalindromicNumber(int number)
+        private static int Solve()
         {
-            //int eg1 = Convert.ToInt32(Math.Floor(123.75));        // 123 (and not 124)
-            int start = Convert.ToInt32(Math.Floor(Math.Sqrt(number)));
+            int maxProduct = 0;
 
-            for (int n = start - 1; 1 <= n; n--)
+            for(int n = 1; n < 1000; n++)
             {
-                int product = n * n;
-
-                //Console.WriteLine($"{n} x {n} = {n * n}, {IsPalindromicNumber(product)}");
-
-                if (IsPalindromicNumber(product))
+                for(int m = n + 1; m < 1000; m++)
                 {
-                    return n;
+                    int product = n * m;
+                    bool isPalindromicNumber = IsPalindromicNumber(product);
+                    if (isPalindromicNumber)
+                    {
+                        //Console.WriteLine($"{n} x {m} = {product}");
+
+                        if (product > maxProduct)
+                        {
+                            maxProduct = product;
+                        }
+
+                    }
                 }
             }
 
-            return 0;
+            return maxProduct;
         }
 
         private static bool IsPalindromicNumber(int number)
