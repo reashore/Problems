@@ -10,20 +10,24 @@ namespace Problem7
         {
             Console.WriteLine("Problem 7");
 
-            int topPrime = 6;
-            List<int> primes = Solve(topPrime);
-            int value = primes.Last();
-            Console.WriteLine($"{value} is the {topPrime}th prime");
-
-            topPrime = 10001;
-            primes = Solve(topPrime);
-            value = primes.Last();
-            Console.WriteLine($"{value} is the {topPrime}th prime");
-
-            bool isPrime = IsPrime(104743);
+            Test();
 
             Console.WriteLine("Done");
             Console.ReadKey();
+        }
+
+        private static void Test()
+        {
+            List<int> topPrimes = new List<int> { 6, 10001 };
+
+            foreach (int topPrime in topPrimes)
+            {
+                List<int> primes = Solve(topPrime);
+                int value = primes.Last();
+                Console.WriteLine($"{value} is the {topPrime}th prime");
+            }
+
+            bool isPrime = IsPrime(104743);
         }
 
         private static List<int> Solve(int topPrime)
