@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 
 namespace Problem13
@@ -110,12 +111,40 @@ namespace Problem13
                                 "72107838435069186155435662884062257473692284509516," +
                                 "20849603980134001723930671666823555245252804609722," +
                                 "53503534226472524250874054075591789781264330331690";
-
-            BigInteger sum = Sum(numbers);
-            Console.WriteLine($"sum = {sum}");
+            
+            string result = Solve(numbers);
+            Console.WriteLine($"result = { result}");
 
             Console.WriteLine("Done");
             Console.ReadKey();
+        }
+
+        private static string Solve(string numbers)
+        {
+            BigInteger sum = Sum(numbers);
+            Console.WriteLine($"sum = {sum}");
+
+            // BigInt -> string -> List<int>
+
+            string sumString = sum.ToString();
+            List<int> digits = new List<int>();
+
+            foreach (char c in sumString)
+            {
+                int digit = Convert.ToInt32(c.ToString());
+                digits.Add(digit);
+            }
+
+            var firstTenDigits = digits.Take(10);
+            string answer = "";
+
+            foreach(int digit in firstTenDigits)
+            {
+                answer += digit.ToString();
+            }
+
+            // 5537376230
+            return answer;
         }
 
         private static BigInteger Sum(string numbers)
