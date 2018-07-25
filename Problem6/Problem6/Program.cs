@@ -6,25 +6,25 @@ namespace Problem6
 {
     class Program
     {
-        // Problem 6 www.eulerproject.net
         static void Main()
         {
             Console.WriteLine("Problem 6");
 
-            int number = 10;
-            int result = Solve(number);
-            Console.WriteLine($"number = {number, 5}, result = {result, 20}");
-
-            number = 100;
-            result = Solve(number);
-            Console.WriteLine($"number = {number, 5}, result = {result, 20}");
-
-            number = 1000;
-            result = Solve(number);
-            Console.WriteLine($"number = {number,5}, result = {result,20}");
+            Test();
 
             Console.WriteLine("Done");
             Console.ReadKey();
+        }
+
+        private static void Test()
+        {
+            List<int> numbers = new List<int>{ 10, 100, 1000 };
+
+            foreach(int number in numbers)
+            {
+                int result = Solve(number);
+                Console.WriteLine($"number = {number, 5}, result = {result, 20}");
+            }
         }
 
         private static int Solve(int number)
