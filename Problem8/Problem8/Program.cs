@@ -6,7 +6,6 @@ namespace Problem8
 {
     class Program
     {
-        // Problem 8 from www.EulerProject.net 
         static void Main(string[] args)
         {
             Console.WriteLine("Problem 8");
@@ -32,30 +31,33 @@ namespace Problem8
                             "05886116467109405077541002256983155200055935729725" +
                             "71636269561882670428252483600823257530420752963450";
 
-            int take = 4;
-            (int, List<int>) compositeResult = Solve2(number, take);
-            int product = compositeResult.Item1;
-            Console.WriteLine($"product = {product}");    // 5832
-            List<int> maxSelectedList = compositeResult.Item2;
-            maxSelectedList.ForEach(Console.WriteLine);
-
-            take = 13;
-            compositeResult = Solve2(number, take);
-            product = compositeResult.Item1;
-            Console.WriteLine($"product = {product}");    // 2091059712
-            maxSelectedList = compositeResult.Item2;
-            maxSelectedList.ForEach(Console.WriteLine);
+            Test(number);
 
             Console.WriteLine("Done");
             Console.ReadKey();
         }
 
-        private static (int, List<int>) Solve2(string numberString, int take)
+        private static void Test(string number)
+        {
+            List<int> takes = new List<int> { 4, 13 };
+            // 5832
+            // 2091059712
+
+            foreach (int take in takes)
+            {
+                (int, List<int>) result = Solve(number, take);
+                int product = result.Item1;
+                List<int> maxSelectedList = result.Item2;
+                Console.WriteLine($"product = {product}");
+                maxSelectedList.ForEach(Console.WriteLine);
+            }
+        }
+
+        private static (int, List<int>) Solve(string numberString, int take)
         {
             List<int> numberList = new List<int>();
             int maxProduct = 1;
 
-            // Convert string to List<int>
             foreach (char c in numberString)
             {
                 int digit = Convert.ToInt32(c.ToString());
@@ -67,8 +69,8 @@ namespace Problem8
 
             for (int skip = 0; skip + take <= length; skip++)
             {
-                IEnumerable<int> selection = numberList.Skip(skip).Take(take);
-                var product = selection.Aggregate((total, next) => total * next);
+                List<int> selection = numberList.Skip(skip).Take(take).ToList();
+                int product = Multiply(selection);
 
                 if (product > maxProduct)
                 {
@@ -78,6 +80,18 @@ namespace Problem8
             }
 
             return (maxProduct, maxSelectedList);
+        }
+
+        private static int Multiply(List<int> factors)
+        {
+            int product = 1;
+
+            foreach(int factor in factors)
+            {
+                product *= factor;
+            }
+
+            return product;
         }
     }
 }
