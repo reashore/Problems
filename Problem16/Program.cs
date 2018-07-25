@@ -11,16 +11,21 @@ namespace Problem16
         {
             Console.WriteLine("Problem 12");
 
-            int exponent = 15;
-            int result = Solve(exponent);
-            Console.WriteLine($"result = {result}");
-
-            exponent = 1000;
-            result = Solve(exponent);
-            Console.WriteLine($"result = {result}");
+            Test();
 
             Console.WriteLine("Done");
             Console.ReadKey();
+        }
+
+        private static void Test()
+        {
+            List<int> exponents = new List<int> { 15, 1000 };
+
+            foreach(int exponent in exponents)
+            {
+                int result = Solve(exponent);
+                Console.WriteLine($"result = {result}");
+            }
         }
 
         private static int Solve(int exponent)

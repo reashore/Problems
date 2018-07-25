@@ -24,6 +24,11 @@ namespace Problem14
             Console.ReadKey();
         }
 
+        private static void Solve()
+        {
+
+        }
+
         private static (int, List<int>) GetLongestCollatzChain(int lowerBound, int upperBound)
         {            
             List<int> longestCollatzChain = new List<int>();

@@ -6,7 +6,7 @@ namespace Problem8
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Problem 8");
 
@@ -39,21 +39,19 @@ namespace Problem8
 
         private static void Test(string number)
         {
-            List<int> takes = new List<int> { 4, 13 };
+            //List<int> takes = new List<int> { 4, 13 };
+            List<int> takes = new List<int> { 13 };
             // 5832
             // 2091059712
 
             foreach (int take in takes)
             {
-                (int, List<int>) result = Solve(number, take);
-                int product = result.Item1;
-                List<int> maxSelectedList = result.Item2;
+                int product = Solve(number, take);
                 Console.WriteLine($"product = {product}");
-                maxSelectedList.ForEach(Console.WriteLine);
             }
         }
 
-        private static (int, List<int>) Solve(string numberString, int take)
+        private static int Solve(string numberString, int take)
         {
             List<int> numberList = new List<int>();
             int maxProduct = 1;
@@ -65,7 +63,6 @@ namespace Problem8
             }
 
             int length = numberList.Count;
-            List<int> maxSelectedList = new List<int>();
 
             for (int skip = 0; skip + take <= length; skip++)
             {
@@ -75,11 +72,11 @@ namespace Problem8
                 if (product > maxProduct)
                 {
                     maxProduct = product;
-                    maxSelectedList = selection.ToList();
+                    Console.WriteLine($"skip = {skip}, product = {product}");
                 }
             }
 
-            return (maxProduct, maxSelectedList);
+            return maxProduct;
         }
 
         private static int Multiply(List<int> factors)
