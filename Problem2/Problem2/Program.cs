@@ -4,40 +4,40 @@ namespace Problem2
 {
     class Program
     {
-        // Sum all even terms of the fibonacci series: 1, 2, 3, 5, 8, 13 ....
-        // less than upperLimit
         static void Main()
         {
             Console.WriteLine("Problem 2");
             const int upperLimit = 4000000;
 
-            int result = SumEvenFibonacci(upperLimit);
-            Console.WriteLine($"result = { result}");
+            int sumOfEvenTerms = SumEvenFibonacci(upperLimit);
+            Console.WriteLine($"sumOfEvenTerms = { sumOfEvenTerms}");
 
+            Console.WriteLine("Done");
             Console.ReadKey();
         }
 
         private static int SumEvenFibonacci(int upperLimit)
         {
-            int sum = 0;
+            int fibonacci = 0;
             int x1 = 0;
             int x2 = 1;
-            bool even = true;
+            bool isEven;
+            int sum = 0;
 
             while (x2 < upperLimit)
             {
-                sum = x1 + x2;
-                Console.WriteLine($"{x1} + {x2} = {sum}, even = {even}");
+                fibonacci = x1 + x2;
+                isEven = fibonacci % 2 == 0;
 
-                x1 = x2;
-                x2 = sum;
-
-                if (even)
+                if (fibonacci % 2 == 0)
                 {
-                    sum += x1;
+                    sum += fibonacci;
                 }
 
-                even = !even;
+                Console.WriteLine($"{x1} + {x2} = {fibonacci}, isEven = {isEven}");
+
+                x1 = x2;
+                x2 = fibonacci;
             }
 
             return sum;

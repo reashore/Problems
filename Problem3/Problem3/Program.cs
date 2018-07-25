@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Problem3
 {
@@ -11,78 +12,28 @@ namespace Problem3
             Console.WriteLine("Problem 3");
             const long number = 600851475143;
 
-            Test();
-
-            long result = GetLargestPrimeFactorOf(number);
-            Console.WriteLine($"result = {result}");
+            List<long> primeFactors = GetPrimeFactors(number);
+            long largestPrimeFactor = primeFactors.Max(n => n);
+            Console.WriteLine($"largestPrimeFactor = {largestPrimeFactor}");    //  6857
 
             Console.WriteLine("Done");
             Console.ReadKey();
         }
 
-        private static long GetLargestPrimeFactorOf(long number)
+        public static List<long> GetPrimeFactors(long number)
         {
-            long result = 1;
+            List<long> primes = new List<long>();
 
-            for (long n = number - 1; 1 <= n; n--)
+            for (long divsor = 2; divsor <= number; divsor++)
             {
-                if (n % 100000000 == 0)
+                while (number % divsor == 0)
                 {
-                    Console.WriteLine($"{n}");
-                }
-
-                if (number % n == 0)
-                {
-                    result = n;
-                    break;
+                    primes.Add(divsor);
+                    number = number / divsor;
                 }
             }
 
-            return result;
+            return primes;
         }
-
-        #region Test Code
-
-        private static void Test()
-        {
-            for (int n = 1; n <= 20; n++)
-            {
-                List<long> primefactors = GetPrimeFactors(n);
-                string primeFactorsString = ToString(primefactors);
-
-                long largestPrimeFactor = GetLargestPrimeFactorOf(n);
-
-                Console.WriteLine($"{n} : {primeFactorsString}, Largest = {largestPrimeFactor}");
-            }
-        }
-
-        private static List<long> GetPrimeFactors(long number)
-        {
-            List<long> primeFactors = new List<long>();
-
-            for (long n = 1; n <= number; n++)
-            {
-                if (number % n == 0)
-                {
-                    primeFactors.Add(n);
-                }
-            }
-
-            return primeFactors;
-        }
-
-        private static string ToString(List<long> list)
-        {
-            string result = "";
-
-            foreach(long item in list)
-            {
-                result += item.ToString() + " ";
-            }
-
-            return result;
-        }
-
-        #endregion
     }
 }
