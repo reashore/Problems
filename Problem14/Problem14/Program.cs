@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Problem14
 {
@@ -9,16 +8,7 @@ namespace Problem14
         {
             Console.WriteLine("Problem 14");
 
-            int lowerBound = 2;
-            int upperBound = 10000;
-
-            (int, List<int>) result = GetLongestCollatzChain(lowerBound, upperBound);
-            int start = result.Item1;
-            List<int> longestCollatzChain = result.Item2;
-            int chainLength = longestCollatzChain.Count;
-
-            Console.WriteLine($"Start = {start}, Length = {chainLength}");
-            longestCollatzChain.ForEach(Console.WriteLine);
+            Solve();
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -26,59 +16,54 @@ namespace Problem14
 
         private static void Solve()
         {
-
+            const long upperBound = 1000000;
+            (long, long) result = GetLongestCollatzChain(upperBound);
+            long start = result.Item1;
+            long longestCollatzChain = result.Item2;
+            Console.WriteLine($"start = {start}, longestCollatzChain = {longestCollatzChain}");
         }
 
-        private static (int, List<int>) GetLongestCollatzChain(int lowerBound, int upperBound)
+        private static (long, long) GetLongestCollatzChain(long upperBound)
         {            
-            List<int> longestCollatzChain = new List<int>();
-            int maxLength = 0;
-            int maxChainStart = 0;
+            long maxCollatzChainLength = 0;
+            long chainStart = 0;
 
-            for (int n = lowerBound; n <= upperBound; n++)
+            for (long n = 2; n <= upperBound; n++)
             {
-                //if (n % 1000 == 0)
-                //{
-                //    Console.WriteLine(n);
-                //}
+                long collatzChainLength = GetCollatzChainLength(n);
 
-                List<int> collatzChain = GenerateCollatzChain(n);
-                int chainLength = collatzChain.Count;
-
-                if (chainLength > maxLength)
+                if (collatzChainLength > maxCollatzChainLength)
                 {
-                    maxChainStart = n;
-                    maxLength = chainLength;
-                    longestCollatzChain = CloneList(collatzChain);
+                    chainStart = n;
+                    maxCollatzChainLength = collatzChainLength;
                 }
             }
 
-            return (maxChainStart, longestCollatzChain);
+            return (chainStart, maxCollatzChainLength);
         }
 
-        private static List<int> GenerateCollatzChain(int start)
+        private static long GetCollatzChainLength(long start)
         {
-            List<int> collatzChain = new List<int>();
-            int n = start;
-            collatzChain.Add(n);
+            long n = start;
+            long chainLength = 1;
 
             while (true)
             {
-                int next = GetNextCollatzNumber(n);
-                collatzChain.Add(next);
+                long nextCollatzNumber = GetNextCollatzNumber(n);
+                chainLength++;
 
-                if (next == 1)
+                if (nextCollatzNumber == 1)
                 {
                     break;
                 }
 
-                n = next;
+                n = nextCollatzNumber;
             }
 
-            return collatzChain;
+            return chainLength;
         }
 
-        private static int GetNextCollatzNumber(int n)
+        private static long GetNextCollatzNumber(long n)
         {
             if (n % 2 == 0)
             {
@@ -86,18 +71,6 @@ namespace Problem14
             }
 
             return 3 * n + 1;
-        }
-
-        private static List<int> CloneList(List<int> list)
-        {
-            List<int> clonedList = new List<int>();
-
-            foreach(int n in list)
-            {
-                clonedList.Add(n);
-            }
-
-            return clonedList;
         }
     }
 }
