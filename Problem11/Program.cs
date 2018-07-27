@@ -23,7 +23,7 @@ namespace Problem11
 
         private static int[,] CreateArray(int size)
         {
-            string gridString =
+            string matrixString =
                 "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 " +
                 "49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 " +
                 "81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65 " +
@@ -45,13 +45,13 @@ namespace Problem11
                 "20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 " +
                 "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48";
 
-            string[] gridArray = gridString.Split(new char[] { ' ' });
-            List<int> gridList = new List<int>();
+            string[] matrixArray = matrixString.Split(new char[] { ' ' });
+            List<int> matrixList = new List<int>();
 
-            foreach (string digitString in gridArray)
+            foreach (string digitString in matrixArray)
             {
                 int digit = Convert.ToInt32(digitString);
-                gridList.Add(digit);
+                matrixList.Add(digit);
             }
 
             List<int> rowList;
@@ -60,7 +60,7 @@ namespace Problem11
             for (int row = 0; row < size; row++)
             {
                 int skip = row * size;
-                rowList = gridList.Skip(skip).Take(size).ToList();
+                rowList = matrixList.Skip(skip).Take(size).ToList();
 
                 for (int col = 0; col < size; col++)
                 {
@@ -73,217 +73,124 @@ namespace Problem11
 
         private static int Solve(int arraySize, int size, int[,] array)
         {
-            int maxArraySum = 0;
-            int maxSubArraySum = 0;
+            int maxArrayProduct = 0;
+            int maxSubArrayProduct = 0;
 
-            // ****** Change sum to product **************
-
-            // row - 1 + 4 < 5
             for (int row = 0; row - 1 + size < arraySize; row++)
             {
                 for (int col = 0; col - 1 + size < arraySize; col++)
                 {
-                    maxSubArraySum = GetMaxSubArraySum(size, row, col, array);
+                    maxSubArrayProduct = GetMaxSubArrayProduct(size, row, col, array);
 
-                    if (maxSubArraySum > maxArraySum)
+                    if (maxSubArrayProduct > maxArrayProduct)
                     {
-                        maxArraySum = maxSubArraySum;
+                        maxArrayProduct = maxSubArrayProduct;
                     }
                 }
             }
 
-            return maxArraySum;
+            return maxArrayProduct;
         }
 
-        private static int GetMaxSubArraySum(int size, int rowOffset, int colOffset, int[,] array)
+        private static int GetMaxSubArrayProduct(int size, int rowOffset, int colOffset, int[,] array)
         {
-            int maxRowSum = GetMaxRowSum(size, rowOffset, colOffset, array);
-            int maxColSum = GetMaxColSum(size, rowOffset, colOffset, array);
-            int diagonal1Sum = GetDiagonal1Sum(size, rowOffset, colOffset, array);
-            int diagonal2Sum = GetDiagonal2Sum(size, rowOffset, colOffset, array);
+            int maxRowProduct = GetMaxRowProduct(size, rowOffset, colOffset, array);
+            int maxColProduct = GetMaxColProduct(size, rowOffset, colOffset, array);
+            int diagonal1Product = GetDiagonal1Product(size, rowOffset, colOffset, array);
+            int diagonal2Product = GetDiagonal2Product(size, rowOffset, colOffset, array);
 
-            int maxSum = maxRowSum;
+            int maxProduct = maxRowProduct;
 
-            if (maxColSum > maxSum)
+            if (maxColProduct > maxProduct)
             {
-                maxSum = maxColSum;
+                maxProduct = maxColProduct;
             }
 
-            if (diagonal1Sum > maxSum)
+            if (diagonal1Product > maxProduct)
             {
-                maxSum = diagonal1Sum;
+                maxProduct = diagonal1Product;
             }
 
-            if (diagonal2Sum > maxSum)
+            if (diagonal2Product > maxProduct)
             {
-                maxSum = diagonal2Sum;
+                maxProduct = diagonal2Product;
             }
 
-            return maxSum;
-
-            #region Old code
-            //***********************************************************
-
-            // sum rows
-            // a[0, 0] + a[0, 1] + a[0, 2] + a[0, 3]
-            //for (int row = 0; row < Size; row++)
-            //{
-            //    sum = 0;
-
-            //    for (int col = 0; col < Size; col++)
-            //    {
-            //        sum += array[row + rowOffset, col + colOffset];
-            //    }
-
-            //    Console.WriteLine($"sum = {sum}");
-
-            //    if (sum > maxSum)
-            //    {
-            //        maxSum = sum;
-            //    }
-            //}
-
-            //Console.WriteLine();
-
-            //***********************************************************
-
-            // sum columns
-            // a[0, 0] + a[1, 0] + a[2, 0] + a[3, 0]
-            //for (int col = 0; col < Size; col++)
-            //{
-            //    sum = 0;
-
-            //    for (int row = 0; row < Size; row++)
-            //    {
-            //        sum += array[row + rowOffset, col + colOffset];
-            //    }
-
-            //    Console.WriteLine($"sum = {sum}");
-
-            //    if (sum > maxSum)
-            //    {
-            //        maxSum = sum;
-            //    }
-            //}
-
-            Console.WriteLine();
-
-            //***********************************************************
-
-            //sum = 0;
-
-            // sum diagonal 1
-            // a[0, 0] + a[1, 1] + a[2, 2] + a[3, 3]
-            //for (int n = 0; n < Size; n++)
-            //{
-            //    sum += array[n + rowOffset, n + colOffset];
-            //}
-            //Console.WriteLine($"sum = {sum}");
-
-            //if (sum > maxSum)
-            //{
-            //    maxSum = sum;
-            //}
-
-            //***********************************************************
-
-            //sum = 0;
-
-            // sum diagonal 2
-            // a[3, 0] + a[2, 1] + a[1, 2] + a[0, 3]
-            //for (int n = 0; n < Size; n++)
-            //{
-            //    sum += array[Size - n - 1 + rowOffset, n + colOffset];
-            //}
-            //Console.WriteLine($"sum = {sum}");
-
-            //if (sum > maxSum)
-            //{
-            //    maxSum = sum;
-            //}
-            #endregion
+            return maxProduct;
         }
 
-        private static int GetMaxRowSum(int size, int rowOffset, int colOffset, int[,] array)
+        private static int GetMaxRowProduct(int size, int rowOffset, int colOffset, int[,] array)
         {
-            int sum;
-            int maxSum = 0;
+            int product;
+            int maxProduct = 0;
 
             // a[0, 0] + a[0, 1] + a[0, 2] + a[0, 3]
             for (int row = 0; row < size; row++)
             {
-                sum = 0;
+                product = 1;
 
                 for (int col = 0; col < size; col++)
                 {
-                    sum += array[row + rowOffset, col + colOffset];
+                    product *= array[row + rowOffset, col + colOffset];
                 }
 
-                Console.WriteLine($"row sum = {sum}");
-
-                if (sum > maxSum)
+                if (product > maxProduct)
                 {
-                    maxSum = sum;
+                    maxProduct = product;
                 }
             }
 
-            return maxSum;
+            return maxProduct;
         }
 
-        private static int GetMaxColSum(int size, int rowOffset, int colOffset, int[,] array)
+        private static int GetMaxColProduct(int size, int rowOffset, int colOffset, int[,] array)
         {
-            int sum;
-            int maxSum = 0;
+            int product;
+            int maxProduct = 0;
 
             // a[0, 0] + a[1, 0] + a[2, 0] + a[3, 0]
             for (int col = 0; col < size; col++)
             {
-                sum = 0;
+                product = 1;
 
                 for (int row = 0; row < size; row++)
                 {
-                    sum += array[row + rowOffset, col + colOffset];
+                    product *= array[row + rowOffset, col + colOffset];
                 }
 
-                Console.WriteLine($"col sum = {sum}");
-
-                if (sum > maxSum)
+                if (product > maxProduct)
                 {
-                    maxSum = sum;
+                    maxProduct = product;
                 }
             }
 
-            return maxSum;
+            return maxProduct;
         }
         
-        private static int GetDiagonal1Sum(int size, int rowOffset, int colOffset, int[,] array)
+        private static int GetDiagonal1Product(int size, int rowOffset, int colOffset, int[,] array)
         {
-            int sum = 0;
+            int product = 1;
 
             // a[0, 0] + a[1, 1] + a[2, 2] + a[3, 3]
             for (int n = 0; n < size; n++)
             {
-                sum += array[n + rowOffset, n + colOffset];
+                product *= array[n + rowOffset, n + colOffset];
             }
 
-            Console.WriteLine($"diagonal1 sum = {sum}");
-
-            return sum;
+            return product;
         }
 
-        private static int GetDiagonal2Sum(int size, int rowOffset, int colOffset, int[,] array)
+        private static int GetDiagonal2Product(int size, int rowOffset, int colOffset, int[,] array)
         {
-            int sum = 0;
+            int product = 1;
 
             // a[3, 0] + a[2, 1] + a[1, 2] + a[0, 3]
             for (int n = 0; n < size; n++)
             {
-                sum += array[size - n - 1 + rowOffset, n + colOffset];
+                product *= array[size - n - 1 + rowOffset, n + colOffset];
             }
 
-            Console.WriteLine($"diagonal sum = {sum}");
-
-            return sum;
+            return product;
         }
     }
 }
