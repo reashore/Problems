@@ -39,35 +39,37 @@ namespace Problem8
 
         private static void Test(string number)
         {
-            //List<int> takes = new List<int> { 4, 13 };
-            List<int> takes = new List<int> { 13 };
+            List<int> takes = new List<int> { 4, 13 };
             // 5832
             // 2091059712
 
             foreach (int take in takes)
             {
-                int product = Solve(number, take);
-                Console.WriteLine($"product = {product}");
+                checked
+                {
+                    long product = Solve(number, take);
+                    Console.WriteLine($"product = {product}");
+                }
             }
         }
 
-        private static int Solve(string numberString, int take)
+        private static long Solve(string numberString, int take)
         {
-            List<int> numberList = new List<int>();
-            int maxProduct = 1;
+            List<long> numberList = new List<long>();
+            long maxProduct = 0;
 
             foreach (char c in numberString)
             {
-                int digit = Convert.ToInt32(c.ToString());
+                long digit = Convert.ToInt32(c.ToString());
                 numberList.Add(digit);
             }
 
-            int length = numberList.Count;
+            long length = numberList.Count;
 
-            for (int skip = 0; skip + take <= length; skip++)
+            for (int skip = 0; skip + take <= length - 1; skip++)
             {
-                List<int> selection = numberList.Skip(skip).Take(take).ToList();
-                int product = Multiply(selection);
+                List<long> selection = numberList.Skip(skip).Take(take).ToList();
+                long product = Multiply(selection);
 
                 if (product > maxProduct)
                 {
@@ -79,11 +81,11 @@ namespace Problem8
             return maxProduct;
         }
 
-        private static int Multiply(List<int> factors)
+        private static long Multiply(List<long> factors)
         {
-            int product = 1;
+            long product = 1;
 
-            foreach(int factor in factors)
+            foreach(long factor in factors)
             {
                 product *= factor;
             }
