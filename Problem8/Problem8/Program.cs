@@ -40,16 +40,11 @@ namespace Problem8
         private static void Test(string number)
         {
             List<int> takes = new List<int> { 4, 13 };
-            // 5832
-            // 2091059712
 
             foreach (int take in takes)
             {
-                checked
-                {
-                    long product = Solve(number, take);
-                    Console.WriteLine($"product = {product}");
-                }
+                long product = Solve(number, take);
+                Console.WriteLine($"product = {product}");
             }
         }
 
