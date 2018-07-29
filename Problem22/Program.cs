@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Numerics;
 
 namespace Problem22
 {
@@ -12,45 +11,38 @@ namespace Problem22
         {
             Console.WriteLine("Problem 22");
 
-            List<string> namesList = ReadNamesFromFile();
-            BigInteger sumNamesScores = Solve(namesList);
-            Console.WriteLine($"sumNamesScores = {sumNamesScores.ToString()}");
+            const string fileName = "Names.txt";
+            List<string> namesList = ReadNamesFromFile(fileName);
+            long sumNamesScores = Solve(namesList);
+
+            Console.WriteLine($"sumNamesScores = {sumNamesScores}");
 
             Console.WriteLine("Done");
             Console.ReadKey();
         }
 
-        private static List<string> ReadNamesFromFile()
+        private static List<string> ReadNamesFromFile(string fileName)
         {
-            const string namesFile = "Names.txt";
-            string namesString = File.ReadAllText(namesFile);
-            int length = namesString.Length;
+            string namesString = File.ReadAllText(fileName);
             namesString = namesString.Replace("\"", "");
-            length = namesString.Length;
-            string[] namesArray = namesString.Split(new char[] { ',' });
-            List<string> namesList = namesArray.ToList();
-            List<string> sortedNamesList = namesList.OrderBy(n => n).ToList();
+
+            List<string> namesArray = namesString.Split(new char[] { ',' }).ToList();
+            List<string> sortedNamesList = namesArray.OrderBy(n => n).ToList();
 
             return sortedNamesList;
         }
 
-        private static BigInteger Solve(List<string> namesList)
+        private static long Solve(List<string> namesList)
         {
-            BigInteger scoreSum = 0;
+            long scoreSum = 0;
             int rank = 1;
 
             foreach (string name in namesList)
             {
                 int alphabeticalValue = GetAlphabeticalValue(name);
-                BigInteger score = alphabeticalValue * rank;
+                long rankBig = rank;
+                long score = alphabeticalValue * rank;
                 scoreSum += score;
-
-                if (name == "COLIN")
-                {
-                    Console.WriteLine($"name = {name}, rank = {rank}, alphabeticalValue = {alphabeticalValue}, score = {score}, scoreSum = {scoreSum}");
-                }
-
-                //Console.WriteLine($"name = {name}, rank = {rank}, alphabeticalValue = {alphabeticalValue}, score = {score}, scoreSum = {scoreSum}");
                 rank++;
             }
 
@@ -60,7 +52,6 @@ namespace Problem22
         private static int GetAlphabeticalValue(string name)
         {
             int alphabeticalvalue = 0;
-            name = "Colin";
             name = name.ToUpper();
 
             foreach (char character in name)
