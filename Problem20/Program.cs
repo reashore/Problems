@@ -28,12 +28,12 @@ namespace Problem20
 
         static BigInteger Factorial(int n)
         {
-            if (n == 1)
+            if (n == 0)
             {
                 return 1;
             }
 
-            return (new BigInteger(n)) * Factorial(n - 1);
+            return n * Factorial(n - 1);
         }
 
         static int SumDigits(BigInteger value)
