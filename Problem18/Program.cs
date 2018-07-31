@@ -4,39 +4,39 @@ using System.Linq;
 
 namespace Problem18
 {
-    class Node
-    {
-        public Node()
-        {
-
-        }
-
-        public Node(int value, int leftvalue, int rightValue)
-        {
-            Value = value;
-            LeftValue = leftvalue;
-            RightValue = rightValue;
-        }
-
-        public int Value { get; set; }
-        public int LeftValue { get; set; }
-        public int RightValue { get; set; }
-    }
     class Program
     {
         static void Main()
         {
             Console.WriteLine("Problem 18");
 
-            Node root = LoadBinaryTree();
+            List<List<int>> triangle = LoadTriangle();
+            Test(triangle);
+            int maxPathSum = Solve(triangle);
+            Console.WriteLine($"maxPathSum = {maxPathSum}");
 
             Console.WriteLine("Done");
             Console.ReadKey();
         }
 
-        private static Node LoadBinaryTree()
+        private static void Test(List<List<int>> triangle)
         {
-            string treeString =
+            int depth = 0;
+            int index = 0;
+            int value = GetNodeValue(triangle, depth, index);
+
+            depth = 1;
+            index = 0;
+            value = GetNodeValue(triangle, depth, index);
+
+            depth = 1;
+            index = 1;
+            value = GetNodeValue(triangle, depth, index);
+        }
+
+        private static List<List<int>> LoadTriangle()
+        {
+            string triangleString =
                                             "75 " +
                                           "95  64 " +
                                         "17  47  82 " +
@@ -53,46 +53,102 @@ namespace Problem18
                   "63  66  04  68  89  53  67  30  73  16  69  87  40  31 " +
                 "04  62  98  27  23  09  70  98  73  93  38  53  60  04  23";
 
-            string[] treeArray = treeString.Split(new char[] { ' ' });
-            List<int> treeList = new List<int>();
+            List<int> triangleList = ParseTriangle(triangleString);
+            List<List<int>> triangle = ConvertToRaggedArray(triangleList);
 
-            foreach (string valueString in treeArray)
-            {
-                int value = Convert.ToInt32(valueString);
-                treeList.Add(value);
-            }
-
-            const int treeDepth = 15;
-            Node root = new Node();
-
-            #region old
-            Node current = root;
-            int skip = 0;
-            int take;
-
-            for (int n = 1; n <= treeDepth; n++)
-            {
-                take = treeDepth;
-                var list = treeList.Skip(skip).Take(take);
-                //CreateChildNodes(current);
-
-
-                skip += take;
-            }
-            #endregion
-
-            //GetNext(depth, n)
-
-            root.Value = 75;
-            CreateChildNodes(root, treeList, treeDepth);
-
-
-            return new Node(1, 1, 1);
+            return triangle;
         }
 
-        private static void CreateChildNodes(Node current, List<int> treeList, int depth)
+        private static List<int> ParseTriangle(string triangleString)
         {
-            
+            // Parse triangle string to List<int>
+
+            string[] delimiters = { " ", "  " };
+            StringSplitOptions stringSplitOptions = StringSplitOptions.RemoveEmptyEntries;
+            string[] triangleArray = triangleString.Split(delimiters, stringSplitOptions);
+            List<int> triangleList = new List<int>();
+
+            foreach (string valueString in triangleArray)
+            {
+                int value = Convert.ToInt32(valueString);
+                triangleList.Add(value);
+            }
+
+            return triangleList;
+        }
+
+        private static List<List<int>> ConvertToRaggedArray(List<int> triangleList)
+        {
+            // Convert to ragged array with one row for each level of triangle
+
+            const int treeDepth = 15;
+            int skip = 0;
+            int take;
+            List<List<int>> triangle = new List<List<int>>();
+
+            for (int depth = 1; depth <= treeDepth; depth++)
+            {
+                take = depth;
+                List<int> triangleLevel = triangleList.Skip(skip).Take(take).ToList();
+                triangle.Add(triangleLevel);
+                skip += take;
+            }
+
+            return triangle;
+        }
+
+        private static int Solve(List<List<int>> triangle)
+        {
+            int maxPathSum = 0;
+            const int depth = 15;
+
+            //int sum = GetPathSum(triangle, depth);
+
+
+
+            return maxPathSum;
+        }
+
+        private static int GetPathFromRoot(List<List<int>> triangle, int depth)
+        {
+            int sum = 0;
+            int maxSum = 0;
+            int index = 0;
+
+            Tuple<int, int> root = new Tuple<int, int>(depth, index);
+
+            // depth, index
+            // 1, (1, 0)
+            // 2, (2, 0) (2, 1)
+            // 3, (3, 0) (3, 1) (3, 2) 
+
+            // 
+
+            return sum;
+        }
+
+        private static int GetMaxPathSum(List<List<int>> triangle)
+        {
+            int sum = 0;
+            int maxSum = 0;
+
+            for (int depth = 0; depth < 15; depth++)
+            {
+                for (int index = 0; index < depth; index++)
+                {
+                    sum += triangle[depth][index];
+
+                }
+            }
+
+            return sum;
+        }
+
+        private static int GetNodeValue(List<List<int>> triangle, int depth, int index)
+        {
+            int value = triangle[depth][index];
+
+            return value; 
         }
     }
 }
