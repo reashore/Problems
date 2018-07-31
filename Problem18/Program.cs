@@ -138,10 +138,22 @@ namespace Problem18
                 {
                     sum += triangle[depth][index];
 
+                     // get children of node (0, 0)
+
+                }
+
+                if (sum > maxSum)
+                {
+                    maxSum = sum;
                 }
             }
 
-            return sum;
+            return maxSum;
+        }
+
+        private static void GetChildren(List<List<int>> triangle, int depth, int index)
+        {
+
         }
 
         private static int GetNodeValue(List<List<int>> triangle, int depth, int index)
