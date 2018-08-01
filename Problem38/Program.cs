@@ -32,14 +32,13 @@ namespace Problem38
 
         private static long Solve()
         {
-            long upperBound = 1000;
             long maxConcatenatedProduct = 0;
 
-            for (long number = 1; number <= upperBound; number++)
+            for (long number = 1; number <= 10000000; number++)
             {
-                for (long digit = 1; digit <= 999; digit++)
+                for (long maxFactor = 1; maxFactor <= 20; maxFactor++)
                 {
-                    long concatenatedProduct = GetConcatenatedProduct(number, digit);
+                    long concatenatedProduct = GetConcatenatedProduct(number, maxFactor);
 
                     if (concatenatedProduct == 0)
                     {
@@ -50,12 +49,12 @@ namespace Problem38
 
                     if (isPandigital)
                     {
-                        Console.WriteLine($"number = {number, 5}, digit = {digit, 5}, concatenatedProduct = {concatenatedProduct, 13}");
-                    }
+                        if (concatenatedProduct > maxConcatenatedProduct)
+                        {
+                            maxConcatenatedProduct = concatenatedProduct;
+                        }
 
-                    if (concatenatedProduct > maxConcatenatedProduct)
-                    {
-                        maxConcatenatedProduct = concatenatedProduct;
+                        Console.WriteLine($"number = {number, 5}, digit = {maxFactor, 5}, concatenatedProduct = {concatenatedProduct, 13}");
                     }
                 }
             }
@@ -63,17 +62,17 @@ namespace Problem38
             return maxConcatenatedProduct;
         }
 
-        private static long GetConcatenatedProduct(long number, long digit)
+        private static long GetConcatenatedProduct(long number, long maxFactor)
         {
             string sumString = "";
 
-            for (long n = 1; n <= digit; n++)
+            for (long factor = 1; factor <= maxFactor; factor++)
             {
-                long product = number * n;
+                long product = number * factor;
                 sumString += product.ToString();
             }
 
-            // if the string is too long to be pandigital, then return 0
+            // If the string is too long to be pandigital, then return 0
             if (sumString.Length > 9)
             {
                 return 0;
