@@ -10,8 +10,7 @@ namespace Problem38
 
             Test();
 
-            long upperBound = 1000;
-            long maxConcatenatedProduct = Solve(upperBound);
+            long maxConcatenatedProduct = Solve();
             Console.WriteLine($"maxConcatenatedProduct = {maxConcatenatedProduct}");
 
             Console.WriteLine("Done");
@@ -31,15 +30,22 @@ namespace Problem38
             isPandigital = IsPandigital(concatenatedProduct);
         }
 
-        private static long Solve(long upperBound)
+        private static long Solve()
         {
+            long upperBound = 1000;
             long maxConcatenatedProduct = 0;
 
             for (long number = 1; number <= upperBound; number++)
             {
-                for (long digit = 1; digit <= 9; digit++)
+                for (long digit = 1; digit <= 999; digit++)
                 {
                     long concatenatedProduct = GetConcatenatedProduct(number, digit);
+
+                    if (concatenatedProduct == 0)
+                    {
+                        break;
+                    }
+
                     bool isPandigital = IsPandigital(concatenatedProduct);
 
                     if (isPandigital)
@@ -67,6 +73,7 @@ namespace Problem38
                 sumString += product.ToString();
             }
 
+            // if the string is too long to be pandigital, then return 0
             if (sumString.Length > 9)
             {
                 return 0;
