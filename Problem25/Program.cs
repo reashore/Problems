@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Numerics;
 
 namespace Problem25
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 25");
 
@@ -33,7 +35,10 @@ namespace Problem25
         private static void Test()
         {
             BigInteger result = Fibonacci(12);
+            Debug.Assert(result == 12);
+
             int numberDigits = CountDigits(new BigInteger(12345));
+            Debug.Assert(numberDigits == 5);
         }
 
         private static int Solve(int numberDigits)
@@ -80,7 +85,7 @@ namespace Problem25
             return Fibonacci(n - 1) + Fibonacci(n - 2);
         }
 
-        static int CountDigits(BigInteger value)
+        private static int CountDigits(BigInteger value)
         {
             string valueString = value.ToString();
             List<int> digitList = new List<int>();

@@ -4,9 +4,10 @@ using System.Linq;
 
 namespace Problem11
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 11");
 
@@ -45,7 +46,7 @@ namespace Problem11
                 "20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54 " +
                 "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48";
 
-            string[] matrixArray = matrixString.Split(new char[] { ' ' });
+            string[] matrixArray = matrixString.Split(new[] { ' ' });
             List<int> matrixList = new List<int>();
 
             foreach (string digitString in matrixArray)
@@ -54,13 +55,12 @@ namespace Problem11
                 matrixList.Add(digit);
             }
 
-            List<int> rowList;
             int[,] array = new int[size, size];
 
             for (int row = 0; row < size; row++)
             {
                 int skip = row * size;
-                rowList = matrixList.Skip(skip).Take(size).ToList();
+                List<int> rowList = matrixList.Skip(skip).Take(size).ToList();
 
                 for (int col = 0; col < size; col++)
                 {
@@ -74,13 +74,12 @@ namespace Problem11
         private static int Solve(int arraySize, int size, int[,] array)
         {
             int maxArrayProduct = 0;
-            int maxSubArrayProduct = 0;
 
             for (int row = 0; row - 1 + size < arraySize; row++)
             {
                 for (int col = 0; col - 1 + size < arraySize; col++)
                 {
-                    maxSubArrayProduct = GetMaxSubArrayProduct(size, row, col, array);
+                    var maxSubArrayProduct = GetMaxSubArrayProduct(size, row, col, array);
 
                     if (maxSubArrayProduct > maxArrayProduct)
                     {
@@ -121,13 +120,12 @@ namespace Problem11
 
         private static int GetMaxRowProduct(int size, int rowOffset, int colOffset, int[,] array)
         {
-            int product;
             int maxProduct = 0;
 
             // a[0, 0] + a[0, 1] + a[0, 2] + a[0, 3]
             for (int row = 0; row < size; row++)
             {
-                product = 1;
+                var product = 1;
 
                 for (int col = 0; col < size; col++)
                 {
@@ -145,13 +143,12 @@ namespace Problem11
 
         private static int GetMaxColProduct(int size, int rowOffset, int colOffset, int[,] array)
         {
-            int product;
             int maxProduct = 0;
 
             // a[0, 0] + a[1, 0] + a[2, 0] + a[3, 0]
             for (int col = 0; col < size; col++)
             {
-                product = 1;
+                var product = 1;
 
                 for (int row = 0; row < size; row++)
                 {

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
 
 namespace Problem29
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 29");
 
@@ -65,17 +65,16 @@ namespace Problem29
             return count;
         }
 
-        private static void PrintDistinctPowers(List<BigInteger> distinctPowers)
-        {
-            var sortedDistinctPowers = distinctPowers.OrderBy(n => n);
-            string line = "";
+        //private static void PrintDistinctPowers(IReadOnlyCollection<BigInteger> distinctPowers)
+        //{
+        //    string line = "";
 
-            foreach (BigInteger distinctPower in distinctPowers)
-            {
-                line += $"{distinctPower}, ";
-            }
+        //    foreach (BigInteger distinctPower in distinctPowers)
+        //    {
+        //        line += $"{distinctPower}, ";
+        //    }
 
-            Console.WriteLine(line);
-        }
+        //    Console.WriteLine(line);
+        //}
     }
 }

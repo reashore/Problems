@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace Problem10
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 10");
 
@@ -16,18 +17,18 @@ namespace Problem10
             Console.ReadKey();
         }
 
-        private static void Test()
-        {
-            for (int n = 1; n < 100; n++)
-            {
-                bool isPrime = IsPrime(n);
+        //private static void Test()
+        //{
+        //    for (int n = 1; n < 100; n++)
+        //    {
+        //        bool isPrime = IsPrime(n);
 
-                if (isPrime)
-                {
-                    Console.WriteLine($"IsPrime2({n}) = {isPrime}");
-                }
-            }
-        }
+        //        if (isPrime)
+        //        {
+        //            Console.WriteLine($"IsPrime2({n}) = true");
+        //        }
+        //    }
+        //}
 
         private static void Solve()
         { 
@@ -55,21 +56,14 @@ namespace Problem10
             return sum;
         }
 
-        public static bool IsPrime(int candidate)
+        private static bool IsPrime(int candidate)
         {
             if ((candidate & 1) == 0)
             {
-                if (candidate == 2)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return candidate == 2;
             }
 
-            for (int i = 3; (i * i) <= candidate; i += 2)
+            for (int i = 3; i * i <= candidate; i += 2)
             {
                 if (candidate % i == 0)
                 {

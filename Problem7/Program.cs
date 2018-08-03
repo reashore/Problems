@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Problem7
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 7");
 
@@ -28,6 +30,7 @@ namespace Problem7
             }
 
             bool isPrime = IsPrime(104743);
+            Debug.Assert(isPrime);
         }
 
         private static List<int> Solve(int topPrime)

@@ -3,9 +3,10 @@ using System.Diagnostics;
 
 namespace Problem39
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 39");
 

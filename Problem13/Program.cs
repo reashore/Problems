@@ -5,9 +5,10 @@ using System.Numerics;
 
 namespace Problem13
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 13");
 
@@ -149,7 +150,7 @@ namespace Problem13
 
         private static BigInteger Sum(string numbers)
         {
-            string[] numbersArray = numbers.Split(new char[] { ',' });
+            string[] numbersArray = numbers.Split(new[] { ',' });
             List<BigInteger> numbersList = new List<BigInteger>();
 
             foreach (string numberString in numbersArray)

@@ -3,20 +3,21 @@ using System.Collections.Generic;
 
 namespace Problem23
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        enum PerfectType
+        private enum PerfectType
         {
             Deficient,
             Perfect,
             Abundant
         }
 
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 23");
 
-            //Test();
+            Test();
             long result = Solve();
             Console.WriteLine($"result = {result}");    
 
@@ -106,14 +107,13 @@ namespace Problem23
             {
                 return PerfectType.Perfect;
             }
-            else if (number > sumOfDivisors)
+
+            if (number > sumOfDivisors)
             {
                 return PerfectType.Deficient;
             }
-            else
-            {
-                return PerfectType.Abundant;
-            }
+
+            return PerfectType.Abundant;
         }
 
         private static long SumOfProperDivisors(long number)

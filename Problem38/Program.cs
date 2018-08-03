@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Problem38
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 38");
 
@@ -23,11 +25,13 @@ namespace Problem38
             long digit = 5;
             long concatenatedProduct = GetConcatenatedProduct(number, digit);
             bool isPandigital = IsPandigital(concatenatedProduct);
+            Debug.Assert(isPandigital);
 
             number = 192;
             digit = 3;
             concatenatedProduct = GetConcatenatedProduct(number, digit);
             isPandigital = IsPandigital(concatenatedProduct);
+            Debug.Assert(isPandigital);
         }
 
         private static long Solve()

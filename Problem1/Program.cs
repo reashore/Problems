@@ -4,9 +4,10 @@ using System.Linq;
 
 namespace Problem1
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 1");
 
@@ -18,7 +19,7 @@ namespace Problem1
             Console.ReadKey();
         }
 
-        static int GetMuliplesOf3And5LessThan(int upperLimit)
+        private static int GetMuliplesOf3And5LessThan(int upperLimit)
         {
             List<int> factors = new List<int>();
 

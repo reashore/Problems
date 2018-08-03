@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Problem37
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 37");
 
-            //Test();
+            Test();
 
             const long upperBound = 1000000;
             (long, long) result = Solve(upperBound);
@@ -23,8 +25,9 @@ namespace Problem37
 
         private static void Test()
         {
-            long number = 3797;
+            const long number = 3797;
             List<long> truncations = GetTruncations(number);
+            Debug.Assert(truncations.Count == 7);
         }
 
         private static (long, long) Solve(long upperBound)
@@ -89,18 +92,11 @@ namespace Problem37
             return truncations;
         }
 
-        public static bool IsPrime(long candidate)
+        private static bool IsPrime(long candidate)
         {
             if ((candidate & 1) == 0)
             {
-                if (candidate == 2)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return candidate == 2;
             }
 
             for (int i = 3; (i * i) <= candidate; i += 2)

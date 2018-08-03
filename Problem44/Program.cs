@@ -3,9 +3,10 @@ using System.Diagnostics;
 
 namespace Problem44
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 44");
 
@@ -97,7 +98,7 @@ namespace Problem44
             }
 
             // Rough upper bound
-            long upperBound = Convert.ToInt64(Math.Ceiling(Math.Sqrt(pentagonalNumber * 2 / 3)));
+            long upperBound = Convert.ToInt64(Math.Ceiling(Math.Sqrt(pentagonalNumber * 2.0 / 3)));
 
             for (int number = 2; number <= upperBound; number++)
             {

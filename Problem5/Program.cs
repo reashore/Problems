@@ -1,16 +1,19 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Problem5
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 5");
 
             Test();
 
             int smallestNumber = Solve();
+            Console.WriteLine($"smallestNumber = {smallestNumber}");
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -37,10 +40,12 @@ namespace Problem5
             int number = 2520;
             int upperBound = 10;
             bool result = IsNumberEvenlyDivisible(number, upperBound);
+            Debug.Assert(result);
 
             number = 232792560;
             upperBound = 20;
             result = IsNumberEvenlyDivisible(number, upperBound);
+            Debug.Assert(result);
         }
 
         private static bool IsNumberEvenlyDivisible(int number, int upperBound)

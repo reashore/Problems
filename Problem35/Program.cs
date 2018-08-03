@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Problem35
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 35");
 
@@ -25,11 +27,13 @@ namespace Problem35
 
         private static void Test()
         {
-            string value = "123456";
+            const string value = "123456";
             string rotatedValue = Rotate(value);
+            Debug.Assert(rotatedValue == "234561");
 
-            int number = 123;
+            const int number = 123;
             List<long> digitRotations = GetDigitRotations(number);
+            Debug.Assert(digitRotations.Count == 3);
         }
 
         private static long Solve(long upperBound)
@@ -42,7 +46,7 @@ namespace Problem35
 
                 bool isCircularPrime = true;
 
-                foreach (int numberRotation in digitRotations)
+                foreach (long numberRotation in digitRotations)
                 {
                     if (!IsPrime(numberRotation))
                     {
@@ -103,21 +107,14 @@ namespace Problem35
             return rotatedValue;
         }
 
-        public static bool IsPrime(int candidate)
+        private static bool IsPrime(long candidate)
         {
             if ((candidate & 1) == 0)
             {
-                if (candidate == 2)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return candidate == 2;
             }
 
-            for (int i = 3; (i * i) <= candidate; i += 2)
+            for (int i = 3; i * i <= candidate; i += 2)
             {
                 if (candidate % i == 0)
                 {

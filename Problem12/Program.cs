@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace Problem12
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 12");
 
@@ -47,7 +48,7 @@ namespace Problem12
         {
             ulong number = 1;
             ulong triangleNumber;
-            ulong divisorCount = 0;
+            ulong divisorCount;
 
             while (true)
             {

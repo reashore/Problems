@@ -2,9 +2,10 @@
 
 namespace Problem28
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 28");
 
@@ -183,32 +184,32 @@ namespace Problem28
             return sum;
         }
 
-        private static void InitializeMatrixToZeros(int size, int[,] matrix)
-        {
-            for (int row = 0; row < size; row++)
-            {
-                for (int col = 0; col < size; col++)
-                {
-                    matrix[row, col] = 0;
-                }
-            }
-        }
+        //private static void InitializeMatrixToZeros(int size, int[,] matrix)
+        //{
+        //    for (int row = 0; row < size; row++)
+        //    {
+        //        for (int col = 0; col < size; col++)
+        //        {
+        //            matrix[row, col] = 0;
+        //        }
+        //    }
+        //}
 
-        private static void PrintMatrix(int size, int[,] matrix)
-        {
-            for (int row = 0; row < size; row++)
-            {
-                string matrixRow = "";
+        //private static void PrintMatrix(int size, int[,] matrix)
+        //{
+        //    for (int row = 0; row < size; row++)
+        //    {
+        //        string matrixRow = "";
 
-                for (int col = 0; col < size; col++)
-                {
-                    matrixRow += $"{matrix[row, col], 4}, ";
-                }
+        //        for (int col = 0; col < size; col++)
+        //        {
+        //            matrixRow += $"{matrix[row, col], 4}, ";
+        //        }
 
-                Console.WriteLine(matrixRow);
-            }
+        //        Console.WriteLine(matrixRow);
+        //    }
 
-            Console.WriteLine();
-        }
+        //    Console.WriteLine();
+        //}
     }
 }

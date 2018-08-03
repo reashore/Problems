@@ -5,9 +5,10 @@ using System.Numerics;
 
 namespace Problem16
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 12");
 
@@ -47,9 +48,9 @@ namespace Problem16
                 productList.Add(digit);
             }
 
-            int SumOfDigits = productList.Sum(n => n);
+            int sumOfDigits = productList.Sum(n => n);
 
-            return SumOfDigits;
+            return sumOfDigits;
         }
     }
 }

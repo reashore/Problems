@@ -4,13 +4,14 @@ using System.Diagnostics;
 
 namespace Problem43
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 43");
 
-            //Test();
+            Test();
 
             long sum = Solve();
             Console.WriteLine($" sum = {sum}");     // 16695334890
@@ -23,15 +24,19 @@ namespace Problem43
         {
             long number = 9876543210;
             bool is0To9Pandigital = Is0To9Pandigital(number);
+            Debug.Assert(is0To9Pandigital);
 
             number = 1234567890;
             is0To9Pandigital = Is0To9Pandigital(number);
+            Debug.Assert(is0To9Pandigital);
 
             number = 9876543211;
             is0To9Pandigital = Is0To9Pandigital(number);
+            Debug.Assert(!is0To9Pandigital);
 
             number = 1406357289;
             bool isSubstringDivisible = IsSubstringDivisible(number);
+            Debug.Assert(isSubstringDivisible);
         }
 
         private static long Solve()

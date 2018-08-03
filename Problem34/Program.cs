@@ -5,9 +5,10 @@ using System.Numerics;
 
 namespace Problem34
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 34");
 
@@ -53,7 +54,7 @@ namespace Problem34
             return digitFactorialSum;
         }
 
-        static BigInteger Factorial(int n)
+        private static BigInteger Factorial(int n)
         {
             if (n == 0)
             {

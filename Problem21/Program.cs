@@ -4,18 +4,14 @@ using System.Linq;
 
 namespace Problem21
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 21");
 
-            int sum1 = SumOfProperDivisors(220);
-            int sum2 = SumOfProperDivisors(284);
-            bool isAmicableNumber1 = IsAmicableNumber(220);
-            bool isAmicableNumber2 = IsAmicableNumber(284);
-            int amicableNumberPartner1 = GetAmicableNumberPartner(220);
-            int amicableNumberPartner2 = GetAmicableNumberPartner(284);
+            //Test();
 
             const int upperBound = 10000;
             List<int> amicableNumbers = GetAmicableNumbers(upperBound);
@@ -25,6 +21,16 @@ namespace Problem21
             Console.WriteLine("Done");
             Console.ReadKey();
         }
+
+        //private static void Test()
+        //{
+        //    int sum1 = SumOfProperDivisors(220);
+        //    int sum2 = SumOfProperDivisors(284);
+        //    bool isAmicableNumber1 = IsAmicableNumber(220);
+        //    bool isAmicableNumber2 = IsAmicableNumber(284);
+        //    int amicableNumberPartner1 = GetAmicableNumberPartner(220);
+        //    int amicableNumberPartner2 = GetAmicableNumberPartner(284);
+        //}
 
         private static List<int> GetAmicableNumbers(int upperBound)
         {
@@ -37,7 +43,7 @@ namespace Problem21
                 if (isAmicableNumber)
                 {
                     amicableNumbers.Add(n);
-                    Console.WriteLine($"IsAmicableNumber({n}) = {isAmicableNumber}, partner = {GetAmicableNumberPartner(n)}");
+                    Console.WriteLine($"IsAmicableNumber({n}) = true, partner = {GetAmicableNumberPartner(n)}");
                 }
             }
 

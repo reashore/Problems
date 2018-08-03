@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Problem24
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
         // https://stackoverflow.com/questions/756055/listing-all-permutations-of-a-string-integer
 
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 24");
 
@@ -19,26 +19,23 @@ namespace Problem24
 
             foreach (List<int> permutation in permutations)
             {
-                var temp = permutation;
-
                 string permutationString = "";
 
-                foreach( int item in permutation)
+                foreach(int item in permutation)
                 {
-                    permutationString += item.ToString() + ", ";
+                    permutationString += item + ", ";
                 }
 
                 Console.WriteLine(permutationString);
-
             }
 
 
             //*********************************
 
 
-            string value = "012";
+            const string value = "012";
             char[] valueArray = value.ToCharArray();
-            int firstIndex = 0;
+            const int firstIndex = 0;
             int lastIndex = valueArray.Length - 1;
             //Permute(valueArray, 0, 2);
             Permute(valueArray, firstIndex, lastIndex);
@@ -48,16 +45,15 @@ namespace Problem24
             Console.ReadKey();
         }
 
-        static void Permute(char[] array, int i, int n)
+        private static void Permute(char[] array, int i, int n)
         {
-            int j;
-
             if (i == n)
             {
                 Console.WriteLine(array);
             }
             else
             {
+                int j;
                 for (j = i; j <= n; j++)
                 {
                     Swap(ref array[i], ref array[j]);
@@ -67,7 +63,7 @@ namespace Problem24
             }
         }
 
-        static void Swap(ref char a, ref char b)
+        private static void Swap(ref char a, ref char b)
         {
             char tmp = a;
             a = b;

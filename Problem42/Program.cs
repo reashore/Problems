@@ -6,9 +6,10 @@ using System.Linq;
 
 namespace Problem42
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 42");
 
@@ -28,6 +29,7 @@ namespace Problem42
         {
             const string word = "SKY";
             int value = GetAlphabeticalValue(word);
+            Debug.Assert(value == 55);
 
             for (int n = 1; n < 1000; n++)
             {
@@ -43,7 +45,7 @@ namespace Problem42
             string wordsString = File.ReadAllText(fileName);
             wordsString = wordsString.Replace("\"", "");
 
-            List<string> wordsArray = wordsString.Split(new char[] { ',' }).ToList();
+            List<string> wordsArray = wordsString.Split(new[] { ',' }).ToList();
             List<string> sortedWordsList = wordsArray.OrderBy(n => n).ToList();
 
             return sortedWordsList;
@@ -86,7 +88,8 @@ namespace Problem42
                 {
                     return true;
                 }
-                else if (triangularNumber > number)
+
+                if (triangularNumber > number)
                 {
                     break;
                 }

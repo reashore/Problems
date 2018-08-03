@@ -5,9 +5,10 @@ using System.Numerics;
 
 namespace Problem20
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 20");
 
@@ -26,7 +27,7 @@ namespace Problem20
             Console.WriteLine($"SumDigits = {sumOfDigits}");
         }
 
-        static BigInteger Factorial(int n)
+        private static BigInteger Factorial(int n)
         {
             if (n == 0)
             {
@@ -36,7 +37,7 @@ namespace Problem20
             return n * Factorial(n - 1);
         }
 
-        static int SumDigits(BigInteger value)
+        private static int SumDigits(BigInteger value)
         {
             string valueString = value.ToString();
             List<int> digitList = new List<int>();

@@ -4,17 +4,18 @@ using System.Text;
 
 namespace Problem17
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 17");
 
             SortedDictionary<int, string> numbersDictionary = new SortedDictionary<int, string>();
 
             AssignBasicNumbers(numbersDictionary);
-            AssignNumbers21to99(numbersDictionary);
-            AssignNumbers101to999(numbersDictionary);
+            AssignNumbers21To99(numbersDictionary);
+            AssignNumbers101To999(numbersDictionary);
             Print(numbersDictionary);
             int letterCount = CountLetters(numbersDictionary);
             Console.WriteLine($"letterCount = {letterCount}");      // 21124
@@ -58,7 +59,7 @@ namespace Problem17
             numbersDictionary[1000] = "one thousand";
         }
 
-        private static void AssignNumbers21to99(SortedDictionary<int, string> numbersDictionary)
+        private static void AssignNumbers21To99(SortedDictionary<int, string> numbersDictionary)
         {
             for (int start = 20; start <= 90; start += 10)
             {
@@ -71,7 +72,7 @@ namespace Problem17
             }
         }
 
-        private static void AssignNumbers101to999(SortedDictionary<int, string> numbersDictionary)
+        private static void AssignNumbers101To999(SortedDictionary<int, string> numbersDictionary)
         {
             for (int start = 100; start <= 900; start += 100)
             {
@@ -103,9 +104,9 @@ namespace Problem17
                 stringBuilder.Append(item.Value);
             }
 
-            string allNumbersFrom1to1000 = stringBuilder.ToString();
-            allNumbersFrom1to1000 = allNumbersFrom1to1000.Replace(" ", "");
-            int letterCount = allNumbersFrom1to1000.Length;
+            string allNumbersFrom1To1000 = stringBuilder.ToString();
+            allNumbersFrom1To1000 = allNumbersFrom1To1000.Replace(" ", "");
+            int letterCount = allNumbersFrom1To1000.Length;
 
             return letterCount;
         }

@@ -5,9 +5,10 @@ using System.Linq;
 
 namespace Problem22
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 22");
 
@@ -26,7 +27,7 @@ namespace Problem22
             string namesString = File.ReadAllText(fileName);
             namesString = namesString.Replace("\"", "");
 
-            List<string> namesArray = namesString.Split(new char[] { ',' }).ToList();
+            List<string> namesArray = namesString.Split(new[] { ',' }).ToList();
             List<string> sortedNamesList = namesArray.OrderBy(n => n).ToList();
 
             return sortedNamesList;
@@ -40,7 +41,6 @@ namespace Problem22
             foreach (string name in namesList)
             {
                 int alphabeticalValue = GetAlphabeticalValue(name);
-                long rankBig = rank;
                 long score = alphabeticalValue * rank;
                 scoreSum += score;
                 rank++;

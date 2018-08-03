@@ -5,9 +5,10 @@ using System.Linq;
 
 namespace Problem32
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 32");
 
@@ -57,13 +58,6 @@ namespace Problem32
             long productSum = pandigitalProductsList.Distinct().Sum(n => n);
 
             return productSum;
-        }
-
-        private static bool IsPandigital(int number)
-        {
-            // Contains every digit from 1 to 9 exactly once
-            string numberString = number.ToString();
-            return IsPandigital(numberString);
         }
 
         private static bool IsPandigital(string numberString)

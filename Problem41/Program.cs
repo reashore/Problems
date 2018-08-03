@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Problem41
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine("Problem 41");
 
-            //Test();
+            Test();
             long maxPandigitalPrime = Solve();
             Console.WriteLine($"maxPandigitalPrime = {maxPandigitalPrime}");    // 7652413
 
@@ -20,15 +22,20 @@ namespace Problem41
         {
             string number = "2143";
             bool isPandigital = IsPandigital(number, 4);
+            Debug.Assert(isPandigital);
 
             number = "87654321";
             isPandigital = IsPandigital(number, 8);
+            Debug.Assert(isPandigital);
 
             number = "987654321";
-            isPandigital = IsPandigital(number, 9);
+            isPandigital = IsPandigital(number);
+            Debug.Assert(isPandigital);
 
             long upperBound = GetUpperBound(5);
+            Debug.Assert(upperBound == 54321);
             upperBound = GetUpperBound(9);
+            Debug.Assert(upperBound == 987654321);
         }
 
         private static long Solve()
@@ -104,18 +111,11 @@ namespace Problem41
             return true;
         }
 
-        public static bool IsPrime(long candidate)
+        private static bool IsPrime(long candidate)
         {
             if ((candidate & 1) == 0)
             {
-                if (candidate == 2)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return candidate == 2;
             }
 
             for (int i = 3; (i * i) <= candidate; i += 2)
