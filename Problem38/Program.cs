@@ -51,6 +51,7 @@ namespace Problem38
 
                     bool isPandigital = IsPandigital(concatenatedProduct);
 
+                    // ReSharper disable once InvertIf
                     if (isPandigital)
                     {
                         if (concatenatedProduct > maxConcatenatedProduct)

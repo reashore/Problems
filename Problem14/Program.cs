@@ -33,6 +33,7 @@ namespace Problem14
             {
                 long collatzChainLength = GetCollatzChainLength(n);
 
+                // ReSharper disable once InvertIf
                 if (collatzChainLength > maxCollatzChainLength)
                 {
                     chainStart = n;

@@ -41,6 +41,7 @@ namespace Problem37
 
                 bool allTruncationsArePrime = truncations.TrueForAll(IsPrime);
 
+                // ReSharper disable once InvertIf
                 if (allTruncationsArePrime)
                 {
                     sum += number;
@@ -99,7 +100,7 @@ namespace Problem37
                 return candidate == 2;
             }
 
-            for (int i = 3; (i * i) <= candidate; i += 2)
+            for (int i = 3; i * i <= candidate; i += 2)
             {
                 if (candidate % i == 0)
                 {

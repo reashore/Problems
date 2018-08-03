@@ -41,6 +41,7 @@ namespace Problem39
             {
                 int triangleCount = GetNumberIntegralTriangleWithPerimeter(perimeter);
 
+                // ReSharper disable once InvertIf
                 if (triangleCount > maxTriangleCount)
                 {
                     maxTriangleCount = triangleCount;

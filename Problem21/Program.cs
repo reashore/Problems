@@ -40,6 +40,7 @@ namespace Problem21
             {
                 bool isAmicableNumber = IsAmicableNumber(n);
 
+                // ReSharper disable once InvertIf
                 if (isAmicableNumber)
                 {
                     amicableNumbers.Add(n);

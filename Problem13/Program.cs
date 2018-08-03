@@ -136,7 +136,7 @@ namespace Problem13
                 digits.Add(digit);
             }
 
-            var firstTenDigits = digits.Take(10);
+            IEnumerable<int> firstTenDigits = digits.Take(10);
             string answer = "";
 
             foreach(int digit in firstTenDigits)

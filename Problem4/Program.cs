@@ -26,6 +26,8 @@ namespace Problem4
                 {
                     int product = n * m;
                     bool isPalindromicNumber = IsPalindromicNumber(product);
+
+                    // ReSharper disable once InvertIf
                     if (isPalindromicNumber)
                     {
                         //Console.WriteLine($"{n} x {m} = {product}");

@@ -73,9 +73,9 @@ namespace Problem24
         //*********************
         // https://stackoverflow.com/questions/2710713/algorithm-to-generate-all-possible-permutations-of-a-list
 
-        private static IEnumerable<List<T>> Permutate<T>(List<T> input)
+        private static IEnumerable<List<T>> Permutate<T>(IReadOnlyList<T> input)
         {
-            if (input.Count == 2) // this are permutations of array of size 2
+            if (input.Count == 2) 
             {
                 yield return new List<T>(input);
                 yield return new List<T> { input[1], input[0] };
@@ -84,12 +84,12 @@ namespace Problem24
             {
                 foreach (T elem in input) 
                 {
-                    var rlist = new List<T>(input); // creating subarray = array
-                    rlist.Remove(elem); // removing element
+                    List<T> rlist = new List<T>(input); 
+                    rlist.Remove(elem); 
 
                     foreach (List<T> retlist in Permutate(rlist))
                     {
-                        retlist.Insert(0, elem); // inserting the element at pos 0
+                        retlist.Insert(0, elem); 
                         yield return retlist;
                     }
                 }

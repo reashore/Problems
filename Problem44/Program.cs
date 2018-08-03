@@ -72,6 +72,7 @@ namespace Problem44
                         continue;
                     }
 
+                    // ReSharper disable once InvertIf
                     if (difference < minimalDifference)
                     {
                         minimalDifference = difference;

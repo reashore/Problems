@@ -28,6 +28,7 @@ namespace Problem34
             {
                 BigInteger digitFactorialSum = SumFactorialsOfDigits(number);
 
+                // ReSharper disable once InvertIf
                 if (number == digitFactorialSum)
                 {
                     digitFactorials.Add(number);

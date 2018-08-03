@@ -47,6 +47,7 @@ namespace Problem32
                     string productString = product.ToString();
                     string compositeString = productString + nString + mString;
 
+                    // ReSharper disable once InvertIf
                     if (IsPandigital(compositeString))
                     {
                         Console.WriteLine($"{n} x {m} = {product}");

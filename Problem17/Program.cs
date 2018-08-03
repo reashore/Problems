@@ -89,7 +89,7 @@ namespace Problem17
 
         private static void Print(SortedDictionary<int, string> numbersDictionary)
         {
-            foreach (var item in numbersDictionary)
+            foreach (KeyValuePair<int, string> item in numbersDictionary)
             {
                 Console.WriteLine($"{item.Key} = {item.Value}");
             }
@@ -99,7 +99,7 @@ namespace Problem17
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            foreach (var item in numbersDictionary)
+            foreach (KeyValuePair<int, string> item in numbersDictionary)
             {
                 stringBuilder.Append(item.Value);
             }

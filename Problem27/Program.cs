@@ -91,6 +91,7 @@ namespace Problem27
                     Func<long, long> quadratic = n => n * n + a * n + b;
                     long numberConsecutivePrimes = FindNumberConsecutivePrimesForQuadratic(quadratic);
 
+                    // ReSharper disable once InvertIf
                     if (numberConsecutivePrimes > maxConsecutivePrimes)
                     {
                         maxConsecutivePrimes = numberConsecutivePrimes;
@@ -194,7 +195,7 @@ namespace Problem27
                 return candidate == 2;
             }
 
-            for (long i = 3; (i * i) <= candidate; i += 2)
+            for (long i = 3; i * i <= candidate; i += 2)
             {
                 if (candidate % i == 0)
                 {

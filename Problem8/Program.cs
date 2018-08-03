@@ -67,6 +67,7 @@ namespace Problem8
                 List<long> selection = numberList.Skip(skip).Take(take).ToList();
                 long product = Multiply(selection);
 
+                // ReSharper disable once InvertIf
                 if (product > maxProduct)
                 {
                     maxProduct = product;

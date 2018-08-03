@@ -45,8 +45,10 @@ namespace Problem43
 
             for (long number = 1234567890; number <= 9876543210; number++)
             {
+                // ReSharper disable once InvertIf
                 if (Is0To9Pandigital(number))
                 {
+                    // ReSharper disable once InvertIf
                     if (IsSubstringDivisible(number))
                     {
                         sum += number;

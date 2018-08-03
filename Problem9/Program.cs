@@ -23,6 +23,7 @@ namespace Problem9
                 {
                     for (int c = b + 1; c < 1000; c++)
                     {
+                        // ReSharper disable once InvertIf
                         if (a * a + b * b == c * c && a + b + c == 1000)
                         {
                             int product = a * b * c;

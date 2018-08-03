@@ -54,6 +54,7 @@ namespace Problem41
                         continue;
                     }
 
+                    // ReSharper disable once InvertIf
                     if (IsPrime(number))
                     {
                         if (number > maxPandigitalPrime)
@@ -118,7 +119,7 @@ namespace Problem41
                 return candidate == 2;
             }
 
-            for (int i = 3; (i * i) <= candidate; i += 2)
+            for (int i = 3; i * i <= candidate; i += 2)
             {
                 if (candidate % i == 0)
                 {

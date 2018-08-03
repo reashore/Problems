@@ -45,6 +45,7 @@ namespace Problem46
         {
             for (long number = lowerBound; number < upperBound; number += 2)
             {
+                // ReSharper disable once InvertIf
                 if (IsOddComposite(number))
                 {
                     if (!SatisfiesGoldbachConjecture(number))
@@ -61,18 +62,20 @@ namespace Problem46
         {
             for (long n = 1; n < number; n++)
             {
-                if (IsPrime(n))
+                if (!IsPrime(n))
                 {
-                    long prime = n;
+                    continue;
+                }
 
-                    for (long m = 1; number < prime + 2 * m * m; m++)
+                long prime = n;
+
+                for (long m = 1; number < prime + 2 * m * m; m++)
+                {
+                    bool satisfiesGoldbackConjecture = number == prime + 2 * m * m;
+
+                    if (!satisfiesGoldbackConjecture)
                     {
-                        bool satisfiesGoldbackConjecture = (number == prime + 2 * m * m);
-
-                        if (!satisfiesGoldbackConjecture)
-                        {
-                            return false;
-                        }
+                        return false;
                     }
                 }
             }
@@ -95,7 +98,7 @@ namespace Problem46
                 return candidate == 2;
             }
 
-            for (int i = 3; (i * i) <= candidate; i += 2)
+            for (int i = 3; i * i <= candidate; i += 2)
             {
                 if (candidate % i == 0)
                 {

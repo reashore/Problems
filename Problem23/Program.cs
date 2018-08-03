@@ -108,6 +108,7 @@ namespace Problem23
                 return PerfectType.Perfect;
             }
 
+            // ReSharper disable once ConvertIfStatementToReturnStatement
             if (number > sumOfDivisors)
             {
                 return PerfectType.Deficient;
