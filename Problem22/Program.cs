@@ -33,7 +33,7 @@ namespace Problem22
             return sortedNamesList;
         }
 
-        private static long Solve(List<string> namesList)
+        private static long Solve(IEnumerable<string> namesList)
         {
             long scoreSum = 0;
             int rank = 1;

@@ -21,7 +21,7 @@ namespace Problem32
 
         private static long Solve()
         {
-            long upperBound = 987654321;
+            const long upperBound = 987654321;
             double upperBoundDouble = Convert.ToDouble(upperBound);
             double squareRootDouble = Math.Sqrt(upperBoundDouble);
             double squareRootFloor = Math.Floor(squareRootDouble);

@@ -51,10 +51,11 @@ namespace Problem42
             return sortedWordsList;
         }
 
-        private static long Solve(List<string> words)
+        private static long Solve(IEnumerable<string> words)
         {
             long numberTriangularWords = 0;
 
+            // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (string word in words)
             {
                 int wordValue = GetAlphabeticalValue(word);

@@ -9,7 +9,7 @@ namespace Problem45
         {
             Console.WriteLine("Problem 45");
 
-            int upperBound = 100000;
+            const int upperBound = 100000;
             long triangleNumber = Solve(upperBound);
             Console.WriteLine($"triangleNumber = {triangleNumber}");        // 1533776805
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace Problem46
 {
@@ -13,45 +12,43 @@ namespace Problem46
 
             Test();
 
-            long lowerBound = 999999;
-            long upperBound = 10000000;
-            long result = Solve(lowerBound, upperBound);
+            const long upperBound = 6000;
+            long result = Solve(upperBound);
+
             if (result > 0)
             {
                 Console.WriteLine($"Goldbach's conjecture failed for {result}");
             }
 
             Console.WriteLine("Done");
-            Console.Beep();
             Console.ReadKey();
         }
 
         private static void Test()
         {
-            for (long n = 1; n < 34; n++)
-            {
-                if (IsOddComposite(n))
-                {
-                    Console.WriteLine($"{n} is an odd composite");
-                }
-            }
-
             List<long> satisfiesGoldbackConjectureList = new List<long> { 9, 15, 21, 25, 27, 33 };
             bool allSatisfyGoldbackConjecture = satisfiesGoldbackConjectureList.TrueForAll(SatisfiesGoldbachConjecture);
-            Debug.Assert(allSatisfyGoldbackConjecture);
+
+            if (!allSatisfyGoldbackConjecture)
+            {
+                Console.WriteLine("Goldbach conjecture failed for List");
+            }
         }
 
-        private static long Solve(long lowerBound, long upperBound)
+        private static long Solve(long upperBound)
         {
-            for (long number = lowerBound; number < upperBound; number += 2)
+            const int smallestGoldbachNumber = 9;
+
+            for (long number = smallestGoldbachNumber; number < upperBound; number += 2)
             {
-                // ReSharper disable once InvertIf
-                if (IsOddComposite(number))
+                if (!IsOddComposite(number))
                 {
-                    if (!SatisfiesGoldbachConjecture(number))
-                    {
-                        return number;
-                    }
+                    continue;
+                }
+
+                if (!SatisfiesGoldbachConjecture(number))
+                {
+                    return number;
                 }
             }
 
@@ -60,7 +57,7 @@ namespace Problem46
 
         private static bool SatisfiesGoldbachConjecture(long number)
         {
-            for (long n = 1; n < number; n++)
+            for (long n = 3; n < number; n++)
             {
                 if (!IsPrime(n))
                 {
@@ -69,18 +66,18 @@ namespace Problem46
 
                 long prime = n;
 
-                for (long m = 1; number < prime + 2 * m * m; m++)
+                for (long m = 1; prime + 2 * m * m <= number; m++)
                 {
                     bool satisfiesGoldbackConjecture = number == prime + 2 * m * m;
 
-                    if (!satisfiesGoldbackConjecture)
+                    if (satisfiesGoldbackConjecture)
                     {
-                        return false;
+                        return true;
                     }
                 }
             }
 
-            return true;
+            return false;
         }
 
         private static bool IsOddComposite(long number)

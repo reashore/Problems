@@ -13,7 +13,7 @@ namespace Problem39
             Test();
             Console.WriteLine("Tests Done");
 
-            int perimeterUpperBound = 1000;
+            const int perimeterUpperBound = 1000;
             (int, int) result = Solve(perimeterUpperBound);
             int maxPerimeter = result.Item1;
             int numberTriangles = result.Item2;
@@ -27,7 +27,7 @@ namespace Problem39
 
         private static void Test()
         {
-            int perimeter = 120;
+            const int perimeter = 120;
             int triangleCount = GetNumberIntegralTriangleWithPerimeter(perimeter);
             Debug.Assert(triangleCount == 3);
         }

@@ -21,7 +21,7 @@ namespace Problem18
             Console.ReadKey();
         }
 
-        private static void Test(List<List<int>> triangle)
+        private static void Test(IReadOnlyList<List<int>> triangle)
         {
             int depth = 0;
             int index = 0;
@@ -68,10 +68,10 @@ namespace Problem18
             // Parse triangle string to List<int>
 
             string[] delimiters = { " ", "  " };
-            StringSplitOptions stringSplitOptions = StringSplitOptions.RemoveEmptyEntries;
-            string[] triangleArray = triangleString.Split(delimiters, stringSplitOptions);
+            string[] triangleArray = triangleString.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
             List<int> triangleList = new List<int>();
 
+            // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (string valueString in triangleArray)
             {
                 int value = Convert.ToInt32(valueString);

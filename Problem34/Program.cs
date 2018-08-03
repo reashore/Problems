@@ -12,7 +12,7 @@ namespace Problem34
         {
             Console.WriteLine("Problem 34");
 
-            int upperBound = 10000000;
+            const int upperBound = 10000000;
             long sum = Solve(upperBound);
             Console.WriteLine($"sum = {sum}");      // 40730
 

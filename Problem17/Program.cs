@@ -24,7 +24,7 @@ namespace Problem17
             Console.ReadKey();
         }
 
-        private static void AssignBasicNumbers(SortedDictionary<int, string> numbersDictionary)
+        private static void AssignBasicNumbers(IDictionary<int, string> numbersDictionary)
         {
             numbersDictionary[1] = "one";
             numbersDictionary[2] = "two";
@@ -59,7 +59,7 @@ namespace Problem17
             numbersDictionary[1000] = "one thousand";
         }
 
-        private static void AssignNumbers21To99(SortedDictionary<int, string> numbersDictionary)
+        private static void AssignNumbers21To99(IDictionary<int, string> numbersDictionary)
         {
             for (int start = 20; start <= 90; start += 10)
             {
@@ -72,7 +72,7 @@ namespace Problem17
             }
         }
 
-        private static void AssignNumbers101To999(SortedDictionary<int, string> numbersDictionary)
+        private static void AssignNumbers101To999(IDictionary<int, string> numbersDictionary)
         {
             for (int start = 100; start <= 900; start += 100)
             {
