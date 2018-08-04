@@ -13,24 +13,32 @@ namespace Problem24
         {
             Console.WriteLine("Problem 24");
 
-            List<int> sequence = new List<int> { 0, 1, 2 };
-            IEnumerable<List<int>> permutations = Permutate(sequence);
-            //var orderedPermutations = permutations.OrderBy(n => n);
+            const string sequenceString = "0123456789";
+            List<int> sequence = ConvertNumericStringToList(sequenceString);
+            List<List<int>> permutations = Permutate(sequence).ToList();
+            List<List<int>> orderedPermutations = permutations.OrderBy(ToString).ToList();
+            //Print(orderedPermutations);
 
-            foreach (List<int> permutation in permutations)
-            {
-                string permutationString = "";
-
-                foreach(int item in permutation)
-                {
-                    permutationString += item + ", ";
-                }
-
-                Console.WriteLine(permutationString);
-            }
+            const int index = 999999;
+            List<int> millionthPermutation = orderedPermutations[index];
+            string millionthPermutationString = ToString(millionthPermutation);
+            Console.WriteLine(millionthPermutationString);      // 2783915460
 
             Console.WriteLine("Done");
             Console.ReadKey();
+        }
+
+        private static List<int> ConvertNumericStringToList(string sequenceString)
+        {
+            List<int> sequence = new List<int>();
+
+            foreach (char character in sequenceString)
+            {
+                int digit = Convert.ToInt32(character.ToString());
+                sequence.Add(digit);
+            }
+
+            return sequence;
         }
 
         private static IEnumerable<List<T>> Permutate<T>(IReadOnlyList<T> sequence)
@@ -57,45 +65,24 @@ namespace Problem24
             }
         }
 
-        #region OldCode
+        private static string ToString(List<int> permutation)
+        {
+            string permutationString = "";
 
-        // https://stackoverflow.com/questions/756055/listing-all-permutations-of-a-string-integer
+            foreach (int item in permutation)
+            {
+                permutationString += item;
+            }
 
+            return permutationString;
+        }
 
-        //const string value = "012";
-        //char[] valueArray = value.ToCharArray();
-        //const int firstIndex = 0;
-        //int lastIndex = valueArray.Length - 1;
-        ////Permute(valueArray, 0, 2);
-        //Permute(valueArray, firstIndex, lastIndex);
-
-
-        //private static void Permute(char[] array, int i, int n)
+        //private static void Print(List<List<int>> permutations)
         //{
-        //    if (i == n)
+        //    foreach (List<int> permutation in permutations)
         //    {
-        //        Console.WriteLine(array);
-        //    }
-        //    else
-        //    {
-        //        int j;
-        //        for (j = i; j <= n; j++)
-        //        {
-        //            Swap(ref array[i], ref array[j]);
-        //            Permute(array, i + 1, n);
-        //            Swap(ref array[i], ref array[j]); //backtrack
-        //        }
+        //        Console.WriteLine(ToString(permutation));
         //    }
         //}
-
-        //private static void Swap(ref char a, ref char b)
-        //{
-        //    char tmp = a;
-        //    a = b;
-        //    b = tmp;
-        //}
-
-
-        #endregion
     }
 }
