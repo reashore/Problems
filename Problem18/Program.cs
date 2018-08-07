@@ -10,74 +10,99 @@ namespace Problem18
         private static void Main()
         {
             Console.WriteLine("Problem 18");
-            
-            List<List<int>> triangle = LoadTriangle();
-            //Test(triangle);
 
-            long maxPathSum = Solve(triangle);
-            Console.WriteLine($"maxPathSum = {maxPathSum}");
+            // depth and index are 0-based
+            const int maxDepth = 15;     
+            List<List<int>> triangle = LoadTriangle2(maxDepth);
+
+            Test(triangle, maxDepth);
+
+            long maxPathSum= Solve(triangle, maxDepth);
+            Console.WriteLine($"maxPathSum = {maxPathSum}");        // 1074
 
             Console.WriteLine("Done");
             Console.ReadKey();
         }
 
-        private static void Test(IReadOnlyList<List<int>> triangle)
+        private static void Test(IReadOnlyList<List<int>> triangle, int maxDepth)
         {
-            //int depth = 0;
-            //int index = 0;
-            //Tuple<int, int> root = Tuple.Create(depth, index);
-            //int value = GetNodeValue(triangle, root);
+            int depth = 0;
+            int index = 0;
+            Tuple<int, int> root = Tuple.Create(depth, index);
+            int value = GetNodeValue(triangle, root);
 
-            //depth = 1;
-            //index = 0;
-            //Tuple<int, int> node10 = Tuple.Create(depth, index);
-            //value = GetNodeValue(triangle, root);
+            depth = 1;
+            index = 0;
+            Tuple<int, int> node10 = Tuple.Create(depth, index);
+            value = GetNodeValue(triangle, root);
 
-            //depth = 1;
-            //index = 1;
-            //Tuple<int, int> node11 = Tuple.Create(depth, index);
-            //value = GetNodeValue(triangle, root);
-
-            // depth is 1-based, index is 0-based, fix
+            depth = 1;
+            index = 1;
+            Tuple<int, int> node11 = Tuple.Create(depth, index);
+            value = GetNodeValue(triangle, root);
 
             // GetChildren(0, 0) -> (1, 0) (1, 1)
             Tuple<int, int>  node = Tuple.Create(0, 0);
-            List<Tuple<int, int>> children = GetChildren(node);
+            List<Tuple<int, int>> children = GetChildren(node, maxDepth);
             PrintChildren(children);
 
             // GetChildren(1, 0) -> (2, 0) (2, 1)
             node = Tuple.Create(1, 0);
-            children = GetChildren(node);
+            children = GetChildren(node, maxDepth);
             PrintChildren(children);
 
             // GetChildren(1, 1) -> (2, 1) (2, 2)
             node = Tuple.Create(1, 1);
-            children = GetChildren(node);
+            children = GetChildren(node, maxDepth);
             PrintChildren(children);
 
             // GetChildren(2, 0) -> (3, 0) (3, 1)
             node = Tuple.Create(2, 0);
-            children = GetChildren(node);
+            children = GetChildren(node, maxDepth);
             PrintChildren(children);
 
             // GetChildren(2, 1) -> (3, 1) (3, 2)
             node = Tuple.Create(2, 1);
-            children = GetChildren(node);
+            children = GetChildren(node, maxDepth);
             PrintChildren(children);
 
             // GetChildren(2, 2) -> (3, 2) (3, 3)
             node = Tuple.Create(2, 2);
-            children = GetChildren(node);
+            children = GetChildren(node, maxDepth);
             PrintChildren(children);
 
-            // GetChildren(10, 0) -> empty list
-            node = Tuple.Create(10, 0);
-            children = GetChildren(node);
+            // GetChildren(maxDepth, 0) -> empty list
+            node = Tuple.Create(maxDepth - 1, 0);
+            children = GetChildren(node, maxDepth);
             PrintChildren(children);
-
         }
 
-        private static List<List<int>> LoadTriangle()
+        private static List<List<int>> LoadTriangle0(int maxDepth)
+        {
+            const string triangleString = "3 " +
+                                          "7 4 " +
+                                          "2 4 6";
+
+            List<int> triangleList = ParseTriangle(triangleString);
+            List<List<int>> triangle = ConvertToRaggedArray(triangleList, maxDepth);
+
+            return triangle;
+        }
+
+        private static List<List<int>> LoadTriangle1(int maxDepth)
+        {
+            const string triangleString = "3 " +
+                                          "7 4 " +
+                                          "2 4 6 " +
+                                          "8 5 9 3";
+
+            List<int> triangleList = ParseTriangle(triangleString);
+            List<List<int>> triangle = ConvertToRaggedArray(triangleList, maxDepth);
+
+            return triangle;
+        }
+
+        private static List<List<int>> LoadTriangle2(int maxDepth)
         {
             const string triangleString = "75 " +
                                           "95  64 " +
@@ -96,7 +121,7 @@ namespace Problem18
                                           "04  62  98  27  23  09  70  98  73  93  38  53  60  04  23";
 
             List<int> triangleList = ParseTriangle(triangleString);
-            List<List<int>> triangle = ConvertToRaggedArray(triangleList);
+            List<List<int>> triangle = ConvertToRaggedArray(triangleList, maxDepth);
 
             return triangle;
         }
@@ -119,97 +144,72 @@ namespace Problem18
             return triangleList;
         }
 
-        private static List<List<int>> ConvertToRaggedArray(IReadOnlyCollection<int> triangleList)
+        private static List<List<int>> ConvertToRaggedArray(IReadOnlyCollection<int> triangleList, int maxDepth)
         {
             // Convert to ragged array with one row for each level of triangle
 
-            const int treeDepth = 15;
             int skip = 0;
             List<List<int>> triangle = new List<List<int>>();
 
-            for (int depth = 1; depth <= treeDepth; depth++)
+            for (int depth = 1; depth <= maxDepth; depth++)
             {
                 var take = depth;
-                List<int> triangleLevel = triangleList.Skip(skip).Take(take).ToList();
-                triangle.Add(triangleLevel);
+                List<int> triangleRow = triangleList.Skip(skip).Take(take).ToList();
+                triangle.Add(triangleRow);
                 skip += take;
             }
 
             return triangle;
         }
 
-        private static long Solve(List<List<int>> triangle)
+        private static long Solve(List<List<int>> triangle, int maxDepth)
         {
             const int depth = 0;
             const int index = 0;
             Tuple<int, int> root = Tuple.Create(depth, index);
 
-            long maxPathValue = FindMaxPathValue(triangle, root);
+            long maxPathValue = FindMaxPathSum(triangle, root, maxDepth);
 
-            return 0;
+            return maxPathValue;
         }
 
-        // Create Triangle class so that triangle is an instance variable
-        private static long FindMaxPathValue(List<List<int>> triangle, Tuple<int, int> node)
+        private static long FindMaxPathSum(List<List<int>> triangle, Tuple<int, int> node, int maxDepth)
         {
             long nodeValue = GetNodeValue(triangle, node);
-            List<Tuple<int, int>> children = GetChildren(node);
+            List<Tuple<int, int>> children = GetChildren(node, maxDepth);
 
-            // if node has no children, then stop
+            // if node has no children, then return
             if (children.Count == 0)
             {
                 return nodeValue;
             }
 
-            long maxPathValue = nodeValue;
+            long maxPathSum = 0;
 
-            foreach (Tuple<int, int> child in children)
+            foreach (var child in children)
             {
-                long pathValue = nodeValue + FindMaxPathValue(triangle, child);
+                long childMaxPathSum = FindMaxPathSum(triangle, child, maxDepth);
 
-                if (pathValue > maxPathValue)
+                if (childMaxPathSum > maxPathSum)
                 {
-                    maxPathValue = pathValue;
+                    maxPathSum = childMaxPathSum;
                 }
             }
 
-            return maxPathValue;
+            return nodeValue + maxPathSum;
         }
 
-        private static List<Tuple<int, int>> GetChildren(Tuple<int, int> node)
+        private static List<Tuple<int, int>> GetChildren(Tuple<int, int> node, int maxDepth)
         {
-            List<Tuple<int, int>> children = new List<Tuple<int, int>>();
-
             int depth = node.Item1;
             int index = node.Item2;
+            List<Tuple<int, int>> children = new List<Tuple<int, int>>();
 
-            #region Comments
-            //    // depth, index
-            //    // 1, (1, 0)
-            //    // 2, (2, 0) (2, 1)
-            //    // 3, (3, 0) (3, 1) (3, 2) 
-
-            // node,    skip
-            // (0, 0)   0       
-
-            // (1, 0)   0    
-            // (1, 1)   1      
-
-            // (2, 0)   0      
-            // (2, 1)   1       
-            // (2, 2)   2   
-
-            // GetChildren(0, 0) -> (1, 0) (1, 1)
-
-            // GetChildren(1, 0) -> (2, 0) (2, 1)
-            // GetChildren(1, 1) -> (2, 1) (2, 2)
-
-            // GetChildren(2, 0) -> (3, 0) (3, 1)
-            // GetChildren(2, 1) -> (3, 1) (3, 2)
-            // GetChildren(2, 2) -> (3, 2) (3, 3)
-
-            // GetChildren(depth, index) -> (depth + 1, index) (depth + 1, index + 1)
-            #endregion
+            // return empty list at leaf nodes
+            if (depth + 1 >= maxDepth)
+            {
+                return children;
+            }
 
             for (int n = 0; n < 2; n++)
             {
@@ -219,13 +219,6 @@ namespace Problem18
                 Tuple<int, int> child = Tuple.Create(childDepth, childIndex);
 
                 children.Add(child);
-            }
-
-            // return empty list when at bottom of triangle
-            const int maxDepth = 2;
-            if (depth >= maxDepth)
-            {
-                return new List<Tuple<int, int>>();
             }
 
             return children;
@@ -258,5 +251,10 @@ namespace Problem18
 
             return value;
         }
+    }
+
+    internal class Triangle
+    {
+
     }
 }
