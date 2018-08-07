@@ -40,6 +40,7 @@ namespace Problem42
             }
         }
 
+        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
         private static List<string> ReadWordsFromFile(string fileName)
         {
             string wordsString = File.ReadAllText(fileName);

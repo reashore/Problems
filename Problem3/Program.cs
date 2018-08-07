@@ -21,6 +21,7 @@ namespace Problem3
             Console.ReadKey();
         }
 
+        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
         private static List<long> GetPrimeFactors(long number)
         {
             List<long> primes = new List<long>();

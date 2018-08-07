@@ -33,6 +33,7 @@ namespace Problem7
             Debug.Assert(isPrime);
         }
 
+        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
         private static List<int> Solve(int topPrime)
         {
             if (topPrime < 2)

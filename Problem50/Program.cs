@@ -10,8 +10,8 @@ namespace Problem50
             Console.WriteLine("Problem 50");
 
             const int upperBound = 1000;
-            (int, int) result = Solve(upperBound);
-            //Console.WriteLine($"prime = {prime}");
+            (int, int) prime = Solve(upperBound);
+            Console.WriteLine($"prime = {prime}");
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -43,13 +43,14 @@ namespace Problem50
 
         private static int IsSumOfConsecutivePrimes(int number)
         {
+            // Sum primes from start prime until sum > number, return number consecutive primes
 
             return 0;
         }
 
         private static bool IsPrime(long number)
         {
-            // The algorithm below fails if number is negative, so take absolute value
+            // Algorithm fails if number < 0, so take absolute value
             number = Math.Abs(number);
 
             if ((number & 1) == 0)

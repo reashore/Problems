@@ -32,6 +32,7 @@ namespace Problem21
         //    int amicableNumberPartner2 = GetAmicableNumberPartner(284);
         //}
 
+        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
         private static List<int> GetAmicableNumbers(int upperBound)
         {
             List<int> amicableNumbers = new List<int>();
@@ -51,6 +52,7 @@ namespace Problem21
             return amicableNumbers;
         }
 
+        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
         private static List<int> GetProperDivisors(int number)
         {
             List<int> divisors = new List<int>();

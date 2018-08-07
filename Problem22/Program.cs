@@ -22,6 +22,7 @@ namespace Problem22
             Console.ReadKey();
         }
 
+        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
         private static List<string> ReadNamesFromFile(string fileName)
         {
             string namesString = File.ReadAllText(fileName);

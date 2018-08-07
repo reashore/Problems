@@ -84,7 +84,7 @@ namespace Problem18
 
             long maxPathSum = 0;
 
-            foreach (var child in children)
+            foreach (Tuple<int, int> child in children)
             {
                 long childMaxPathSum = FindMaxPathSum(child);
 
