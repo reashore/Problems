@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Common;
 
 namespace Problem49
 {
@@ -29,7 +30,7 @@ namespace Problem49
                 int number2 = number1 + 3330;
                 int number3 = number2 + 3330;
 
-                bool allNumbersArePrime = IsPrime(number1) && IsPrime(number2) && IsPrime(number3);
+                bool allNumbersArePrime = MathUtilities.IsPrime(number1) && MathUtilities.IsPrime(number2) && MathUtilities.IsPrime(number3);
                 bool allNumbersArePermutationsOfEachOther = AllNumbersArePermutationsOfEachOther(number1, number2, number3);
 
                 // ReSharper disable once InvertIf
@@ -46,27 +47,6 @@ namespace Problem49
             }
 
             return result;
-        }
-
-        private static bool IsPrime(long number)
-        {
-            // The algorithm below fails if number is negative, so take absolute value
-            number = Math.Abs(number);
-
-            if ((number & 1) == 0)
-            {
-                return number == 2;
-            }
-
-            for (long i = 3; i * i <= number; i += 2)
-            {
-                if (number % i == 0)
-                {
-                    return false;
-                }
-            }
-
-            return number != 1;
         }
 
         private static bool AllNumbersArePermutationsOfEachOther(int number1, int number2, int number3)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Common;
 
 namespace Problem7
 {
@@ -29,7 +30,7 @@ namespace Problem7
                 Console.WriteLine($"{value} is the {topPrime}th prime");
             }
 
-            bool isPrime = IsPrime(104743);
+            bool isPrime = MathUtilities.IsPrime(104743);
             Debug.Assert(isPrime);
         }
 
@@ -45,7 +46,7 @@ namespace Problem7
 
             for (int n = 2; ; n++)
             {
-                bool isPrime = IsPrime(n);
+                bool isPrime = MathUtilities.IsPrime(n);
 
                 if (isPrime)
                 {
@@ -61,19 +62,6 @@ namespace Problem7
             }
 
             return primesList;
-        }
-
-        private static bool IsPrime(int number)
-        {
-            for (int n = 2; n < number; n++)
-            {
-                if (number % n == 0)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }

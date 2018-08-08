@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Diagnostics;
 
 namespace Problem41
@@ -21,15 +22,15 @@ namespace Problem41
         private static void Test()
         {
             string number = "2143";
-            bool isPandigital = IsPandigital(number, 4);
+            bool isPandigital = MathUtilities.IsPandigital(number, 4);
             Debug.Assert(isPandigital);
 
             number = "87654321";
-            isPandigital = IsPandigital(number, 8);
+            isPandigital = MathUtilities.IsPandigital(number, 8);
             Debug.Assert(isPandigital);
 
             number = "987654321";
-            isPandigital = IsPandigital(number);
+            isPandigital = MathUtilities.IsPandigital(number);
             Debug.Assert(isPandigital);
 
             long upperBound = GetUpperBound(5);
@@ -49,13 +50,13 @@ namespace Problem41
 
                 for (long number = upperBound; 2 < number; number--)
                 {
-                    if (!IsPandigital(number, digit))
+                    if (!MathUtilities.IsPandigital(number, digit))
                     {
                         continue;
                     }
 
                     // ReSharper disable once InvertIf
-                    if (IsPrime(number))
+                    if (MathUtilities.IsPrime(number))
                     {
                         if (number > maxPandigitalPrime)
                         {
@@ -82,52 +83,6 @@ namespace Problem41
             long upperBound = Convert.ToInt64(upperBoundString);
 
             return upperBound;
-        }
-
-        private static bool IsPandigital(long number, int n = 9)
-        {
-            // Contains every digit from 1 to digit exactly once
-            string numberString = number.ToString();
-            return IsPandigital(numberString, n);
-        }
-
-        private static bool IsPandigital(string numberString, int n = 9)
-        {
-            if (numberString.Length != n)
-            {
-                return false;
-            }
-
-            const string allDigits = "123456789";
-            string digits = allDigits.Substring(0, n);
-
-            foreach (char digit in digits)
-            {
-                if (!numberString.Contains(digit))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        private static bool IsPrime(long candidate)
-        {
-            if ((candidate & 1) == 0)
-            {
-                return candidate == 2;
-            }
-
-            for (int i = 3; i * i <= candidate; i += 2)
-            {
-                if (candidate % i == 0)
-                {
-                    return false;
-                }
-            }
-
-            return candidate != 1;
         }
     }
 }

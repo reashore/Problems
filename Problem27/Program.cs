@@ -1,4 +1,5 @@
 ﻿using System;
+using Common;
 
 namespace Problem27
 {
@@ -28,11 +29,11 @@ namespace Problem27
         {
             for (int n = 1; n < 100; n++)
             {
-                bool success = IsPrime(n) == IsPrime(-n);
+                bool success = MathUtilities.IsPrime(n) == MathUtilities.IsPrime(-n);
 
                 if (!success)
                 {
-                    Console.WriteLine($"IsPrime({n}) = {IsPrime(n)}, IsPrime({-n}) = {IsPrime(-n)}");
+                    Console.WriteLine($"IsPrime({n}) = {MathUtilities.IsPrime(n)}, IsPrime({-n}) = {MathUtilities.IsPrime(-n)}");
                 }
             }
 
@@ -87,7 +88,7 @@ namespace Problem27
             {
                 long value = Quadratic(number, a, b);
 
-                if (!IsPrime(value))
+                if (!MathUtilities.IsPrime(value))
                 {
                     break;    
                 }
@@ -99,26 +100,5 @@ namespace Problem27
         }
 
         private static long Quadratic(long n, long a, long b) => n * n + a * n + b;
-
-        private static bool IsPrime(long number)
-        {
-            // The algorithm below fails if number is negative, so take absolute value
-            number = Math.Abs(number);
-
-            if ((number & 1) == 0)
-            {
-                return number == 2;
-            }
-
-            for (long i = 3; i * i <= number; i += 2)
-            {
-                if (number % i == 0)
-                {
-                    return false;
-                }
-            }
-
-            return number != 1;
-        }
     }
 }

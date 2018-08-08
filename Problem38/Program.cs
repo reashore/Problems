@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Common;
 
 namespace Problem38
 {
@@ -24,13 +25,13 @@ namespace Problem38
             long number = 9;
             long digit = 5;
             long concatenatedProduct = GetConcatenatedProduct(number, digit);
-            bool isPandigital = IsPandigital(concatenatedProduct);
+            bool isPandigital = MathUtilities.IsPandigital(concatenatedProduct);
             Debug.Assert(isPandigital);
 
             number = 192;
             digit = 3;
             concatenatedProduct = GetConcatenatedProduct(number, digit);
-            isPandigital = IsPandigital(concatenatedProduct);
+            isPandigital = MathUtilities.IsPandigital(concatenatedProduct);
             Debug.Assert(isPandigital);
         }
 
@@ -49,7 +50,7 @@ namespace Problem38
                         break;
                     }
 
-                    bool isPandigital = IsPandigital(concatenatedProduct);
+                    bool isPandigital = MathUtilities.IsPandigital(concatenatedProduct);
 
                     // ReSharper disable once InvertIf
                     if (isPandigital)
@@ -86,33 +87,6 @@ namespace Problem38
             long sum = Convert.ToInt64(sumString);
 
             return sum;
-        }
-
-        private static bool IsPandigital(long number)
-        {
-            // Contains every digit from 1 to 9 exactly once
-            string numberString = number.ToString();
-            return IsPandigital(numberString);
-        }
-
-        private static bool IsPandigital(string numberString)
-        {
-            if (numberString.Length != 9)
-            {
-                return false;
-            }
-
-            const string digits = "123456789";
-
-            foreach (char digit in digits)
-            {
-                if (!numberString.Contains(digit))
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }

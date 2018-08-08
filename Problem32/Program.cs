@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Common;
 
 namespace Problem32
 {
@@ -48,7 +49,7 @@ namespace Problem32
                     string compositeString = productString + nString + mString;
 
                     // ReSharper disable once InvertIf
-                    if (IsPandigital(compositeString))
+                    if (MathUtilities.IsPandigital(compositeString))
                     {
                         Console.WriteLine($"{n} x {m} = {product}");
                         pandigitalProductsList.Add(product);
@@ -59,26 +60,6 @@ namespace Problem32
             long productSum = pandigitalProductsList.Distinct().Sum(n => n);
 
             return productSum;
-        }
-
-        private static bool IsPandigital(string numberString)
-        {
-            if (numberString.Length != 9)
-            {
-                return false;
-            }
-
-            const string digits = "123456789";
-
-            foreach (char digit in digits)
-            {
-                if (!numberString.Contains(digit))
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }

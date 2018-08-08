@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Common;
 
 namespace Problem35
 {
@@ -48,7 +49,7 @@ namespace Problem35
 
                 foreach (long numberRotation in digitRotations)
                 {
-                    if (!IsPrime(numberRotation))
+                    if (!MathUtilities.IsPrime(numberRotation))
                     {
                         isCircularPrime = false;
                     }
@@ -105,24 +106,6 @@ namespace Problem35
             string rotatedValue = rest + leftCharacter;
 
             return rotatedValue;
-        }
-
-        private static bool IsPrime(long candidate)
-        {
-            if ((candidate & 1) == 0)
-            {
-                return candidate == 2;
-            }
-
-            for (int i = 3; i * i <= candidate; i += 2)
-            {
-                if (candidate % i == 0)
-                {
-                    return false;
-                }
-            }
-
-            return candidate != 1;
         }
     }
 }

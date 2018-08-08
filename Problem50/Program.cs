@@ -1,4 +1,5 @@
 ﻿using System;
+using Common;
 
 namespace Problem50
 {
@@ -24,7 +25,7 @@ namespace Problem50
 
             for (int number = 1; number < upperBound; number += 2)
             {
-                if (!IsPrime(number))
+                if (!MathUtilities.IsPrime(number))
                 {
                     continue;
                 }
@@ -46,27 +47,6 @@ namespace Problem50
             // Sum primes from start prime until sum > number, return number consecutive primes
 
             return 0;
-        }
-
-        private static bool IsPrime(long number)
-        {
-            // Algorithm fails if number < 0, so take absolute value
-            number = Math.Abs(number);
-
-            if ((number & 1) == 0)
-            {
-                return number == 2;
-            }
-
-            for (long i = 3; i * i <= number; i += 2)
-            {
-                if (number % i == 0)
-                {
-                    return false;
-                }
-            }
-
-            return number != 1;
         }
     }
 }

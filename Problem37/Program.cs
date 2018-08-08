@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Common;
 
 namespace Problem37
 {
@@ -39,7 +40,7 @@ namespace Problem37
             {
                 List<long> truncations = GetTruncations(number);
 
-                bool allTruncationsArePrime = truncations.TrueForAll(IsPrime);
+                bool allTruncationsArePrime = truncations.TrueForAll(MathUtilities.IsPrime);
 
                 // ReSharper disable once InvertIf
                 if (allTruncationsArePrime)
@@ -91,24 +92,6 @@ namespace Problem37
             }
 
             return truncations;
-        }
-
-        private static bool IsPrime(long candidate)
-        {
-            if ((candidate & 1) == 0)
-            {
-                return candidate == 2;
-            }
-
-            for (int i = 3; i * i <= candidate; i += 2)
-            {
-                if (candidate % i == 0)
-                {
-                    return false;
-                }
-            }
-
-            return candidate != 1;
         }
     }
 }
