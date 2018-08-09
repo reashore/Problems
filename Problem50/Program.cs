@@ -12,9 +12,11 @@ namespace Problem50
         {
             Console.WriteLine("Problem 50");
 
-            const long upperBound = 100;
-            (long, long) prime = Solve(upperBound);
-            Console.WriteLine($"prime = {prime}");
+            const long upperBound = 1000000;
+            (long, long) result = Solve(upperBound);
+            long prime = result.Item1;
+            long numberConsecutivePrimes = result.Item2;
+            Console.WriteLine($"prime = {prime}, numberConsecutivePrimes = {numberConsecutivePrimes}");     //
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -33,8 +35,6 @@ namespace Problem50
                     continue;
                 }
 
-                primes.Add(number);
-
                 long numberConsecutivePrimes = GetMaxSumOfConsecutivePrimes(number, primes);
 
                 if (numberConsecutivePrimes > maxNumberConsecutivePrimes)
@@ -42,6 +42,8 @@ namespace Problem50
                     maxNumberConsecutivePrimes = numberConsecutivePrimes;
                     maxPrime = number;
                 }
+
+                primes.Add(number);
             }
 
             return (maxPrime, maxNumberConsecutivePrimes);
@@ -49,25 +51,27 @@ namespace Problem50
 
         private static long GetMaxSumOfConsecutivePrimes(long number, List<long> primes)
         {
-            List<long> primesLessThanNumber = primes.Where(n => n < number).ToList();
+            int numberPrimesLessThanNumber = primes.Count;
 
-            int numberPrimesLessThanNumber = primesLessThanNumber.Count;
-            int maxConsecutivePrimes = 0;
-
-            // skip + take = numberPrimesLessThanNumber
-
-            for (int skip = 0; skip <= numberPrimesLessThanNumber - 1; skip++)
+            for (int skip = 0; skip + 2 <= numberPrimesLessThanNumber; skip++)
             {
-                int take = numberPrimesLessThanNumber - skip;
-                IEnumerable<long> candidateList = primes.Skip(skip).Take(take);
-
-                if (candidateList.Sum(n => n) == number)
+                for (int take = 2; skip + take <= numberPrimesLessThanNumber; take++)
                 {
-                    maxConsecutivePrimes = take;
+                    long sum = primes.Skip(skip).Take(take).Sum(n => n);
+
+                    if (sum == number)
+                    {
+                        return take;
+                    }
+
+                    if (sum > number)
+                    {
+                        break;
+                    }
                 }
             }
 
-            return maxConsecutivePrimes;
+            return 0;
         }
     }
 }
