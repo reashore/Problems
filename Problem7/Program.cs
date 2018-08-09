@@ -30,7 +30,7 @@ namespace Problem7
                 Console.WriteLine($"{value} is the {topPrime}th prime");
             }
 
-            bool isPrime = MathUtilities.IsPrime(104743);
+            bool isPrime = Utilities.IsPrime(104743);
             Debug.Assert(isPrime);
         }
 
@@ -46,7 +46,7 @@ namespace Problem7
 
             for (int n = 2; ; n++)
             {
-                bool isPrime = MathUtilities.IsPrime(n);
+                bool isPrime = Utilities.IsPrime(n);
 
                 if (isPrime)
                 {

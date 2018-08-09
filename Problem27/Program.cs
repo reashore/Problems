@@ -29,11 +29,11 @@ namespace Problem27
         {
             for (int n = 1; n < 100; n++)
             {
-                bool success = MathUtilities.IsPrime(n) == MathUtilities.IsPrime(-n);
+                bool success = Utilities.IsPrime(n) == Utilities.IsPrime(-n);
 
                 if (!success)
                 {
-                    Console.WriteLine($"IsPrime({n}) = {MathUtilities.IsPrime(n)}, IsPrime({-n}) = {MathUtilities.IsPrime(-n)}");
+                    Console.WriteLine($"IsPrime({n}) = {Utilities.IsPrime(n)}, IsPrime({-n}) = {Utilities.IsPrime(-n)}");
                 }
             }
 
@@ -88,7 +88,7 @@ namespace Problem27
             {
                 long value = Quadratic(number, a, b);
 
-                if (!MathUtilities.IsPrime(value))
+                if (!Utilities.IsPrime(value))
                 {
                     break;    
                 }

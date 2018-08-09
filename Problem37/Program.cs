@@ -40,7 +40,7 @@ namespace Problem37
             {
                 List<long> truncations = GetTruncations(number);
 
-                bool allTruncationsArePrime = truncations.TrueForAll(MathUtilities.IsPrime);
+                bool allTruncationsArePrime = truncations.TrueForAll(Utilities.IsPrime);
 
                 // ReSharper disable once InvertIf
                 if (allTruncationsArePrime)

@@ -48,7 +48,7 @@ namespace Problem10
 
             for (int n = 2; n < upperBound; n++)
             {
-                if (MathUtilities.IsPrime(n))
+                if (Utilities.IsPrime(n))
                 {
                     sum += n;
                 }

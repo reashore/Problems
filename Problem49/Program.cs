@@ -30,7 +30,7 @@ namespace Problem49
                 int number2 = number1 + 3330;
                 int number3 = number2 + 3330;
 
-                bool allNumbersArePrime = MathUtilities.IsPrime(number1) && MathUtilities.IsPrime(number2) && MathUtilities.IsPrime(number3);
+                bool allNumbersArePrime = Utilities.IsPrime(number1) && Utilities.IsPrime(number2) && Utilities.IsPrime(number3);
                 bool allNumbersArePermutationsOfEachOther = AllNumbersArePermutationsOfEachOther(number1, number2, number3);
 
                 // ReSharper disable once InvertIf

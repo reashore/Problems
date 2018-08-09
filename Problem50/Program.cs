@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using Common;
 
 namespace Problem50
@@ -13,10 +15,13 @@ namespace Problem50
             Console.WriteLine("Problem 50");
 
             const long upperBound = 1000000;
-            (long, long) result = Solve(upperBound);
-            long prime = result.Item1;
-            long numberConsecutivePrimes = result.Item2;
-            Console.WriteLine($"prime = {prime}, numberConsecutivePrimes = {numberConsecutivePrimes}");     //
+            ((long, long), TimeSpan) result = Utilities.TimeFunction(Solve, upperBound);
+            long prime = result.Item1.Item1;
+            long numberConsecutivePrimes = result.Item1.Item2;
+            TimeSpan timeSpan = result.Item2;
+            // prime = 997651, numberConsecutivePrimes = 543
+            Console.WriteLine($"prime = {prime}, numberConsecutivePrimes = {numberConsecutivePrimes}");
+            Console.WriteLine($"Elapsed time = {timeSpan.TotalSeconds} seconds, {timeSpan.TotalMinutes, 6} minutes");
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -30,7 +35,7 @@ namespace Problem50
 
             for (long number = 3; number < upperBound; number += 2)
             {
-                if (!MathUtilities.IsPrime(number))
+                if (!Utilities.IsPrime(number))
                 {
                     continue;
                 }

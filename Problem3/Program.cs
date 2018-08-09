@@ -13,7 +13,7 @@ namespace Problem3
             Console.WriteLine("Problem 3");
             const long number = 600851475143;
 
-            List<long> primeFactors = MathUtilities.GetPrimeFactors(number);
+            List<long> primeFactors = Utilities.GetPrimeFactors(number);
             long largestPrimeFactor = primeFactors.Max(n => n);
             Console.WriteLine($"largestPrimeFactor = {largestPrimeFactor}");    //  6857
 

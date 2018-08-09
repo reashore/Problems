@@ -29,10 +29,10 @@ namespace Problem47
                 long number3 = n + 2;
                 long number4 = n + 3;
 
-                List<long> primeFactors1 = MathUtilities.GetPrimeFactors(number1);
-                List<long> primeFactors2 = MathUtilities.GetPrimeFactors(number2);
-                List<long> primeFactors3 = MathUtilities.GetPrimeFactors(number3);
-                List<long> primeFactors4 = MathUtilities.GetPrimeFactors(number4);
+                List<long> primeFactors1 = Utilities.GetPrimeFactors(number1);
+                List<long> primeFactors2 = Utilities.GetPrimeFactors(number2);
+                List<long> primeFactors3 = Utilities.GetPrimeFactors(number3);
+                List<long> primeFactors4 = Utilities.GetPrimeFactors(number4);
 
                 bool allHaveDistinctPrimeFactors =
                     primeFactors1.Distinct().Count() == 4 &&

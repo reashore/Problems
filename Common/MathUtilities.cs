@@ -1,10 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Common
 {
-    public static class MathUtilities
+    public static class Utilities
     {
+        public static (T2, TimeSpan) TimeFunction<T1, T2>(Func<T1, T2> functionToTime, T1 value)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            T2 result = functionToTime(value);
+            TimeSpan timeSpan = stopwatch.Elapsed;
+
+            return (result, timeSpan);
+        }
+
+        public static (T, TimeSpan) TimeFunction<T>(Func<T> functionToTime)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            T result = functionToTime();
+            TimeSpan timeSpan = stopwatch.Elapsed;
+
+            return (result, timeSpan);
+        }
+
         public static bool IsPrime(long number)
         {
             // Algorithm fails if number < 0, so take absolute value

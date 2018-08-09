@@ -60,7 +60,7 @@ namespace Problem46
         {
             for (long n = 3; n < number; n++)
             {
-                if (!MathUtilities.IsPrime(n))
+                if (!Utilities.IsPrime(n))
                 {
                     continue;
                 }
@@ -84,7 +84,7 @@ namespace Problem46
         private static bool IsOddComposite(long number)
         {
             bool isOdd = number % 2 != 0;
-            bool isPrime = MathUtilities.IsPrime(number);
+            bool isPrime = Utilities.IsPrime(number);
 
             return isOdd && !isPrime;
         }

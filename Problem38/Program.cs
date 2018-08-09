@@ -25,13 +25,13 @@ namespace Problem38
             long number = 9;
             long digit = 5;
             long concatenatedProduct = GetConcatenatedProduct(number, digit);
-            bool isPandigital = MathUtilities.IsPandigital(concatenatedProduct);
+            bool isPandigital = Utilities.IsPandigital(concatenatedProduct);
             Debug.Assert(isPandigital);
 
             number = 192;
             digit = 3;
             concatenatedProduct = GetConcatenatedProduct(number, digit);
-            isPandigital = MathUtilities.IsPandigital(concatenatedProduct);
+            isPandigital = Utilities.IsPandigital(concatenatedProduct);
             Debug.Assert(isPandigital);
         }
 
@@ -50,7 +50,7 @@ namespace Problem38
                         break;
                     }
 
-                    bool isPandigital = MathUtilities.IsPandigital(concatenatedProduct);
+                    bool isPandigital = Utilities.IsPandigital(concatenatedProduct);
 
                     // ReSharper disable once InvertIf
                     if (isPandigital)

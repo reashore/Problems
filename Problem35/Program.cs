@@ -49,7 +49,7 @@ namespace Problem35
 
                 foreach (long numberRotation in digitRotations)
                 {
-                    if (!MathUtilities.IsPrime(numberRotation))
+                    if (!Utilities.IsPrime(numberRotation))
                     {
                         isCircularPrime = false;
                     }

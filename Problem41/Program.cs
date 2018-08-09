@@ -22,15 +22,15 @@ namespace Problem41
         private static void Test()
         {
             string number = "2143";
-            bool isPandigital = MathUtilities.IsPandigital(number, 4);
+            bool isPandigital = Utilities.IsPandigital(number, 4);
             Debug.Assert(isPandigital);
 
             number = "87654321";
-            isPandigital = MathUtilities.IsPandigital(number, 8);
+            isPandigital = Utilities.IsPandigital(number, 8);
             Debug.Assert(isPandigital);
 
             number = "987654321";
-            isPandigital = MathUtilities.IsPandigital(number);
+            isPandigital = Utilities.IsPandigital(number);
             Debug.Assert(isPandigital);
 
             long upperBound = GetUpperBound(5);
@@ -50,13 +50,13 @@ namespace Problem41
 
                 for (long number = upperBound; 2 < number; number--)
                 {
-                    if (!MathUtilities.IsPandigital(number, digit))
+                    if (!Utilities.IsPandigital(number, digit))
                     {
                         continue;
                     }
 
                     // ReSharper disable once InvertIf
-                    if (MathUtilities.IsPrime(number))
+                    if (Utilities.IsPrime(number))
                     {
                         if (number > maxPandigitalPrime)
                         {
