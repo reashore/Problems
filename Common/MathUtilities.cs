@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Common
 {
@@ -51,6 +52,22 @@ namespace Common
             }
 
             return true;
+        }
+
+        public static List<long> GetPrimeFactors(long number)
+        {
+            List<long> primeFactors = new List<long>();
+
+            for (long divsor = 2; divsor <= number; divsor++)
+            {
+                while (number % divsor == 0)
+                {
+                    primeFactors.Add(divsor);
+                    number = number / divsor;
+                }
+            }
+
+            return primeFactors;
         }
     }
 }

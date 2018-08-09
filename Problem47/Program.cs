@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Common;
 
 namespace Problem47
 {
@@ -21,17 +22,17 @@ namespace Problem47
         {
             const int upperBound = 1000000;
 
-            for (int n = 1; n < upperBound; n++)
+            for (long n = 1; n < upperBound; n++)
             {
-                int number1 = n;
-                int number2 = n + 1;
-                int number3 = n + 2;
-                int number4 = n + 3;
+                long number1 = n;
+                long number2 = n + 1;
+                long number3 = n + 2;
+                long number4 = n + 3;
 
-                List<int> primeFactors1 = GetPrimeFactors(number1);
-                List<int> primeFactors2 = GetPrimeFactors(number2);
-                List<int> primeFactors3 = GetPrimeFactors(number3);
-                List<int> primeFactors4 = GetPrimeFactors(number4);
+                List<long> primeFactors1 = MathUtilities.GetPrimeFactors(number1);
+                List<long> primeFactors2 = MathUtilities.GetPrimeFactors(number2);
+                List<long> primeFactors3 = MathUtilities.GetPrimeFactors(number3);
+                List<long> primeFactors4 = MathUtilities.GetPrimeFactors(number4);
 
                 bool allHaveDistinctPrimeFactors =
                     primeFactors1.Distinct().Count() == 4 &&
@@ -52,28 +53,12 @@ namespace Problem47
             }
         }
 
-        private static List<int> GetPrimeFactors(int number)
-        {
-            List<int> primes = new List<int>();
-
-            for (int divisor = 2; divisor <= number; divisor++)
-            {
-                while (number % divisor == 0)
-                {
-                    primes.Add(divisor);
-                    number = number / divisor;
-                }
-            }
-
-            return primes;
-        }
-
-        private static string ToString(IEnumerable<int> primeFactors)
+        private static string ToString(IEnumerable<long> primeFactors)
         {
             string primeFactorsString = "";
 
             // ReSharper disable once LoopCanBeConvertedToQuery
-            foreach (int primeFactor in primeFactors)
+            foreach (long primeFactor in primeFactors)
             {
                 primeFactorsString += $"{primeFactor}x";
             }
