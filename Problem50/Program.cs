@@ -52,7 +52,7 @@ namespace Problem50
             return (maxPrime, maxNumberConsecutivePrimes);
         }
 
-        private static long GetMaxSumOfConsecutivePrimes(long number, List<long> primes)
+        private static long GetMaxSumOfConsecutivePrimes(long number, IReadOnlyCollection<long> primes)
         {
             int numberPrimesLessThanNumber = primes.Count;
 

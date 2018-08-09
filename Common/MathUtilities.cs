@@ -15,6 +15,7 @@ namespace Common
             return (result, timeSpan);
         }
 
+        // ReSharper disable once UnusedMember.Global
         public static (T, TimeSpan) TimeFunction<T>(Func<T> functionToTime)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
