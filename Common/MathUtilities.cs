@@ -78,16 +78,46 @@ namespace Common
         {
             List<long> primeFactors = new List<long>();
 
-            for (long divsor = 2; divsor <= number; divsor++)
+            for (long divisor = 2; divisor <= number; divisor++)
             {
-                while (number % divsor == 0)
+                while (number % divisor == 0)
                 {
-                    primeFactors.Add(divsor);
-                    number = number / divsor;
+                    primeFactors.Add(divisor);
+                    number = number / divisor;
                 }
             }
 
             return primeFactors;
+        }
+
+        public static List<int> GetPrimeFactors(int number)
+        {
+            List<int> primeFactors = new List<int>();
+
+            for (int divisor = 2; divisor <= number; divisor++)
+            {
+                while (number % divisor == 0)
+                {
+                    primeFactors.Add(divisor);
+                    number = number / divisor;
+                }
+            }
+
+            return primeFactors;
+        }
+
+        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
+        public static List<int> ConvertNumericStringToList(string numericString)
+        {
+            List<int> digitsList = new List<int>();
+
+            foreach (char character in numericString)
+            {
+                int digit = Convert.ToInt32(character.ToString());
+                digitsList.Add(digit);
+            }
+
+            return digitsList;
         }
     }
 }

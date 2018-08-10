@@ -28,17 +28,17 @@ namespace Problem24
             Console.ReadKey();
         }
 
-        private static List<int> ConvertNumericStringToList(string sequenceString)
+        private static List<int> ConvertNumericStringToList(string numericString)
         {
-            List<int> sequence = new List<int>();
+            List<int> digitsList = new List<int>();
 
-            foreach (char character in sequenceString)
+            foreach (char character in numericString)
             {
                 int digit = Convert.ToInt32(character.ToString());
-                sequence.Add(digit);
+                digitsList.Add(digit);
             }
 
-            return sequence;
+            return digitsList;
         }
 
         private static IEnumerable<List<T>> Permutate<T>(IReadOnlyList<T> sequence)
