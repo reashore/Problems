@@ -62,6 +62,7 @@ namespace Problem33
 
                     // num/den = numerator/denominator
 
+                    // ReSharper disable once InvertIf
                     if (num * denominator == numerator * den)
                     {
                         Tuple<int, int> fraction = Tuple.Create(num, den);
@@ -119,6 +120,7 @@ namespace Problem33
 
             foreach (var factor in numeratorPrimeFactors)
             {
+                // ReSharper disable once InvertIf
                 if (denominatorPrimeFactorsCopy.Contains(factor))
                 {
                     commonFactors.Add(factor);
