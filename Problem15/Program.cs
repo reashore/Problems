@@ -28,7 +28,7 @@ namespace Problem15
             Grid grid = new Grid(1);
 
             Tuple<int, int> node = Tuple.Create(0, 0);
-            var children = grid.GetChildren(node);
+            List<Tuple<int, int>> children = grid.GetChildren(node);
             int count = children.Count;
             Utilities.Assert(count == 2);
 
