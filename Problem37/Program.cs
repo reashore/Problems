@@ -28,7 +28,7 @@ namespace Problem37
         {
             const long number = 3797;
             List<long> truncations = GetTruncations(number);
-            Debug.Assert(truncations.Count == 7);
+            Utilities.Assert(truncations.Count == 7);
         }
 
         private static (long, long) Solve(long upperBound)

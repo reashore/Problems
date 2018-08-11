@@ -26,13 +26,13 @@ namespace Problem38
             long digit = 5;
             long concatenatedProduct = GetConcatenatedProduct(number, digit);
             bool isPandigital = Utilities.IsPandigital(concatenatedProduct);
-            Debug.Assert(isPandigital);
+            Utilities.Assert(isPandigital);
 
             number = 192;
             digit = 3;
             concatenatedProduct = GetConcatenatedProduct(number, digit);
             isPandigital = Utilities.IsPandigital(concatenatedProduct);
-            Debug.Assert(isPandigital);
+            Utilities.Assert(isPandigital);
         }
 
         private static long Solve()

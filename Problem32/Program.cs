@@ -28,8 +28,8 @@ namespace Problem32
             double squareRootFloor = Math.Floor(squareRootDouble);
             long squareRootBound = Convert.ToInt64(squareRootFloor);
 
-            Debug.Assert(squareRootBound * squareRootBound <= upperBound);
-            Debug.Assert((squareRootBound + 1) * (squareRootBound + 1) >= upperBound);
+            Utilities.Assert(squareRootBound * squareRootBound <= upperBound);
+            Utilities.Assert((squareRootBound + 1) * (squareRootBound + 1) >= upperBound);
 
             List<long> pandigitalProductsList = new List<long>();
 

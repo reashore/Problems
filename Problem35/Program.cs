@@ -30,11 +30,11 @@ namespace Problem35
         {
             const string value = "123456";
             string rotatedValue = Rotate(value);
-            Debug.Assert(rotatedValue == "234561");
+            Utilities.Assert(rotatedValue == "234561");
 
             const int number = 123;
             List<long> digitRotations = GetDigitRotations(number);
-            Debug.Assert(digitRotations.Count == 3);
+            Utilities.Assert(digitRotations.Count == 3);
         }
 
         private static long Solve(long upperBound)

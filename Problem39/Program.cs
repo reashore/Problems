@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
+using Common;
 
 namespace Problem39
 {
@@ -29,7 +29,7 @@ namespace Problem39
         {
             const int perimeter = 120;
             int triangleCount = GetNumberIntegralTriangleWithPerimeter(perimeter);
-            Debug.Assert(triangleCount == 3);
+            Utilities.Assert(triangleCount == 3);
         }
 
         private static (int, int) Solve(int perimeterUpperBound)

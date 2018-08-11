@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Diagnostics;
 
 namespace Problem44
@@ -24,7 +25,7 @@ namespace Problem44
         private static void Test(long upperBound)
         {
             bool isPentagonalNumberCheck = IsPentagonalNumber(1);
-            Debug.Assert(isPentagonalNumberCheck);
+            Utilities.Assert(isPentagonalNumberCheck);
 
             for (int number = 1; number < upperBound; number++)
             {

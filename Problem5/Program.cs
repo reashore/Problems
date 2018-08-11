@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Common;
 
 namespace Problem5
 {
@@ -40,12 +41,12 @@ namespace Problem5
             int number = 2520;
             int upperBound = 10;
             bool result = IsNumberEvenlyDivisible(number, upperBound);
-            Debug.Assert(result);
+            Utilities.Assert(result);
 
             number = 232792560;
             upperBound = 20;
             result = IsNumberEvenlyDivisible(number, upperBound);
-            Debug.Assert(result);
+            Utilities.Assert(result);
         }
 
         private static bool IsNumberEvenlyDivisible(int number, int upperBound)

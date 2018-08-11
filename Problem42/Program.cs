@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -29,14 +30,14 @@ namespace Problem42
         {
             const string word = "SKY";
             int value = GetAlphabeticalValue(word);
-            Debug.Assert(value == 55);
+            Utilities.Assert(value == 55);
 
             for (int n = 1; n < 1000; n++)
             {
                 long triangularNumber = GetTriangleNumber(n);
                 bool isTriangularNumber = IsTriangularNumber(triangularNumber);
 
-                Debug.Assert(isTriangularNumber);
+                Utilities.Assert(isTriangularNumber);
             }
         }
 

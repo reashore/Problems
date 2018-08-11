@@ -31,7 +31,7 @@ namespace Problem7
             }
 
             bool isPrime = Utilities.IsPrime(104743);
-            Debug.Assert(isPrime);
+            Utilities.Assert(isPrime);
         }
 
         // ReSharper disable once ReturnTypeCanBeEnumerable.Local

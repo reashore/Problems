@@ -23,20 +23,20 @@ namespace Problem41
         {
             string number = "2143";
             bool isPandigital = Utilities.IsPandigital(number, 4);
-            Debug.Assert(isPandigital);
+            Utilities.Assert(isPandigital);
 
             number = "87654321";
             isPandigital = Utilities.IsPandigital(number, 8);
-            Debug.Assert(isPandigital);
+            Utilities.Assert(isPandigital);
 
             number = "987654321";
             isPandigital = Utilities.IsPandigital(number);
-            Debug.Assert(isPandigital);
+            Utilities.Assert(isPandigital);
 
             long upperBound = GetUpperBound(5);
-            Debug.Assert(upperBound == 54321);
+            Utilities.Assert(upperBound == 54321);
             upperBound = GetUpperBound(9);
-            Debug.Assert(upperBound == 987654321);
+            Utilities.Assert(upperBound == 987654321);
         }
 
         private static long Solve()

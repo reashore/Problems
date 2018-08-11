@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Common;
 
 namespace Problem24
 {
@@ -14,7 +15,7 @@ namespace Problem24
             Console.WriteLine("Problem 24");
 
             const string sequenceString = "0123456789";
-            List<int> sequence = ConvertNumericStringToList(sequenceString);
+            List<int> sequence = Utilities.ConvertNumericStringToList(sequenceString);
             List<List<int>> permutations = Permutate(sequence).ToList();
             List<List<int>> orderedPermutations = permutations.OrderBy(ToString).ToList();
             //Print(orderedPermutations);
@@ -26,19 +27,6 @@ namespace Problem24
 
             Console.WriteLine("Done");
             Console.ReadKey();
-        }
-
-        private static List<int> ConvertNumericStringToList(string numericString)
-        {
-            List<int> digitsList = new List<int>();
-
-            foreach (char character in numericString)
-            {
-                int digit = Convert.ToInt32(character.ToString());
-                digitsList.Add(digit);
-            }
-
-            return digitsList;
         }
 
         private static IEnumerable<List<T>> Permutate<T>(IReadOnlyList<T> sequence)

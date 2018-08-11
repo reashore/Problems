@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
+using Common;
 
 namespace Problem25
 {
@@ -35,10 +36,10 @@ namespace Problem25
         private static void Test()
         {
             BigInteger result = Fibonacci(12);
-            Debug.Assert(result == 12);
+            Utilities.Assert(result == 12);
 
             int numberDigits = CountDigits(new BigInteger(12345));
-            Debug.Assert(numberDigits == 5);
+            Utilities.Assert(numberDigits == 5);
         }
 
         private static int Solve(int numberDigits)

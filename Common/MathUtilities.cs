@@ -6,6 +6,14 @@ namespace Common
 {
     public static class Utilities
     {
+        public static void Assert(bool condition, string failureMessage = "Assertion failed")
+        {
+            if (!condition)
+            {
+                Console.WriteLine(failureMessage);
+            }
+        }
+
         public static (T2, TimeSpan) TimeFunction<T1, T2>(Func<T1, T2> functionToTime, T1 value)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();

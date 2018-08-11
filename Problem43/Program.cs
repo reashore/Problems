@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -24,19 +25,19 @@ namespace Problem43
         {
             long number = 9876543210;
             bool is0To9Pandigital = Is0To9Pandigital(number);
-            Debug.Assert(is0To9Pandigital);
+            Utilities.Assert(is0To9Pandigital);
 
             number = 1234567890;
             is0To9Pandigital = Is0To9Pandigital(number);
-            Debug.Assert(is0To9Pandigital);
+            Utilities.Assert(is0To9Pandigital);
 
             number = 9876543211;
             is0To9Pandigital = Is0To9Pandigital(number);
-            Debug.Assert(!is0To9Pandigital);
+            Utilities.Assert(!is0To9Pandigital);
 
             number = 1406357289;
             bool isSubstringDivisible = IsSubstringDivisible(number);
-            Debug.Assert(isSubstringDivisible);
+            Utilities.Assert(isSubstringDivisible);
         }
 
         private static long Solve()
@@ -64,7 +65,7 @@ namespace Problem43
         private static bool IsSubstringDivisible(long number)
         {
             string numberString = number.ToString();
-            Debug.Assert(numberString.Length == 10);
+            Utilities.Assert(numberString.Length == 10);
             List<string> digitList = new List<string>();
 
             foreach (char c in numberString)
