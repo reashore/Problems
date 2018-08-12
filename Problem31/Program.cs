@@ -81,30 +81,12 @@ namespace Problem31
         private static void Test3()
         {
             Money money1 = new Money(200);
-            Money money2 = new Money
-            {
-                Pense100 = 1,
-                Pense50 = 1,
-                Pense20 = 2,
-                Pense5 = 1,
-                Pense2 = 1,
-                Pense1 = 3
-            };
-            Utilities.Assert(Money.AreEqual(money1, money2));
+            Money money2 = new Money(0, 1, 1, 2, 0, 1, 1, 3);
+            Utilities.Assert(money1 == money2);
 
             money1 = new Money(388);
-            money2 = new Money
-            {
-                Pense200 = 1,
-                Pense100 = 1,
-                Pense50 = 1,
-                Pense20 = 1,
-                Pense10 = 1,
-                Pense5 = 1,
-                Pense2 = 1,
-                Pense1 = 1
-            };
-            Utilities.Assert(Money.AreEqual(money1, money2));
+            money2 = new Money(1, 1, 1, 1, 1, 1, 1, 1);
+            Utilities.Assert(money1 == money2);
         }
 
         #endregion
