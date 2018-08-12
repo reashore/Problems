@@ -15,7 +15,7 @@ namespace Problem15
 
             const int gridSize = 20;
             var result = Utilities.TimeFunction(Solve, gridSize);
-            long numberGridPaths = result.Item1;
+            ulong numberGridPaths = result.Item1;
             TimeSpan timeSpan = result.Item2;
             Console.WriteLine($"numberGridPaths = {numberGridPaths}, timeSpan = {timeSpan.TotalMinutes}");
 
@@ -48,7 +48,7 @@ namespace Problem15
             Utilities.Assert(count == 0);
 
             Node root = new Node(0, 0);
-            long numberGridPaths = grid.GetNumberGridPaths(root);
+            ulong numberGridPaths = grid.GetNumberGridPaths(root);
             Utilities.Assert(numberGridPaths == 2);
 
             grid = new Grid(2);
@@ -58,12 +58,12 @@ namespace Problem15
             Console.WriteLine("Tests done");
         }
 
-        private static long Solve(int gridSize)
+        private static ulong Solve(int gridSize)
         {
             Grid grid = new Grid(gridSize);
             Node startNode = new Node(0, 0);
 
-            long numberGridPaths = grid.GetNumberGridPaths(startNode);
+            ulong numberGridPaths = grid.GetNumberGridPaths(startNode);
 
             return numberGridPaths;
         }
@@ -78,10 +78,10 @@ namespace Problem15
             GridSize = gridSize;
         }
 
-        public long GetNumberGridPaths(Node node)
+        public ulong GetNumberGridPaths(Node node)
         {
             List<Node> children = GetChildren(node);
-            long numberGridPaths = 0;
+            ulong numberGridPaths = 0;
 
             if (children.Count == 0)
             {

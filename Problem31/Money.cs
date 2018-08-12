@@ -6,26 +6,26 @@ namespace Problem31
     {
         #region Constructors, fields, and properties
 
-        private readonly int _value;
+        private readonly uint _value;
 
         private Money()
         {
         }
 
-        public Money(int value = 0)
+        public Money(uint value = 0)
         {
-            NormalizeMoney(this, value);
+            Normalize(this, value);
         }
 
         public Money(
-            int pense200,
-            int pense100,
-            int pense50,
-            int pense20,
-            int pense10,
-            int pense5,
-            int pense2,
-            int pense1)
+            uint pense200,
+            uint pense100,
+            uint pense50,
+            uint pense20,
+            uint pense10,
+            uint pense5,
+            uint pense2,
+            uint pense1)
         {
             Pense200 = pense200;
             Pense100 = pense100;
@@ -39,21 +39,21 @@ namespace Problem31
             _value = GetValueFromMoney(this);
         }
 
-        public int Pense200 { get; private set; }
+        public uint Pense200 { get; private set; }
 
-        public int Pense100 { get; private set; }
+        public uint Pense100 { get; private set; }
 
-        public int Pense50 { get; private set; }
+        public uint Pense50 { get; private set; }
 
-        public int Pense20 { get; private set; }
+        public uint Pense20 { get; private set; }
 
-        public int Pense10 { get; private set; }
+        public uint Pense10 { get; private set; }
 
-        public int Pense5 { get; private set; }
+        public uint Pense5 { get; private set; }
 
-        public int Pense2 { get; private set; }
+        public uint Pense2 { get; private set; }
 
-        public int Pense1 { get; private set; }
+        public uint Pense1 { get; private set; }
 
         #endregion
 
@@ -85,7 +85,7 @@ namespace Problem31
             return areEqual;
         }
 
-        public void RemovePense200(Money money)
+        public void RemovePense200()
         {
             if (Pense200 > 0)
             {
@@ -94,7 +94,7 @@ namespace Problem31
             }
         }
 
-        public void RemovePense100(Money money)
+        public void RemovePense100()
         {
             if (Pense100 > 0)
             {
@@ -103,7 +103,7 @@ namespace Problem31
             }
         }
 
-        public void RemovePense50(Money money)
+        public void RemovePense50()
         {
             if (Pense50 > 0)
             {
@@ -113,7 +113,7 @@ namespace Problem31
             }
         }
 
-        public void RemovePense20(Money money)
+        public void RemovePense20()
         {
             if (Pense20 > 0)
             {
@@ -122,7 +122,7 @@ namespace Problem31
             }
         }
 
-        public void RemovePense10(Money money)
+        public void RemovePense10()
         {
             if (Pense10 > 0)
             {
@@ -131,7 +131,7 @@ namespace Problem31
             }
         }
 
-        public void RemovePense5(Money money)
+        public void RemovePense5()
         {
             if (Pense5 > 0)
             {
@@ -141,7 +141,7 @@ namespace Problem31
             }
         }
 
-        public void RemovePense2(Money money)
+        public void RemovePense2()
         {
             if (Pense2 > 0)
             {
@@ -154,9 +154,9 @@ namespace Problem31
 
         #region Static methods
 
-        public static int GetValueFromMoney(Money money)
+        public static uint GetValueFromMoney(Money money)
         {
-            int value = 0;
+            uint value = 0;
 
             value += money.Pense200 * 200;
             value += money.Pense100 * 100;
@@ -170,44 +170,44 @@ namespace Problem31
             return value;
         }
 
-        public static Money GetMoneyFromValue(int value)
+        public static Money GetMoneyFromValue(uint value)
         {
             Money money = new Money();
-            NormalizeMoney(money, value);
+            Normalize(money, value);
 
             return money;
         }
 
-        private static void NormalizeMoney(Money money, int value)
+        private static void Normalize(Money money, uint value)
         {
             money.Pense200 = value / 200;
-            int remainder200 = value % 200;
+            uint remainder200 = value % 200;
 
             money.Pense100 = remainder200 / 100;
-            int remainder100 = remainder200 % 100;
+            uint remainder100 = remainder200 % 100;
 
             money.Pense50 = remainder100 / 50;
-            int remainder50 = remainder100 % 50;
+            uint remainder50 = remainder100 % 50;
 
             money.Pense20 = remainder50 / 20;
-            int remainder20 = remainder50 % 20;
+            uint remainder20 = remainder50 % 20;
 
             money.Pense10 = remainder20 / 10;
-            int remainder10 = remainder20 % 10;
+            uint remainder10 = remainder20 % 10;
 
             money.Pense5 = remainder10 / 5;
-            int remainder5 = remainder10 % 5;
+            uint remainder5 = remainder10 % 5;
 
             money.Pense2 = remainder5 / 2;
-            int remainder2 = remainder5 % 2;
+            uint remainder2 = remainder5 % 2;
 
             money.Pense1 = remainder2;
         }
 
         public static bool operator ==(Money money1, Money money2)
         {
-            int value1 = GetValueFromMoney(money1);
-            int value2 = GetValueFromMoney(money2);
+            uint value1 = GetValueFromMoney(money1);
+            uint value2 = GetValueFromMoney(money2);
 
             return value1 == value2;
         }

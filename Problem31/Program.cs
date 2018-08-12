@@ -26,16 +26,17 @@ namespace Problem31
             Test1();
             Test2();
             Test3();
+            Test4();
 
             Console.WriteLine("Tests done");
         }
 
         private static void Test1()
         {
-            for (int valueIn = 0; valueIn <= 200; valueIn++)
+            for (uint valueIn = 0; valueIn <= 200; valueIn++)
             {
-                var money = Money.GetMoneyFromValue(valueIn);
-                int valueOut = Money.GetValueFromMoney(money);
+                Money money = Money.GetMoneyFromValue(valueIn);
+                uint valueOut = Money.GetValueFromMoney(money);
 
                 if (valueIn != valueOut)
                 {
@@ -89,11 +90,56 @@ namespace Problem31
             Utilities.Assert(money1 == money2);
         }
 
+        private static void Test4()
+        {
+            Money money1 = new Money(200);
+            money1.RemovePense200();
+            Money money2 = new Money(0, 2, 0, 0, 0, 0, 0, 0);
+            Utilities.Assert(money1 == money2);
+
+            money1 = new Money(100);
+            money1.RemovePense100();
+            money2 = new Money(0, 0, 2, 0, 0, 0, 0, 0);
+            Utilities.Assert(money1 == money2);
+
+            money1 = new Money(50);
+            money1.RemovePense50();
+            money2 = new Money(0, 0, 0, 2, 1, 0, 0, 0);
+            Utilities.Assert(money1 == money2);
+
+            money1 = new Money(20);
+            money1.RemovePense20();
+            money2 = new Money(0, 0, 0, 0, 2, 0, 0, 0);
+            Utilities.Assert(money1 == money2);
+
+            money1 = new Money(10);
+            money1.RemovePense10();
+            money2 = new Money(0, 0, 0, 0, 0, 2, 0, 0);
+            Utilities.Assert(money1 == money2);
+
+            money1 = new Money(5);
+            money1.RemovePense5();
+            money2 = new Money(0, 0, 0, 0, 0, 0, 2, 1);
+            Utilities.Assert(money1 == money2);
+
+            money1 = new Money(2);
+            money1.RemovePense2();
+            money2 = new Money(0, 0, 0, 0, 0, 0, 0, 2);
+            Utilities.Assert(money1 == money2);
+        }
+
         #endregion
 
         private static long Solve()
         {
             Money money = new Money(200);
+
+            // 1 case with P1
+            // count cases with P2, P1
+            // count cases with P5, P2, P1
+            // count cases with P10, P5, P2, P1
+            // count cases with P20, P10, P5, P2, P1
+            // count cases with P50, P20, P10, P5, P2, P1
 
 
             return 0;
