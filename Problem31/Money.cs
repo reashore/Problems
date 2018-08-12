@@ -57,7 +57,7 @@ namespace Problem31
 
         #endregion
 
-        #region Public methods
+        #region Methods
 
         public override int GetHashCode()
         {
@@ -66,12 +66,8 @@ namespace Problem31
 
         public override bool Equals(object other)
         {
-            if (!(other is Money))
-            {
-                return false;
-            }
-
-            return Equals((Money) other);
+            Money money = other as Money;
+            return money != null && Equals(money);
         }
 
         private bool Equals(Money money)
@@ -89,9 +85,72 @@ namespace Problem31
             return areEqual;
         }
 
+        public void RemovePense200(Money money)
+        {
+            if (Pense200 > 0)
+            {
+                Pense100 += 2 * Pense200;
+                Pense200 = 0;
+            }
+        }
+
+        public void RemovePense100(Money money)
+        {
+            if (Pense100 > 0)
+            {
+                Pense50 += 2 * Pense100;
+                Pense100 = 0;
+            }
+        }
+
+        public void RemovePense50(Money money)
+        {
+            if (Pense50 > 0)
+            {
+                Pense20 += 2 * Pense50;
+                Pense10 += 1;
+                Pense50 = 0;
+            }
+        }
+
+        public void RemovePense20(Money money)
+        {
+            if (Pense20 > 0)
+            {
+                Pense10 += 2 * Pense20;
+                Pense20 = 0;
+            }
+        }
+
+        public void RemovePense10(Money money)
+        {
+            if (Pense10 > 0)
+            {
+                Pense5 += 2 * Pense10;
+                Pense10 = 0;
+            }
+        }
+
+        public void RemovePense5(Money money)
+        {
+            if (Pense5 > 0)
+            {
+                Pense2 += 2 * Pense5;
+                Pense1 += 1;
+                Pense5 = 0;
+            }
+        }
+
+        public void RemovePense2(Money money)
+        {
+            if (Pense2 > 0)
+            {
+                Pense1 += 2 * Pense2;
+                Pense2 = 0;
+            }
+        }
+
         #endregion
-
-
 
         #region Static methods
 
