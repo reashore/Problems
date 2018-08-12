@@ -13,7 +13,7 @@ namespace Problem15
 
             Test();
 
-            const int gridSize = 25;
+            const int gridSize = 20;
             var result = Utilities.TimeFunction(Solve, gridSize);
             long numberGridPaths = result.Item1;
             TimeSpan timeSpan = result.Item2;
@@ -27,41 +27,41 @@ namespace Problem15
         {
             Grid grid = new Grid(1);
 
-            Tuple<int, int> node = Tuple.Create(0, 0);
-            List<Tuple<int, int>> children = grid.GetChildren(node);
+            Node node = new Node(0, 0);
+            List<Node> children = grid.GetChildren(node);
             int count = children.Count;
             Utilities.Assert(count == 2);
 
-            node = Tuple.Create(0, 1);
+            node = new Node(0, 1);
             children = grid.GetChildren(node);
             count = children.Count;
             Utilities.Assert(count == 1);
 
-            node = Tuple.Create(1, 0);
+            node = new Node(1, 0);
             children = grid.GetChildren(node);
             count = children.Count;
             Utilities.Assert(count == 1);
 
-            node = Tuple.Create(1, 1);
+            node = new Node(1, 1);
             children = grid.GetChildren(node);
             count = children.Count;
             Utilities.Assert(count == 0);
 
-            Tuple<int, int> root = Tuple.Create(0, 0);
+            Node root = new Node(0, 0);
             long numberGridPaths = grid.GetNumberGridPaths(root);
             Utilities.Assert(numberGridPaths == 2);
 
             grid = new Grid(2);
-
-            root = Tuple.Create(0, 0);
             numberGridPaths = grid.GetNumberGridPaths(root);
             Utilities.Assert(numberGridPaths == 6);
+
+            Console.WriteLine("Tests done");
         }
 
         private static long Solve(int gridSize)
         {
             Grid grid = new Grid(gridSize);
-            Tuple<int, int> startNode = Tuple.Create(0, 0);
+            Node startNode = new Node(0, 0);
 
             long numberGridPaths = grid.GetNumberGridPaths(startNode);
 
@@ -78,9 +78,9 @@ namespace Problem15
             GridSize = gridSize;
         }
 
-        public long GetNumberGridPaths(Tuple<int, int> node)
+        public long GetNumberGridPaths(Node node)
         {
-            List<Tuple<int, int>> children = GetChildren(node);
+            List<Node> children = GetChildren(node);
             long numberGridPaths = 0;
 
             if (children.Count == 0)
@@ -88,7 +88,7 @@ namespace Problem15
                 return 1;
             }
 
-            foreach (Tuple<int, int> child in children)
+            foreach (Node child in children)
             {
                 numberGridPaths += GetNumberGridPaths(child);
             }
@@ -97,31 +97,27 @@ namespace Problem15
         }
 
         // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-        public List<Tuple<int, int>> GetChildren(Tuple<int, int> node)
+        public List<Node> GetChildren(Node node)
         {
-            List<Tuple<int, int>> children = new List<Tuple<int, int>>();
-            int row = node.Item1;
-            int col = node.Item2;
-            Tuple<int, int> child;
-
-            // if at bottom-right, return empty list
-            if (row == GridSize && col == GridSize)
-            {
-                return children;
-            }
+            List<Node> children = new List<Node>();
+            int row = node.Row;
+            int col = node.Col;
+            Node child;
 
             if (col < GridSize)
             {
-                child = Tuple.Create(row, col + 1);
+                child = new Node(row, col + 1);
                 children.Add(child);
             }
 
             // ReSharper disable once InvertIf
             if (row < GridSize)
             {
-                child = Tuple.Create(row + 1, col);
+                child = new Node(row + 1, col);
                 children.Add(child);
             }
+
+            // if at bottom-right, return empty list
 
             return children;
         }

@@ -21,7 +21,7 @@ namespace Problem33
 
         private static long Solve()
         {
-            List<Tuple<int, int>> cancellingFactionsList = new List<Tuple<int, int>>();
+            List<Fraction> cancellingFactionsList = new List<Fraction>();
 
             for (int num = 10; num < 100; num++)
             {
@@ -65,7 +65,7 @@ namespace Problem33
                     // ReSharper disable once InvertIf
                     if (num * denominator == numerator * den)
                     {
-                        Tuple<int, int> fraction = Tuple.Create(num, den);
+                        Fraction fraction = new Fraction(num, den);
                         cancellingFactionsList.Add(fraction);
                         Console.WriteLine($"fraction = {num}/{den}");
                     }
@@ -78,15 +78,15 @@ namespace Problem33
         }
 
         // ReSharper disable once ParameterTypeCanBeEnumerable.Local
-        private static int FindDenominatorOfProductInLowestTerms(List<Tuple<int, int>> cancellingFactionsList)
+        private static int FindDenominatorOfProductInLowestTerms(List<Fraction> cancellingFactionsList)
         {
             int numeratorProducts = 1;
             int denominatorProducts = 1;
 
-            foreach (Tuple<int, int> fraction in cancellingFactionsList)
+            foreach (Fraction fraction in cancellingFactionsList)
             {
-                int fractionNum = fraction.Item1;
-                int fractionDen = fraction.Item2;
+                int fractionNum = fraction.Numerator;
+                int fractionDen = fraction.Denominator;
 
                 numeratorProducts *= fractionNum;
                 denominatorProducts *= fractionDen;
