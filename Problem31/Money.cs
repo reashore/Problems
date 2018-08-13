@@ -1,12 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace Problem31
+﻿namespace Problem31
 {
     internal class Money
     {
         #region Constructors, fields, and properties
-
-        private readonly uint _value;
 
         private Money()
         {
@@ -14,6 +10,7 @@ namespace Problem31
 
         public Money(uint value = 0)
         {
+            Value = value;
             Normalize(this, value);
         }
 
@@ -36,7 +33,7 @@ namespace Problem31
             Pense2 = pense2;
             Pense1 = pense1;
 
-            _value = GetValueFromMoney(this);
+            Value = GetValueFromMoney(this);
         }
 
         public uint Pense200 { get; private set; }
@@ -55,13 +52,15 @@ namespace Problem31
 
         public uint Pense1 { get; private set; }
 
+        public uint Value { get; }
+
         #endregion
 
         #region Methods
 
         public override int GetHashCode()
         {
-            return _value.GetHashCode();
+            return Value.GetHashCode();
         }
 
         public override bool Equals(object other)
@@ -83,71 +82,6 @@ namespace Problem31
                 Pense1 == money.Pense1;
 
             return areEqual;
-        }
-
-        public void RemovePense200()
-        {
-            if (Pense200 > 0)
-            {
-                Pense100 += 2 * Pense200;
-                Pense200 = 0;
-            }
-        }
-
-        public void RemovePense100()
-        {
-            if (Pense100 > 0)
-            {
-                Pense50 += 2 * Pense100;
-                Pense100 = 0;
-            }
-        }
-
-        public void RemovePense50()
-        {
-            if (Pense50 > 0)
-            {
-                Pense20 += 2 * Pense50;
-                Pense10 += 1;
-                Pense50 = 0;
-            }
-        }
-
-        public void RemovePense20()
-        {
-            if (Pense20 > 0)
-            {
-                Pense10 += 2 * Pense20;
-                Pense20 = 0;
-            }
-        }
-
-        public void RemovePense10()
-        {
-            if (Pense10 > 0)
-            {
-                Pense5 += 2 * Pense10;
-                Pense10 = 0;
-            }
-        }
-
-        public void RemovePense5()
-        {
-            if (Pense5 > 0)
-            {
-                Pense2 += 2 * Pense5;
-                Pense1 += 1;
-                Pense5 = 0;
-            }
-        }
-
-        public void RemovePense2()
-        {
-            if (Pense2 > 0)
-            {
-                Pense1 += 2 * Pense2;
-                Pense2 = 0;
-            }
         }
 
         #endregion
@@ -215,15 +149,6 @@ namespace Problem31
         public static bool operator !=(Money money1, Money money2)
         {
             return !(money1 == money2);
-        }
-
-        private static List<Money> MakeChange(Money money)
-        {
-            List<Money> changeList = new List<Money>();
-
-
-
-            return changeList;
         }
 
         #endregion

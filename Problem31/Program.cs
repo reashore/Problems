@@ -12,8 +12,8 @@ namespace Problem31
 
             Test();
 
-            long numberEquivalentCurrencyChanges = Solve();
-            Console.WriteLine($"numberEquivalentCurrencyChanges = {numberEquivalentCurrencyChanges}");
+            long numberCurrencyChanges = Solve();
+            Console.WriteLine($"numberCurrencyChanges = {numberCurrencyChanges}");      // 73682
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -26,7 +26,6 @@ namespace Problem31
             Test1();
             Test2();
             Test3();
-            Test4();
 
             Console.WriteLine("Tests done");
         }
@@ -90,59 +89,42 @@ namespace Problem31
             Utilities.Assert(money1 == money2);
         }
 
-        private static void Test4()
-        {
-            Money money1 = new Money(200);
-            money1.RemovePense200();
-            Money money2 = new Money(0, 2, 0, 0, 0, 0, 0, 0);
-            Utilities.Assert(money1 == money2);
-
-            money1 = new Money(100);
-            money1.RemovePense100();
-            money2 = new Money(0, 0, 2, 0, 0, 0, 0, 0);
-            Utilities.Assert(money1 == money2);
-
-            money1 = new Money(50);
-            money1.RemovePense50();
-            money2 = new Money(0, 0, 0, 2, 1, 0, 0, 0);
-            Utilities.Assert(money1 == money2);
-
-            money1 = new Money(20);
-            money1.RemovePense20();
-            money2 = new Money(0, 0, 0, 0, 2, 0, 0, 0);
-            Utilities.Assert(money1 == money2);
-
-            money1 = new Money(10);
-            money1.RemovePense10();
-            money2 = new Money(0, 0, 0, 0, 0, 2, 0, 0);
-            Utilities.Assert(money1 == money2);
-
-            money1 = new Money(5);
-            money1.RemovePense5();
-            money2 = new Money(0, 0, 0, 0, 0, 0, 2, 1);
-            Utilities.Assert(money1 == money2);
-
-            money1 = new Money(2);
-            money1.RemovePense2();
-            money2 = new Money(0, 0, 0, 0, 0, 0, 0, 2);
-            Utilities.Assert(money1 == money2);
-        }
-
         #endregion
 
         private static long Solve()
         {
-            Money money = new Money(200);
+            uint numberCurrencyChanges = 0;
 
-            // 1 case with P1
-            // count cases with P2, P1
-            // count cases with P5, P2, P1
-            // count cases with P10, P5, P2, P1
-            // count cases with P20, P10, P5, P2, P1
-            // count cases with P50, P20, P10, P5, P2, P1
+            for (uint p100 = 0; p100 <= 2; p100++)
+            {
+                for (uint p50 = 0; p50 <= 4; p50++)
+                {
+                    for (uint p20 = 0; p20 <= 10; p20++)
+                    {
+                        for (uint p10 = 0; p10 <= 20; p10++)
+                        {
+                            for (uint p5 = 0; p5 <= 40; p5++)
+                            {
+                                for (uint p2 = 0; p2 <= 100; p2++)
+                                {
+                                    for (uint p1 = 0; p1 <= 200; p1++)
+                                    {
+                                        Money money = new Money(0, p100, p50, p20, p10, p5, p2, p1);
 
+                                        if (money.Value == 200)
+                                        {
+                                            numberCurrencyChanges++;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
-            return 0;
+            // include p200
+            return numberCurrencyChanges + 1;
         }
     }
 }
