@@ -17,7 +17,8 @@ namespace Problem15
             var result = Utilities.TimeFunction(Solve, gridSize);
             ulong numberGridPaths = result.Item1;
             TimeSpan timeSpan = result.Item2;
-            Console.WriteLine($"numberGridPaths = {numberGridPaths}, timeSpan = {timeSpan.TotalMinutes}");
+            // numberGridPaths = 137846528820, timeSpan = 11.0657929098611
+            Console.WriteLine($"numberGridPaths = {numberGridPaths}, timeSpan = {timeSpan.TotalHours}");
 
             Console.WriteLine("Done");
             Console.ReadKey();
