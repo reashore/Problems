@@ -12,7 +12,7 @@ namespace Problem31
 
             Test();
 
-            long numberCurrencyChanges = Solve();
+            ulong numberCurrencyChanges = Solve();
             Console.WriteLine($"numberCurrencyChanges = {numberCurrencyChanges}");      // 73682
 
             Console.WriteLine("Done");
@@ -91,29 +91,32 @@ namespace Problem31
 
         #endregion
 
-        private static long Solve()
+        private static ulong Solve()
         {
             uint numberCurrencyChanges = 0;
 
-            for (uint p100 = 0; p100 <= 2; p100++)
+            for (uint p200 = 0; p200 <= 1; p200++)
             {
-                for (uint p50 = 0; p50 <= 4; p50++)
+                for (uint p100 = 0; p100 <= 2; p100++)
                 {
-                    for (uint p20 = 0; p20 <= 10; p20++)
+                    for (uint p50 = 0; p50 <= 4; p50++)
                     {
-                        for (uint p10 = 0; p10 <= 20; p10++)
+                        for (uint p20 = 0; p20 <= 10; p20++)
                         {
-                            for (uint p5 = 0; p5 <= 40; p5++)
+                            for (uint p10 = 0; p10 <= 20; p10++)
                             {
-                                for (uint p2 = 0; p2 <= 100; p2++)
+                                for (uint p5 = 0; p5 <= 40; p5++)
                                 {
-                                    for (uint p1 = 0; p1 <= 200; p1++)
+                                    for (uint p2 = 0; p2 <= 100; p2++)
                                     {
-                                        Money money = new Money(0, p100, p50, p20, p10, p5, p2, p1);
-
-                                        if (money.Value == 200)
+                                        for (uint p1 = 0; p1 <= 200; p1++)
                                         {
-                                            numberCurrencyChanges++;
+                                            Money money = new Money(p200, p100, p50, p20, p10, p5, p2, p1);
+
+                                            if (money.Value == 200)
+                                            {
+                                                numberCurrencyChanges++;
+                                            }
                                         }
                                     }
                                 }
@@ -123,8 +126,7 @@ namespace Problem31
                 }
             }
 
-            // include p200
-            return numberCurrencyChanges + 1;
+            return numberCurrencyChanges;
         }
     }
 }

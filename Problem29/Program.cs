@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 
@@ -58,23 +59,11 @@ namespace Problem29
                 }
             }
 
-            //PrintDistinctPowers(distinctPowers);
+            //Utilities.PrintList(distinctPowers);
 
             long count = distinctPowers.Count;
 
             return count;
         }
-
-        //private static void PrintDistinctPowers(IReadOnlyCollection<BigInteger> distinctPowers)
-        //{
-        //    string line = "";
-
-        //    foreach (BigInteger distinctPower in distinctPowers)
-        //    {
-        //        line += $"{distinctPower}, ";
-        //    }
-
-        //    Console.WriteLine(line);
-        //}
     }
 }

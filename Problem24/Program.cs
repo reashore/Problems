@@ -17,12 +17,12 @@ namespace Problem24
             const string sequenceString = "0123456789";
             List<int> sequence = Utilities.ConvertNumericStringToList(sequenceString);
             List<List<int>> permutations = Permutate(sequence).ToList();
-            List<List<int>> orderedPermutations = permutations.OrderBy(ToString).ToList();
+            List<List<int>> orderedPermutations = permutations.OrderBy(Utilities.ConvertListToString).ToList();
             //Print(orderedPermutations);
 
             const int index = 999999;
             List<int> millionthPermutation = orderedPermutations[index];
-            string millionthPermutationString = ToString(millionthPermutation);
+            string millionthPermutationString = Utilities.ConvertListToString(millionthPermutation);
             Console.WriteLine(millionthPermutationString);      // 2783915460
 
             Console.WriteLine("Done");
@@ -51,18 +51,6 @@ namespace Problem24
                     }
                 }
             }
-        }
-
-        private static string ToString(List<int> permutation)
-        {
-            string permutationString = "";
-
-            foreach (int item in permutation)
-            {
-                permutationString += item;
-            }
-
-            return permutationString;
         }
 
         //private static void Print(List<List<int>> permutations)

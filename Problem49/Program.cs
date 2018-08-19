@@ -63,9 +63,9 @@ namespace Problem49
             List<int> number2OrderedList = number2List.OrderBy(p => p).ToList();
             List<int> number3OrderedList = number3List.OrderBy(p => p).ToList();
 
-            string number1OrderedString = ConvertListToString(number1OrderedList);
-            string number2OrderedString = ConvertListToString(number2OrderedList);
-            string number3OrderedString = ConvertListToString(number3OrderedList);
+            string number1OrderedString = Utilities.ConvertListToString(number1OrderedList);
+            string number2OrderedString = Utilities.ConvertListToString(number2OrderedList);
+            string number3OrderedString = Utilities.ConvertListToString(number3OrderedList);
 
             bool areEqual = number1OrderedString == number2OrderedString &&
                             number2OrderedString == number3OrderedString;
@@ -84,19 +84,6 @@ namespace Problem49
             }
 
             return list;
-        }
-
-        private static string ConvertListToString(IEnumerable<int> list)
-        {
-            string result = "";
-
-            // ReSharper disable once LoopCanBeConvertedToQuery
-            foreach (int n in list)
-            {
-                result += n.ToString();
-            }
-
-            return result;
         }
     }
 }

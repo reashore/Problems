@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace Common
 {
@@ -127,5 +130,85 @@ namespace Common
 
             return digitsList;
         }
+
+        public static string ConvertListToString(IEnumerable<int> list)
+        {
+            string result = "";
+
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            foreach (int n in list)
+            {
+                result += n.ToString();
+            }
+
+            return result;
+        }
+
+        public static string ConvertListToStringFast(IEnumerable<int> list)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            foreach (int n in list)
+            {
+                stringBuilder.Append(n.ToString());
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        // ReSharper disable once UnusedMember.Local
+        public static void InitializeMatrixToZeros(int size, int[,] matrix)
+        {
+            for (int row = 0; row < size; row++)
+            {
+                for (int col = 0; col < size; col++)
+                {
+                    matrix[row, col] = 0;
+                }
+            }
+        }
+
+        // ReSharper disable once UnusedMember.Local
+        public static void PrintMatrix(int size, int[,] matrix)
+        {
+            for (int row = 0; row < size; row++)
+            {
+                string matrixRow = "";
+
+                for (int col = 0; col < size; col++)
+                {
+                    matrixRow += $"{matrix[row, col],4}, ";
+                }
+
+                Console.WriteLine(matrixRow);
+            }
+
+            Console.WriteLine();
+        }
+
+        public static void PrintList<T>(IEnumerable<T> list)
+        {
+            string line = "";
+
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            foreach (T item in list)
+            {
+                line += $"{item}, ";
+            }
+
+            Console.WriteLine(line);
+        }
+
+        public static List<string> ReadCsvFile(string fileName)
+        {
+            string wordsString = File.ReadAllText(fileName);
+            wordsString = wordsString.Replace("\"", "");
+
+            List<string> wordsArray = wordsString.Split(new[] { ',' }).ToList();
+            List<string> sortedWordsList = wordsArray.OrderBy(n => n).ToList();
+
+            return sortedWordsList;
+        }
+
     }
 }

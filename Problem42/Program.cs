@@ -1,8 +1,6 @@
 ﻿using Common;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace Problem42
 {
@@ -17,7 +15,7 @@ namespace Problem42
             Console.WriteLine("Tests done");
 
             const string fileName = "Words.txt";
-            List<string> words = ReadWordsFromFile(fileName);
+            List<string> words = Utilities.ReadCsvFile(fileName);
             long numberTriangularWords = Solve(words);
             Console.WriteLine($"numberTriangularWords = {numberTriangularWords}");      // 162
 
@@ -38,18 +36,6 @@ namespace Problem42
 
                 Utilities.Assert(isTriangularNumber);
             }
-        }
-
-        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-        private static List<string> ReadWordsFromFile(string fileName)
-        {
-            string wordsString = File.ReadAllText(fileName);
-            wordsString = wordsString.Replace("\"", "");
-
-            List<string> wordsArray = wordsString.Split(new[] { ',' }).ToList();
-            List<string> sortedWordsList = wordsArray.OrderBy(n => n).ToList();
-
-            return sortedWordsList;
         }
 
         private static long Solve(IEnumerable<string> words)

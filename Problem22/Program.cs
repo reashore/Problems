@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using Common;
 
 namespace Problem22
 {
@@ -13,25 +12,13 @@ namespace Problem22
             Console.WriteLine("Problem 22");
 
             const string fileName = "Names.txt";
-            List<string> namesList = ReadNamesFromFile(fileName);
+            List<string> namesList = Utilities.ReadCsvFile(fileName);
             long sumNamesScores = Solve(namesList);
 
             Console.WriteLine($"sumNamesScores = {sumNamesScores}");
 
             Console.WriteLine("Done");
             Console.ReadKey();
-        }
-
-        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-        private static List<string> ReadNamesFromFile(string fileName)
-        {
-            string namesString = File.ReadAllText(fileName);
-            namesString = namesString.Replace("\"", "");
-
-            List<string> namesArray = namesString.Split(new[] { ',' }).ToList();
-            List<string> sortedNamesList = namesArray.OrderBy(n => n).ToList();
-
-            return sortedNamesList;
         }
 
         private static long Solve(IEnumerable<string> namesList)
