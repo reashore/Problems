@@ -53,6 +53,7 @@ namespace Problem55
             return lychrelNumberCount;
         }
 
+        // ReSharper disable once IdentifierTypo
         private static bool IsLychrelNumber(int number)
         {
             string numberString = number.ToString();
