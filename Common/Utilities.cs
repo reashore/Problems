@@ -57,6 +57,23 @@ namespace Common
             return number != 1;
         }
 
+        public static bool IsPalindrome(string value)
+        {
+            for (int left = 0, right = value.Length - 1; left <= right; left++, right--)
+            {
+                int leftChar = value[left];
+                int rightChar = value[right];
+
+                if (leftChar != rightChar)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
         public static bool IsPandigital(long number, int n = 9)
         {
             // Contains every digit from 1 to n exactly once
@@ -210,5 +227,17 @@ namespace Common
             return sortedWordsList;
         }
 
+        public static string Reverse(string valueString)
+        {
+            string reversedValueString = "";
+            int length = valueString.Length;
+
+            for (int n = length - 1; n >= 0; n--)
+            {
+                reversedValueString += valueString[n];
+            }
+
+            return reversedValueString;
+        }
     }
 }

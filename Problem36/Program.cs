@@ -1,4 +1,5 @@
 ﻿using System;
+using Common;
 
 namespace Problem36
 {
@@ -28,7 +29,7 @@ namespace Problem36
 
                 //Console.WriteLine($"number = {number}, numberBase10 = {numberBase10}, numberBase2 = {numberBase2}");
 
-                if (IsPalindrome(numberBase10) && IsPalindrome(numberBase2))
+                if (Utilities.IsPalindrome(numberBase10) && Utilities.IsPalindrome(numberBase2))
                 {
                     sum += number;
                     //Console.WriteLine($"number = {number}");
@@ -36,22 +37,6 @@ namespace Problem36
             }
 
             return sum;
-        }
-
-        private static bool IsPalindrome(string numberString)
-        {
-            for (int left = 0, right = numberString.Length - 1; left <= right; left++, right--)
-            {
-                int leftChar = numberString[left];
-                int rightChar = numberString[right];
-
-                if (leftChar != rightChar)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }
