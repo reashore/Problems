@@ -11,23 +11,23 @@ namespace Problem59
         {
             Console.WriteLine("Problem 59");
 
-            long result = Solve();
-            Console.WriteLine($"result = {result}");        // 107359
+            (long, string) result = Solve();
+            Console.WriteLine($"result = {result.Item1}");        // 107359
+            Console.WriteLine(result.Item2);
 
             Console.WriteLine("Done");
             Console.ReadKey();
         }
 
-        private static long Solve()
+        private static (long, string) Solve()
         {
             const string cipherFileName = "Cipher.txt";
             List<string> encryptedData = ReadCsvFile(cipherFileName);
             List<int> encyptedList = ConvertToIntList(encryptedData);
             string decryptedData = DecryptData(encyptedList);
-            Console.WriteLine(decryptedData);
-            long sumOfDecryptedAsciiCharacters = SumDecryptedAsciiCharacters(decryptedData);
+            long sum = SumDecryptedAsciiCharacters(decryptedData);
 
-            return sumOfDecryptedAsciiCharacters;
+            return (sum, decryptedData);
         }
         
         private static List<string> ReadCsvFile(string fileName)
@@ -51,44 +51,6 @@ namespace Problem59
             }
 
             return intList;
-        }
-
-        private static long SumDecryptedAsciiCharacters(string decryptedData)
-        {
-            long sum = 0;
-
-            foreach (char character in decryptedData)
-            {
-                sum += character;
-            }
-
-            return sum;
-        }
-
-        private static List<string> GetCommonWordsList()
-        {
-            List<string> commonWorList = new List<string>
-            {
-                "the",
-                "of",
-                "and",
-                "a",
-                "to",
-                "in",
-                "is",
-                "you",
-                "that",
-                "it",
-                "he",
-                "was",
-                "for",
-                "on",
-                "are",
-                "as",
-                "with"
-            };
-
-            return commonWorList;
         }
 
         private static string DecryptData(List<int> encyptedList)
@@ -164,6 +126,44 @@ namespace Problem59
             }
 
             return commonWordMatches;
+        }
+
+        private static List<string> GetCommonWordsList()
+        {
+            List<string> commonWorList = new List<string>
+            {
+                "the",
+                "of",
+                "and",
+                "a",
+                "to",
+                "in",
+                "is",
+                "you",
+                "that",
+                "it",
+                "he",
+                "was",
+                "for",
+                "on",
+                "are",
+                "as",
+                "with"
+            };
+
+            return commonWorList;
+        }
+
+        private static long SumDecryptedAsciiCharacters(string decryptedData)
+        {
+            long sum = 0;
+
+            foreach (char character in decryptedData)
+            {
+                sum += character;
+            }
+
+            return sum;
         }
     }
 }
