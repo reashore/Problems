@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace Problem9
 {
@@ -7,12 +7,12 @@ namespace Problem9
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 9");
+            WriteLine("Problem 9");
 
             Solve();
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Solve()
@@ -27,7 +27,7 @@ namespace Problem9
                         if (a * a + b * b == c * c && a + b + c == 1000)
                         {
                             int product = a * b * c;
-                            Console.WriteLine($"{a} x {b} x {c} = {product}");
+                            WriteLine($"{a} x {b} x {c} = {product}");
 
                             break;
                         }

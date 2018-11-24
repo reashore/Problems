@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Numerics;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem26
 {
@@ -20,7 +20,7 @@ namespace Problem26
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 26");
+            WriteLine("Problem 26");
 
             Test();
 
@@ -30,63 +30,63 @@ namespace Problem26
             long maxDigitStringLength = result.Item2;
             string maxDigitString = result.Item3;
 
-            Console.WriteLine($"maxDenominator = {maxDenominator}, maxDigitStringLength = {maxDigitStringLength}, maxDigitString = {maxDigitString}");
+            WriteLine($"maxDenominator = {maxDenominator}, maxDigitStringLength = {maxDigitStringLength}, maxDigitString = {maxDigitString}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             // 1/2 = 0.5(0)
             string repeatingDigitList = GetRepeatingDecimalDigits(2);
-            Utilities.PrintList(repeatingDigitList);
-            Utilities.Assert(repeatingDigitList.Length == 1);
+            PrintList(repeatingDigitList);
+            Assert(repeatingDigitList.Length == 1);
 
             // 1/3 = 0.(3)
             repeatingDigitList = GetRepeatingDecimalDigits(3);
-            Utilities.PrintList(repeatingDigitList);
-            Utilities.Assert(repeatingDigitList.Length == 1);
+            PrintList(repeatingDigitList);
+            Assert(repeatingDigitList.Length == 1);
             
             // 1/4 = 0.25(0)
             repeatingDigitList = GetRepeatingDecimalDigits(4);
-            Utilities.PrintList(repeatingDigitList);
-            Utilities.Assert(repeatingDigitList.Length == 1);
+            PrintList(repeatingDigitList);
+            Assert(repeatingDigitList.Length == 1);
 
             // 1/5 = 0.2(0)
             repeatingDigitList = GetRepeatingDecimalDigits(5);
-            Utilities.PrintList(repeatingDigitList);
-            Utilities.Assert(repeatingDigitList.Length == 1);
+            PrintList(repeatingDigitList);
+            Assert(repeatingDigitList.Length == 1);
 
             // 1/6 = 0.1(6)
             repeatingDigitList = GetRepeatingDecimalDigits(6);
-            Utilities.PrintList(repeatingDigitList);
-            Utilities.Assert(repeatingDigitList.Length == 1);
+            PrintList(repeatingDigitList);
+            Assert(repeatingDigitList.Length == 1);
 
             // 1/7 = 0.(142857)
             repeatingDigitList = GetRepeatingDecimalDigits(7);
-            Utilities.PrintList(repeatingDigitList);
-            Utilities.Assert(repeatingDigitList.Length == 6);
+            PrintList(repeatingDigitList);
+            Assert(repeatingDigitList.Length == 6);
 
             // 1/8 = 0.125(0)
             repeatingDigitList = GetRepeatingDecimalDigits(8);
-            Utilities.PrintList(repeatingDigitList);
-            Utilities.Assert(repeatingDigitList.Length == 1);
+            PrintList(repeatingDigitList);
+            Assert(repeatingDigitList.Length == 1);
 
             // 1/9 = 0.(1)
             repeatingDigitList = GetRepeatingDecimalDigits(9);
-            Utilities.PrintList(repeatingDigitList);
-            Utilities.Assert(repeatingDigitList.Length == 1);
+            PrintList(repeatingDigitList);
+            Assert(repeatingDigitList.Length == 1);
 
             // 1/10 = 0.1(0)
             repeatingDigitList = GetRepeatingDecimalDigits(10);
-            Utilities.PrintList(repeatingDigitList);
-            Utilities.Assert(repeatingDigitList.Length == 1);
+            PrintList(repeatingDigitList);
+            Assert(repeatingDigitList.Length == 1);
 
             // 1/983 = 0.??
             repeatingDigitList = GetRepeatingDecimalDigits(983);
-            Utilities.PrintList(repeatingDigitList);
-            Utilities.Assert(repeatingDigitList.Length == 985);
+            PrintList(repeatingDigitList);
+            Assert(repeatingDigitList.Length == 985);
         }
 
         private static (long, long, string) Solve(int upperBound)
@@ -107,7 +107,7 @@ namespace Problem26
                     maxRepeatingDigitString = repeatingDigitString;
                     maxRepeatingDenominator = denominator;
 
-                    Console.WriteLine($"maxRepeatingDenominator = {maxRepeatingDenominator}, maxRepeatingDigitStringLength = {maxRepeatingDigitStringLength}, maxRepeatingDigitString = {maxRepeatingDigitString}");
+                    WriteLine($"maxRepeatingDenominator = {maxRepeatingDenominator}, maxRepeatingDigitStringLength = {maxRepeatingDigitStringLength}, maxRepeatingDigitString = {maxRepeatingDigitString}");
                 }
             }
 
@@ -156,7 +156,7 @@ namespace Problem26
             }
 
             // repeating digits with the non-repeating prefix are in digitList2
-            string digitList2String = Utilities.ConvertListToString(digitList2);
+            string digitList2String = ConvertListToString(digitList2);
 
             return digitList2String;
         }

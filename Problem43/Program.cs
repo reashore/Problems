@@ -1,6 +1,7 @@
-﻿using Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem43
 {
@@ -9,34 +10,34 @@ namespace Problem43
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 43");
+            WriteLine("Problem 43");
 
             Test();
 
             long sum = Solve();
-            Console.WriteLine($" sum = {sum}");     // 16695334890
+            WriteLine($" sum = {sum}");     // 16695334890
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             long number = 9876543210;
             bool is0To9Pandigital = Is0To9Pandigital(number);
-            Utilities.Assert(is0To9Pandigital);
+            Assert(is0To9Pandigital);
 
             number = 1234567890;
             is0To9Pandigital = Is0To9Pandigital(number);
-            Utilities.Assert(is0To9Pandigital);
+            Assert(is0To9Pandigital);
 
             number = 9876543211;
             is0To9Pandigital = Is0To9Pandigital(number);
-            Utilities.Assert(!is0To9Pandigital);
+            Assert(!is0To9Pandigital);
 
             number = 1406357289;
             bool isSubstringDivisible = IsSubstringDivisible(number);
-            Utilities.Assert(isSubstringDivisible);
+            Assert(isSubstringDivisible);
         }
 
         private static long Solve()
@@ -53,7 +54,7 @@ namespace Problem43
                     {
                         sum += number;
 
-                        Console.WriteLine($"{number} is 0 to 9 pandigital and substring divisible");
+                        WriteLine($"{number} is 0 to 9 pandigital and substring divisible");
                     }
                 }
             }
@@ -64,7 +65,7 @@ namespace Problem43
         private static bool IsSubstringDivisible(long number)
         {
             string numberString = number.ToString();
-            Utilities.Assert(numberString.Length == 10);
+            Assert(numberString.Length == 10);
             List<string> digitList = new List<string>();
 
             foreach (char c in numberString)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Console;
 
 namespace Problem8
 {
@@ -9,7 +10,7 @@ namespace Problem8
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 8");
+            WriteLine("Problem 8");
 
             const string number = "73167176531330624919225119674426574742355349194934" +
                                   "96983520312774506326239578318016984801869478851843" +
@@ -34,8 +35,8 @@ namespace Problem8
 
             Test(number);
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test(string number)
@@ -45,7 +46,7 @@ namespace Problem8
             foreach (int take in takes)
             {
                 long product = Solve(number, take);
-                Console.WriteLine($"product = {product}");
+                WriteLine($"product = {product}");
             }
         }
 
@@ -71,7 +72,7 @@ namespace Problem8
                 if (product > maxProduct)
                 {
                     maxProduct = product;
-                    Console.WriteLine($"skip = {skip}, product = {product}");
+                    WriteLine($"skip = {skip}, product = {product}");
                 }
             }
 

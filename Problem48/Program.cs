@@ -1,6 +1,6 @@
-﻿using System;
-using System.Numerics;
-using Common;
+﻿using System.Numerics;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem48
 {
@@ -9,16 +9,16 @@ namespace Problem48
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 48");
+            WriteLine("Problem 48");
             Test();
 
             const int upperBound = 1000;
             string lastTenDigits = Solve(upperBound);
-            Console.WriteLine($"lastTenDigits = {lastTenDigits}");
-            Utilities.Assert(lastTenDigits == "9110846700");
+            WriteLine($"lastTenDigits = {lastTenDigits}");
+            Assert(lastTenDigits == "9110846700");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
@@ -31,7 +31,7 @@ namespace Problem48
                 sum += BigInteger.Pow(n, n);
             }
 
-            Utilities.Assert(sum.ToString() == "10405071317");
+            Assert(sum.ToString() == "10405071317");
         }
 
         private static string Solve(int upperBound)

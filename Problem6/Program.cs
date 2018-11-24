@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using static System.Console;
 
 namespace Problem6
 {
@@ -9,12 +9,12 @@ namespace Problem6
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 6");
+            WriteLine("Problem 6");
 
             Test();
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
@@ -24,7 +24,7 @@ namespace Problem6
             foreach(int number in numbers)
             {
                 int result = Solve(number);
-                Console.WriteLine($"number = {number, 5}, result = {result, 20}");
+                WriteLine($"number = {number, 5}, result = {result, 20}");
             }
         }
 

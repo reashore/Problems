@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using static System.Console;
 
 namespace Problem23
 {
@@ -15,21 +15,21 @@ namespace Problem23
 
         private static void Main()
         {
-            Console.WriteLine("Problem 23");
+            WriteLine("Problem 23");
 
             Test();
             long result = Solve();
-            Console.WriteLine($"result = {result}");    
+            WriteLine($"result = {result}");    
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             const long num = 28;
             long sumOfProperDivisors = SumOfProperDivisors(num);
-            Console.WriteLine($"SumOfProperDivisors({num}) = {sumOfProperDivisors}");
+            WriteLine($"SumOfProperDivisors({num}) = {sumOfProperDivisors}");
 
             List<long> numbers = new List<long>
             {
@@ -45,7 +45,7 @@ namespace Problem23
             foreach (long number in numbers)
             {
                 PerfectType perfectType = GetPerfectType(number);
-                Console.WriteLine($"number = {number}, perfectType = {perfectType.ToString()}");
+                WriteLine($"number = {number}, perfectType = {perfectType.ToString()}");
             }
         }
 
@@ -66,7 +66,7 @@ namespace Problem23
 
                 if (n % 1000 == 0)
                 {
-                    Console.WriteLine($"{n}");
+                    WriteLine($"{n}");
                 }
 
                 if (!hasAbundantAddends)

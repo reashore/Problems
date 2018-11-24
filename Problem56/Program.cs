@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem56
 {
@@ -11,14 +11,14 @@ namespace Problem56
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 56");
+            WriteLine("Problem 56");
 
             const int upperBound = 100;
             long result = Solve(upperBound);
-            Console.WriteLine($"result = {result}");        // 972
+            WriteLine($"result = {result}");        // 972
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static long Solve(int upperBound)
@@ -31,7 +31,7 @@ namespace Problem56
                 {
                     BigInteger power = BigInteger.Pow(a, b);
                     string powerString = power.ToString();
-                    List<int> powerList = Utilities.ConvertNumericStringToList(powerString);
+                    List<int> powerList = ConvertNumericStringToList(powerString);
                     long digitSum = powerList.Sum(n => n);
 
                     if (digitSum > maxDigitSum)

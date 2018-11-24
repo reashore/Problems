@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Common;
+﻿using System.Collections.Generic;
+using static System.Console;
+using static Common.Utilities;
 
 namespace Problem22
 {
@@ -9,16 +9,16 @@ namespace Problem22
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 22");
+            WriteLine("Problem 22");
 
             const string fileName = "Names.txt";
-            List<string> namesList = Utilities.ReadCsvFile(fileName);
+            IEnumerable<string> namesList = ReadCsvFile(fileName);
             long sumNamesScores = Solve(namesList);
 
-            Console.WriteLine($"sumNamesScores = {sumNamesScores}");
+            WriteLine($"sumNamesScores = {sumNamesScores}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static long Solve(IEnumerable<string> namesList)

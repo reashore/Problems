@@ -1,5 +1,5 @@
-﻿using System;
-using Common;
+﻿using static Common.Utilities;
+using static System.Console;
 
 namespace Problem63
 {
@@ -10,38 +10,38 @@ namespace Problem63
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 63");
+            WriteLine("Problem 63");
 
             Test();
 
             int result = Solve();
-            Console.WriteLine($"result = {result}");
+            WriteLine($"result = {result}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             long power = Pow(10, 1);
-            Utilities.Assert(power == 10);
+            Assert(power == 10);
 
             power = Pow(10, 2);
-            Utilities.Assert(power == 100);
+            Assert(power == 100);
 
             power = Pow(7, 5);
-            Utilities.Assert(power == 16807);
+            Assert(power == 16807);
 
             power = Pow(8, 9);
-            Utilities.Assert(power == 134217728);
+            Assert(power == 134217728);
 
             (bool, int) result = IsEqualToAnNthPower(16807, 5);
-            Utilities.Assert(result.Item1);
-            Utilities.Assert(result.Item2 == 7);
+            Assert(result.Item1);
+            Assert(result.Item2 == 7);
 
             result = IsEqualToAnNthPower(134217728, 9);
-            Utilities.Assert(result.Item1);
-            Utilities.Assert(result.Item2 == 8);
+            Assert(result.Item1);
+            Assert(result.Item2 == 8);
         }
 
         private static int Solve()
@@ -64,8 +64,8 @@ namespace Problem63
 
                 if (match)
                 {
-                    Utilities.Assert(Pow(baseNumber, numberLength) == number);
-                    Console.WriteLine($"Pow({baseNumber}, {numberLength}) = {number,10}");
+                    Assert(Pow(baseNumber, numberLength) == number);
+                    WriteLine($"Pow({baseNumber}, {numberLength}) = {number,10}");
                     powerNumberCount++;
                 }
             }

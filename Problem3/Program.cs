@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem3
 {
@@ -10,15 +10,15 @@ namespace Problem3
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 3");
+            WriteLine("Problem 3");
             const long number = 600851475143;
 
-            List<long> primeFactors = Utilities.GetPrimeFactors(number);
+            List<long> primeFactors = GetPrimeFactors(number);
             long largestPrimeFactor = primeFactors.Max(n => n);
-            Console.WriteLine($"largestPrimeFactor = {largestPrimeFactor}");    //  6857
+            WriteLine($"largestPrimeFactor = {largestPrimeFactor}");    //  6857
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
     }
 }

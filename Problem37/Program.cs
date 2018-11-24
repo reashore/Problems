@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem37
 {
@@ -9,7 +10,7 @@ namespace Problem37
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 37");
+            WriteLine("Problem 37");
 
             Test();
 
@@ -17,17 +18,17 @@ namespace Problem37
             (long, long) result = Solve(upperBound);
             long count = result.Item1;
             long sum = result.Item2;
-            Console.WriteLine($"count = {count}, sum = {sum}");
+            WriteLine($"count = {count}, sum = {sum}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             const long number = 3797;
             List<long> truncations = GetTruncations(number);
-            Utilities.Assert(truncations.Count == 7);
+            Assert(truncations.Count == 7);
         }
 
         private static (long, long) Solve(long upperBound)
@@ -39,14 +40,14 @@ namespace Problem37
             {
                 List<long> truncations = GetTruncations(number);
 
-                bool allTruncationsArePrime = truncations.TrueForAll(Utilities.IsPrime);
+                bool allTruncationsArePrime = truncations.TrueForAll(IsPrime);
 
                 // ReSharper disable once InvertIf
                 if (allTruncationsArePrime)
                 {
                     sum += number;
                     count++;
-                    Console.WriteLine($"number = {number}");
+                    WriteLine($"number = {number}");
                 }
             }
 

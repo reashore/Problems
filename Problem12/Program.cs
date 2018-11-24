@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using static System.Console;
 
 namespace Problem12
 {
@@ -8,13 +8,13 @@ namespace Problem12
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 12");
+            WriteLine("Problem 12");
 
             TestTriangularNumbers();
             Test();
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void TestTriangularNumbers()
@@ -23,8 +23,8 @@ namespace Problem12
             {
                 ulong triangularNumber = GetTriangleNumber(n);
                 List<ulong> divisors = GetDivisors(triangularNumber);
-                Console.WriteLine($"n = {n}, triangulatNumber = {triangularNumber}");
-                divisors.ForEach(Console.WriteLine);
+                WriteLine($"n = {n}, triangulatNumber = {triangularNumber}");
+                divisors.ForEach(WriteLine);
             }
         }
 
@@ -40,7 +40,7 @@ namespace Problem12
                 ulong divisorCount = result.Item3;
 
                 // GetTriangleNumber(12375) = 76576500, maxDivisors = 500 divisorCount = 576
-                Console.WriteLine($"GetTriangleNumber({number}) = {triangleNumber}, maxDivisors = {maxDivisors} divisorCount = {divisorCount}");
+                WriteLine($"GetTriangleNumber({number}) = {triangleNumber}, maxDivisors = {maxDivisors} divisorCount = {divisorCount}");
             }
         }
 

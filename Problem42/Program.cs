@@ -1,6 +1,6 @@
-﻿using Common;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem42
 {
@@ -9,32 +9,32 @@ namespace Problem42
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 42");
+            WriteLine("Problem 42");
 
             Test();
-            Console.WriteLine("Tests done");
+            WriteLine("Tests done");
 
             const string fileName = "Words.txt";
-            List<string> words = Utilities.ReadCsvFile(fileName);
+            IEnumerable<string> words = ReadCsvFile(fileName);
             long numberTriangularWords = Solve(words);
-            Console.WriteLine($"numberTriangularWords = {numberTriangularWords}");      // 162
+            WriteLine($"numberTriangularWords = {numberTriangularWords}");      // 162
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             const string word = "SKY";
             int value = GetAlphabeticalValue(word);
-            Utilities.Assert(value == 55);
+            Assert(value == 55);
 
             for (int n = 1; n < 1000; n++)
             {
                 long triangularNumber = GetTriangleNumber(n);
                 bool isTriangularNumber = IsTriangularNumber(triangularNumber);
 
-                Utilities.Assert(isTriangularNumber);
+                Assert(isTriangularNumber);
             }
         }
 

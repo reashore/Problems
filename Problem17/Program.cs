@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
+using static System.Console;
 
 namespace Problem17
 {
@@ -9,7 +9,7 @@ namespace Problem17
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 17");
+            WriteLine("Problem 17");
 
             SortedDictionary<int, string> numbersDictionary = new SortedDictionary<int, string>();
 
@@ -18,10 +18,10 @@ namespace Problem17
             AssignNumbers101To999(numbersDictionary);
             Print(numbersDictionary);
             int letterCount = CountLetters(numbersDictionary);
-            Console.WriteLine($"letterCount = {letterCount}");      // 21124
+            WriteLine($"letterCount = {letterCount}");      // 21124
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void AssignBasicNumbers(IDictionary<int, string> numbersDictionary)
@@ -91,7 +91,7 @@ namespace Problem17
         {
             foreach (KeyValuePair<int, string> item in numbersDictionary)
             {
-                Console.WriteLine($"{item.Key} = {item.Value}");
+                WriteLine($"{item.Key} = {item.Value}");
             }
         }
 

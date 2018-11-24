@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Console;
 
 namespace Problem21
 {
@@ -9,17 +10,17 @@ namespace Problem21
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 21");
+            WriteLine("Problem 21");
 
             //Test();
 
             const int upperBound = 10000;
             List<int> amicableNumbers = GetAmicableNumbers(upperBound);
             int sumOfAmicableNumbers = amicableNumbers.Sum(n => n);
-            Console.WriteLine($"sumOfAmicableNumbers = {sumOfAmicableNumbers}");
+            WriteLine($"sumOfAmicableNumbers = {sumOfAmicableNumbers}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         //private static void Test()
@@ -45,7 +46,7 @@ namespace Problem21
                 if (isAmicableNumber)
                 {
                     amicableNumbers.Add(n);
-                    Console.WriteLine($"IsAmicableNumber({n}) = true, partner = {GetAmicableNumberPartner(n)}");
+                    WriteLine($"IsAmicableNumber({n}) = true, partner = {GetAmicableNumberPartner(n)}");
                 }
             }
 

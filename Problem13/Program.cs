@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using static System.Console;
 
 namespace Problem13
 {
@@ -10,7 +11,7 @@ namespace Problem13
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 13");
+            WriteLine("Problem 13");
 
             const string numbers = "37107287533902102798797998220837590246510135740250," +
                                    "46376937677490009712648124896970078050417018260538," +
@@ -114,16 +115,16 @@ namespace Problem13
                                    "53503534226472524250874054075591789781264330331690";
             
             string result = Solve(numbers);
-            Console.WriteLine($"result = { result}");
+            WriteLine($"result = { result}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static string Solve(string numbers)
         {
             BigInteger sum = Sum(numbers);
-            Console.WriteLine($"sum = {sum}");
+            WriteLine($"sum = {sum}");
 
             // BigInt -> string -> List<int>
 

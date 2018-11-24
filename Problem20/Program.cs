@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using static System.Console;
 
 namespace Problem20
 {
@@ -10,21 +11,21 @@ namespace Problem20
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 20");
+            WriteLine("Problem 20");
 
             Solve(10);
             Solve(100);
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Solve(int number)
         {
             BigInteger factorial = Factorial(number);
             int sumOfDigits = SumDigits(factorial);
-            Console.WriteLine($"Factorial({number}) = {factorial.ToString()}");
-            Console.WriteLine($"SumDigits = {sumOfDigits}");
+            WriteLine($"Factorial({number}) = {factorial.ToString()}");
+            WriteLine($"SumDigits = {sumOfDigits}");
         }
 
         private static BigInteger Factorial(int n)

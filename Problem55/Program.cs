@@ -1,6 +1,6 @@
-﻿using Common;
-using System;
-using System.Numerics;
+﻿using System.Numerics;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem55
 {
@@ -9,32 +9,32 @@ namespace Problem55
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 55");
+            WriteLine("Problem 55");
 
             Test();
 
             const int upperBound = 10000;
             int result = Solve(upperBound);
-            Console.WriteLine($"result = {result}");        // 249
+            WriteLine($"result = {result}");        // 249
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             const string numberString = "0123456789";
-            string reverseNumberString = Utilities.Reverse(numberString);
-            Utilities.Assert(reverseNumberString == "9876543210");
+            string reverseNumberString = Reverse(numberString);
+            Assert(reverseNumberString == "9876543210");
 
             bool result = IsLychrelNumber(47);
-            Utilities.Assert(!result);
+            Assert(!result);
 
             result = IsLychrelNumber(349);
-            Utilities.Assert(!result);
+            Assert(!result);
 
             result = IsLychrelNumber(196);
-            Utilities.Assert(result);
+            Assert(result);
         }
 
         private static int Solve(int upperBound)
@@ -61,13 +61,13 @@ namespace Problem55
 
             for(int n = 1; n < iterationMax; n++)
             {
-                string reversedNumberString = Utilities.Reverse(numberString);
+                string reversedNumberString = Reverse(numberString);
                 BigInteger addend1 = BigInteger.Parse(numberString);
                 BigInteger addend2 = BigInteger.Parse(reversedNumberString);
                 BigInteger sum = addend1 + addend2;
                 string sumString = sum.ToString();
 
-                if (Utilities.IsPalindrome(sumString))
+                if (IsPalindrome(sumString))
                 {
                     return false;
                 }

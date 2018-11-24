@@ -216,7 +216,7 @@ namespace Common
             Console.WriteLine(line);
         }
 
-        public static List<string> ReadCsvFile(string fileName)
+        public static IEnumerable<string> ReadCsvFile(string fileName)
         {
             string wordsString = File.ReadAllText(fileName);
             wordsString = wordsString.Replace("\"", "");

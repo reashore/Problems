@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Common;
+﻿using System.Collections.Generic;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem46
 {
@@ -9,7 +9,7 @@ namespace Problem46
     {
         private static void Main()
         {
-            Console.WriteLine("problem 46");
+            WriteLine("problem 46");
 
             Test();
 
@@ -18,11 +18,11 @@ namespace Problem46
 
             if (result > 0)
             {
-                Console.WriteLine($"Goldbach's conjecture failed for {result}");
+                WriteLine($"Goldbach's conjecture failed for {result}");
             }
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
@@ -32,7 +32,7 @@ namespace Problem46
 
             if (!allSatisfyGoldbackConjecture)
             {
-                Console.WriteLine("Goldbach conjecture failed for List");
+                WriteLine("Goldbach conjecture failed for List");
             }
         }
 
@@ -60,7 +60,7 @@ namespace Problem46
         {
             for (long n = 3; n < number; n++)
             {
-                if (!Utilities.IsPrime(n))
+                if (!IsPrime(n))
                 {
                     continue;
                 }
@@ -84,7 +84,7 @@ namespace Problem46
         private static bool IsOddComposite(long number)
         {
             bool isOdd = number % 2 != 0;
-            bool isPrime = Utilities.IsPrime(number);
+            bool isPrime = IsPrime(number);
 
             return isOdd && !isPrime;
         }

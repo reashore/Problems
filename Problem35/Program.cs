@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem35
 {
@@ -9,31 +10,31 @@ namespace Problem35
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 35");
+            WriteLine("Problem 35");
 
             Test();
 
             long upperBound = 100;
             long count = Solve(upperBound);
-            Console.WriteLine($"count = {count}");      // 13
+            WriteLine($"count = {count}");      // 13
 
             upperBound = 1000000;
             count = Solve(upperBound);
-            Console.WriteLine($"count = {count}");      // 55
+            WriteLine($"count = {count}");      // 55
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             const string value = "123456";
             string rotatedValue = Rotate(value);
-            Utilities.Assert(rotatedValue == "234561");
+            Assert(rotatedValue == "234561");
 
             const int number = 123;
             List<long> digitRotations = GetDigitRotations(number);
-            Utilities.Assert(digitRotations.Count == 3);
+            Assert(digitRotations.Count == 3);
         }
 
         private static long Solve(long upperBound)
@@ -48,7 +49,7 @@ namespace Problem35
 
                 foreach (long numberRotation in digitRotations)
                 {
-                    if (!Utilities.IsPrime(numberRotation))
+                    if (!IsPrime(numberRotation))
                     {
                         isCircularPrime = false;
                     }

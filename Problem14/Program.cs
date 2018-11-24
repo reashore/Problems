@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace Problem14
 {
@@ -7,12 +7,12 @@ namespace Problem14
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 14");
+            WriteLine("Problem 14");
 
             Solve();
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Solve()
@@ -21,7 +21,7 @@ namespace Problem14
             (long, long) result = GetLongestCollatzChain(upperBound);
             long start = result.Item1;
             long longestCollatzChain = result.Item2;
-            Console.WriteLine($"start = {start}, longestCollatzChain = {longestCollatzChain}");
+            WriteLine($"start = {start}, longestCollatzChain = {longestCollatzChain}");
         }
 
         private static (long, long) GetLongestCollatzChain(long upperBound)

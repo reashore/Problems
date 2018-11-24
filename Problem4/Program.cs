@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace Problem4
 {
@@ -7,13 +7,13 @@ namespace Problem4
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 4");
+            WriteLine("Problem 4");
 
             int maxPalindrome = Solve();
-            Console.WriteLine($"maxPalindrome = {maxPalindrome}");
+            WriteLine($"maxPalindrome = {maxPalindrome}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static int Solve()

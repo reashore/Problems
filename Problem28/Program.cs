@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace Problem28
 {
@@ -7,14 +8,14 @@ namespace Problem28
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 28");
+            WriteLine("Problem 28");
 
             const int size = 1001;
             long sumBothDiagonals = Solve(size);
-            Console.WriteLine($"sumBothDiagonals = {sumBothDiagonals}");
+            WriteLine($"sumBothDiagonals = {sumBothDiagonals}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static long Solve(int size)

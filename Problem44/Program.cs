@@ -1,5 +1,6 @@
-﻿using Common;
-using System;
+﻿using System;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem44
 {
@@ -8,23 +9,23 @@ namespace Problem44
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 44");
+            WriteLine("Problem 44");
 
             const long upperBound = 10000;
             Test(upperBound);
-            Console.WriteLine("Tests Done");
+            WriteLine("Tests Done");
 
             long minimalDifference = Solve(upperBound);
-            Console.WriteLine($"minimalDifference = {minimalDifference}");      // 5482660
+            WriteLine($"minimalDifference = {minimalDifference}");      // 5482660
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test(long upperBound)
         {
             bool isPentagonalNumberCheck = IsPentagonalNumber(1);
-            Utilities.Assert(isPentagonalNumberCheck);
+            Assert(isPentagonalNumberCheck);
 
             for (int number = 1; number < upperBound; number++)
             {
@@ -35,7 +36,7 @@ namespace Problem44
 
                 if (!isPentagonalNumber)
                 {
-                    Console.WriteLine($"Failed for number = {number}, pentagonalNumber = {pentagonalNumber}");
+                    WriteLine($"Failed for number = {number}, pentagonalNumber = {pentagonalNumber}");
                 }
             }
         }
@@ -43,7 +44,7 @@ namespace Problem44
         private static long Solve(long upperBound)
         {
             long minimalDifference = long.MaxValue;
-            Console.WriteLine($"long max = {long.MaxValue}");
+            WriteLine($"long max = {long.MaxValue}");
 
             for (int n = 1; n < upperBound; n++)
             {
@@ -76,7 +77,7 @@ namespace Problem44
                     if (difference < minimalDifference)
                     {
                         minimalDifference = difference;
-                        Console.WriteLine($"minimalDifference = {minimalDifference}");
+                        WriteLine($"minimalDifference = {minimalDifference}");
                     }
                 }
             }

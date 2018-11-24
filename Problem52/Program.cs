@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem52
 {
@@ -10,16 +10,16 @@ namespace Problem52
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 52");
+            WriteLine("Problem 52");
 
             Test();
 
             const ulong upperBound = 1000000;
             ulong result = Solve(upperBound);
-            Console.WriteLine($"result = {result}");    // 142857
+            WriteLine($"result = {result}");    // 142857
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
@@ -29,7 +29,7 @@ namespace Problem52
 
             List<int> numberDigits = GetDistinctSortedDigits(number);
             bool numbersContainSameDigits = DoNumbersContainSameDigits(numberDigits, number2);
-            Utilities.Assert(numbersContainSameDigits);
+            Assert(numbersContainSameDigits);
         }
 
         private static ulong Solve(ulong upperBound)
@@ -73,7 +73,7 @@ namespace Problem52
             return numberWithSameDigitsProperty;
         }
 
-        private static bool DoNumbersContainSameDigits(List<int> numberDigits, ulong otherNumber)
+        private static bool DoNumbersContainSameDigits(IReadOnlyList<int> numberDigits, ulong otherNumber)
         {
             List<int> otherNumberDigits = GetDistinctSortedDigits(otherNumber);
 
@@ -98,7 +98,7 @@ namespace Problem52
         private static List<int> GetDistinctSortedDigits(ulong number)
         {
             string numberString = number.ToString();
-            List<int> digitList = Utilities.ConvertNumericStringToList(numberString);
+            List<int> digitList = ConvertNumericStringToList(numberString);
             List<int> distinctOrderedDigitList = digitList.Distinct().OrderBy(n => n).ToList();
 
             return distinctOrderedDigitList;

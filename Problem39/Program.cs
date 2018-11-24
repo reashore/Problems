@@ -1,5 +1,5 @@
-﻿using System;
-using Common;
+﻿using static Common.Utilities;
+using static System.Console;
 
 namespace Problem39
 {
@@ -8,10 +8,10 @@ namespace Problem39
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 39");
+            WriteLine("Problem 39");
 
             Test();
-            Console.WriteLine("Tests Done");
+            WriteLine("Tests Done");
 
             const int perimeterUpperBound = 1000;
             (int, int) result = Solve(perimeterUpperBound);
@@ -19,17 +19,17 @@ namespace Problem39
             int numberTriangles = result.Item2;
 
             // maxPerimeter = 840, numberTriangles = 8
-            Console.WriteLine($"maxPerimeter = {maxPerimeter}, numberTriangles = {numberTriangles}");
+            WriteLine($"maxPerimeter = {maxPerimeter}, numberTriangles = {numberTriangles}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             const int perimeter = 120;
             int triangleCount = GetNumberIntegralTriangleWithPerimeter(perimeter);
-            Utilities.Assert(triangleCount == 3);
+            Assert(triangleCount == 3);
         }
 
         private static (int, int) Solve(int perimeterUpperBound)
@@ -79,7 +79,7 @@ namespace Problem39
                     }
 
                     count++;
-                    Console.WriteLine($"a = {a}, b = {b}, c = {c}");
+                    WriteLine($"a = {a}, b = {b}, c = {c}");
                 }
             }
 

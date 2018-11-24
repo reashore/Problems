@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using static System.Console;
 
 namespace Problem16
 {
@@ -10,12 +11,12 @@ namespace Problem16
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 12");
+            WriteLine("Problem 12");
 
             Test();
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
@@ -25,7 +26,7 @@ namespace Problem16
             foreach(int exponent in exponents)
             {
                 int result = Solve(exponent);
-                Console.WriteLine($"result = {result}");
+                WriteLine($"result = {result}");
             }
         }
 

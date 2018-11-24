@@ -1,5 +1,6 @@
 ﻿using System;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem36
 {
@@ -8,14 +9,14 @@ namespace Problem36
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 36");
+            WriteLine("Problem 36");
 
             const int upperLimit = 1000000;
             long sum = Solve(upperLimit);
-            Console.WriteLine($"sum = {sum}");      // 872187
+            WriteLine($"sum = {sum}");      // 872187
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static long Solve(int upperLimit)
@@ -29,7 +30,7 @@ namespace Problem36
 
                 //Console.WriteLine($"number = {number}, numberBase10 = {numberBase10}, numberBase2 = {numberBase2}");
 
-                if (Utilities.IsPalindrome(numberBase10) && Utilities.IsPalindrome(numberBase2))
+                if (IsPalindrome(numberBase10) && IsPalindrome(numberBase2))
                 {
                     sum += number;
                     //Console.WriteLine($"number = {number}");

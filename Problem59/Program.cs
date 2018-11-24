@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using static System.Console;
 
 namespace Problem59
 {
@@ -9,20 +10,20 @@ namespace Problem59
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 59");
+            WriteLine("Problem 59");
 
             (long, string) result = Solve();
-            Console.WriteLine($"result = {result.Item1}");        // 107359
-            Console.WriteLine(result.Item2);
+            WriteLine($"result = {result.Item1}");        // 107359
+            WriteLine(result.Item2);
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static (long, string) Solve()
         {
             const string cipherFileName = "Cipher.txt";
-            List<string> encryptedData = ReadCsvFile(cipherFileName);
+            IEnumerable<string> encryptedData = ReadCsvFile(cipherFileName);
             List<int> encyptedList = ConvertToIntList(encryptedData);
             string decryptedData = DecryptData(encyptedList);
             long sum = SumDecryptedAsciiCharacters(decryptedData);
@@ -30,7 +31,7 @@ namespace Problem59
             return (sum, decryptedData);
         }
         
-        private static List<string> ReadCsvFile(string fileName)
+        private static IEnumerable<string> ReadCsvFile(string fileName)
         {
             string wordsString = File.ReadAllText(fileName);
             // Remove trailing newline
@@ -40,20 +41,12 @@ namespace Problem59
             return codeArray;
         }
 
-        private static List<int> ConvertToIntList(List<string> stringList)
+        private static List<int> ConvertToIntList(IEnumerable<string> stringList)
         {
-            List<int> intList = new List<int>();
-
-            foreach (string item in stringList)
-            {
-                int code = Convert.ToInt32(item);
-                intList.Add(code);
-            }
-
-            return intList;
+            return stringList.Select(item => Convert.ToInt32(item)).ToList();
         }
 
-        private static string DecryptData(List<int> encyptedList)
+        private static string DecryptData(IReadOnlyList<int> encyptedList)
         {
             int maxRank = 0;
             string bestDecryptedDataMatch = "";
@@ -80,7 +73,7 @@ namespace Problem59
             return bestDecryptedDataMatch;
         }
 
-        private static string DecryptWithPassword(List<int> encyptedList, string password)
+        private static string DecryptWithPassword(IReadOnlyList<int> encyptedList, string password)
         {
             int length = encyptedList.Count;
             int passwordLength = password.Length;
@@ -113,7 +106,7 @@ namespace Problem59
 
         private static int IsValidDecryption(string decryptedData)
         {
-            List<string> commonWordsList = GetCommonWordsList();
+            IEnumerable<string> commonWordsList = GetCommonWordsList();
             int commonWordMatches = 0;
             string lowerDecryptedData = decryptedData.ToLower();
 
@@ -128,7 +121,7 @@ namespace Problem59
             return commonWordMatches;
         }
 
-        private static List<string> GetCommonWordsList()
+        private static IEnumerable<string> GetCommonWordsList()
         {
             List<string> commonWorList = new List<string>
             {

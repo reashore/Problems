@@ -1,7 +1,6 @@
-﻿using Common;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Numerics;
+using static System.Console;
 
 namespace Problem29
 {
@@ -10,12 +9,12 @@ namespace Problem29
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 29");
+            WriteLine("Problem 29");
 
             Test();
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
@@ -24,13 +23,13 @@ namespace Problem29
             int upperBound = 5;
 
             long distinctPowers = Solve(lowerBound, upperBound);
-            Console.WriteLine($"distinctPowers = {distinctPowers}");
+            WriteLine($"distinctPowers = {distinctPowers}");
 
             lowerBound = 2;
             upperBound = 100;
 
             distinctPowers = Solve(lowerBound, upperBound);
-            Console.WriteLine($"distinctPowers = {distinctPowers}");
+            WriteLine($"distinctPowers = {distinctPowers}");
         }
 
         private static long Solve(int lowerBound, int upperBound)

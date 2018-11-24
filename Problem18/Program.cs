@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace Problem18
 {
@@ -7,14 +7,14 @@ namespace Problem18
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 18");
+            WriteLine("Problem 18");
 
             Triangle triangle = LoadTriangle();
             long maxPathSum= Solve(triangle);
-            Console.WriteLine($"maxPathSum = {maxPathSum}");        // 1074
+            WriteLine($"maxPathSum = {maxPathSum}");        // 1074
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static Triangle LoadTriangle()

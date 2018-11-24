@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common;
+using static System.Console;
 
 namespace Problem15
 {
@@ -9,7 +10,7 @@ namespace Problem15
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 15");
+            WriteLine("Problem 15");
 
             Test();
 
@@ -18,10 +19,10 @@ namespace Problem15
             ulong numberGridPaths = result.Item1;
             TimeSpan timeSpan = result.Item2;
             // numberGridPaths = 137846528820, timeSpan = 11.0657929098611
-            Console.WriteLine($"numberGridPaths = {numberGridPaths}, timeSpan = {timeSpan.TotalHours}");
+            WriteLine($"numberGridPaths = {numberGridPaths}, timeSpan = {timeSpan.TotalHours}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
@@ -56,7 +57,7 @@ namespace Problem15
             numberGridPaths = grid.GetNumberGridPaths(root);
             Utilities.Assert(numberGridPaths == 6);
 
-            Console.WriteLine("Tests done");
+            WriteLine("Tests done");
         }
 
         private static ulong Solve(int gridSize)

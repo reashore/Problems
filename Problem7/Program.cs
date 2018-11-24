@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem7
 {
@@ -10,12 +11,12 @@ namespace Problem7
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 7");
+            WriteLine("Problem 7");
 
             Test();
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
@@ -26,11 +27,11 @@ namespace Problem7
             {
                 List<int> primes = Solve(topPrime);
                 int value = primes.Last();
-                Console.WriteLine($"{value} is the {topPrime}th prime");
+                WriteLine($"{value} is the {topPrime}th prime");
             }
 
-            bool isPrime = Utilities.IsPrime(104743);
-            Utilities.Assert(isPrime);
+            bool isPrime = IsPrime(104743);
+            Assert(isPrime);
         }
 
         // ReSharper disable once ReturnTypeCanBeEnumerable.Local
@@ -45,7 +46,7 @@ namespace Problem7
 
             for (int n = 2; ; n++)
             {
-                bool isPrime = Utilities.IsPrime(n);
+                bool isPrime = IsPrime(n);
 
                 if (isPrime)
                 {

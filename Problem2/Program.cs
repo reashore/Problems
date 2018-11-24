@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace Problem2
 {
@@ -7,14 +7,14 @@ namespace Problem2
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 2");
+            WriteLine("Problem 2");
             const int upperLimit = 4000000;
 
             int sumOfEvenTerms = SumEvenFibonacci(upperLimit);
-            Console.WriteLine($"sumOfEvenTerms = { sumOfEvenTerms}");
+            WriteLine($"sumOfEvenTerms = { sumOfEvenTerms}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static int SumEvenFibonacci(int upperLimit)
@@ -33,7 +33,7 @@ namespace Problem2
                     sum += fibonacci;
                 }
 
-                Console.WriteLine($"{x1} + {x2} = {fibonacci}, isEven = {isEven}");
+                WriteLine($"{x1} + {x2} = {fibonacci}, isEven = {isEven}");
 
                 x1 = x2;
                 x2 = fibonacci;

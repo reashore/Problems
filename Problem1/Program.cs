@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using static System.Console;
 
 namespace Problem1
 {
@@ -9,14 +9,14 @@ namespace Problem1
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 1");
+            WriteLine("Problem 1");
 
             const int upperLimit = 1000;
             int result = GetMuliplesOf3And5LessThan(upperLimit);
-            Console.WriteLine($"Result = {result}", result);
+            WriteLine($"Result = {result}", result);
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static int GetMuliplesOf3And5LessThan(int upperLimit)

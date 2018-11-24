@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem33
 {
@@ -10,13 +10,13 @@ namespace Problem33
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 33");
+            WriteLine("Problem 33");
 
             long result = Solve();
-            Console.WriteLine($"result = {result}");    // 100
+            WriteLine($"result = {result}");    // 100
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static long Solve()
@@ -32,8 +32,8 @@ namespace Problem33
                         continue;
                     }
 
-                    List<int> numDigits = Utilities.ConvertNumericStringToList(num.ToString());
-                    List<int> denDigits = Utilities.ConvertNumericStringToList(den.ToString());
+                    List<int> numDigits = ConvertNumericStringToList(num.ToString());
+                    List<int> denDigits = ConvertNumericStringToList(den.ToString());
 
                     // ignore trivial cases like 30/50 = 3/5
                     if (numDigits[1] == 0 && denDigits[1] == 0)
@@ -67,7 +67,7 @@ namespace Problem33
                     {
                         Fraction fraction = new Fraction(num, den);
                         cancellingFactionsList.Add(fraction);
-                        Console.WriteLine($"fraction = {num}/{den}");
+                        WriteLine($"fraction = {num}/{den}");
                     }
                 }
             }
@@ -92,8 +92,8 @@ namespace Problem33
                 denominatorProducts *= fractionDen;
             }
 
-            List<int> numeratorPrimeFactors = Utilities.GetPrimeFactors(numeratorProducts);
-            List<int> denominatorPrimeFactors = Utilities.GetPrimeFactors(denominatorProducts);
+            List<int> numeratorPrimeFactors = GetPrimeFactors(numeratorProducts);
+            List<int> denominatorPrimeFactors = GetPrimeFactors(denominatorProducts);
             List<int> commonFactors = GetCommonFactors(numeratorPrimeFactors, denominatorPrimeFactors);
 
             foreach (int factor in commonFactors)

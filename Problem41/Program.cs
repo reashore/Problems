@@ -1,5 +1,6 @@
-﻿using Common;
-using System;
+﻿using System;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem41
 {
@@ -8,34 +9,34 @@ namespace Problem41
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 41");
+            WriteLine("Problem 41");
 
             Test();
             long maxPandigitalPrime = Solve();
-            Console.WriteLine($"maxPandigitalPrime = {maxPandigitalPrime}");    // 7652413
+            WriteLine($"maxPandigitalPrime = {maxPandigitalPrime}");    // 7652413
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             string number = "2143";
-            bool isPandigital = Utilities.IsPandigital(number, 4);
-            Utilities.Assert(isPandigital);
+            bool isPandigital = IsPandigital(number, 4);
+            Assert(isPandigital);
 
             number = "87654321";
-            isPandigital = Utilities.IsPandigital(number, 8);
-            Utilities.Assert(isPandigital);
+            isPandigital = IsPandigital(number, 8);
+            Assert(isPandigital);
 
             number = "987654321";
-            isPandigital = Utilities.IsPandigital(number);
-            Utilities.Assert(isPandigital);
+            isPandigital = IsPandigital(number);
+            Assert(isPandigital);
 
             long upperBound = GetUpperBound(5);
-            Utilities.Assert(upperBound == 54321);
+            Assert(upperBound == 54321);
             upperBound = GetUpperBound(9);
-            Utilities.Assert(upperBound == 987654321);
+            Assert(upperBound == 987654321);
         }
 
         private static long Solve()
@@ -49,13 +50,13 @@ namespace Problem41
 
                 for (long number = upperBound; 2 < number; number--)
                 {
-                    if (!Utilities.IsPandigital(number, digit))
+                    if (!IsPandigital(number, digit))
                     {
                         continue;
                     }
 
                     // ReSharper disable once InvertIf
-                    if (Utilities.IsPrime(number))
+                    if (IsPrime(number))
                     {
                         if (number > maxPandigitalPrime)
                         {

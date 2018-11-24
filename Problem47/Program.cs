@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem47
 {
@@ -10,12 +10,12 @@ namespace Problem47
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 47");
+            WriteLine("Problem 47");
 
             Solve();
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Solve()
@@ -29,10 +29,10 @@ namespace Problem47
                 long number3 = n + 2;
                 long number4 = n + 3;
 
-                List<long> primeFactors1 = Utilities.GetPrimeFactors(number1);
-                List<long> primeFactors2 = Utilities.GetPrimeFactors(number2);
-                List<long> primeFactors3 = Utilities.GetPrimeFactors(number3);
-                List<long> primeFactors4 = Utilities.GetPrimeFactors(number4);
+                List<long> primeFactors1 = GetPrimeFactors(number1);
+                List<long> primeFactors2 = GetPrimeFactors(number2);
+                List<long> primeFactors3 = GetPrimeFactors(number3);
+                List<long> primeFactors4 = GetPrimeFactors(number4);
 
                 bool allHaveDistinctPrimeFactors =
                     primeFactors1.Distinct().Count() == 4 &&
@@ -43,10 +43,10 @@ namespace Problem47
                 // ReSharper disable once InvertIf
                 if (allHaveDistinctPrimeFactors)
                 {
-                    Console.WriteLine($"number1 = {number1} = {ToString(primeFactors1)}");
-                    Console.WriteLine($"number2 = {number2} = {ToString(primeFactors2)}");
-                    Console.WriteLine($"number3 = {number3} = {ToString(primeFactors3)}");
-                    Console.WriteLine($"number4 = {number4} = {ToString(primeFactors4)}");
+                    WriteLine($"number1 = {number1} = {ToString(primeFactors1)}");
+                    WriteLine($"number2 = {number2} = {ToString(primeFactors2)}");
+                    WriteLine($"number3 = {number3} = {ToString(primeFactors3)}");
+                    WriteLine($"number4 = {number4} = {ToString(primeFactors4)}");
 
                     break;
                 }

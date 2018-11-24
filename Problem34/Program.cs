@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using static System.Console;
 
 namespace Problem34
 {
@@ -10,14 +11,14 @@ namespace Problem34
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 34");
+            WriteLine("Problem 34");
 
             const int upperBound = 10000000;
             long sum = Solve(upperBound);
-            Console.WriteLine($"sum = {sum}");      // 40730
+            WriteLine($"sum = {sum}");      // 40730
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static long Solve(int upperBound)
@@ -32,7 +33,7 @@ namespace Problem34
                 if (number == digitFactorialSum)
                 {
                     digitFactorials.Add(number);
-                    Console.WriteLine($"number = {number}");
+                    WriteLine($"number = {number}");
                 }
             }
 

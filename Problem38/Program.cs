@@ -1,5 +1,6 @@
 ﻿using System;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem38
 {
@@ -8,15 +9,15 @@ namespace Problem38
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 38");
+            WriteLine("Problem 38");
 
             Test();
 
             long maxConcatenatedProduct = Solve();
-            Console.WriteLine($"maxConcatenatedProduct = {maxConcatenatedProduct}");
+            WriteLine($"maxConcatenatedProduct = {maxConcatenatedProduct}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
@@ -24,14 +25,14 @@ namespace Problem38
             long number = 9;
             long digit = 5;
             long concatenatedProduct = GetConcatenatedProduct(number, digit);
-            bool isPandigital = Utilities.IsPandigital(concatenatedProduct);
-            Utilities.Assert(isPandigital);
+            bool isPandigital = IsPandigital(concatenatedProduct);
+            Assert(isPandigital);
 
             number = 192;
             digit = 3;
             concatenatedProduct = GetConcatenatedProduct(number, digit);
-            isPandigital = Utilities.IsPandigital(concatenatedProduct);
-            Utilities.Assert(isPandigital);
+            isPandigital = IsPandigital(concatenatedProduct);
+            Assert(isPandigital);
         }
 
         private static long Solve()
@@ -49,7 +50,7 @@ namespace Problem38
                         break;
                     }
 
-                    bool isPandigital = Utilities.IsPandigital(concatenatedProduct);
+                    bool isPandigital = IsPandigital(concatenatedProduct);
 
                     // ReSharper disable once InvertIf
                     if (isPandigital)
@@ -59,7 +60,7 @@ namespace Problem38
                             maxConcatenatedProduct = concatenatedProduct;
                         }
 
-                        Console.WriteLine($"number = {number, 5}, digit = {maxFactor, 5}, concatenatedProduct = {concatenatedProduct, 13}");
+                        WriteLine($"number = {number, 5}, digit = {maxFactor, 5}, concatenatedProduct = {concatenatedProduct, 13}");
                     }
                 }
             }

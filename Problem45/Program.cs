@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace Problem45
 {
@@ -7,14 +7,14 @@ namespace Problem45
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 45");
+            WriteLine("Problem 45");
 
             const int upperBound = 100000;
             long triangleNumber = Solve(upperBound);
-            Console.WriteLine($"triangleNumber = {triangleNumber}");        // 1533776805
+            WriteLine($"triangleNumber = {triangleNumber}");        // 1533776805
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static long Solve(int upperBound)
@@ -42,7 +42,7 @@ namespace Problem45
                                     specialTriangularNumber = triangularNumber;
                                 }
 
-                                Console.WriteLine($"({n, 5}, {m, 5}, {p, 5}) = {specialTriangularNumber}");
+                                WriteLine($"({n, 5}, {m, 5}, {p, 5}) = {specialTriangularNumber}");
                             }
                             else if (hexagonalNumber > triangularNumber)
                             {

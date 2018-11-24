@@ -1,5 +1,5 @@
-﻿using System;
-using Common;
+﻿using static Common.Utilities;
+using static System.Console;
 
 namespace Problem27
 {
@@ -8,7 +8,7 @@ namespace Problem27
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 27");
+            WriteLine("Problem 27");
 
             Test();
 
@@ -19,37 +19,37 @@ namespace Problem27
             long maxPrimes = result.Item3;
             long product = a * b;
 
-            Console.WriteLine($"a = {a}, b ={b}, maxPrimes = {maxPrimes}, a * b = {product}");
+            WriteLine($"a = {a}, b ={b}, maxPrimes = {maxPrimes}, a * b = {product}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static void Test()
         {
             for (int n = 1; n < 100; n++)
             {
-                bool success = Utilities.IsPrime(n) == Utilities.IsPrime(-n);
+                bool success = IsPrime(n) == IsPrime(-n);
 
                 if (!success)
                 {
-                    Console.WriteLine($"IsPrime({n}) = {Utilities.IsPrime(n)}, IsPrime({-n}) = {Utilities.IsPrime(-n)}");
+                    WriteLine($"IsPrime({n}) = {IsPrime(n)}, IsPrime({-n}) = {IsPrime(-n)}");
                 }
             }
 
             if (FindNumberConsecutivePrimesForQuadratic(1, 41) != 40)
             {
-                Console.WriteLine("FindNumberConsecutivePrimesForQuadratic(1, 41) failed");
+                WriteLine("FindNumberConsecutivePrimesForQuadratic(1, 41) failed");
             }
 
             if (FindNumberConsecutivePrimesForQuadratic(-61, 971) != 71)
             {
-                Console.WriteLine("FindNumberConsecutivePrimesForQuadratic(-61, 971) failed");
+                WriteLine("FindNumberConsecutivePrimesForQuadratic(-61, 971) failed");
             }
 
             if (FindNumberConsecutivePrimesForQuadratic(-79, 1601) != 80)
             {
-                Console.WriteLine("FindNumberConsecutivePrimesForQuadratic(-79, 1601) failed");
+                WriteLine("FindNumberConsecutivePrimesForQuadratic(-79, 1601) failed");
             }
         }
 
@@ -72,7 +72,7 @@ namespace Problem27
                         aMax = a;
                         bMax = b;
 
-                        Console.WriteLine($"a = {aMax, 6}, b = {bMax, 6}, maxPrimes = {maxNumberConsecutivePrimes, 10}");
+                        WriteLine($"a = {aMax, 6}, b = {bMax, 6}, maxPrimes = {maxNumberConsecutivePrimes, 10}");
                     }
                 }
             }
@@ -88,7 +88,7 @@ namespace Problem27
             {
                 long value = Quadratic(number, a, b);
 
-                if (!Utilities.IsPrime(value))
+                if (!IsPrime(value))
                 {
                     break;    
                 }

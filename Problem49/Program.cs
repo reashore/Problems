@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem49
 {
@@ -10,14 +11,14 @@ namespace Problem49
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 49");
+            WriteLine("Problem 49");
 
             const int upperBound = 10000;
             string concatenation = Solve(upperBound);
-            Console.WriteLine($"Concatenation = {concatenation}");      // 296962999629
+            WriteLine($"Concatenation = {concatenation}");      // 296962999629
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static string Solve(int upperBound)
@@ -30,7 +31,7 @@ namespace Problem49
                 int number2 = number1 + 3330;
                 int number3 = number2 + 3330;
 
-                bool allNumbersArePrime = Utilities.IsPrime(number1) && Utilities.IsPrime(number2) && Utilities.IsPrime(number3);
+                bool allNumbersArePrime = IsPrime(number1) && IsPrime(number2) && IsPrime(number3);
                 bool allNumbersArePermutationsOfEachOther = AllNumbersArePermutationsOfEachOther(number1, number2, number3);
 
                 // ReSharper disable once InvertIf
@@ -63,9 +64,9 @@ namespace Problem49
             List<int> number2OrderedList = number2List.OrderBy(p => p).ToList();
             List<int> number3OrderedList = number3List.OrderBy(p => p).ToList();
 
-            string number1OrderedString = Utilities.ConvertListToString(number1OrderedList);
-            string number2OrderedString = Utilities.ConvertListToString(number2OrderedList);
-            string number3OrderedString = Utilities.ConvertListToString(number3OrderedList);
+            string number1OrderedString = ConvertListToString(number1OrderedList);
+            string number2OrderedString = ConvertListToString(number2OrderedList);
+            string number3OrderedString = ConvertListToString(number3OrderedList);
 
             bool areEqual = number1OrderedString == number2OrderedString &&
                             number2OrderedString == number3OrderedString;

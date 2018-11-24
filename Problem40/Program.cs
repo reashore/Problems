@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static System.Console;
 
 namespace Problem40
 {
@@ -8,14 +9,14 @@ namespace Problem40
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 40");
+            WriteLine("Problem 40");
 
             const long upperBound = 1000000;
             long product = Solve(upperBound);
-            Console.WriteLine($"product = {product}");      // 210
+            WriteLine($"product = {product}");      // 210
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static long Solve(long upperBound)
@@ -25,7 +26,7 @@ namespace Problem40
             for (int n = 1; n <= upperBound; n *= 10)
             {
                 product *= GetDigitAtIndex(n);
-                Console.WriteLine($"GetDigitAtIndex({n}) = {GetDigitAtIndex(n)}");
+                WriteLine($"GetDigitAtIndex({n}) = {GetDigitAtIndex(n)}");
             }
 
             return product;

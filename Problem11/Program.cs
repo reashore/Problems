@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Console;
 
 namespace Problem11
 {
@@ -9,17 +10,17 @@ namespace Problem11
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 11");
+            WriteLine("Problem 11");
 
             const int arraySize = 20;
             const int size = 4;
             int[,] array = CreateArray(arraySize);
             int maxProduct = Solve(arraySize, size, array);
 
-            Console.WriteLine($"maxProduct = {maxProduct}");
+            WriteLine($"maxProduct = {maxProduct}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static int[,] CreateArray(int size)

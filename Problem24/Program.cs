@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem24
 {
@@ -12,21 +12,21 @@ namespace Problem24
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 24");
+            WriteLine("Problem 24");
 
             const string sequenceString = "0123456789";
-            List<int> sequence = Utilities.ConvertNumericStringToList(sequenceString);
+            List<int> sequence = ConvertNumericStringToList(sequenceString);
             List<List<int>> permutations = Permutate(sequence).ToList();
-            List<List<int>> orderedPermutations = permutations.OrderBy(Utilities.ConvertListToString).ToList();
+            List<List<int>> orderedPermutations = permutations.OrderBy(ConvertListToString).ToList();
             //Print(orderedPermutations);
 
             const int index = 999999;
             List<int> millionthPermutation = orderedPermutations[index];
-            string millionthPermutationString = Utilities.ConvertListToString(millionthPermutation);
-            Console.WriteLine(millionthPermutationString);      // 2783915460
+            string millionthPermutationString = ConvertListToString(millionthPermutation);
+            WriteLine(millionthPermutationString);      // 2783915460
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static IEnumerable<List<T>> Permutate<T>(IReadOnlyList<T> sequence)

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Common;
+using static Common.Utilities;
+using static System.Console;
 
 namespace Problem32
 {
@@ -10,13 +11,13 @@ namespace Problem32
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 32");
+            WriteLine("Problem 32");
 
             long productSum = Solve();
-            Console.WriteLine($"productSum = {productSum}");    // 45228
+            WriteLine($"productSum = {productSum}");    // 45228
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         private static long Solve()
@@ -27,8 +28,8 @@ namespace Problem32
             double squareRootFloor = Math.Floor(squareRootDouble);
             long squareRootBound = Convert.ToInt64(squareRootFloor);
 
-            Utilities.Assert(squareRootBound * squareRootBound <= upperBound);
-            Utilities.Assert((squareRootBound + 1) * (squareRootBound + 1) >= upperBound);
+            Assert(squareRootBound * squareRootBound <= upperBound);
+            Assert((squareRootBound + 1) * (squareRootBound + 1) >= upperBound);
 
             List<long> pandigitalProductsList = new List<long>();
 
@@ -48,9 +49,9 @@ namespace Problem32
                     string compositeString = productString + nString + mString;
 
                     // ReSharper disable once InvertIf
-                    if (Utilities.IsPandigital(compositeString))
+                    if (IsPandigital(compositeString))
                     {
-                        Console.WriteLine($"{n} x {m} = {product}");
+                        WriteLine($"{n} x {m} = {product}");
                         pandigitalProductsList.Add(product);
                     }
                 }
