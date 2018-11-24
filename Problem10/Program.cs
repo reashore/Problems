@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Common;
+using static System.Console;
 
 namespace Problem10
 {
@@ -9,13 +9,13 @@ namespace Problem10
     {
         private static void Main()
         {
-            Console.WriteLine("Problem 10");
+            WriteLine("Problem 10");
 
             //Test();
             Solve();
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
         //private static void Test()
@@ -38,7 +38,7 @@ namespace Problem10
             foreach(int upperBound in upperBounds)
             {
                 long sumAllPrimes = SumAllPrimes(upperBound);
-                Console.WriteLine($"sumAllPrimes = {sumAllPrimes}");
+                WriteLine($"sumAllPrimes = {sumAllPrimes}");
             }
         }
 
