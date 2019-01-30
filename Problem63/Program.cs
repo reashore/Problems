@@ -1,4 +1,4 @@
-﻿using static Common.Utilities;
+﻿using System.Numerics;
 using static System.Console;
 
 namespace Problem63
@@ -12,99 +12,45 @@ namespace Problem63
         {
             WriteLine("Problem 63");
 
-            Test();
-
-            int result = Solve();
-            WriteLine($"result = {result}");
+            int count = Solve();
+            WriteLine($"Number powerful digits = {count}");        // 49
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
-        {
-            long power = Pow(10, 1);
-            Assert(power == 10);
-
-            power = Pow(10, 2);
-            Assert(power == 100);
-
-            power = Pow(7, 5);
-            Assert(power == 16807);
-
-            power = Pow(8, 9);
-            Assert(power == 134217728);
-
-            (bool, int) result = IsEqualToAnNthPower(16807, 5);
-            Assert(result.Item1);
-            Assert(result.Item2 == 7);
-
-            result = IsEqualToAnNthPower(134217728, 9);
-            Assert(result.Item1);
-            Assert(result.Item2 == 8);
-        }
-
         private static int Solve()
         {
-            int rangeBound = 10;
-            int numberLength = 1;
-            int powerNumberCount = 0;
-
-            for (int number = 1; number < Pow(10, 9); number++)
-            {
-                if (number == rangeBound)
-                {
-                    rangeBound *= 10;
-                    numberLength++;
-                }
-
-                (bool, int) result = IsEqualToAnNthPower(number, numberLength);
-                bool match = result.Item1;
-                int baseNumber = result.Item2;
-
-                if (match)
-                {
-                    Assert(Pow(baseNumber, numberLength) == number);
-                    WriteLine($"Pow({baseNumber}, {numberLength}) = {number,10}");
-                    powerNumberCount++;
-                }
-            }
-
-            return powerNumberCount;
-        }
-
-        private static (bool, int) IsEqualToAnNthPower(int number, int exponent)
-        {
-            int baseNumber = 1;
+            int count = 0;
+            int exponent = 1;
 
             while (true)
             {
-                long power = Pow(baseNumber, exponent);
-
-                if (number == power)
+                var foundOne= false;
+                
+                for (int number = 9; 0 < number ; number--)
                 {
-                    return (true, baseNumber);
+                    BigInteger power = BigInteger.Pow(number, exponent);
+                    int powerLength = power.ToString().Length;
+
+                    if (powerLength == exponent)
+                    {
+                        count++;
+                        foundOne = true;
+                        string message = $"{number}^{exponent} = {power}";
+                        WriteLine(message);
+                    }
                 }
 
-                if (power > number)
+                if (!foundOne)
                 {
-                    return (false, 0);
+                    break;
                 }
-
-                baseNumber++;
-            }
-        }
-
-        private static long Pow(int number, int exponent)
-        {
-            long power = 1;
-
-            for (int n = 1; n <= exponent; n++)
-            {
-                power *= number;
+                
+                exponent++;
             }
 
-            return power;
+            return count;
         }
     }
 }
