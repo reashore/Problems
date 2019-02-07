@@ -8,7 +8,7 @@ namespace Problem59
 {
     public static class Program
     {
-        private static void Main()
+        public static void Main()
         {
             WriteLine("Problem 59");
 

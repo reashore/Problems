@@ -13,7 +13,7 @@ namespace Problem23
             Abundant
         }
 
-        private static void Main()
+        public static void Main()
         {
             WriteLine("Problem 23");
 

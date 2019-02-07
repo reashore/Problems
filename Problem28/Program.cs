@@ -6,7 +6,7 @@ namespace Problem28
     // ReSharper disable once ClassNeverInstantiated.Global
     public class Program
     {
-        private static void Main()
+        public static void Main()
         {
             WriteLine("Problem 28");
 

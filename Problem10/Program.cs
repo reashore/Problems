@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Common;
+﻿using Common;
 using static System.Console;
 
 namespace Problem10
@@ -7,7 +6,7 @@ namespace Problem10
     // ReSharper disable once ClassNeverInstantiated.Global
     public class Program
     {
-        private static void Main()
+        public static void Main()
         {
             WriteLine("Problem 10");
 

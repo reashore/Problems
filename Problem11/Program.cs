@@ -8,19 +8,24 @@ namespace Problem11
     // ReSharper disable once ClassNeverInstantiated.Global
     public class Program
     {
-        private static void Main()
+        public static void Main()
         {
             WriteLine("Problem 11");
 
-            const int arraySize = 20;
-            const int size = 4;
-            int[,] array = CreateArray(arraySize);
-            int maxProduct = Solve(arraySize, size, array);
-
-            WriteLine($"maxProduct = {maxProduct}");
+            int answer = Solve();
+            WriteLine($"maxProduct = {answer}");
 
             WriteLine("Done");
             ReadKey();
+        }
+
+        public static int Solve()
+        {
+            const int arraySize = 20;
+            const int size = 4;
+            int[,] array = CreateArray(arraySize);
+            int maxProduct = GetMaxArrayProduct(arraySize, size, array);
+            return maxProduct;
         }
 
         private static int[,] CreateArray(int size)
@@ -72,7 +77,7 @@ namespace Problem11
             return array;
         }
 
-        private static int Solve(int arraySize, int size, int[,] array)
+        private static int GetMaxArrayProduct(int arraySize, int size, int[,] array)
         {
             int maxArrayProduct = 0;
 
