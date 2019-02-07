@@ -11,38 +11,15 @@ namespace Problem10
         {
             WriteLine("Problem 10");
 
-            //Test();
-            Solve();
+            const int number = 2000000;
+            long answer = Solve(number);
+            WriteLine($"sumAllPrimes = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        //private static void Test()
-        //{
-        //    for (int n = 1; n < 100; n++)
-        //    {
-        //        bool isPrime = IsPrime(n);
-
-        //        if (isPrime)
-        //        {
-        //            Console.WriteLine($"IsPrime2({n}) = true");
-        //        }
-        //    }
-        //}
-
-        private static void Solve()
-        { 
-            List<int> upperBounds = new List<int> { 10, 20, 30, 2000000 };
-
-            foreach(int upperBound in upperBounds)
-            {
-                long sumAllPrimes = SumAllPrimes(upperBound);
-                WriteLine($"sumAllPrimes = {sumAllPrimes}");
-            }
-        }
-
-        private static long SumAllPrimes(int upperBound)
+        public static long Solve(int upperBound)
         {
             long sum = 0;
 
