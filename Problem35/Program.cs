@@ -12,38 +12,21 @@ namespace Problem35
         {
             WriteLine("Problem 35");
 
-            Test();
-
-            long upperBound = 100;
-            long count = Solve(upperBound);
-            WriteLine($"count = {count}");      // 13
-
-            upperBound = 1000000;
-            count = Solve(upperBound);
+            long count = Solve();
             WriteLine($"count = {count}");      // 55
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static long Solve()
         {
-            const string value = "123456";
-            string rotatedValue = Rotate(value);
-            Assert(rotatedValue == "234561");
-
-            const int number = 123;
-            List<long> digitRotations = GetDigitRotations(number);
-            Assert(digitRotations.Count == 3);
-        }
-
-        private static long Solve(long upperBound)
-        {
+            const long upperBound = 1000000;
             int count = 0;
 
             for (long number = 2; number < upperBound; number++)
             {
-                List<long> digitRotations = GetDigitRotations(number);
+                IEnumerable<long> digitRotations = GetDigitRotations(number);
 
                 bool isCircularPrime = true;
 
@@ -58,14 +41,14 @@ namespace Problem35
                 if (isCircularPrime)
                 {
                     count++;
-                    //Console.WriteLine($"{number} is a circular prime");
+                    //WriteLine($"{number} is a circular prime");
                 }
             }
 
             return count;
         }
 
-        private static List<long> GetDigitRotations(long number)
+        private static IEnumerable<long> GetDigitRotations(long number)
         {
             List<long> digitRotations = new List<long>();
             string numberString = number.ToString();

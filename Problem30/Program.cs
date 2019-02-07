@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.Console;
 
 namespace Problem30
 {
@@ -9,15 +10,16 @@ namespace Problem30
     {
         public static void Main()
         {
-            Console.WriteLine("Problem 30");
+            WriteLine("Problem 30");
 
-            Solve();
+            long answer = Solve();
+            WriteLine($"specialNumbersSum = {answer}");
 
-            Console.WriteLine("Done");
-            Console.ReadKey();
+            WriteLine("Done");
+            ReadKey();
         }
 
-        private static void Solve()
+        public static long Solve()
         {
             // Beyond empirically determined upperLimit, the digits sum always exceeds the number
             const int upperLimit = 200000;
@@ -39,14 +41,15 @@ namespace Problem30
                 if (sum == number)
                 {
                     specialNumbersList.Add(number);
-                    Console.WriteLine($"{number}, sum = {sum}");
+                    //WriteLine($"{number}, sum = {sum}");
                 }
 
                 number++;
             }
 
             long specialNumbersSum = specialNumbersList.Sum(n => n);
-            Console.WriteLine($"specialNumbersSum = {specialNumbersSum}");
+
+            return specialNumbersSum;
         }
     }
 }

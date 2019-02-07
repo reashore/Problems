@@ -46,7 +46,7 @@ namespace Problem41
             for (int digit = 9; 1 < digit; digit--)
             {
                 long upperBound = GetUpperBound(digit);
-                //Console.WriteLine($"upperBound = {upperBound}");
+                //WriteLine($"upperBound = {upperBound}");
 
                 for (long number = upperBound; 2 < number; number--)
                 {
@@ -63,7 +63,7 @@ namespace Problem41
                             maxPandigitalPrime = number;
                         }
 
-                        //Console.WriteLine($"{number} is prime");
+                        //WriteLine($"{number} is prime");
                     }
                 }
             }

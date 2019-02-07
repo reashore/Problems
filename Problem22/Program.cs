@@ -11,18 +11,17 @@ namespace Problem22
         {
             WriteLine("Problem 22");
 
-            const string fileName = "Names.txt";
-            IEnumerable<string> namesList = ReadCsvFile(fileName);
-            long sumNamesScores = Solve(namesList);
-
-            WriteLine($"sumNamesScores = {sumNamesScores}");
+            long answer = Solve();
+            WriteLine($"sumNamesScores = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static long Solve(IEnumerable<string> namesList)
+        public static long Solve()
         {
+            const string fileName = "Names.txt";
+            IEnumerable<string> namesList = ReadCsvFile(fileName);
             long scoreSum = 0;
             int rank = 1;
 

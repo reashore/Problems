@@ -11,29 +11,17 @@ namespace Problem29
         {
             WriteLine("Problem 29");
 
-            Test();
+            long distinctPowers = Solve();
+            WriteLine($"distinctPowers = {distinctPowers}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static long Solve()
         {
-            int lowerBound = 2;
-            int upperBound = 5;
-
-            long distinctPowers = Solve(lowerBound, upperBound);
-            WriteLine($"distinctPowers = {distinctPowers}");
-
-            lowerBound = 2;
-            upperBound = 100;
-
-            distinctPowers = Solve(lowerBound, upperBound);
-            WriteLine($"distinctPowers = {distinctPowers}");
-        }
-
-        private static long Solve(int lowerBound, int upperBound)
-        {
+            const int lowerBound = 2;
+            const int upperBound = 100;
             List<BigInteger> distinctPowers = new List<BigInteger>();
 
             for (int n = lowerBound; n <= upperBound; n++)

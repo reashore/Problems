@@ -13,16 +13,16 @@ namespace Problem34
         {
             WriteLine("Problem 34");
 
-            const int upperBound = 10000000;
-            long sum = Solve(upperBound);
+            long sum = Solve();
             WriteLine($"sum = {sum}");      // 40730
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static long Solve(int upperBound)
+        public static long Solve()
         {
+            const int upperBound = 10000000;
             List<long> digitFactorials = new List<long>();
 
             for (long number = 3; number < upperBound; number++)

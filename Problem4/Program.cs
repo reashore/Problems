@@ -30,7 +30,7 @@ namespace Problem4
                     // ReSharper disable once InvertIf
                     if (isPalindromicNumber)
                     {
-                        //Console.WriteLine($"{n} x {m} = {product}");
+                        //WriteLine($"{n} x {m} = {product}");
 
                         if (product > maxProduct)
                         {

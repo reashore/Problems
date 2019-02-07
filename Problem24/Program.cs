@@ -14,6 +14,15 @@ namespace Problem24
         {
             WriteLine("Problem 24");
 
+            string answer = Solve();
+            WriteLine($"millionthPermutationString = {answer}");      // 2783915460
+
+            WriteLine("Done");
+            ReadKey();
+        }
+
+        public static string Solve()
+        {
             const string sequenceString = "0123456789";
             List<int> sequence = ConvertNumericStringToList(sequenceString);
             List<List<int>> permutations = Permutate(sequence).ToList();
@@ -23,10 +32,7 @@ namespace Problem24
             const int index = 999999;
             List<int> millionthPermutation = orderedPermutations[index];
             string millionthPermutationString = ConvertListToString(millionthPermutation);
-            WriteLine(millionthPermutationString);      // 2783915460
-
-            WriteLine("Done");
-            ReadKey();
+            return millionthPermutationString;
         }
 
         private static IEnumerable<List<T>> Permutate<T>(IReadOnlyList<T> sequence)
@@ -57,7 +63,7 @@ namespace Problem24
         //{
         //    foreach (List<int> permutation in permutations)
         //    {
-        //        Console.WriteLine(ToString(permutation));
+        //        WriteLine(ToString(permutation));
         //    }
         //}
     }

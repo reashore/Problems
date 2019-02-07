@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Text;
+using static System.Console;
 
 namespace Common
 {
@@ -13,7 +15,7 @@ namespace Common
         {
             if (!condition)
             {
-                Console.WriteLine(failureMessage);
+                WriteLine(failureMessage);
             }
         }
 
@@ -197,10 +199,10 @@ namespace Common
                     matrixRow += $"{matrix[row, col],4}, ";
                 }
 
-                Console.WriteLine(matrixRow);
+                WriteLine(matrixRow);
             }
 
-            Console.WriteLine();
+            WriteLine();
         }
 
         public static void PrintList<T>(IEnumerable<T> list)
@@ -213,7 +215,7 @@ namespace Common
                 line += $"{item}, ";
             }
 
-            Console.WriteLine(line);
+            WriteLine(line);
         }
 
         public static IEnumerable<string> ReadCsvFile(string fileName)
@@ -238,6 +240,21 @@ namespace Common
             }
 
             return reversedValueString;
+        }
+        
+        public static BigInteger Fibonacci(int n)
+        {
+            if (n < 1)
+            {
+                throw new ArgumentException(nameof(n));
+            }
+
+            if (n == 1 || n == 2)
+            {
+                return new BigInteger(1);
+            }
+
+            return Fibonacci(n - 1) + Fibonacci(n - 2);
         }
     }
 }

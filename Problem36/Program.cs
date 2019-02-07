@@ -11,16 +11,16 @@ namespace Problem36
         {
             WriteLine("Problem 36");
 
-            const int upperLimit = 1000000;
-            long sum = Solve(upperLimit);
+            long sum = Solve();
             WriteLine($"sum = {sum}");      // 872187
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static long Solve(int upperLimit)
+        public static long Solve()
         {
+            const int upperLimit = 1000000;
             long sum = 0;
 
             for (int number = 0; number < upperLimit; number++)
@@ -28,12 +28,12 @@ namespace Problem36
                 string numberBase10 = number.ToString();
                 string numberBase2 = Convert.ToString(number, 2);
 
-                //Console.WriteLine($"number = {number}, numberBase10 = {numberBase10}, numberBase2 = {numberBase2}");
+                //WriteLine($"number = {number}, numberBase10 = {numberBase10}, numberBase2 = {numberBase2}");
 
                 if (IsPalindrome(numberBase10) && IsPalindrome(numberBase2))
                 {
                     sum += number;
-                    //Console.WriteLine($"number = {number}");
+                    //WriteLine($"number = {number}");
                 }
             }
 

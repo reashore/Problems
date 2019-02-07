@@ -289,8 +289,206 @@ namespace Problems.Test
             Assert.That(answer, Is.EqualTo(expectedResult));
         }
         
+        [Test]
+        public void Problem22Test()
+        {
+            // Arrange
+            const long expectedResult = 871198282;
+            
+            // Act
+            long answer = Problem22.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
         
+        [Test]
+        [Category("Slow")]
+        [Explicit]
+        [Ignore("Ignore slow test")]
+        public void Problem23Test()
+        {
+            // Arrange
+            const long expectedResult = 4179871;
+            
+            // Act
+            long answer = Problem23.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
         
+        [Test]
+        public void Problem24Test()
+        {
+            // Arrange
+            const string expectedResult = "2783915460";
+            
+            // Act
+            string answer = Problem24.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
         
+        [Test]
+        public void Problem25Test()
+        {
+            // Arrange
+            const long expectedResult = 4782;
+            
+            // Act
+            int answer = Problem25.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        [Ignore("Not finished")]
+        public void Problem26Test()
+        {
+            // Arrange
+            const long expectedResult = 4782;
+            
+            // Act
+            int answer = Problem25.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem27Test()
+        {
+            // Arrange
+            const long expectedResult = -59231;
+            
+            // Act
+            long answer = Problem27.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem28Test()
+        {
+            // Arrange
+            const long expectedResult = 669171001;
+            
+            // Act
+            long answer = Problem28.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem29Test()
+        {
+            // Arrange
+            const long expectedResult = 9183;
+            
+            // Act
+            long answer = Problem29.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem30Test()
+        {
+            // Arrange
+            const long expectedResult = 443839;
+            
+            // Act
+            long answer = Problem30.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        [Category("Slow")]
+        [Explicit]
+        [Ignore("Ignore slow test")]
+        public void Problem31Test()
+        {
+            // Arrange
+            const long expectedResult = 73682;
+            
+            // Act
+            ulong answer = Problem31.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem32Test()
+        {
+            // Arrange
+            const long expectedResult = 45228;
+            
+            // Act
+            long answer = Problem32.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem33Test()
+        {
+            // Arrange
+            const long expectedResult = 100;
+            
+            // Act
+            long answer = Problem33.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem34Test()
+        {
+            // Arrange
+            const long expectedResult = 40730;
+            
+            // Act
+            long answer = Problem34.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem35Test()
+        {
+            // Arrange
+            const long expectedResult = 55;
+            
+            // Act
+            long answer = Problem35.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem36Test()
+        {
+            // Arrange
+            const long expectedResult = 872187;
+            
+            // Act
+            long answer = Problem36.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
     }
 }

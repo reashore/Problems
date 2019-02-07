@@ -10,51 +10,16 @@ namespace Problem27
         {
             WriteLine("Problem 27");
 
-            Test();
-
-            const long upperLimit = 1000;
-            (long, long, long) result = Solve(upperLimit);
-            long a = result.Item1;
-            long b = result.Item2;
-            long maxPrimes = result.Item3;
-            long product = a * b;
-
-            WriteLine($"a = {a}, b ={b}, maxPrimes = {maxPrimes}, a * b = {product}");
+            long answer = Solve();
+            WriteLine($"answer = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static long Solve()
         {
-            for (int n = 1; n < 100; n++)
-            {
-                bool success = IsPrime(n) == IsPrime(-n);
-
-                if (!success)
-                {
-                    WriteLine($"IsPrime({n}) = {IsPrime(n)}, IsPrime({-n}) = {IsPrime(-n)}");
-                }
-            }
-
-            if (FindNumberConsecutivePrimesForQuadratic(1, 41) != 40)
-            {
-                WriteLine("FindNumberConsecutivePrimesForQuadratic(1, 41) failed");
-            }
-
-            if (FindNumberConsecutivePrimesForQuadratic(-61, 971) != 71)
-            {
-                WriteLine("FindNumberConsecutivePrimesForQuadratic(-61, 971) failed");
-            }
-
-            if (FindNumberConsecutivePrimesForQuadratic(-79, 1601) != 80)
-            {
-                WriteLine("FindNumberConsecutivePrimesForQuadratic(-79, 1601) failed");
-            }
-        }
-
-        private static (long, long, long) Solve(long upperLimit)
-        {
+            const long upperLimit = 1000;
             long maxNumberConsecutivePrimes = 0;
             long aMax = 0;
             long bMax = 0;
@@ -72,12 +37,14 @@ namespace Problem27
                         aMax = a;
                         bMax = b;
 
-                        WriteLine($"a = {aMax, 6}, b = {bMax, 6}, maxPrimes = {maxNumberConsecutivePrimes, 10}");
+                        //WriteLine($"a = {aMax, 6}, b = {bMax, 6}, maxPrimes = {maxNumberConsecutivePrimes, 10}");
                     }
                 }
             }
 
-            return (aMax, bMax, maxNumberConsecutivePrimes);
+            long answer = aMax * bMax;
+
+            return answer;
         }
 
         private static long FindNumberConsecutivePrimesForQuadratic(long a, long b)

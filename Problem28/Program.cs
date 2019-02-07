@@ -10,16 +10,16 @@ namespace Problem28
         {
             WriteLine("Problem 28");
 
-            const int size = 1001;
-            long sumBothDiagonals = Solve(size);
-            WriteLine($"sumBothDiagonals = {sumBothDiagonals}");
+            long answer = Solve();
+            WriteLine($"sumBothDiagonals = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static long Solve(int size)
+        public static long Solve()
         {
+            const int size = 1001;
             int[,] matrix = new int[size, size];
 
             matrix = CreateMatrixSpiral(size, matrix);

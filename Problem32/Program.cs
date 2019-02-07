@@ -13,14 +13,14 @@ namespace Problem32
         {
             WriteLine("Problem 32");
 
-            long productSum = Solve();
-            WriteLine($"productSum = {productSum}");    // 45228
+            long answer = Solve();
+            WriteLine($"productSum = {answer}");    // 45228
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static long Solve()
+        public static long Solve()
         {
             const long upperBound = 987654321;
             double upperBoundDouble = Convert.ToDouble(upperBound);

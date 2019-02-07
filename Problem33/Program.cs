@@ -19,7 +19,7 @@ namespace Problem33
             ReadKey();
         }
 
-        private static long Solve()
+        public static long Solve()
         {
             List<Fraction> cancellingFactionsList = new List<Fraction>();
 
@@ -77,8 +77,7 @@ namespace Problem33
             return answer;
         }
 
-        // ReSharper disable once ParameterTypeCanBeEnumerable.Local
-        private static int FindDenominatorOfProductInLowestTerms(List<Fraction> cancellingFactionsList)
+        private static int FindDenominatorOfProductInLowestTerms(IEnumerable<Fraction> cancellingFactionsList)
         {
             int numeratorProducts = 1;
             int denominatorProducts = 1;
@@ -94,7 +93,7 @@ namespace Problem33
 
             List<int> numeratorPrimeFactors = GetPrimeFactors(numeratorProducts);
             List<int> denominatorPrimeFactors = GetPrimeFactors(denominatorProducts);
-            List<int> commonFactors = GetCommonFactors(numeratorPrimeFactors, denominatorPrimeFactors);
+            IEnumerable<int> commonFactors = GetCommonFactors(numeratorPrimeFactors, denominatorPrimeFactors);
 
             foreach (int factor in commonFactors)
             {
@@ -111,9 +110,7 @@ namespace Problem33
             return productOfDenominatorFactors;
         }
 
-        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-        // ReSharper disable once ParameterTypeCanBeEnumerable.Local
-        private static List<int> GetCommonFactors(List<int> numeratorPrimeFactors, List<int> denominatorPrimeFactors)
+        private static IEnumerable<int> GetCommonFactors(IEnumerable<int> numeratorPrimeFactors, List<int> denominatorPrimeFactors)
         {
             List<int> commonFactors = new List<int>();
             List<int> denominatorPrimeFactorsCopy = CopyList(denominatorPrimeFactors);
@@ -131,8 +128,7 @@ namespace Problem33
             return commonFactors;
         }
 
-        // ReSharper disable once ParameterTypeCanBeEnumerable.Local
-        private static List<int> CopyList(List<int> originalList)
+        private static List<int> CopyList(IEnumerable<int> originalList)
         {
             List<int> copyList = new List<int>(0);
 

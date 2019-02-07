@@ -30,7 +30,7 @@ namespace Problem44
             for (int number = 1; number < upperBound; number++)
             {
                 long pentagonalNumber = GetPentagonalNumber(number);
-                //Console.WriteLine($"pentagonalNumber = {pentagonalNumber}");
+                //WriteLine($"pentagonalNumber = {pentagonalNumber}");
 
                 bool isPentagonalNumber = IsPentagonalNumber(pentagonalNumber);
 
