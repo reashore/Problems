@@ -160,7 +160,7 @@ namespace Problems.Test
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
         }
-          
+        
         [Test]
         public void Problem11Test()
         {
@@ -169,6 +169,22 @@ namespace Problems.Test
             
             // Act
             long answer = Problem11.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+          
+        [Test]
+        [Category("Slow")]
+        [Explicit]
+        [Ignore("Ignore slow test")]
+        public void Problem12Test()
+        {
+            // Arrange
+            const ulong expectedResult = 76576500;
+            
+            // Act
+            long answer = Problem12.Program.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using static System.Console;
+﻿using static System.Console;
 
 namespace Problem12
 {
@@ -10,48 +9,29 @@ namespace Problem12
         {
             WriteLine("Problem 12");
 
-            TestTriangularNumbers();
-            Test();
+            long answer = Solve();
+            WriteLine($"Answer = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void TestTriangularNumbers()
+        public static long Solve()
         {
-            for (ulong n = 1; n <= 10; n++)
-            {
-                ulong triangularNumber = GetTriangleNumber(n);
-                List<ulong> divisors = GetDivisors(triangularNumber);
-                WriteLine($"n = {n}, triangulatNumber = {triangularNumber}");
-                divisors.ForEach(WriteLine);
-            }
+            const int maxDivisors = 500;
+            var triangleNumber = GetTriangleNumberWithDivisors(maxDivisors);
+            return triangleNumber;
+
         }
 
-        private static void Test()
+        private static long GetTriangleNumberWithDivisors(long maxDivisors)
         {
-            List<ulong> maxDivisorsList = new List<ulong> { 2, 4, 5, 500 };
-
-            foreach (ulong maxDivisors in maxDivisorsList)
-            {
-                (ulong, ulong, ulong) result = GetTriangleNumberWithDivisors(maxDivisors);
-                ulong number = result.Item1;
-                ulong triangleNumber = result.Item2;
-                ulong divisorCount = result.Item3;
-
-                // GetTriangleNumber(12375) = 76576500, maxDivisors = 500 divisorCount = 576
-                WriteLine($"GetTriangleNumber({number}) = {triangleNumber}, maxDivisors = {maxDivisors} divisorCount = {divisorCount}");
-            }
-        }
-
-        private static (ulong, ulong, ulong) GetTriangleNumberWithDivisors(ulong maxDivisors)
-        {
-            ulong number = 1;
-            ulong triangleNumber;
-            ulong divisorCount;
+            long number = 1;
+            long triangleNumber;
 
             while (true)
             {
+                long divisorCount;
                 checked
                 {
                     triangleNumber = GetTriangleNumber(number);
@@ -66,14 +46,14 @@ namespace Problem12
                 number++;
             }
 
-            return (number, triangleNumber, divisorCount);
+            return triangleNumber;
         }
 
-        private static ulong GetTriangleNumber(ulong number)
+        private static long GetTriangleNumber(long number)
         {
-            ulong sum = 0;
+            long sum = 0;
 
-            for (ulong n = 1; n <= number; n++)
+            for (long n = 1; n <= number; n++)
             {
                 sum += n;
             }
@@ -81,26 +61,11 @@ namespace Problem12
             return sum;
         }
 
-        private static List<ulong> GetDivisors(ulong number)
+        private static long GetDivisorsCount(long number)
         {
-            List<ulong> divisors = new List<ulong>();
+            long divisorsCount = 0;
 
-            for (ulong n = 1; n <= number; n++)
-            {
-                if (number % n == 0)
-                {
-                    divisors.Add(n);
-                }
-            }
-
-            return divisors;
-        }
-
-        private static ulong GetDivisorsCount(ulong number)
-        {
-            ulong divisorsCount = 0;
-
-            for (ulong n = 1; n <= number; n++)
+            for (long n = 1; n <= number; n++)
             {
                 if (number % n == 0)
                 {
