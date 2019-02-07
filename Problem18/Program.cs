@@ -9,12 +9,18 @@ namespace Problem18
         {
             WriteLine("Problem 18");
 
-            Triangle triangle = LoadTriangle();
-            long maxPathSum= Solve(triangle);
-            WriteLine($"maxPathSum = {maxPathSum}");        // 1074
+            long answer = Solve();
+            WriteLine($"answer = {answer}");        // 1074
 
             WriteLine("Done");
             ReadKey();
+        }
+
+        public static long Solve()
+        {
+            Triangle triangle = LoadTriangle();
+            long maxPathSum= Solve(triangle);
+            return maxPathSum;
         }
 
         private static Triangle LoadTriangle()

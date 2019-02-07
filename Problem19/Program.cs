@@ -1,5 +1,4 @@
 ﻿using System;
-using static Common.Utilities;
 using static System.Console;
 
 namespace Problem19
@@ -11,8 +10,6 @@ namespace Problem19
         {
             WriteLine("Problem 19");
 
-            Test();
-
             int numberSundaysOnFirstOfMonth = Solve();
             WriteLine($"numberSundaysOnFirstOfMonth = {numberSundaysOnFirstOfMonth}");      // 171
 
@@ -20,16 +17,7 @@ namespace Problem19
             ReadKey();
         }
 
-        private static void Test()
-        {
-            DateTime startDate = new DateTime(1900, 1, 1);
-            Assert(startDate.DayOfWeek == DayOfWeek.Monday);
-
-            DateTime firstOfMonth = startDate.Add(TimeSpan.FromDays(31));
-            Assert(IsFirstOfMonth(firstOfMonth));
-        }
-
-        private static int Solve()
+        public static int Solve()
         {
             DateTime startDate = new DateTime(1901, 1, 1);
             DateTime endDate = new DateTime(2000, 12, 31);

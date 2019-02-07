@@ -11,27 +11,18 @@ namespace Problem16
     {
         public static void Main()
         {
-            WriteLine("Problem 12");
+            WriteLine("Problem 16");
 
-            Test();
+            int answer = Solve();
+            WriteLine($"answer = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static int Solve()
         {
-            List<int> exponents = new List<int> { 15, 1000 };
-
-            foreach(int exponent in exponents)
-            {
-                int result = Solve(exponent);
-                WriteLine($"result = {result}");
-            }
-        }
-
-        private static int Solve(int exponent)
-        {
+            const int exponent = 1000;
             BigInteger product = new BigInteger(1);
             BigInteger two = new BigInteger(2);
 

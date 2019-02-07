@@ -12,7 +12,46 @@ namespace Problem13
         public static void Main()
         {
             WriteLine("Problem 13");
+            
+            long result = Solve();
+            WriteLine($"result = { result}");        // 5537376230
 
+            WriteLine("Done");
+            ReadKey();
+        }
+
+        public static long Solve()
+        {
+            string numbers = GetNumbersAsCsvString();
+            BigInteger sum = Sum(numbers);
+
+            // BigInt -> string -> List<int>
+
+            string sumString = sum.ToString();
+            List<int> digits = new List<int>();
+
+            foreach (char c in sumString)
+            {
+                int digit = Convert.ToInt32(c.ToString());
+                digits.Add(digit);
+            }
+
+            IEnumerable<int> firstTenDigits = digits.Take(10);
+            string answerString = "";
+
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            foreach(int digit in firstTenDigits)
+            {
+                answerString += digit.ToString();
+            }
+
+            bool parsedNumber = long.TryParse(answerString, out long answer);
+            
+            return parsedNumber ? answer : 0;
+        }
+
+        private static string GetNumbersAsCsvString()
+        {
             const string numbers = "37107287533902102798797998220837590246510135740250," +
                                    "46376937677490009712648124896970078050417018260538," +
                                    "74324986199524741059474233309513058123726617309629," +
@@ -113,41 +152,8 @@ namespace Problem13
                                    "72107838435069186155435662884062257473692284509516," +
                                    "20849603980134001723930671666823555245252804609722," +
                                    "53503534226472524250874054075591789781264330331690";
-            
-            string result = Solve(numbers);
-            WriteLine($"result = { result}");
+            return numbers;
 
-            WriteLine("Done");
-            ReadKey();
-        }
-
-        private static string Solve(string numbers)
-        {
-            BigInteger sum = Sum(numbers);
-            WriteLine($"sum = {sum}");
-
-            // BigInt -> string -> List<int>
-
-            string sumString = sum.ToString();
-            List<int> digits = new List<int>();
-
-            foreach (char c in sumString)
-            {
-                int digit = Convert.ToInt32(c.ToString());
-                digits.Add(digit);
-            }
-
-            IEnumerable<int> firstTenDigits = digits.Take(10);
-            string answer = "";
-
-            // ReSharper disable once LoopCanBeConvertedToQuery
-            foreach(int digit in firstTenDigits)
-            {
-                answer += digit.ToString();
-            }
-
-            // 5537376230
-            return answer;
         }
 
         private static BigInteger Sum(string numbers)

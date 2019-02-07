@@ -104,31 +104,10 @@ namespace Problems.Test
         public void Problem8Test()
         {
             // Arrange
-            const int adjacentDigits = 13;
-            const string number = "73167176531330624919225119674426574742355349194934" +
-                                  "96983520312774506326239578318016984801869478851843" +
-                                  "85861560789112949495459501737958331952853208805511" +
-                                  "12540698747158523863050715693290963295227443043557" +
-                                  "66896648950445244523161731856403098711121722383113" +
-                                  "62229893423380308135336276614282806444486645238749" +
-                                  "30358907296290491560440772390713810515859307960866" +
-                                  "70172427121883998797908792274921901699720888093776" +
-                                  "65727333001053367881220235421809751254540594752243" +
-                                  "52584907711670556013604839586446706324415722155397" +
-                                  "53697817977846174064955149290862569321978468622482" +
-                                  "83972241375657056057490261407972968652414535100474" +
-                                  "82166370484403199890008895243450658541227588666881" +
-                                  "16427171479924442928230863465674813919123162824586" +
-                                  "17866458359124566529476545682848912883142607690042" +
-                                  "24219022671055626321111109370544217506941658960408" +
-                                  "07198403850962455444362981230987879927244284909188" +
-                                  "84580156166097919133875499200524063689912560717606" +
-                                  "05886116467109405077541002256983155200055935729725" +
-                                  "71636269561882670428252483600823257530420752963450";
             const long expectedResult = 23514624000;
             
             // Act
-            long answer = Problem8.Program.Solve(number, adjacentDigits);
+            long answer = Problem8.Program.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -189,5 +168,129 @@ namespace Problems.Test
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
         }
+        
+        [Test]
+        public void Problem13Test()
+        {
+            // Arrange
+            const long expectedResult = 5537376230;
+            
+            // Act
+            long answer = Problem13.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem14Test()
+        {
+            // Arrange
+            const long expectedResult = 837799;
+            
+            // Act
+            long answer = Problem14.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        [Category("Slow")]
+        [Explicit]
+        [Ignore("Ignore slow test")]
+        public void Problem15Test()
+        {
+            // Arrange
+            const long expectedResult = 137846528820;
+            
+            // Act
+            ulong answer = Problem15.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem16Test()
+        {
+            // Arrange
+            const long expectedResult = 1366;
+            
+            // Act
+            int answer = Problem16.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem17Test()
+        {
+            // Arrange
+            const long expectedResult = 21124;
+            
+            // Act
+            int answer = Problem17.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem18Test()
+        {
+            // Arrange
+            const long expectedResult = 1074;
+            
+            // Act
+            long answer = Problem18.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem19Test()
+        {
+            // Arrange
+            const long expectedResult = 171;
+            
+            // Act
+            int answer = Problem19.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem20Test()
+        {
+            // Arrange
+            const long expectedResult = 648;
+            
+            // Act
+            int answer = Problem20.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem21Test()
+        {
+            // Arrange
+            const long expectedResult = 31626;
+            
+            // Act
+            int answer = Problem21.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        
+        
+        
     }
 }

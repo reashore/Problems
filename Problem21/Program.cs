@@ -12,29 +12,22 @@ namespace Problem21
         {
             WriteLine("Problem 21");
 
-            //Test();
-
-            const int upperBound = 10000;
-            List<int> amicableNumbers = GetAmicableNumbers(upperBound);
-            int sumOfAmicableNumbers = amicableNumbers.Sum(n => n);
-            WriteLine($"sumOfAmicableNumbers = {sumOfAmicableNumbers}");
+            int answer = Solve();
+            WriteLine($"sumOfAmicableNumbers = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        //private static void Test()
-        //{
-        //    int sum1 = SumOfProperDivisors(220);
-        //    int sum2 = SumOfProperDivisors(284);
-        //    bool isAmicableNumber1 = IsAmicableNumber(220);
-        //    bool isAmicableNumber2 = IsAmicableNumber(284);
-        //    int amicableNumberPartner1 = GetAmicableNumberPartner(220);
-        //    int amicableNumberPartner2 = GetAmicableNumberPartner(284);
-        //}
+        public static int Solve()
+        {
+            const int upperBound = 10000;
+            IEnumerable<int> amicableNumbers = GetAmicableNumbers(upperBound);
+            int sumOfAmicableNumbers = amicableNumbers.Sum(n => n);
+            return sumOfAmicableNumbers;
+        }
 
-        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-        private static List<int> GetAmicableNumbers(int upperBound)
+        private static IEnumerable<int> GetAmicableNumbers(int upperBound)
         {
             List<int> amicableNumbers = new List<int>();
 
@@ -53,8 +46,7 @@ namespace Problem21
             return amicableNumbers;
         }
 
-        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-        private static List<int> GetProperDivisors(int number)
+        private static IEnumerable<int> GetProperDivisors(int number)
         {
             List<int> divisors = new List<int>();
 
@@ -71,7 +63,7 @@ namespace Problem21
 
         private static int SumOfProperDivisors(int number)
         {
-            List<int> properDivisors = GetProperDivisors(number);
+            IEnumerable<int> properDivisors = GetProperDivisors(number);
             int sumOfProperDivisors = properDivisors.Sum(n => n);
 
             return sumOfProperDivisors;

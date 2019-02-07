@@ -9,29 +9,28 @@ namespace Problem14
         {
             WriteLine("Problem 14");
 
-            Solve();
+            long answer = Solve();
+            WriteLine($"answer = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Solve()
+        public static long Solve()
         {
             const long upperBound = 1000000;
-            (long, long) result = GetLongestCollatzChain(upperBound);
-            long start = result.Item1;
-            long longestCollatzChain = result.Item2;
-            WriteLine($"start = {start}, longestCollatzChain = {longestCollatzChain}");
+            var start = GetLongestCollatzChain(upperBound);
+            return start;
         }
 
-        private static (long, long) GetLongestCollatzChain(long upperBound)
+        private static long GetLongestCollatzChain(long upperBound)
         {            
             long maxCollatzChainLength = 0;
             long chainStart = 0;
 
             for (long n = 2; n <= upperBound; n++)
             {
-                long collatzChainLength = GetCollatzChainLength(n);
+                long collatzChainLength = GetStartingNumberWithCollatzChainLength(n);
 
                 // ReSharper disable once InvertIf
                 if (collatzChainLength > maxCollatzChainLength)
@@ -41,10 +40,10 @@ namespace Problem14
                 }
             }
 
-            return (chainStart, maxCollatzChainLength);
+            return chainStart;
         }
 
-        private static long GetCollatzChainLength(long start)
+        private static long GetStartingNumberWithCollatzChainLength(long start)
         {
             long n = start;
             long chainLength = 1;

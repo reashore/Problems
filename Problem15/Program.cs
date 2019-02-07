@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Common;
 using static System.Console;
 
@@ -12,56 +11,17 @@ namespace Problem15
         {
             WriteLine("Problem 15");
 
-            Test();
-
-            const int gridSize = 20;
-            var result = Utilities.TimeFunction(Solve, gridSize);
-            ulong numberGridPaths = result.Item1;
-            TimeSpan timeSpan = result.Item2;
-            // numberGridPaths = 137846528820, timeSpan = 11.0657929098611
-            WriteLine($"numberGridPaths = {numberGridPaths}, timeSpan = {timeSpan.TotalHours}");
+            ulong answer = Solve();
+            WriteLine($"numberGridPaths = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static ulong Solve()
         {
-            Grid grid = new Grid(1);
+            const int gridSize = 20;
 
-            Node node = new Node(0, 0);
-            List<Node> children = grid.GetChildren(node);
-            int count = children.Count;
-            Utilities.Assert(count == 2);
-
-            node = new Node(0, 1);
-            children = grid.GetChildren(node);
-            count = children.Count;
-            Utilities.Assert(count == 1);
-
-            node = new Node(1, 0);
-            children = grid.GetChildren(node);
-            count = children.Count;
-            Utilities.Assert(count == 1);
-
-            node = new Node(1, 1);
-            children = grid.GetChildren(node);
-            count = children.Count;
-            Utilities.Assert(count == 0);
-
-            Node root = new Node(0, 0);
-            ulong numberGridPaths = grid.GetNumberGridPaths(root);
-            Utilities.Assert(numberGridPaths == 2);
-
-            grid = new Grid(2);
-            numberGridPaths = grid.GetNumberGridPaths(root);
-            Utilities.Assert(numberGridPaths == 6);
-
-            WriteLine("Tests done");
-        }
-
-        private static ulong Solve(int gridSize)
-        {
             Grid grid = new Grid(gridSize);
             Node startNode = new Node(0, 0);
 
@@ -98,8 +58,7 @@ namespace Problem15
             return numberGridPaths;
         }
 
-        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-        public List<Node> GetChildren(Node node)
+        private List<Node> GetChildren(Node node)
         {
             List<Node> children = new List<Node>();
             int row = node.Row;

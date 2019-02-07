@@ -11,6 +11,15 @@ namespace Problem17
         {
             WriteLine("Problem 17");
 
+            int answer = Solve();
+            WriteLine($"answer = {answer}");      // 21124
+
+            WriteLine("Done");
+            ReadKey();
+        }
+
+        public static int Solve()
+        {
             SortedDictionary<int, string> numbersDictionary = new SortedDictionary<int, string>();
 
             AssignBasicNumbers(numbersDictionary);
@@ -18,10 +27,8 @@ namespace Problem17
             AssignNumbers101To999(numbersDictionary);
             Print(numbersDictionary);
             int letterCount = CountLetters(numbersDictionary);
-            WriteLine($"letterCount = {letterCount}");      // 21124
 
-            WriteLine("Done");
-            ReadKey();
+            return letterCount;
         }
 
         private static void AssignBasicNumbers(IDictionary<int, string> numbersDictionary)

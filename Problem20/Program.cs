@@ -13,19 +13,21 @@ namespace Problem20
         {
             WriteLine("Problem 20");
 
-            Solve(10);
-            Solve(100);
+           int answer = Solve();
+            WriteLine($"answer = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Solve(int number)
+        public static int Solve()
         {
+            const int number = 100;
             BigInteger factorial = Factorial(number);
             int sumOfDigits = SumDigits(factorial);
             WriteLine($"Factorial({number}) = {factorial.ToString()}");
             WriteLine($"SumDigits = {sumOfDigits}");
+            return sumOfDigits;
         }
 
         private static BigInteger Factorial(int n)
