@@ -12,8 +12,6 @@ namespace Problem43
         {
             WriteLine("Problem 43");
 
-            Test();
-
             long sum = Solve();
             WriteLine($" sum = {sum}");     // 16695334890
 
@@ -21,26 +19,7 @@ namespace Problem43
             ReadKey();
         }
 
-        private static void Test()
-        {
-            long number = 9876543210;
-            bool is0To9Pandigital = Is0To9Pandigital(number);
-            Assert(is0To9Pandigital);
-
-            number = 1234567890;
-            is0To9Pandigital = Is0To9Pandigital(number);
-            Assert(is0To9Pandigital);
-
-            number = 9876543211;
-            is0To9Pandigital = Is0To9Pandigital(number);
-            Assert(!is0To9Pandigital);
-
-            number = 1406357289;
-            bool isSubstringDivisible = IsSubstringDivisible(number);
-            Assert(isSubstringDivisible);
-        }
-
-        private static long Solve()
+        public static long Solve()
         {
             long sum = 0;
 

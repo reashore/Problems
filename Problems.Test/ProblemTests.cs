@@ -568,5 +568,34 @@ namespace Problems.Test
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
         }
+        
+        [Test]
+        public void Problem43Test()
+        {
+            // Arrange
+            const long expectedResult = 16695334890;
+            
+            // Act
+            long answer = Problem43.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        [Category("Slow")]
+        [Explicit]
+        [Ignore("Ignore slow test")]
+        public void Problem44Test()
+        {
+            // Arrange
+            const long expectedResult = 5482660;
+            
+            // Act
+            long answer = Problem44.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
     }
 }

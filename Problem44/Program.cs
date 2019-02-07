@@ -1,5 +1,4 @@
 ﻿using System;
-using static Common.Utilities;
 using static System.Console;
 
 namespace Problem44
@@ -11,38 +10,16 @@ namespace Problem44
         {
             WriteLine("Problem 44");
 
-            const long upperBound = 10000;
-            Test(upperBound);
-            WriteLine("Tests Done");
-
-            long minimalDifference = Solve(upperBound);
-            WriteLine($"minimalDifference = {minimalDifference}");      // 5482660
+            long answer = Solve();
+            WriteLine($"minimalDifference = {answer}");      // 5482660
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test(long upperBound)
+        public static long Solve()
         {
-            bool isPentagonalNumberCheck = IsPentagonalNumber(1);
-            Assert(isPentagonalNumberCheck);
-
-            for (int number = 1; number < upperBound; number++)
-            {
-                long pentagonalNumber = GetPentagonalNumber(number);
-                //WriteLine($"pentagonalNumber = {pentagonalNumber}");
-
-                bool isPentagonalNumber = IsPentagonalNumber(pentagonalNumber);
-
-                if (!isPentagonalNumber)
-                {
-                    WriteLine($"Failed for number = {number}, pentagonalNumber = {pentagonalNumber}");
-                }
-            }
-        }
-
-        private static long Solve(long upperBound)
-        {
+            const long upperBound = 10000;
             long minimalDifference = long.MaxValue;
             WriteLine($"long max = {long.MaxValue}");
 
