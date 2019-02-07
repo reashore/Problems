@@ -3,21 +3,21 @@
 namespace Problem2
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {
             WriteLine("Problem 2");
             const int upperLimit = 4000000;
 
-            int sumOfEvenTerms = SumEvenFibonacci(upperLimit);
+            int sumOfEvenTerms = Solve(upperLimit);
             WriteLine($"sumOfEvenTerms = { sumOfEvenTerms}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static int SumEvenFibonacci(int upperLimit)
+        public static int Solve(int upperLimit)
         {
             int x1 = 0;
             int x2 = 1;

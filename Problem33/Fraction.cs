@@ -1,6 +1,6 @@
 ﻿namespace Problem33
 {
-    internal class Fraction
+    public class Fraction
     {
         public int Numerator { get; }
         public int Denominator { get; }

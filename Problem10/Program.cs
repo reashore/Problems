@@ -5,7 +5,7 @@ using static System.Console;
 namespace Problem10
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {

@@ -16,7 +16,7 @@ namespace Problem26
     // http://thecprojectt.blogspot.com/2014/10/reciprocal-cycles-problem-26-project.html
 
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Problem18
 {
-    internal class Triangle
+    public class Triangle
     {
         #region Constructors, Properties, and Fields
 

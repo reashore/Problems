@@ -3,20 +3,23 @@
 namespace Problem9
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
-        private static void Main()
+        public static void Main()
         {
             WriteLine("Problem 9");
 
-            Solve();
+            int answer = Solve();
+            WriteLine($"answer = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Solve()
+        public static int Solve()
         {
+            int product = 0;
+            
             for (int a = 1; a < 1000; a++)
             {
                 for (int b = a + 1; b < 1000; b++)
@@ -26,7 +29,7 @@ namespace Problem9
                         // ReSharper disable once InvertIf
                         if (a * a + b * b == c * c && a + b + c == 1000)
                         {
-                            int product = a * b * c;
+                            product = a * b * c;
                             WriteLine($"{a} x {b} x {c} = {product}");
 
                             break;
@@ -34,6 +37,8 @@ namespace Problem9
                     }
                 }
             }
+
+            return product;
         }
     }
 }

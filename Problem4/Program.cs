@@ -3,7 +3,7 @@
 namespace Problem4
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {
@@ -16,7 +16,7 @@ namespace Problem4
             ReadKey();
         }
 
-        private static int Solve()
+        public static int Solve()
         {
             int maxProduct = 0;
 

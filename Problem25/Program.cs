@@ -6,7 +6,7 @@ using Common;
 namespace Problem25
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {

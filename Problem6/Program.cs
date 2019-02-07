@@ -5,30 +5,21 @@ using static System.Console;
 namespace Problem6
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {
             WriteLine("Problem 6");
 
-            Test();
+            const int number = 100;
+            int result = Solve(number);
+            WriteLine($"number = {number, 5}, result = {result, 20}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
-        {
-            List<int> numbers = new List<int>{ 10, 100, 1000 };
-
-            foreach(int number in numbers)
-            {
-                int result = Solve(number);
-                WriteLine($"number = {number, 5}, result = {result, 20}");
-            }
-        }
-
-        private static int Solve(int number)
+        public static int Solve(int number)
         {
             IEnumerable<int> sequence = Enumerable.Range(1, number);
 

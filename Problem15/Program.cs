@@ -6,7 +6,7 @@ using static System.Console;
 namespace Problem15
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {
@@ -71,7 +71,7 @@ namespace Problem15
         }
     }
 
-    internal class Grid
+    public class Grid
     {
         private int GridSize { get; }
 

@@ -1,6 +1,6 @@
 ﻿namespace Problem31
 {
-    internal class Money
+    public class Money
     {
         #region Constructors, fields, and properties
 

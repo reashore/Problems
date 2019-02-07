@@ -6,7 +6,7 @@ using static System.Console;
 
 namespace Problem59
 {
-    internal static class Program
+    public static class Program
     {
         private static void Main()
         {

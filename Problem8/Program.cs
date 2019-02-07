@@ -6,7 +6,7 @@ using static System.Console;
 namespace Problem8
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {
@@ -33,24 +33,14 @@ namespace Problem8
                                   "05886116467109405077541002256983155200055935729725" +
                                   "71636269561882670428252483600823257530420752963450";
 
-            Test(number);
+            long answer = Solve(number, 13);
+            WriteLine($"product = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test(string number)
-        {
-            List<int> takes = new List<int> { 4, 13 };
-
-            foreach (int take in takes)
-            {
-                long product = Solve(number, take);
-                WriteLine($"product = {product}");
-            }
-        }
-
-        private static long Solve(string numberString, int take)
+        public static long Solve(string numberString, int take)
         {
             List<long> numberList = new List<long>();
             long maxProduct = 0;

@@ -7,35 +7,21 @@ using static System.Console;
 namespace Problem7
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {
             WriteLine("Problem 7");
 
-            Test();
+            const int number = 1001;
+            int result = Solve(number);
+            WriteLine($"{result} is the {number}th prime");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
-        {
-            List<int> topPrimes = new List<int> { 6, 10001 };
-
-            foreach (int topPrime in topPrimes)
-            {
-                List<int> primes = Solve(topPrime);
-                int value = primes.Last();
-                WriteLine($"{value} is the {topPrime}th prime");
-            }
-
-            bool isPrime = IsPrime(104743);
-            Assert(isPrime);
-        }
-
-        // ReSharper disable once ReturnTypeCanBeEnumerable.Local
-        private static List<int> Solve(int topPrime)
+        public static int Solve(int topPrime)
         {
             if (topPrime < 2)
             {
@@ -53,15 +39,15 @@ namespace Problem7
                     primesList.Add(n);
                 }
 
-                //Console.WriteLine($"IsPrime({n}) = {isPrime}");
-
                 if (primesList.Count == topPrime)
                 {
                     break;
                 }
             }
+            
+            int answer = primesList.Last();
 
-            return primesList;
+            return answer;
         }
     }
 }

@@ -4,7 +4,7 @@ using static System.Console;
 namespace Problem5
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {
@@ -19,7 +19,7 @@ namespace Problem5
             ReadKey();
         }
 
-        private static int Solve()
+        public static int Solve()
         {
             const int upperBound = 20;
             int number = 1;

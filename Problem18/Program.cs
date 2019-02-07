@@ -3,7 +3,7 @@
 namespace Problem18
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private static void Main()
         {

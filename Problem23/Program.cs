@@ -4,7 +4,7 @@ using static System.Console;
 namespace Problem23
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    internal class Program
+    public class Program
     {
         private enum PerfectType
         {
