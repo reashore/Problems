@@ -11,31 +11,31 @@ namespace Problem38
         {
             WriteLine("Problem 38");
 
-            Test();
+            //Test();
 
-            long maxConcatenatedProduct = Solve();
-            WriteLine($"maxConcatenatedProduct = {maxConcatenatedProduct}");
+            long answer = Solve();
+            WriteLine($"maxConcatenatedProduct = {answer}");        // 932718654
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
-        {
-            long number = 9;
-            long digit = 5;
-            long concatenatedProduct = GetConcatenatedProduct(number, digit);
-            bool isPandigital = IsPandigital(concatenatedProduct);
-            Assert(isPandigital);
+//        private static void Test()
+//        {
+//            long number = 9;
+//            long digit = 5;
+//            long concatenatedProduct = GetConcatenatedProduct(number, digit);
+//            bool isPandigital = IsPandigital(concatenatedProduct);
+//            Assert(isPandigital);
+//
+//            number = 192;
+//            digit = 3;
+//            concatenatedProduct = GetConcatenatedProduct(number, digit);
+//            isPandigital = IsPandigital(concatenatedProduct);
+//            Assert(isPandigital);
+//        }
 
-            number = 192;
-            digit = 3;
-            concatenatedProduct = GetConcatenatedProduct(number, digit);
-            isPandigital = IsPandigital(concatenatedProduct);
-            Assert(isPandigital);
-        }
-
-        private static long Solve()
+        public static long Solve()
         {
             long maxConcatenatedProduct = 0;
 

@@ -12,29 +12,17 @@ namespace Problem37
         {
             WriteLine("Problem 37");
 
-            Test();
-
-            const long upperBound = 1000000;
-            (long, long) result = Solve(upperBound);
-            long count = result.Item1;
-            long sum = result.Item2;
-            WriteLine($"count = {count}, sum = {sum}");
+            long answer = Solve();
+            WriteLine($"answer = {answer}");        // 748317
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static long Solve()
         {
-            const long number = 3797;
-            List<long> truncations = GetTruncations(number);
-            Assert(truncations.Count == 7);
-        }
-
-        private static (long, long) Solve(long upperBound)
-        {
+            const long upperBound = 1000000;
             long sum = 0;
-            long count = 0;
 
             for (long number = 8; number < upperBound; number++)
             {
@@ -46,12 +34,11 @@ namespace Problem37
                 if (allTruncationsArePrime)
                 {
                     sum += number;
-                    count++;
-                    WriteLine($"number = {number}");
+                    //WriteLine($"number = {number}");
                 }
             }
 
-            return (count, sum);
+            return sum;
         }
 
         private static List<long> GetTruncations(long number)

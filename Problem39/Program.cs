@@ -1,5 +1,4 @@
-﻿using static Common.Utilities;
-using static System.Console;
+﻿using static System.Console;
 
 namespace Problem39
 {
@@ -10,30 +9,17 @@ namespace Problem39
         {
             WriteLine("Problem 39");
 
-            Test();
-            WriteLine("Tests Done");
+            int answer = Solve();
 
-            const int perimeterUpperBound = 1000;
-            (int, int) result = Solve(perimeterUpperBound);
-            int maxPerimeter = result.Item1;
-            int numberTriangles = result.Item2;
-
-            // maxPerimeter = 840, numberTriangles = 8
-            WriteLine($"maxPerimeter = {maxPerimeter}, numberTriangles = {numberTriangles}");
+            WriteLine($"maxPerimeter = {answer}");        // 840
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static int Solve()
         {
-            const int perimeter = 120;
-            int triangleCount = GetNumberIntegralTriangleWithPerimeter(perimeter);
-            Assert(triangleCount == 3);
-        }
-
-        private static (int, int) Solve(int perimeterUpperBound)
-        {
+            const int perimeterUpperBound = 1000;
             int maxTriangleCount = 0;
             int maxPerimeter = 0;
 
@@ -49,7 +35,7 @@ namespace Problem39
                 }
             }
 
-            return (maxPerimeter, maxTriangleCount);
+            return maxPerimeter;
         }
 
         private static int GetNumberIntegralTriangleWithPerimeter(int perimeter)
