@@ -11,35 +11,17 @@ namespace Problem42
         {
             WriteLine("Problem 42");
 
-            Test();
-            WriteLine("Tests done");
-
-            const string fileName = "Words.txt";
-            IEnumerable<string> words = ReadCsvFile(fileName);
-            long numberTriangularWords = Solve(words);
-            WriteLine($"numberTriangularWords = {numberTriangularWords}");      // 162
+            long answer = Solve();
+            WriteLine($"numberTriangularWords = {answer}");      // 162
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static long Solve()
         {
-            const string word = "SKY";
-            int value = GetAlphabeticalValue(word);
-            Assert(value == 55);
-
-            for (int n = 1; n < 1000; n++)
-            {
-                long triangularNumber = GetTriangleNumber(n);
-                bool isTriangularNumber = IsTriangularNumber(triangularNumber);
-
-                Assert(isTriangularNumber);
-            }
-        }
-
-        private static long Solve(IEnumerable<string> words)
-        {
+            const string fileName = "Words.txt";
+            IEnumerable<string> words = ReadCsvFile(fileName);
             long numberTriangularWords = 0;
 
             // ReSharper disable once LoopCanBeConvertedToQuery

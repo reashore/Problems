@@ -11,16 +11,16 @@ namespace Problem40
         {
             WriteLine("Problem 40");
 
-            const long upperBound = 1000000;
-            long product = Solve(upperBound);
-            WriteLine($"product = {product}");      // 210
+            long answer = Solve();
+            WriteLine($"product = {answer}");      // 210
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static long Solve(long upperBound)
+        public static long Solve()
         {
+            const long upperBound = 1000000;
             long product = 1;
 
             for (int n = 1; n <= upperBound; n *= 10)

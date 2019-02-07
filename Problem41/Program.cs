@@ -11,35 +11,14 @@ namespace Problem41
         {
             WriteLine("Problem 41");
 
-            Test();
-            long maxPandigitalPrime = Solve();
-            WriteLine($"maxPandigitalPrime = {maxPandigitalPrime}");    // 7652413
+            long answer = Solve();
+            WriteLine($"maxPandigitalPrime = {answer}");    // 7652413
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
-        {
-            string number = "2143";
-            bool isPandigital = IsPandigital(number, 4);
-            Assert(isPandigital);
-
-            number = "87654321";
-            isPandigital = IsPandigital(number, 8);
-            Assert(isPandigital);
-
-            number = "987654321";
-            isPandigital = IsPandigital(number);
-            Assert(isPandigital);
-
-            long upperBound = GetUpperBound(5);
-            Assert(upperBound == 54321);
-            upperBound = GetUpperBound(9);
-            Assert(upperBound == 987654321);
-        }
-
-        private static long Solve()
+        public static long Solve()
         {
             long maxPandigitalPrime = 0;
 
