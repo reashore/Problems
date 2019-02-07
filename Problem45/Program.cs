@@ -9,16 +9,16 @@ namespace Problem45
         {
             WriteLine("Problem 45");
 
-            const int upperBound = 100000;
-            long triangleNumber = Solve(upperBound);
-            WriteLine($"triangleNumber = {triangleNumber}");        // 1533776805
+            long answer = Solve();
+            WriteLine($"triangleNumber = {answer}");        // 1533776805
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static long Solve(int upperBound)
+        public static long Solve()
         {
+            const int upperBound = 100000;
             long specialTriangularNumber = 0;
 
             for (int n = 1; n <= upperBound; n++)
