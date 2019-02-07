@@ -12,19 +12,21 @@ namespace Problem47
         {
             WriteLine("Problem 47");
 
-            Solve();
+            long answer = Solve();
+            WriteLine($"answer = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Solve()
+        private static long Solve()
         {
             const int upperBound = 1000000;
+            long number1 = 0;
 
             for (long n = 1; n < upperBound; n++)
             {
-                long number1 = n;
+                number1 = n;
                 long number2 = n + 1;
                 long number3 = n + 2;
                 long number4 = n + 3;
@@ -51,6 +53,8 @@ namespace Problem47
                     break;
                 }
             }
+
+            return number1;
         }
 
         private static string ToString(IEnumerable<long> primeFactors)
