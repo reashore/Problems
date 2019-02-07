@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using static Common.Utilities;
+﻿using static Common.Utilities;
 using static System.Console;
 
 namespace Problem46
@@ -11,33 +10,20 @@ namespace Problem46
         {
             WriteLine("problem 46");
 
-            Test();
+            long answer = Solve();
 
-            const long upperBound = 6000;
-            long result = Solve(upperBound);
-
-            if (result > 0)
+            if (answer > 0)
             {
-                WriteLine($"Goldbach's conjecture failed for {result}");
+                WriteLine($"Goldbach's conjecture failed for {answer}");
             }
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static long Solve()
         {
-            List<long> satisfiesGoldbackConjectureList = new List<long> { 9, 15, 21, 25, 27, 33 };
-            bool allSatisfyGoldbackConjecture = satisfiesGoldbackConjectureList.TrueForAll(SatisfiesGoldbachConjecture);
-
-            if (!allSatisfyGoldbackConjecture)
-            {
-                WriteLine("Goldbach conjecture failed for List");
-            }
-        }
-
-        private static long Solve(long upperBound)
-        {
+            const long upperBound = 6000;
             const int smallestGoldbachNumber = 9;
 
             for (long number = smallestGoldbachNumber; number < upperBound; number += 2)
