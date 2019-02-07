@@ -12,9 +12,9 @@ namespace Problem59
         {
             WriteLine("Problem 59");
 
-            (long, string) result = Solve();
-            WriteLine($"result = {result.Item1}");        // 107359
-            WriteLine(result.Item2);
+            var (item1, item2) = Solve();
+            WriteLine($"result = {item1}");        // 107359
+            WriteLine(item2);
 
             WriteLine("Done");
             ReadKey();
