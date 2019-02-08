@@ -11,35 +11,16 @@ namespace Problem55
         {
             WriteLine("Problem 55");
 
-            Test();
-
-            const int upperBound = 10000;
-            int result = Solve(upperBound);
+            int result = Solve();
             WriteLine($"result = {result}");        // 249
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static int Solve()
         {
-            const string numberString = "0123456789";
-            string reverseNumberString = Reverse(numberString);
-            Assert(reverseNumberString == "9876543210");
-
-            bool result = IsLychrelNumber(47);
-            Assert(!result);
-
-            result = IsLychrelNumber(349);
-            Assert(!result);
-
-            result = IsLychrelNumber(196);
-            Assert(result);
-        }
-
-        private static int Solve(int upperBound)
-        {
-            // ReSharper disable once IdentifierTypo
+            const int upperBound = 10000;
             int lychrelNumberCount = 0;
 
             for (int number = 10; number < upperBound; number++)

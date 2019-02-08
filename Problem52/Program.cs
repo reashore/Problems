@@ -12,28 +12,16 @@ namespace Problem52
         {
             WriteLine("Problem 52");
 
-            Test();
-
-            const ulong upperBound = 1000000;
-            ulong result = Solve(upperBound);
-            WriteLine($"result = {result}");    // 142857
+            ulong answer = Solve();
+            WriteLine($"result = {answer}");    // 142857
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static ulong Solve()
         {
-            const ulong number = 125874;
-            const ulong number2 = number * 2;
-
-            List<int> numberDigits = GetDistinctSortedDigits(number);
-            bool numbersContainSameDigits = DoNumbersContainSameDigits(numberDigits, number2);
-            Assert(numbersContainSameDigits);
-        }
-
-        private static ulong Solve(ulong upperBound)
-        {
+            const ulong upperBound = 1000000;
             ulong numberWithSameDigitsProperty = 0;
 
             for (ulong number = 100; number < upperBound; number++)
