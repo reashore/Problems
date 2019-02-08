@@ -96,9 +96,9 @@ namespace Problem17
 
         private static void Print(SortedDictionary<int, string> numbersDictionary)
         {
-            foreach (KeyValuePair<int, string> item in numbersDictionary)
+            foreach (var (key, value) in numbersDictionary)
             {
-                WriteLine($"{item.Key} = {item.Value}");
+                WriteLine($"{key} = {value}");
             }
         }
 

@@ -20,8 +20,9 @@ namespace Problem59
             ReadKey();
         }
 
-        private static (long, string) Solve()
+        public static (long, string) Solve()
         {
+            // The cipher file was updated on 5 Feb 2019. This is the old file.
             const string cipherFileName = "Cipher.txt";
             IEnumerable<string> encryptedData = ReadCsvFile(cipherFileName);
             List<int> encyptedList = ConvertToIntList(encryptedData);

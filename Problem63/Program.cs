@@ -19,7 +19,7 @@ namespace Problem63
             ReadKey();
         }
 
-        private static int Solve()
+        public static int Solve()
         {
             int count = 0;
             int exponent = 1;

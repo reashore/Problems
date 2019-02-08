@@ -704,6 +704,46 @@ namespace Problems.Test
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
         }
+                
+        [Test]
+        public void Problem56Test()
+        {
+            // Arrange
+            const int expectedResult = 972;
+            
+            // Act
+            long answer = Problem56.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+                
+        [Test]
+        public void Problem59Test()
+        {
+            // Arrange
+            const int expectedResult = 107359;
+            
+            // Act
+            (long, string) answer = Problem59.Program.Solve();
+
+            // Assert
+            Assert.That(answer.Item1, Is.EqualTo(expectedResult));
+            //Assert.That(answer.Item2, Is.EqualTo(expectedResult));
+        }
+                
+        [Test]
+        public void Problem63Test()
+        {
+            // Arrange
+            const int expectedResult = 49;
+            
+            // Act
+            int answer = Problem63.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
         
     }
 }

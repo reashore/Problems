@@ -2,8 +2,6 @@
 {
     public class Money
     {
-        #region Constructors, fields, and properties
-
         private Money()
         {
         }
@@ -36,27 +34,23 @@
             Value = GetValueFromMoney(this);
         }
 
-        public uint Pense200 { get; private set; }
+        private uint Pense200 { get; set; }
 
-        public uint Pense100 { get; private set; }
+        private uint Pense100 { get; set; }
 
-        public uint Pense50 { get; private set; }
+        private uint Pense50 { get; set; }
 
-        public uint Pense20 { get; private set; }
+        private uint Pense20 { get; set; }
 
-        public uint Pense10 { get; private set; }
+        private uint Pense10 { get; set; }
 
-        public uint Pense5 { get; private set; }
+        private uint Pense5 { get; set; }
 
-        public uint Pense2 { get; private set; }
+        private uint Pense2 { get; set; }
 
-        public uint Pense1 { get; private set; }
+        private uint Pense1 { get; set; }
 
         public uint Value { get; }
-
-        #endregion
-
-        #region Methods
 
         public override int GetHashCode()
         {
@@ -84,11 +78,7 @@
             return areEqual;
         }
 
-        #endregion
-
-        #region Static methods
-
-        public static uint GetValueFromMoney(Money money)
+        private static uint GetValueFromMoney(Money money)
         {
             uint value = 0;
 
@@ -150,7 +140,5 @@
         {
             return !(money1 == money2);
         }
-
-        #endregion
     }
 }

@@ -13,16 +13,16 @@ namespace Problem56
         {
             WriteLine("Problem 56");
 
-            const int upperBound = 100;
-            long result = Solve(upperBound);
+            long result = Solve();
             WriteLine($"result = {result}");        // 972
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static long Solve(int upperBound)
+        public static long Solve()
         {
+            const int upperBound = 100;
             long maxDigitSum = 0;
 
             for (int a = 1; a < upperBound; a++)

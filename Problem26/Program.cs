@@ -22,13 +22,9 @@ namespace Problem26
         {
             WriteLine("Problem 26");
 
-            Test();
+            //Test();
 
-            const int upperBound = 1000;
-            (long, long, string) result = Solve(upperBound);
-            long maxDenominator = result.Item1;
-            long maxDigitStringLength = result.Item2;
-            string maxDigitString = result.Item3;
+            var (maxDenominator, maxDigitStringLength, maxDigitString) = Solve();
 
             WriteLine($"maxDenominator = {maxDenominator}, maxDigitStringLength = {maxDigitStringLength}, maxDigitString = {maxDigitString}");
 
@@ -36,61 +32,62 @@ namespace Problem26
             ReadKey();
         }
 
-        private static void Test()
+//        private static void Test()
+//        {
+//            // 1/2 = 0.5(0)
+//            string repeatingDigitList = GetRepeatingDecimalDigits(2);
+//            PrintList(repeatingDigitList);
+//            Assert(repeatingDigitList.Length == 1);
+//
+//            // 1/3 = 0.(3)
+//            repeatingDigitList = GetRepeatingDecimalDigits(3);
+//            PrintList(repeatingDigitList);
+//            Assert(repeatingDigitList.Length == 1);
+//            
+//            // 1/4 = 0.25(0)
+//            repeatingDigitList = GetRepeatingDecimalDigits(4);
+//            PrintList(repeatingDigitList);
+//            Assert(repeatingDigitList.Length == 1);
+//
+//            // 1/5 = 0.2(0)
+//            repeatingDigitList = GetRepeatingDecimalDigits(5);
+//            PrintList(repeatingDigitList);
+//            Assert(repeatingDigitList.Length == 1);
+//
+//            // 1/6 = 0.1(6)
+//            repeatingDigitList = GetRepeatingDecimalDigits(6);
+//            PrintList(repeatingDigitList);
+//            Assert(repeatingDigitList.Length == 1);
+//
+//            // 1/7 = 0.(142857)
+//            repeatingDigitList = GetRepeatingDecimalDigits(7);
+//            PrintList(repeatingDigitList);
+//            Assert(repeatingDigitList.Length == 6);
+//
+//            // 1/8 = 0.125(0)
+//            repeatingDigitList = GetRepeatingDecimalDigits(8);
+//            PrintList(repeatingDigitList);
+//            Assert(repeatingDigitList.Length == 1);
+//
+//            // 1/9 = 0.(1)
+//            repeatingDigitList = GetRepeatingDecimalDigits(9);
+//            PrintList(repeatingDigitList);
+//            Assert(repeatingDigitList.Length == 1);
+//
+//            // 1/10 = 0.1(0)
+//            repeatingDigitList = GetRepeatingDecimalDigits(10);
+//            PrintList(repeatingDigitList);
+//            Assert(repeatingDigitList.Length == 1);
+//
+//            // 1/983 = 0.??
+//            repeatingDigitList = GetRepeatingDecimalDigits(983);
+//            PrintList(repeatingDigitList);
+//            Assert(repeatingDigitList.Length == 985);
+//        }
+
+        public static (long, long, string) Solve()
         {
-            // 1/2 = 0.5(0)
-            string repeatingDigitList = GetRepeatingDecimalDigits(2);
-            PrintList(repeatingDigitList);
-            Assert(repeatingDigitList.Length == 1);
-
-            // 1/3 = 0.(3)
-            repeatingDigitList = GetRepeatingDecimalDigits(3);
-            PrintList(repeatingDigitList);
-            Assert(repeatingDigitList.Length == 1);
-            
-            // 1/4 = 0.25(0)
-            repeatingDigitList = GetRepeatingDecimalDigits(4);
-            PrintList(repeatingDigitList);
-            Assert(repeatingDigitList.Length == 1);
-
-            // 1/5 = 0.2(0)
-            repeatingDigitList = GetRepeatingDecimalDigits(5);
-            PrintList(repeatingDigitList);
-            Assert(repeatingDigitList.Length == 1);
-
-            // 1/6 = 0.1(6)
-            repeatingDigitList = GetRepeatingDecimalDigits(6);
-            PrintList(repeatingDigitList);
-            Assert(repeatingDigitList.Length == 1);
-
-            // 1/7 = 0.(142857)
-            repeatingDigitList = GetRepeatingDecimalDigits(7);
-            PrintList(repeatingDigitList);
-            Assert(repeatingDigitList.Length == 6);
-
-            // 1/8 = 0.125(0)
-            repeatingDigitList = GetRepeatingDecimalDigits(8);
-            PrintList(repeatingDigitList);
-            Assert(repeatingDigitList.Length == 1);
-
-            // 1/9 = 0.(1)
-            repeatingDigitList = GetRepeatingDecimalDigits(9);
-            PrintList(repeatingDigitList);
-            Assert(repeatingDigitList.Length == 1);
-
-            // 1/10 = 0.1(0)
-            repeatingDigitList = GetRepeatingDecimalDigits(10);
-            PrintList(repeatingDigitList);
-            Assert(repeatingDigitList.Length == 1);
-
-            // 1/983 = 0.??
-            repeatingDigitList = GetRepeatingDecimalDigits(983);
-            PrintList(repeatingDigitList);
-            Assert(repeatingDigitList.Length == 985);
-        }
-
-        private static (long, long, string) Solve(int upperBound)
-        {
+            const int upperBound = 1000;
             int maxRepeatingDigitStringLength = 0;
             string maxRepeatingDigitString = "";
             int maxRepeatingDenominator = 0;

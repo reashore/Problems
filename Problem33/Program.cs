@@ -110,7 +110,7 @@ namespace Problem33
             return productOfDenominatorFactors;
         }
 
-        private static IEnumerable<int> GetCommonFactors(IEnumerable<int> numeratorPrimeFactors, List<int> denominatorPrimeFactors)
+        private static IEnumerable<int> GetCommonFactors(IEnumerable<int> numeratorPrimeFactors, IEnumerable<int> denominatorPrimeFactors)
         {
             List<int> commonFactors = new List<int>();
             List<int> denominatorPrimeFactorsCopy = CopyList(denominatorPrimeFactors);
