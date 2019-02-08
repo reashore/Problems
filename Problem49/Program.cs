@@ -13,16 +13,16 @@ namespace Problem49
         {
             WriteLine("Problem 49");
 
-            const int upperBound = 10000;
-            string concatenation = Solve(upperBound);
-            WriteLine($"Concatenation = {concatenation}");      // 296962999629
+            string answer = Solve();
+            WriteLine($"Concatenation = {answer}");      // 296962999629
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static string Solve(int upperBound)
+        public static string Solve()
         {
+            const int upperBound = 10000;
             string result = "";
 
             for (int n = 1; n <= upperBound; n++)
