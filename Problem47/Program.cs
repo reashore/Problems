@@ -19,7 +19,7 @@ namespace Problem47
             ReadKey();
         }
 
-        private static long Solve()
+        public static long Solve()
         {
             const int upperBound = 1000000;
             long number1 = 0;

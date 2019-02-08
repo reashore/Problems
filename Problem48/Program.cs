@@ -1,5 +1,4 @@
 ﻿using System.Numerics;
-using static Common.Utilities;
 using static System.Console;
 
 namespace Problem48
@@ -10,32 +9,17 @@ namespace Problem48
         public static void Main()
         {
             WriteLine("Problem 48");
-            Test();
 
-            const int upperBound = 1000;
-            string lastTenDigits = Solve(upperBound);
-            WriteLine($"lastTenDigits = {lastTenDigits}");
-            Assert(lastTenDigits == "9110846700");
+            string answer = Solve();
+            WriteLine($"lastTenDigits = {answer}");        // 9110846700
 
             WriteLine("Done");
             ReadKey();
         }
 
-        private static void Test()
+        public static string Solve()
         {
-            const int upperBound = 10;
-            BigInteger sum = 0;
-
-            for (int n = 1; n <= upperBound; n++)
-            {
-                sum += BigInteger.Pow(n, n);
-            }
-
-            Assert(sum.ToString() == "10405071317");
-        }
-
-        private static string Solve(int upperBound)
-        {
+            const int upperBound = 1000;
             BigInteger sum = 0;
 
             for (int n = 1; n <= upperBound; n++)

@@ -623,6 +623,32 @@ namespace Problems.Test
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
         }
+                
+        [Test]
+        public void Problem47Test()
+        {
+            // Arrange
+            const long expectedResult = 134043;
+            
+            // Act
+            long answer = Problem47.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+                
+        [Test]
+        public void Problem48Test()
+        {
+            // Arrange
+            const string expectedResult = "9110846700";
+            
+            // Act
+            string answer = Problem48.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
 
     }
 }
