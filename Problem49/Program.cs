@@ -23,7 +23,7 @@ namespace Problem49
         public static string Solve()
         {
             const int upperBound = 10000;
-            string result = "";
+            string answer = "";
 
             for (int n = 1; n <= upperBound; n++)
             {
@@ -37,17 +37,17 @@ namespace Problem49
                 // ReSharper disable once InvertIf
                 if (allNumbersArePrime && allNumbersArePermutationsOfEachOther)
                 {
-                    result = $"{number1}{number2}{number3}";
+                    answer = $"{number1}{number2}{number3}";
 
                     // looking for the second 4-digit sequence
-                    if (result.Length == 12 && number1 != 1487)
+                    if (answer.Length == 12 && number1 != 1487)
                     {
                         break;
                     }
                 }
             }
 
-            return result;
+            return answer;
         }
 
         private static bool AllNumbersArePermutationsOfEachOther(int number1, int number2, int number3)

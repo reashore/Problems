@@ -12,8 +12,8 @@ namespace Problem33
         {
             WriteLine("Problem 33");
 
-            long result = Solve();
-            WriteLine($"result = {result}");    // 100
+            long answer = Solve();
+            WriteLine($"answer = {answer}");    // 100
 
             WriteLine("Done");
             ReadKey();

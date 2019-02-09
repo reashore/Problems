@@ -13,16 +13,16 @@ namespace Problem7
         {
             WriteLine("Problem 7");
 
-            const int number = 1001;
-            int result = Solve(number);
-            WriteLine($"{result} is the {number}th prime");
+            int answer = Solve();
+            WriteLine($"answer = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        public static int Solve(int topPrime)
+        public static int Solve()
         {
+            const int topPrime = 1001;
             if (topPrime < 2)
             {
                 throw new ArgumentException(nameof(topPrime));

@@ -11,16 +11,16 @@ namespace Problem6
         {
             WriteLine("Problem 6");
 
-            const int number = 100;
-            int result = Solve(number);
-            WriteLine($"number = {number, 5}, result = {result, 20}");
+            int answer = Solve();
+            WriteLine($"answer = {answer, 20}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        public static int Solve(int number)
+        public static int Solve()
         {
+            const int number = 100;
             IEnumerable<int> sequence = Enumerable.Range(1, number);
 
             // ReSharper disable once PossibleMultipleEnumeration

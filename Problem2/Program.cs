@@ -8,17 +8,17 @@ namespace Problem2
         public static void Main()
         {
             WriteLine("Problem 2");
-            const int upperLimit = 4000000;
 
-            int sumOfEvenTerms = Solve(upperLimit);
+            int sumOfEvenTerms = Solve();
             WriteLine($"sumOfEvenTerms = { sumOfEvenTerms}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        public static int Solve(int upperLimit)
+        public static int Solve()
         {
+            const int upperLimit = 4000000;
             int x1 = 0;
             int x2 = 1;
             int sum = 0;

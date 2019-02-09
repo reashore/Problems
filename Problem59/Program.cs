@@ -13,7 +13,7 @@ namespace Problem59
             WriteLine("Problem 59");
 
             var (item1, item2) = Solve();
-            WriteLine($"result = {item1}");        // 107359
+            WriteLine($"answer = {item1}");        // 107359
             WriteLine(item2);
 
             WriteLine("Done");

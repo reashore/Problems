@@ -11,16 +11,16 @@ namespace Problem1
         {
             WriteLine("Problem 1");
 
-            const int upperLimit = 1000;
-            int result = Solve(upperLimit);
-            WriteLine($"Result = {result}", result);
+            int answer = Solve();
+            WriteLine($"answer = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        public static int Solve(int upperLimit)
+        public static int Solve()
         {
+            const int upperLimit = 1000;
             List<int> factors = new List<int>();
 
             for (int n = 3; n < upperLimit; n++)
@@ -31,9 +31,9 @@ namespace Problem1
                 }
             }
 
-            int result = factors.Sum();
+            int answer = factors.Sum();
 
-            return result;
+            return answer;
         }
     }
 }

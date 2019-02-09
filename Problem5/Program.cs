@@ -10,8 +10,6 @@ namespace Problem5
         {
             WriteLine("Problem 5");
 
-            Test();
-
             int smallestNumber = Solve();
             WriteLine($"smallestNumber = {smallestNumber}");
 
@@ -33,19 +31,6 @@ namespace Problem5
 
                 number++;
             }
-        }
-
-        private static void Test()
-        {
-            int number = 2520;
-            int upperBound = 10;
-            bool result = IsNumberEvenlyDivisible(number, upperBound);
-            Assert(result);
-
-            number = 232792560;
-            upperBound = 20;
-            result = IsNumberEvenlyDivisible(number, upperBound);
-            Assert(result);
         }
 
         private static bool IsNumberEvenlyDivisible(int number, int upperBound)

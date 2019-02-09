@@ -13,7 +13,7 @@ namespace Problem52
             WriteLine("Problem 52");
 
             ulong answer = Solve();
-            WriteLine($"result = {answer}");    // 142857
+            WriteLine($"answer = {answer}");    // 142857
 
             WriteLine("Done");
             ReadKey();

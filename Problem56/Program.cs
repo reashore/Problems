@@ -13,8 +13,8 @@ namespace Problem56
         {
             WriteLine("Problem 56");
 
-            long result = Solve();
-            WriteLine($"result = {result}");        // 972
+            long answer = Solve();
+            WriteLine($"answer = {answer}");        // 972
 
             WriteLine("Done");
             ReadKey();

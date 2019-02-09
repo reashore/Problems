@@ -11,8 +11,8 @@ namespace Problem55
         {
             WriteLine("Problem 55");
 
-            int result = Solve();
-            WriteLine($"result = {result}");        // 249
+            int answer = Solve();
+            WriteLine($"answer = {answer}");        // 249
 
             WriteLine("Done");
             ReadKey();
