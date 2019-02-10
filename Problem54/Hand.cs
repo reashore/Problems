@@ -16,5 +16,19 @@ namespace Problem54
         public Card Card3 { get; set; }
         public Card Card4 { get; set; }
         public Card Card5 { get; set; }
+        
+        // todo: use constructor?
+        public static Hand GetHand(string card0String, string card1String, string card2String, string card3String, string card4String)
+        {
+            Card card0 = new Card(card0String);
+            Card card1 = new Card(card1String);
+            Card card2 = new Card(card2String);
+            Card card3 = new Card(card3String);
+            Card card4 = new Card(card4String);
+
+            Hand hand = new Hand(card0, card1, card2, card3, card4);
+            
+            return hand;
+        }
     }
 }
