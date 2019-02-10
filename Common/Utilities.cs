@@ -104,7 +104,7 @@ namespace Common
             return true;
         }
 
-        public static List<long> GetPrimeFactors(long number)
+        public static IEnumerable<long> GetPrimeFactors(long number)
         {
             List<long> primeFactors = new List<long>();
 

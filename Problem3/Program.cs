@@ -22,7 +22,7 @@ namespace Problem3
         public static long Solve()
         {
             const long number = 600851475143;
-            List<long> primeFactors = GetPrimeFactors(number);
+            IEnumerable<long> primeFactors = GetPrimeFactors(number);
             long largestPrimeFactor = primeFactors.Max(n => n);
             return largestPrimeFactor;
         }
