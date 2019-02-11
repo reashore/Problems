@@ -19,8 +19,8 @@ namespace Problem54
             {
                 string[] hands = dealString.Split(' ');
 
-                Hand hand1 = Hand.GetHand(hands[0], hands[1], hands[2], hands[3], hands[4]);
-                Hand hand2 = Hand.GetHand(hands[5], hands[6], hands[7], hands[8], hands[9]);
+                Hand hand1 = new Hand(hands[0], hands[1], hands[2], hands[3], hands[4]);
+                Hand hand2 = new Hand(hands[5], hands[6], hands[7], hands[8], hands[9]);
 
                 Deal deal = new Deal
                 {
@@ -32,6 +32,16 @@ namespace Problem54
             }
 
             return dealList;
+        }
+
+        public bool IsHand1Winner()
+        {
+            PokerHandType pokerhand1 = Hand1.GetPokerHandType();
+            PokerHandType pokerhand2 = Hand2.GetPokerHandType();
+            
+            
+            
+            return true;
         }
     }
 }

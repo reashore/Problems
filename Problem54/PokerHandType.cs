@@ -1,15 +1,15 @@
 namespace Problem54
 {
-    public enum PokerHand
+    public enum PokerHandType
     {
         HighCard,
         OnePair,
         TwoPair,
         ThreeOfKind,
-        Strainght,
+        Straight,
         Flush,
         FullHouse,
-        ForOfKind,
+        FourOfKind,
         StraightFlush,
         RoyalFlush
     }

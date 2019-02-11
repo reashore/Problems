@@ -205,5 +205,6 @@ namespace Problem54
 
             return suitChar;
         }
+        
     }
 }

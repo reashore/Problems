@@ -20,9 +20,18 @@ namespace Problem54
 
         private static int Solve()
         {
-            IEnumerable<Deal> deals = Deal.ReadDeals();
+            int winningHands = 0;
+            List<Deal> deals = Deal.ReadDeals().ToList();
 
-            return deals.Count();
+            foreach (Deal deal in deals)
+            {
+                if (deal.IsHand1Winner())
+                {
+                    winningHands++;
+                }
+            }
+
+            return winningHands;
         }
     }
 }
