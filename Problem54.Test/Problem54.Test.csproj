@@ -16,4 +16,8 @@
       <ProjectReference Include="..\Problem54\Problem54.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="PokerHands.txt" />
+    </ItemGroup>
+
 </Project>

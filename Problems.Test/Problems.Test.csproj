@@ -60,6 +60,7 @@
       <ProjectReference Include="..\Problem4\Problem4.csproj" />
       <ProjectReference Include="..\Problem50\Problem50.csproj" />
       <ProjectReference Include="..\Problem52\Problem52.csproj" />
+      <ProjectReference Include="..\Problem54\Problem54.csproj" />
       <ProjectReference Include="..\Problem55\Problem55.csproj" />
       <ProjectReference Include="..\Problem56\Problem56.csproj" />
       <ProjectReference Include="..\Problem59\Problem59.csproj" />

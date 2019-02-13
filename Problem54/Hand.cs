@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace Problem54
 {
@@ -16,16 +18,16 @@ namespace Problem54
             AddCardsToList();
         }
 
-        private Hand(Card card1, Card card2, Card card3, Card card4, Card card5)
-        {
-            Card1 = card1;
-            Card2 = card2;
-            Card3 = card3;
-            Card4 = card4;
-            Card5 = card5;
-
-            AddCardsToList();
-        }
+//        private Hand(Card card1, Card card2, Card card3, Card card4, Card card5)
+//        {
+//            Card1 = card1;
+//            Card2 = card2;
+//            Card3 = card3;
+//            Card4 = card4;
+//            Card5 = card5;
+//
+//            AddCardsToList();
+//        }
 
         private List<Card> _cardList;
 
@@ -47,6 +49,20 @@ namespace Problem54
             };
         }
 
+        public override string ToString()
+        {
+            StringBuilder handStringBuilder = new StringBuilder();
+            
+            foreach (Card card in _cardList)
+            {
+                string cardString = card.ToString();
+                handStringBuilder.Append($"{cardString} ");
+            }
+
+            return handStringBuilder.ToString().TrimEnd();
+        }
+
+        // todo add high card
         public PokerHandType GetPokerHandType()
         {
             PokerHandType pokerHandType = PokerHandType.HighCard;
@@ -304,7 +320,18 @@ namespace Problem54
                 return false;
             }
             
-            return true;
+            bool onePair = false;
+
+            foreach (Rank rank in GetRanks())
+            {
+                if (NumberCardsOfRank(rank) == 2)
+                {
+                    onePair = true;
+                    break;
+                }
+            }
+
+            return onePair;
         }
 
         public bool IsHighCard()
@@ -319,18 +346,11 @@ namespace Problem54
 
         //----------------------------
 
-        // make generic
         private static IEnumerable<Rank> GetRanks()
         {
             Rank[] ranks = (Rank[]) Enum.GetValues(typeof(Rank));
             return ranks;
         }
-
-//        private static IEnumerable<Suit> GetSuits()
-//        {
-//            Suit[] suits = (Suit[]) Enum.GetValues(typeof(Suit));
-//            return suits;
-//        }
 
         private bool IsHandSameSuit()
         {
@@ -528,6 +548,14 @@ namespace Problem54
             }
 
             return false;
+        }
+
+        public List<int> GetSortedCardRanks()
+        {
+            List<int> sortedCardRankList = _cardList.Select(card => (int) card.Rank)
+                                                    .OrderByDescending(rank => rank).ToList();
+
+            return sortedCardRankList;
         }
     }
 }

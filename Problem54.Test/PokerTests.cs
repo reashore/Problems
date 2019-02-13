@@ -252,5 +252,134 @@ namespace Problem54.Test
             // Assert
             Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
+
+        [Test]
+        [TestCase("6C", "6H", "6D", "3S", "2C", true)]
+        [TestCase("5C", "6H", "6D", "6S", "2C", true)]
+        [TestCase("8C", "6H", "5D", "5S", "5C", true)]
+        [TestCase("5C", "6H", "7D", "5S", "5C", true)]
+        // todo add failing tests
+        public void IsThreeOfKindTest(
+            string card1String, 
+            string card2String, 
+            string card3String, 
+            string card4String, 
+            string card5String, 
+            bool expectedResult)
+        {
+            // Arrange
+            Hand hand = new Hand(
+                card1String, 
+                card2String, 
+                card3String, 
+                card4String, 
+                card5String);
+
+            // Act
+            bool actualResult = hand.IsThreeOfKind();
+            
+            // Assert
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
+        }
+
+        [Test]
+        [TestCase("6C", "6H", "4D", "4S", "2C", true)]
+        [TestCase("6C", "6H", "2D", "4S", "4C", true)]
+        [TestCase("6C", "4H", "2D", "4S", "6C", true)]
+        [TestCase("3C", "4H", "6D", "6S", "4C", true)]
+        // todo add failing tests
+        public void IsTwoPairsTest(
+            string card1String, 
+            string card2String, 
+            string card3String, 
+            string card4String, 
+            string card5String, 
+            bool expectedResult)
+        {
+            // Arrange
+            Hand hand = new Hand(
+                card1String, 
+                card2String, 
+                card3String, 
+                card4String, 
+                card5String);
+
+            // Act
+            bool actualResult = hand.IsTwoPairs();
+            
+            // Assert
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
+        }
+
+        [Test]
+        [TestCase("6C", "6H", "5D", "4S", "2C", true)]
+        [TestCase("6C", "6H", "2D", "4S", "3C", true)]
+        [TestCase("6C", "4H", "2D", "8S", "6C", true)]
+        [TestCase("3C", "5H", "6D", "6S", "4C", true)]
+        
+        [TestCase("3C", "4H", "6D", "6S", "4C", false)]
+        // todo add failing tests
+        public void IsOnePairTest(
+            string card1String, 
+            string card2String, 
+            string card3String, 
+            string card4String, 
+            string card5String, 
+            bool expectedResult)
+        {
+            // Arrange
+            Hand hand = new Hand(
+                card1String, 
+                card2String, 
+                card3String, 
+                card4String, 
+                card5String);
+
+            // Act
+            bool actualResult = hand.IsOnePair();
+            
+            // Assert
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
+        }
+
+        [Test]
+        [TestCase("6C", "3H", "4D", "7S", "2C", true)]
+        // todo add failing tests
+        public void IsHighCardTest(
+            string card1String, 
+            string card2String, 
+            string card3String, 
+            string card4String, 
+            string card5String, 
+            bool expectedResult)
+        {
+            // Arrange
+            Hand hand = new Hand(
+                card1String, 
+                card2String, 
+                card3String, 
+                card4String, 
+                card5String);
+
+            // Act
+            bool actualResult = hand.IsHighCard();
+            
+            // Assert
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
+        public void Problem54Test()
+        {
+            // Arrange
+            const int expectedResult = 376;
+            
+            // Act
+            int answer = Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+
     }
 }
