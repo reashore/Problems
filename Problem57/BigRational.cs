@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
 
@@ -15,7 +14,7 @@ namespace Problem57
             _denominator = 1;
         }
 
-        private BigRational(BigInteger numerator, BigInteger denominator)
+        public BigRational(BigInteger numerator, BigInteger denominator)
         {
             _numerator = numerator;
 
@@ -95,7 +94,6 @@ namespace Problem57
             return reducedRational;
         }
         
-        
         private static BigInteger GreatestCommonDivisor(BigInteger number1, BigInteger number2)
         {
             while (number1 != 0 && number2 != 0)
@@ -107,34 +105,6 @@ namespace Problem57
             }
 
             return number1 == 0 ? number2 : number1;
-        }
-
-        private static IEnumerable<long> GetPrimeFactors(BigInteger number)
-        {
-            List<long> primeFactors = new List<long>();
-
-            for (long divisor = 2; divisor <= number; divisor++)
-            {
-                while (number % divisor == 0)
-                {
-                    primeFactors.Add(divisor);
-                    number = number / divisor;
-                }
-            }
-
-            return primeFactors;
-        }
-
-        private static BigInteger GetProductOfListElements(IEnumerable<long> numberList)
-        {
-            BigInteger product = 1;
-
-            foreach (long number in numberList)
-            {
-                product *= number;
-            }
-
-            return product;
         }
 
         public override string ToString()

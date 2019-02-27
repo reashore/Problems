@@ -25,7 +25,7 @@ namespace Problem57
 
             int iteration = 1;
             BigRational iteratedSquareRoot = CalculateOuterExpression(two);
-            //WriteLine($"Iteration = {iteration, 5}, {iteratedSquareRoot}");
+            WriteLine($"Iteration = {iteration, 5}, {iteratedSquareRoot}");
 
             for (iteration = 2; iteration <= maxIterations; iteration++)
             {
@@ -33,7 +33,7 @@ namespace Problem57
                 iteratedSquareRoot = CalculateOuterExpressionFast(end);
                 iteratedSquareRoot = BigRational.Reduce(iteratedSquareRoot);
                 start = end;
-                //WriteLine($"Iteration = {iteration, 5}, {iteratedSquareRoot}");
+                WriteLine($"Iteration = {iteration, 5}, {iteratedSquareRoot}");
                 
                 BigInteger numerator = iteratedSquareRoot.Numerator;
                 BigInteger denominator = iteratedSquareRoot.Denominator;
@@ -50,47 +50,6 @@ namespace Problem57
 
             return count;
         }
-        
-        //-------------------------------------------------------------------------------
-
-        public static Rational CalculateInnerExpression(Rational rational)
-        {
-            Rational expression = CalculateInnerExpressionFast(rational);
-            Rational reducedExpression = Rational.Reduce(expression);
-            
-            return reducedExpression;
-        }
-
-        public static Rational CalculateOuterExpression(Rational rational)
-        {
-            Rational expression = CalculateOuterExpressionFast(rational);
-            Rational reducedExpression = Rational.Reduce(expression);
-
-            return reducedExpression;
-        }
-
-        private static Rational CalculateInnerExpressionFast(Rational rational)
-        {
-            Rational one = new Rational(1);
-            Rational two = new Rational(2);
-
-            Rational expression1 = Rational.DivideFast(one, rational);
-            Rational expression2 = Rational.AddFast(two, expression1);
-           
-            return expression2;
-        }
-
-        private static Rational CalculateOuterExpressionFast(Rational rational)
-        {
-            Rational one = new Rational(1);
-
-            Rational expression1 = Rational.DivideFast(one, rational);
-            Rational expression2 = Rational.AddFast(one, expression1);
-
-            return expression2;
-        }
-        
-        //-------------------------------------------------------------------------------
 
         public static BigRational CalculateInnerExpression(BigRational rational)
         {
@@ -128,7 +87,6 @@ namespace Problem57
 
             return expression2;
         }
-        
     }
 }
 
