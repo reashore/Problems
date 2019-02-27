@@ -16,7 +16,7 @@ namespace Problem57
             ReadKey();
         }
         
-        private static int Solve()
+        public static int Solve()
         {
             const int maxIterations = 1000;
             BigRational two = new BigRational(2);
