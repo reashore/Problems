@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using Common;
 
 namespace Problem57
 {
@@ -33,6 +31,14 @@ namespace Problem57
 
         public static Rational Add(Rational lhs, Rational rhs)
         {
+            Rational sum = AddFast(lhs, rhs);
+            Rational reducedSum = Reduce(sum);
+            
+            return reducedSum;
+        }
+
+        public static Rational AddFast(Rational lhs, Rational rhs)
+        {
             // a/b + c/d = (a*d + b*c)/bd
             long a = lhs.Numerator;
             long b = lhs.Denominator;
@@ -41,12 +47,22 @@ namespace Problem57
             long d = rhs.Denominator;
 
             long sumNumerator = a * d + b * c;
-            long sumDenominator = b * d; 
+            long sumDenominator = b * d;
+
+            Rational sum = new Rational(sumNumerator, sumDenominator);
             
-            return new Rational(sumNumerator, sumDenominator);
+            return sum;
         }
 
         public static Rational Divide(Rational lhs, Rational rhs)
+        {
+            Rational quotient = DivideFast(lhs, rhs);
+            Rational reducedQuotient = Reduce(quotient);
+
+            return reducedQuotient;
+        }
+
+        public static Rational DivideFast(Rational lhs, Rational rhs)
         {
             // (a/b)/(c/d) = (a*d)/(b*c)
             long a = lhs.Numerator;
@@ -58,7 +74,9 @@ namespace Problem57
             long quotientNumerator = a * d;
             long quotientDenominator = b * c;
                 
-            return new Rational(quotientNumerator, quotientDenominator);
+            Rational quotient = new Rational(quotientNumerator, quotientDenominator);
+
+            return quotient;
         }
 
         public static Rational Reduce(Rational rational)
@@ -66,19 +84,29 @@ namespace Problem57
             long numerator = rational.Numerator;
             long denominator = rational.Denominator;
 
-            List<long> primeFactorsOfNumeratorList = Utilities.GetPrimeFactors(numerator).ToList();
-            List<long> primeFactorsOfDenominatorList = Utilities.GetPrimeFactors(denominator).ToList();
+            long gcd = GreatestCommonDivisor(numerator, denominator);
 
-            List<long> commonPrimeFactors = primeFactorsOfNumeratorList.Intersect(primeFactorsOfDenominatorList).ToList();
+            long reducedNumerator = numerator / gcd;
+            long reducedDenominator = denominator / gcd;
+            
+            Rational reducedRational = new Rational(reducedNumerator, reducedDenominator);
 
-            List<long> simplifiedNumeratorList = primeFactorsOfNumeratorList.Except(commonPrimeFactors).ToList();
-            List<long> simplifiedDenominatorList = primeFactorsOfDenominatorList.Except(commonPrimeFactors).ToList();
-
-            long simplifiedNumerator = GetProductOfListElements(simplifiedNumeratorList);
-            long simplifiedDenominator = GetProductOfListElements(simplifiedDenominatorList);
-
-            return new Rational(simplifiedNumerator, simplifiedDenominator);
+            return reducedRational;
         }
+        
+        private static long GreatestCommonDivisor(long number1, long number2)
+        {
+            while (number1 != 0 && number2 != 0)
+            {
+                if (number1 > number2)
+                    number1 %= number2;
+                else
+                    number2 %= number1;
+            }
+
+            return number1 == 0 ? number2 : number1;
+        }
+
 
         private static long GetProductOfListElements(IEnumerable<long> numberList)
         {
@@ -90,6 +118,17 @@ namespace Problem57
             }
 
             return product;
+        }
+
+        public override string ToString()
+        {
+             return $"{_numerator}/{_denominator}";
+        }
+
+        public double ToDouble()
+        {
+            double rationalDouble = _numerator / (double) _denominator;
+            return rationalDouble;
         }
 
         public long Numerator => _numerator;
