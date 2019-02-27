@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="nunit" Version="3.11.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Common\Common.csproj" />
+      <ProjectReference Include="..\Problem10\Problem10.csproj" />
+      <ProjectReference Include="..\Problem11\Problem11.csproj" />
+      <ProjectReference Include="..\Problem12\Problem12.csproj" />
+      <ProjectReference Include="..\Problem13\Problem13.csproj" />
+      <ProjectReference Include="..\Problem14\Problem14.csproj" />
+      <ProjectReference Include="..\Problem15\Problem15.csproj" />
+      <ProjectReference Include="..\Problem16\Problem16.csproj" />
+      <ProjectReference Include="..\Problem17\Problem17.csproj" />
+      <ProjectReference Include="..\Problem18\Problem18.csproj" />
+      <ProjectReference Include="..\Problem19\Problem19.csproj" />
+      <ProjectReference Include="..\Problem1\Problem1.csproj" />
+      <ProjectReference Include="..\Problem20\Problem20.csproj" />
+      <ProjectReference Include="..\Problem21\Problem21.csproj" />
+      <ProjectReference Include="..\Problem22\Problem22.csproj" />
+      <ProjectReference Include="..\Problem23\Problem23.csproj" />
+      <ProjectReference Include="..\Problem24\Problem24.csproj" />
+      <ProjectReference Include="..\Problem25\Problem25.csproj" />
+      <ProjectReference Include="..\Problem26\Problem26.csproj" />
+      <ProjectReference Include="..\Problem27\Problem27.csproj" />
+      <ProjectReference Include="..\Problem28\Problem28.csproj" />
+      <ProjectReference Include="..\Problem29\Problem29.csproj" />
+      <ProjectReference Include="..\Problem2\Problem2.csproj" />
+      <ProjectReference Include="..\Problem30\Problem30.csproj" />
+      <ProjectReference Include="..\Problem31\Problem31.csproj" />
+      <ProjectReference Include="..\Problem32\Problem32.csproj" />
+      <ProjectReference Include="..\Problem33\Problem33.csproj" />
+      <ProjectReference Include="..\Problem34\Problem34.csproj" />
+      <ProjectReference Include="..\Problem35\Problem35.csproj" />
+      <ProjectReference Include="..\Problem36\Problem36.csproj" />
+      <ProjectReference Include="..\Problem37\Problem37.csproj" />
+      <ProjectReference Include="..\Problem38\Problem38.csproj" />
+      <ProjectReference Include="..\Problem39\Problem39.csproj" />
+      <ProjectReference Include="..\Problem3\Problem3.csproj" />
+      <ProjectReference Include="..\Problem40\Problem40.csproj" />
+      <ProjectReference Include="..\Problem41\Problem41.csproj" />
+      <ProjectReference Include="..\Problem42\Problem42.csproj" />
+      <ProjectReference Include="..\Problem43\Problem43.csproj" />
+      <ProjectReference Include="..\Problem44\Problem44.csproj" />
+      <ProjectReference Include="..\Problem45\Problem45.csproj" />
+      <ProjectReference Include="..\Problem46\Problem46.csproj" />
+      <ProjectReference Include="..\Problem47\Problem47.csproj" />
+      <ProjectReference Include="..\Problem48\Problem48.csproj" />
+      <ProjectReference Include="..\Problem49\Problem49.csproj" />
+      <ProjectReference Include="..\Problem4\Problem4.csproj" />
+      <ProjectReference Include="..\Problem50\Problem50.csproj" />
+      <ProjectReference Include="..\Problem52\Problem52.csproj" />
+      <ProjectReference Include="..\Problem54.Test\Problem54.Test.csproj" />
+      <ProjectReference Include="..\Problem54\Problem54.csproj" />
+      <ProjectReference Include="..\Problem55\Problem55.csproj" />
+      <ProjectReference Include="..\Problem56\Problem56.csproj" />
+      <ProjectReference Include="..\Problem57.Tests\Problem57.Tests.csproj" />
+      <ProjectReference Include="..\Problem57\Problem57.csproj" />
+      <ProjectReference Include="..\Problem59\Problem59.csproj" />
+      <ProjectReference Include="..\Problem5\Problem5.csproj" />
+      <ProjectReference Include="..\Problem63\Problem63.csproj" />
+      <ProjectReference Include="..\Problem6\Problem6.csproj" />
+      <ProjectReference Include="..\Problem7\Problem7.csproj" />
+      <ProjectReference Include="..\Problem8\Problem8.csproj" />
+      <ProjectReference Include="..\Problem9\Problem9.csproj" />
+    </ItemGroup>
+
+</Project>
