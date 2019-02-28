@@ -757,13 +757,13 @@ namespace Problems.Tests
         }
         
         [Test]
-        public void Problem57Test()
+        public void Problem92Test()
         {
             // Arrange
-            const int expectedResult = 153;
+            const int expectedResult = 8581146;
             
             // Act
-            int answer = Problem57.Program.Solve();
+            int answer = Problem92.Program.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
