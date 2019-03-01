@@ -1,11 +1,45 @@
 using System.Collections.Generic;
+using Common;
 
 namespace Problem79
 {
     public static class LinkedListExtensions
     {
+        public static void ReorderPasswordToMatchPasscode(this LinkedList<int> passwordLinkedList, string passcode)
+        {
+            List<int> passcodeDigitList = Utilities.ConvertNumericStringToList(passcode);
+
+            int digit1 = passcodeDigitList[0];
+            int digit2 = passcodeDigitList[1];
+            passwordLinkedList.OrderDigits(digit1, digit2);
+            
+            digit1 = passcodeDigitList[1];
+            digit2 = passcodeDigitList[2];
+            passwordLinkedList.OrderDigits(digit1, digit2);
+            
+            digit1 = passcodeDigitList[0];
+            digit2 = passcodeDigitList[2];
+            passwordLinkedList.OrderDigits(digit1, digit2);
+        }
+        
+        public static bool OrderDigits(this LinkedList<int> passwordLinkedList, int digit1, int digit2)
+        {
+            bool changed = false;
+            
+            bool isDigit1BeforeDigit2 = passwordLinkedList.IsDigit1BeforeDigit2(digit1, digit2);
+            
+            if (!isDigit1BeforeDigit2)
+            {
+                passwordLinkedList.MoveDigit1AfterDigit2(digit1, digit2);
+                changed = true;
+            }
+
+            return changed;
+        }
+
         public static bool IsDigit1BeforeDigit2(this LinkedList<int> numericLinkedList, int digit1, int digit2)
         {
+            // Assumes digit1 < digit2
             foreach (int digit in numericLinkedList)
             {
                 if (digit == digit1)
@@ -38,7 +72,7 @@ namespace Problem79
             }
         }
 
-        public static string ConvertLinkedListToString(this LinkedList<int> linkedList)
+        public static string GetString(this LinkedList<int> linkedList)
         {
             string result = "";
 

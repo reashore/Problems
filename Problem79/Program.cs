@@ -31,10 +31,10 @@ namespace Problem79
            
             foreach (string passcode in passcodeList)
             {
-                ReorderPasswordToMatchPasscode(passcode, passwordLinkedList);
+                passwordLinkedList.ReorderPasswordToMatchPasscode(passcode);
             }
 
-            string password = passwordLinkedList.ConvertLinkedListToString();
+            string password = passwordLinkedList.GetString();
             
             return password;
         }
@@ -67,35 +67,6 @@ namespace Problem79
             }
 
             return digitList;
-        }
-
-        private static void ReorderPasswordToMatchPasscode(string passcode, LinkedList<int> passwordLinkedList)
-        {
-            List<int> passcodeDigitList = Utilities.ConvertNumericStringToList(passcode);
-
-            int digit1 = passcodeDigitList[0];
-            int digit2 = passcodeDigitList[1];
-            bool isDigit1BeforeDigit2 = passwordLinkedList.IsDigit1BeforeDigit2(digit1, digit2);
-            if (!isDigit1BeforeDigit2)
-            {
-                passwordLinkedList.MoveDigit1AfterDigit2(digit1, digit2);
-            }
-            
-            digit1 = passcodeDigitList[1];
-            digit2 = passcodeDigitList[2];
-            isDigit1BeforeDigit2 = passwordLinkedList.IsDigit1BeforeDigit2(digit1, digit2);
-            if (isDigit1BeforeDigit2)
-            {
-                passwordLinkedList.MoveDigit1AfterDigit2(digit1, digit2);
-            }
-            
-            digit1 = passcodeDigitList[0];
-            digit2 = passcodeDigitList[2];
-            isDigit1BeforeDigit2 = passwordLinkedList.IsDigit1BeforeDigit2(digit1, digit2);
-            if (isDigit1BeforeDigit2)
-            {
-                passwordLinkedList.MoveDigit1AfterDigit2(digit1, digit2);
-            }
         }
     }
 }
