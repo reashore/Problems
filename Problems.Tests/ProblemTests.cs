@@ -789,7 +789,7 @@ namespace Problems.Tests
             const string expectedResult = "8739992577";
             
             // Act
-            string answer = Problem97.Program.Solve();
+            string answer = Problem97.Problem97.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -802,7 +802,7 @@ namespace Problems.Tests
             const int expectedResult = 21;
             
             // Act
-            int answer = Problem99.Program.Solve();
+            int answer = Problem99.Problem99.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
