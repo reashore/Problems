@@ -25,7 +25,7 @@ namespace Problem79.Tests
         {
             // Arrange
             const string password = "31968027";
-            LinkedList<int> passwordLinkedList = CreatePasswordLinkedList(password);
+            LinkedList<int> passwordLinkedList = TestUtilities.CreatePasswordLinkedList(password);
             
             // Act
             bool isDigit1BeforeDigit2 = passwordLinkedList.IsDigit1BeforeDigit2(digit1, digit2);
@@ -46,7 +46,7 @@ namespace Problem79.Tests
         {
             // Arrange
             const string password = "12345678";
-            LinkedList<int> passwordLinkedList = CreatePasswordLinkedList(password);
+            LinkedList<int> passwordLinkedList = TestUtilities.CreatePasswordLinkedList(password);
             
             // Act
             passwordLinkedList.MoveDigit1AfterDigit2(digit1, digit2);
@@ -54,20 +54,6 @@ namespace Problem79.Tests
             // Assert
             string actualPassword = passwordLinkedList.GetString();
             Assert.That(actualPassword, Is.EqualTo(expectedPassword));
-        }
-
-        // todo remove duplication
-        private static LinkedList<int> CreatePasswordLinkedList(string password)
-        {
-            LinkedList<int> passwordLinkedList = new LinkedList<int>();
-            
-            foreach (char character in password)
-            {
-                string characterString = character.ToString();
-                passwordLinkedList.AddLast(int.Parse(characterString));
-            }
-
-            return passwordLinkedList;
         }
     }
 }

@@ -12,30 +12,45 @@ namespace Problem79
             WriteLine("Problem 57");
 
             string answer = Solve();
-            WriteLine($"answer = {answer}");
-            
+            WriteLine($"answer = {answer}");        // 73162890
+
             WriteLine("Done");
             ReadKey();
         }
 
         public static string Solve()
         {
-            List<string> passcodeList =ReadPasscodes();
-            List<int> digitList = GetDigitsFromPasscodes(passcodeList);            // 31968027
+            List<string> passcodeList = ReadPasscodes();
+            List<int> digitList = GetDigitsFromPasscodes(passcodeList); // 31968027
             LinkedList<int> passwordLinkedList = new LinkedList<int>();
 
             foreach (int digit in digitList)
             {
                 passwordLinkedList.AddLast(digit);
             }
-           
-            foreach (string passcode in passcodeList)
+
+            while (true)
             {
-                passwordLinkedList.ReorderPasswordToMatchPasscode(passcode);
+                bool passwordChanged = false;
+                
+                foreach (string passcode in passcodeList)
+                {
+                    passwordChanged = passwordLinkedList.ReorderPasswordToMatchPasscode(passcode);
+
+                    if (passwordChanged)
+                    {
+                        break;
+                    }
+                }
+
+                if (!passwordChanged)
+                {
+                    break;
+                }
             }
 
             string password = passwordLinkedList.GetString();
-            
+
             return password;
         }
 
@@ -44,7 +59,7 @@ namespace Problem79
             const string fileName = "Passcodes.txt";
             string[] passcodesArray = File.ReadAllLines(fileName);
             List<string> passcodeList = new List<string>(passcodesArray);
-            
+
             return passcodeList;
         }
 
@@ -63,7 +78,6 @@ namespace Problem79
                         digitList.Add(digit);
                     }
                 }
-                
             }
 
             return digitList;

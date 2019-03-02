@@ -688,6 +688,20 @@ namespace Problems.Tests
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
         }
+        
+        [Test]
+        [Ignore("Not finished")]
+        public void Problem54Test()
+        {
+            // Arrange
+            const int expectedResult = 376;
+            
+            // Act
+            int answer = Problem54.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
                 
         [Test]
         public void Problem55Test()
@@ -743,14 +757,13 @@ namespace Problems.Tests
         }
         
         [Test]
-        [Ignore("Not finished")]
-        public void Problem54Test()
+        public void Problem79Test()
         {
             // Arrange
-            const int expectedResult = 376;
+            const string expectedResult = "73162890";
             
             // Act
-            int answer = Problem54.Program.Solve();
+            string answer = Problem79.Program.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
