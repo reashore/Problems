@@ -794,5 +794,18 @@ namespace Problems.Tests
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
         }
+        
+        [Test]
+        public void Problem99Test()
+        {
+            // Arrange
+            const int expectedResult = 21;
+            
+            // Act
+            int answer = Problem99.Program.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
     }
 }
