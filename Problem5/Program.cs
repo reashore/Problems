@@ -1,5 +1,4 @@
-﻿using static Common.Utilities;
-using static System.Console;
+﻿using static System.Console;
 
 namespace Problem5
 {
@@ -10,40 +9,8 @@ namespace Problem5
         {
             WriteLine("Problem 5");
 
-            int smallestNumber = Solve();
+            int smallestNumber = Problem5.Solve();
             WriteLine($"smallestNumber = {smallestNumber}");
-
-            WriteLine("Done");
-            ReadKey();
-        }
-
-        public static int Solve()
-        {
-            const int upperBound = 20;
-            int number = 1;
-
-            while (true)
-            {
-                if (IsNumberEvenlyDivisible(number, upperBound))
-                {
-                    return number;
-                }
-
-                number++;
-            }
-        }
-
-        private static bool IsNumberEvenlyDivisible(int number, int upperBound)
-        {
-            for (int n = 1; n <= upperBound; n++)
-            {
-                if (number % n != 0)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
     }
 }
