@@ -50,7 +50,7 @@ namespace Problems.Tests
             const long expectedResult = 906609;
             
             // Act
-            long answer = Problem4.Program.Solve();
+            long answer = Problem4.Problem4.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -410,7 +410,7 @@ namespace Problems.Tests
             const long expectedResult = 73682;
             
             // Act
-            ulong answer = Problem31.Program.Solve();
+            ulong answer = Problem31.Problem31.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -425,7 +425,7 @@ namespace Problems.Tests
             const long expectedResult = 45228;
             
             // Act
-            long answer = Problem32.Program.Solve();
+            long answer = Problem32.Problem32.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -438,7 +438,7 @@ namespace Problems.Tests
             const long expectedResult = 100;
             
             // Act
-            long answer = Problem33.Program.Solve();
+            long answer = Problem33.Problem33.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -451,7 +451,7 @@ namespace Problems.Tests
             const long expectedResult = 40730;
             
             // Act
-            long answer = Problem34.Program.Solve();
+            long answer = Problem34.Problem34.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -464,7 +464,7 @@ namespace Problems.Tests
             const long expectedResult = 55;
             
             // Act
-            long answer = Problem35.Program.Solve();
+            long answer = Problem35.Problem35.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -477,7 +477,7 @@ namespace Problems.Tests
             const long expectedResult = 872187;
             
             // Act
-            long answer = Problem36.Program.Solve();
+            long answer = Problem36.Problem36.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -490,7 +490,7 @@ namespace Problems.Tests
             const long expectedResult = 748317;
             
             // Act
-            long answer = Problem37.Program.Solve();
+            long answer = Problem37.Problem37.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -503,7 +503,7 @@ namespace Problems.Tests
             const long expectedResult = 932718654;
             
             // Act
-            long answer = Problem38.Program.Solve();
+            long answer = Problem38.Problem38.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -516,7 +516,7 @@ namespace Problems.Tests
             const long expectedResult = 840;
             
             // Act
-            long answer = Problem39.Program.Solve();
+            long answer = Problem39.Problem39.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -529,7 +529,7 @@ namespace Problems.Tests
             const long expectedResult = 210;
             
             // Act
-            long answer = Problem40.Program.Solve();
+            long answer = Problem40.Problem40.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -544,7 +544,7 @@ namespace Problems.Tests
             const long expectedResult = 7652413;
             
             // Act
-            long answer = Problem41.Program.Solve();
+            long answer = Problem41.Problem41.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -557,7 +557,7 @@ namespace Problems.Tests
             const long expectedResult = 162;
             
             // Act
-            long answer = Problem42.Program.Solve();
+            long answer = Problem42.Problem42.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
