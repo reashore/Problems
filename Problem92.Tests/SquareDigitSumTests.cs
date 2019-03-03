@@ -15,7 +15,7 @@ namespace Problem92.Tests
             // Arrange
             
             // Act
-            int squareDigitSum = Program.GetSquareDigitSum(number);
+            int squareDigitSum = Problem92.GetSquareDigitSum(number);
             
             // Asserts
             Assert.That(squareDigitSum, Is.EqualTo(expectedSquareDigitSum));
@@ -36,7 +36,7 @@ namespace Problem92.Tests
             // Arrange
             
             // Act
-            int squareDigitSum = Program.GetSquareDigitSum(number);
+            int squareDigitSum = Problem92.GetSquareDigitSum(number);
             
             // Asserts
             Assert.That(squareDigitSum, Is.EqualTo(expectedSquareDigitSum));
@@ -50,7 +50,7 @@ namespace Problem92.Tests
             // Arrange
             
             // Act
-            int chainTerminator = Program.CreateSquareDigitSumChain(number);
+            int chainTerminator = Problem92.CreateSquareDigitSumChain(number);
             
             // Asserts
             Assert.That(chainTerminator, Is.EqualTo(expectedChainTerminator));

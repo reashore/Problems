@@ -16,7 +16,7 @@ namespace Problem57.Tests
             BigInteger expectedDenominator = 2;
             
             // Act
-            BigRational innerExpression = Program.CalculateInnerExpression(two);
+            BigRational innerExpression = Problem57.CalculateInnerExpression(two);
             
             // Assert
             Assert.Multiple(() =>
@@ -36,7 +36,7 @@ namespace Problem57.Tests
             BigInteger expectedDenominator = 2;
             
             // Act
-            BigRational innerExpression = Program.CalculateOuterExpression(two);
+            BigRational innerExpression = Problem57.CalculateOuterExpression(two);
             
             // Assert
             Assert.Multiple(() =>
@@ -56,8 +56,8 @@ namespace Problem57.Tests
             BigInteger expectedDenominator = 5;
             
             // Act
-            BigRational innerExpression = Program.CalculateInnerExpression(two);
-            BigRational outerExpression = Program.CalculateOuterExpression(innerExpression);
+            BigRational innerExpression = Problem57.CalculateInnerExpression(two);
+            BigRational outerExpression = Problem57.CalculateOuterExpression(innerExpression);
             
             // Assert
             Assert.Multiple(() =>
@@ -77,9 +77,9 @@ namespace Problem57.Tests
             BigInteger expectedDenominator = 12;
             
             // Act
-            BigRational innerExpression1 = Program.CalculateInnerExpression(two);
-            BigRational innerExpression2 = Program.CalculateInnerExpression(innerExpression1);
-            BigRational outerExpression = Program.CalculateOuterExpression(innerExpression2);
+            BigRational innerExpression1 = Problem57.CalculateInnerExpression(two);
+            BigRational innerExpression2 = Problem57.CalculateInnerExpression(innerExpression1);
+            BigRational outerExpression = Problem57.CalculateOuterExpression(innerExpression2);
             
             // Assert
             Assert.Multiple(() =>
@@ -99,10 +99,10 @@ namespace Problem57.Tests
             BigInteger expectedDenominator = 29;
             
             // Act
-            BigRational innerExpression1 = Program.CalculateInnerExpression(two);
-            BigRational innerExpression2 = Program.CalculateInnerExpression(innerExpression1);
-            BigRational innerExpression3 = Program.CalculateInnerExpression(innerExpression2);
-            BigRational outerExpression = Program.CalculateOuterExpression(innerExpression3);
+            BigRational innerExpression1 = Problem57.CalculateInnerExpression(two);
+            BigRational innerExpression2 = Problem57.CalculateInnerExpression(innerExpression1);
+            BigRational innerExpression3 = Problem57.CalculateInnerExpression(innerExpression2);
+            BigRational outerExpression = Problem57.CalculateOuterExpression(innerExpression3);
             
             // Assert
             Assert.Multiple(() =>
@@ -122,11 +122,11 @@ namespace Problem57.Tests
             BigInteger expectedDenominator = 70;
             
             // Act
-            BigRational innerExpression1 = Program.CalculateInnerExpression(two);
-            BigRational innerExpression2 = Program.CalculateInnerExpression(innerExpression1);
-            BigRational innerExpression3 = Program.CalculateInnerExpression(innerExpression2);
-            BigRational innerExpression4 = Program.CalculateInnerExpression(innerExpression3);
-            BigRational outerExpression = Program.CalculateOuterExpression(innerExpression4);
+            BigRational innerExpression1 = Problem57.CalculateInnerExpression(two);
+            BigRational innerExpression2 = Problem57.CalculateInnerExpression(innerExpression1);
+            BigRational innerExpression3 = Problem57.CalculateInnerExpression(innerExpression2);
+            BigRational innerExpression4 = Problem57.CalculateInnerExpression(innerExpression3);
+            BigRational outerExpression = Problem57.CalculateOuterExpression(innerExpression4);
             
             // Assert
             Assert.Multiple(() =>
@@ -146,12 +146,12 @@ namespace Problem57.Tests
             BigInteger expectedDenominator = 169;
             
             // Act
-            BigRational innerExpression1 = Program.CalculateInnerExpression(two);
-            BigRational innerExpression2 = Program.CalculateInnerExpression(innerExpression1);
-            BigRational innerExpression3 = Program.CalculateInnerExpression(innerExpression2);
-            BigRational innerExpression4 = Program.CalculateInnerExpression(innerExpression3);
-            BigRational innerExpression5 = Program.CalculateInnerExpression(innerExpression4);
-            BigRational outerExpression = Program.CalculateOuterExpression(innerExpression5);
+            BigRational innerExpression1 = Problem57.CalculateInnerExpression(two);
+            BigRational innerExpression2 = Problem57.CalculateInnerExpression(innerExpression1);
+            BigRational innerExpression3 = Problem57.CalculateInnerExpression(innerExpression2);
+            BigRational innerExpression4 = Problem57.CalculateInnerExpression(innerExpression3);
+            BigRational innerExpression5 = Problem57.CalculateInnerExpression(innerExpression4);
+            BigRational outerExpression = Problem57.CalculateOuterExpression(innerExpression5);
             
             // Assert
             Assert.Multiple(() =>
@@ -171,13 +171,13 @@ namespace Problem57.Tests
             BigInteger expectedDenominator = 408;
             
             // Act
-            BigRational innerExpression1 = Program.CalculateInnerExpression(two);
-            BigRational innerExpression2 = Program.CalculateInnerExpression(innerExpression1);
-            BigRational innerExpression3 = Program.CalculateInnerExpression(innerExpression2);
-            BigRational innerExpression4 = Program.CalculateInnerExpression(innerExpression3);
-            BigRational innerExpression5 = Program.CalculateInnerExpression(innerExpression4);
-            BigRational innerExpression6 = Program.CalculateInnerExpression(innerExpression5);
-            BigRational outerExpression = Program.CalculateOuterExpression(innerExpression6);
+            BigRational innerExpression1 = Problem57.CalculateInnerExpression(two);
+            BigRational innerExpression2 = Problem57.CalculateInnerExpression(innerExpression1);
+            BigRational innerExpression3 = Problem57.CalculateInnerExpression(innerExpression2);
+            BigRational innerExpression4 = Problem57.CalculateInnerExpression(innerExpression3);
+            BigRational innerExpression5 = Problem57.CalculateInnerExpression(innerExpression4);
+            BigRational innerExpression6 = Problem57.CalculateInnerExpression(innerExpression5);
+            BigRational outerExpression = Problem57.CalculateOuterExpression(innerExpression6);
             
             // Assert
             Assert.Multiple(() =>
@@ -197,14 +197,14 @@ namespace Problem57.Tests
             BigInteger expectedDenominator = 985;
             
             // Act
-            BigRational innerExpression1 = Program.CalculateInnerExpression(two);
-            BigRational innerExpression2 = Program.CalculateInnerExpression(innerExpression1);
-            BigRational innerExpression3 = Program.CalculateInnerExpression(innerExpression2);
-            BigRational innerExpression4 = Program.CalculateInnerExpression(innerExpression3);
-            BigRational innerExpression5 = Program.CalculateInnerExpression(innerExpression4);
-            BigRational innerExpression6 = Program.CalculateInnerExpression(innerExpression5);
-            BigRational innerExpression7 = Program.CalculateInnerExpression(innerExpression6);
-            BigRational outerExpression = Program.CalculateOuterExpression(innerExpression7);
+            BigRational innerExpression1 = Problem57.CalculateInnerExpression(two);
+            BigRational innerExpression2 = Problem57.CalculateInnerExpression(innerExpression1);
+            BigRational innerExpression3 = Problem57.CalculateInnerExpression(innerExpression2);
+            BigRational innerExpression4 = Problem57.CalculateInnerExpression(innerExpression3);
+            BigRational innerExpression5 = Problem57.CalculateInnerExpression(innerExpression4);
+            BigRational innerExpression6 = Problem57.CalculateInnerExpression(innerExpression5);
+            BigRational innerExpression7 = Problem57.CalculateInnerExpression(innerExpression6);
+            BigRational outerExpression = Problem57.CalculateOuterExpression(innerExpression7);
             
             // Assert
             Assert.Multiple(() =>

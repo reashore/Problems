@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using static System.Console;
+﻿using static System.Console;
 
 namespace Problem63
 {
@@ -12,45 +11,8 @@ namespace Problem63
         {
             WriteLine("Problem 63");
 
-            int count = Solve();
+            int count = Problem63.Solve();
             WriteLine($"Number powerful digits = {count}");        // 49
-
-            WriteLine("Done");
-            ReadKey();
-        }
-
-        public static int Solve()
-        {
-            int count = 0;
-            int exponent = 1;
-
-            while (true)
-            {
-                var foundOne= false;
-                
-                for (int number = 9; 0 < number ; number--)
-                {
-                    BigInteger power = BigInteger.Pow(number, exponent);
-                    int powerLength = power.ToString().Length;
-
-                    if (powerLength == exponent)
-                    {
-                        count++;
-                        foundOne = true;
-                        string message = $"{number}^{exponent} = {power}";
-                        WriteLine(message);
-                    }
-                }
-
-                if (!foundOne)
-                {
-                    break;
-                }
-                
-                exponent++;
-            }
-
-            return count;
         }
     }
 }

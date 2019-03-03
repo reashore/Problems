@@ -376,7 +376,7 @@ namespace Problem54.Test
             const int expectedResult = 376;
             
             // Act
-            int answer = Program.Solve();
+            int answer = Problem54.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
