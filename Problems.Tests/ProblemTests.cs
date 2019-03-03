@@ -800,7 +800,7 @@ namespace Problems.Tests
         public void Problem99Test()
         {
             // Arrange
-            const int expectedResult = 21;
+            const int expectedResult = 709;
             
             // Act
             int answer = Problem99.Problem99.Solve();
