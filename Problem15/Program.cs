@@ -11,24 +11,13 @@ namespace Problem15
         {
             WriteLine("Problem 15");
 
-            ulong answer = Solve();
+            ulong answer = Problem15.Solve();
             WriteLine($"numberGridPaths = {answer}");
 
             WriteLine("Done");
             ReadKey();
         }
 
-        public static ulong Solve()
-        {
-            const int gridSize = 20;
-
-            Grid grid = new Grid(gridSize);
-            Node startNode = new Node(0, 0);
-
-            ulong numberGridPaths = grid.GetNumberGridPaths(startNode);
-
-            return numberGridPaths;
-        }
     }
 
     public class Grid

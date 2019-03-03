@@ -1,5 +1,4 @@
-﻿using Common;
-using static System.Console;
+﻿using static System.Console;
 
 namespace Problem10
 {
@@ -10,27 +9,8 @@ namespace Problem10
         {
             WriteLine("Problem 10");
 
-            const int number = 2000000;
-            long answer = Solve(number);
+            long answer = Problem10.Solve();
             WriteLine($"sumAllPrimes = {answer}");
-
-            WriteLine("Done");
-            ReadKey();
-        }
-
-        public static long Solve(int upperBound)
-        {
-            long sum = 0;
-
-            for (int n = 2; n < upperBound; n++)
-            {
-                if (Utilities.IsPrime(n))
-                {
-                    sum += n;
-                }
-            }
-
-            return sum;
         }
     }
 }

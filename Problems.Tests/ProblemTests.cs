@@ -11,7 +11,7 @@ namespace Problems.Tests
             const int expectedResult = 233168;
             
             // Act
-            int answer = Problem1.Program.Solve();
+            int answer = Problem1.Problem1.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -24,7 +24,7 @@ namespace Problems.Tests
             const int expectedResult = 4613732;
             
             // Act
-            int answer = Problem2.Program.Solve();
+            int answer = Problem2.Problem2.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -37,7 +37,7 @@ namespace Problems.Tests
             const long expectedResult = 6857;
             
             // Act
-            long answer = Problem3.Program.Solve();
+            long answer = Problem3.Problem3.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -125,11 +125,10 @@ namespace Problems.Tests
         public void Problem10Test()
         {
             // Arrange
-            const int number = 2000000;
             const long expectedResult = 142913828922;
             
             // Act
-            long answer = Problem10.Program.Solve(number);
+            long answer = Problem10.Problem10.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -142,7 +141,7 @@ namespace Problems.Tests
             const long expectedResult = 70600674;
             
             // Act
-            long answer = Problem11.Program.Solve();
+            long answer = Problem11.Problem11.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -157,7 +156,7 @@ namespace Problems.Tests
             const ulong expectedResult = 76576500;
             
             // Act
-            long answer = Problem12.Program.Solve();
+            long answer = Problem12.Problem12.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -170,7 +169,7 @@ namespace Problems.Tests
             const long expectedResult = 5537376230;
             
             // Act
-            long answer = Problem13.Program.Solve();
+            long answer = Problem13.Problem13.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -183,7 +182,7 @@ namespace Problems.Tests
             const long expectedResult = 837799;
             
             // Act
-            long answer = Problem14.Program.Solve();
+            long answer = Problem14.Problem14.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -198,7 +197,7 @@ namespace Problems.Tests
             const long expectedResult = 137846528820;
             
             // Act
-            ulong answer = Problem15.Program.Solve();
+            ulong answer = Problem15.Problem15.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -211,7 +210,7 @@ namespace Problems.Tests
             const long expectedResult = 1366;
             
             // Act
-            int answer = Problem16.Program.Solve();
+            int answer = Problem16.Problem16.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -224,7 +223,7 @@ namespace Problems.Tests
             const long expectedResult = 21124;
             
             // Act
-            int answer = Problem17.Program.Solve();
+            int answer = Problem17.Problem17.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -237,7 +236,7 @@ namespace Problems.Tests
             const long expectedResult = 1074;
             
             // Act
-            long answer = Problem18.Program.Solve();
+            long answer = Problem18.Problem18.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -250,7 +249,7 @@ namespace Problems.Tests
             const long expectedResult = 171;
             
             // Act
-            int answer = Problem19.Program.Solve();
+            int answer = Problem19.Problem19.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -263,7 +262,7 @@ namespace Problems.Tests
             const long expectedResult = 648;
             
             // Act
-            int answer = Problem20.Program.Solve();
+            int answer = Problem20.Problem20.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -276,7 +275,7 @@ namespace Problems.Tests
             const long expectedResult = 31626;
             
             // Act
-            int answer = Problem21.Program.Solve();
+            int answer = Problem21.Problem21.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -289,7 +288,7 @@ namespace Problems.Tests
             const long expectedResult = 871198282;
             
             // Act
-            long answer = Problem22.Program.Solve();
+            long answer = Problem22.Problem22.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -304,7 +303,7 @@ namespace Problems.Tests
             const long expectedResult = 4179871;
             
             // Act
-            long answer = Problem23.Program.Solve();
+            long answer = Problem23.Problem23.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -317,7 +316,7 @@ namespace Problems.Tests
             const string expectedResult = "2783915460";
             
             // Act
-            string answer = Problem24.Program.Solve();
+            string answer = Problem24.Problem24.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -330,7 +329,7 @@ namespace Problems.Tests
             const long expectedResult = 4782;
             
             // Act
-            int answer = Problem25.Program.Solve();
+            int answer = Problem25.Problem25.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -341,13 +340,13 @@ namespace Problems.Tests
         public void Problem26Test()
         {
             // Arrange
-            const long expectedResult = 4782;
+            //const long expectedResult = 4782;
             
             // Act
-            int answer = Problem25.Program.Solve();
+            //var (maxDenominator, maxDigitStringLength, maxDigitString) = Problem26.Problem26.Solve();
 
             // Assert
-            Assert.That(answer, Is.EqualTo(expectedResult));
+            //Assert.That(answer, Is.EqualTo(expectedResult));
         }
         
         [Test]
@@ -357,7 +356,7 @@ namespace Problems.Tests
             const long expectedResult = -59231;
             
             // Act
-            long answer = Problem27.Program.Solve();
+            long answer = Problem27.Problem27.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -370,7 +369,7 @@ namespace Problems.Tests
             const long expectedResult = 669171001;
             
             // Act
-            long answer = Problem28.Program.Solve();
+            long answer = Problem28.Problem28.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
@@ -383,7 +382,7 @@ namespace Problems.Tests
             const long expectedResult = 9183;
             
             // Act
-            long answer = Problem29.Program.Solve();
+            long answer = Problem29.Problem29.Solve();
 
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));

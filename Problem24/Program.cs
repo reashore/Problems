@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using static Common.Utilities;
-using static System.Console;
+﻿using static System.Console;
 
 namespace Problem24
 {
@@ -14,57 +11,8 @@ namespace Problem24
         {
             WriteLine("Problem 24");
 
-            string answer = Solve();
+            string answer = Problem24.Solve();
             WriteLine($"millionthPermutationString = {answer}");      // 2783915460
-
-            WriteLine("Done");
-            ReadKey();
         }
-
-        public static string Solve()
-        {
-            const string sequenceString = "0123456789";
-            List<int> sequence = ConvertNumericStringToList(sequenceString);
-            List<List<int>> permutations = Permutate(sequence).ToList();
-            List<List<int>> orderedPermutations = permutations.OrderBy(ConvertListToString).ToList();
-            //Print(orderedPermutations);
-
-            const int index = 999999;
-            List<int> millionthPermutation = orderedPermutations[index];
-            string millionthPermutationString = ConvertListToString(millionthPermutation);
-            return millionthPermutationString;
-        }
-
-        private static IEnumerable<List<T>> Permutate<T>(IReadOnlyList<T> sequence)
-        {
-
-            if (sequence.Count == 2) 
-            {
-                yield return new List<T>(sequence);
-                yield return new List<T> { sequence[1], sequence[0] };
-            }
-            else
-            {
-                foreach (T element in sequence) 
-                {
-                    List<T> rList = new List<T>(sequence); 
-                    rList.Remove(element); 
-
-                    foreach (List<T> retList in Permutate(rList))
-                    {
-                        retList.Insert(0, element); 
-                        yield return retList;
-                    }
-                }
-            }
-        }
-
-        //private static void Print(List<List<int>> permutations)
-        //{
-        //    foreach (List<int> permutation in permutations)
-        //    {
-        //        WriteLine(ToString(permutation));
-        //    }
-        //}
     }
 }
