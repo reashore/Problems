@@ -689,6 +689,19 @@ namespace Problems.Tests
         }
         
         [Test]
+        public void Problem53Test()
+        {
+            // Arrange
+            const int expectedResult = 4075;
+            
+            // Act
+            int answer = Problem53.Problem53.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+        
+        [Test]
         [Ignore("Not finished")]
         public void Problem54Test()
         {
