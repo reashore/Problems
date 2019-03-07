@@ -15,7 +15,7 @@ namespace Problem54
         public Hand Hand1 { get; }
         public Hand Hand2 { get; }
         
-        public static IEnumerable<Deal> ReadDeals()
+        public static List<Deal> ReadDeals()
         {
             const string fileName = "PokerHands.txt";
             string[] dealStrings = File.ReadAllLines(fileName);
@@ -161,28 +161,45 @@ namespace Problem54
             return false;
         }
 
-//        public bool IsHand1AndHand2Tied()
+//        public bool IsHand1TiedWithHand2()
 //        {
-//            int pokerHandType1 = (int) Hand1.GetPokerHandType();
-//            int pokerHandType2 = (int) Hand2.GetPokerHandType();
+//            PokerHandType pokerHandType1 = Hand1.GetPokerHandType();
+//            PokerHandType pokerHandType2 = Hand2.GetPokerHandType();
 //
-//            bool isTie = pokerHandType1 == pokerHandType2;
-//
-//            return isTie;
+//            return pokerHandType1 == pokerHandType2;
 //        }
  
 //        private static void GetDealsWithTies()
 //        {
-//            Problem54.GetTiedHands(PokerHandType.RoyalFlush);
-//            Problem54.GetTiedHands(PokerHandType.StraightFlush);
-//            Problem54.GetTiedHands(PokerHandType.FourOfKind);
-//            Problem54.GetTiedHands(PokerHandType.FullHouse);
-//            Problem54.GetTiedHands(PokerHandType.Flush);
-//            Problem54.GetTiedHands(PokerHandType.Straight);
-//            Problem54.GetTiedHands(PokerHandType.ThreeOfKind);
-//            Problem54.GetTiedHands(PokerHandType.TwoPair);
-//            Problem54.GetTiedHands(PokerHandType.OnePair);
-//            Problem54.GetTiedHands(PokerHandType.HighCard);
+//            GetTiedHands(PokerHandType.RoyalFlush);
+//            GetTiedHands(PokerHandType.StraightFlush);
+//            GetTiedHands(PokerHandType.FourOfKind);
+//            GetTiedHands(PokerHandType.FullHouse);
+//            GetTiedHands(PokerHandType.Flush);
+//            GetTiedHands(PokerHandType.Straight);
+//            GetTiedHands(PokerHandType.ThreeOfKind);
+//            GetTiedHands(PokerHandType.TwoPair);
+//            GetTiedHands(PokerHandType.OnePair);
+//            GetTiedHands(PokerHandType.HighCard);
+//        }
+//        
+//                
+//        private static void GetTiedHands(PokerHandType pokerhandType)
+//        {
+//            List<Deal> deals = ReadDeals();
+//
+//            foreach (Deal deal in deals)
+//            {
+//                PokerHandType pokerhandType1 = deal.Hand1.GetPokerHandType();
+//                PokerHandType pokerhandType2 = deal.Hand2.GetPokerHandType();
+//
+//                bool isTie = (int) pokerhandType1 == (int) pokerhandType2;
+//
+//                if (isTie && pokerhandType1 == pokerhandType)
+//                {
+//                    Console.WriteLine($"{deal}");
+//                }
+//            }
 //        }
     }
 }

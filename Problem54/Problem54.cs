@@ -35,23 +35,5 @@ namespace Problem54
 
             return winningHands;
         }
-        
-        public static void GetTiedHands(PokerHandType pokerhandType)
-        {
-            List<Deal> deals = Deal.ReadDeals().ToList();
-
-            foreach (Deal deal in deals)
-            {
-                PokerHandType pokerhandType1 = deal.Hand1.GetPokerHandType();
-                PokerHandType pokerhandType2 = deal.Hand2.GetPokerHandType();
-
-                bool isTie = (int) pokerhandType1 == (int) pokerhandType2;
-
-                if (isTie && pokerhandType1 == pokerhandType)
-                {
-                    Console.WriteLine($"{deal}");
-                }
-            }
-        }
     }
 }
