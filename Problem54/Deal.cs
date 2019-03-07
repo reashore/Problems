@@ -182,8 +182,8 @@ namespace Problem54
 //            GetTiedHands(PokerHandType.OnePair);
 //            GetTiedHands(PokerHandType.HighCard);
 //        }
-//        
-//                
+        
+                
 //        private static void GetTiedHands(PokerHandType pokerhandType)
 //        {
 //            List<Deal> deals = ReadDeals();
@@ -193,10 +193,11 @@ namespace Problem54
 //                PokerHandType pokerhandType1 = deal.Hand1.GetPokerHandType();
 //                PokerHandType pokerhandType2 = deal.Hand2.GetPokerHandType();
 //
-//                bool isTie = (int) pokerhandType1 == (int) pokerhandType2;
+//                bool isTie = pokerhandType1 == pokerhandType2;
 //
 //                if (isTie && pokerhandType1 == pokerhandType)
 //                {
+//                    // todo: Add to list
 //                    Console.WriteLine($"{deal}");
 //                }
 //            }
