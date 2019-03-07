@@ -9,10 +9,8 @@ namespace Problem54
         public static int Solve()
         {
             int winningHands = 0;
-            List<Deal> deals = Deal.ReadDeals().ToList();
-            // todo remove count
-            int count = 0;
             int dealNumber = 1;
+            List<Deal> deals = Deal.ReadDeals().ToList();
 
             foreach (Deal deal in deals)
             {
@@ -33,15 +31,27 @@ namespace Problem54
                 }
 
                 dealNumber++;
-                count++;
-
-                if (count > 10)
-                {
-                    break;
-                }
             }
 
             return winningHands;
+        }
+        
+        public static void GetTiedHands(PokerHandType pokerhandType)
+        {
+            List<Deal> deals = Deal.ReadDeals().ToList();
+
+            foreach (Deal deal in deals)
+            {
+                PokerHandType pokerhandType1 = deal.Hand1.GetPokerHandType();
+                PokerHandType pokerhandType2 = deal.Hand2.GetPokerHandType();
+
+                bool isTie = (int) pokerhandType1 == (int) pokerhandType2;
+
+                if (isTie && pokerhandType1 == pokerhandType)
+                {
+                    Console.WriteLine($"{deal}");
+                }
+            }
         }
     }
 }
