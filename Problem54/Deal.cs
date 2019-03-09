@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using static System.Console;
 
 namespace Problem54
 {
@@ -55,41 +56,33 @@ namespace Problem54
                 return true;
             }
             
-            if (pokerHandType1 == pokerHandType2)
+            if (pokerHandType1 < pokerHandType2)
             {
-                return IsHand1WinnerOfTie();
+                return false;
             }
             
-            return false;
+            return IsHand1WinnerWhereBothHandsHaveSamePokerType(pokerHandType1);
         }
 
-        private bool IsHand1WinnerOfTie()
+        private bool IsHand1WinnerWhereBothHandsHaveSamePokerType(PokerHandType pokerHandType)
         {
-            int pokerHandType1 = (int) Hand1.GetPokerHandType();
-            int pokerHandType2 = (int) Hand2.GetPokerHandType();
-
-            if (pokerHandType1 != pokerHandType2)
+            switch (pokerHandType)
             {
-                throw new Exception("Hands should be tied");
-            }
-
-            switch (pokerHandType1)
-            {
-                case (int) PokerHandType.RoyalFlush:
-                case (int) PokerHandType.StraightFlush:
-                case (int) PokerHandType.FourOfKind:
-                case (int) PokerHandType.FullHouse:
-                case (int) PokerHandType.Flush:
-                case (int) PokerHandType.Straight:
-                case (int) PokerHandType.ThreeOfKind:
-                case (int) PokerHandType.TwoPair:
-                    throw new Exception("These poker hand types are not tied");
-                    
-                case (int) PokerHandType.OnePair:
-                    return Hand1WithOnePairWinsTie();
-                    
-                case (int) PokerHandType.HighCard:
+                case PokerHandType.HighCard:
                     return Hand1WithHighCardWinsTie();
+                    
+                case PokerHandType.OnePair:
+                    return Hand1WithOnePairWinsTie();
+
+                case PokerHandType.TwoPair:
+                case PokerHandType.ThreeOfKind:
+                case PokerHandType.Straight:
+                case PokerHandType.Flush:
+                case PokerHandType.FullHouse:
+                case PokerHandType.FourOfKind:
+                case PokerHandType.StraightFlush:
+                case PokerHandType.RoyalFlush:
+                    throw new Exception("There are no deals where both hands have this poker type");
                     
                 default:
                     throw new Exception("Should not get here");
@@ -160,47 +153,60 @@ namespace Problem54
             
             return false;
         }
-
-//        public bool IsHand1TiedWithHand2()
-//        {
-//            PokerHandType pokerHandType1 = Hand1.GetPokerHandType();
-//            PokerHandType pokerHandType2 = Hand2.GetPokerHandType();
-//
-//            return pokerHandType1 == pokerHandType2;
-//        }
  
-//        private static void GetDealsWithTies()
-//        {
-//            GetTiedHands(PokerHandType.RoyalFlush);
-//            GetTiedHands(PokerHandType.StraightFlush);
-//            GetTiedHands(PokerHandType.FourOfKind);
-//            GetTiedHands(PokerHandType.FullHouse);
-//            GetTiedHands(PokerHandType.Flush);
-//            GetTiedHands(PokerHandType.Straight);
-//            GetTiedHands(PokerHandType.ThreeOfKind);
-//            GetTiedHands(PokerHandType.TwoPair);
-//            GetTiedHands(PokerHandType.OnePair);
-//            GetTiedHands(PokerHandType.HighCard);
-//        }
+        //-----------------------------------------------------------------------------------------------
         
+        public static void GetDealsWhereBothHandsAreSamePokerType()
+        {
+            List<Deal> bothHandsAreRoyalFlush = GetDealsWhereBothHandsAreSamePokerType(PokerHandType.RoyalFlush);
+            List<Deal> bothHandsAreStraightFlush = GetDealsWhereBothHandsAreSamePokerType(PokerHandType.StraightFlush);
+            List<Deal> bothHandsAreFourOfKind = GetDealsWhereBothHandsAreSamePokerType(PokerHandType.FourOfKind);
+            List<Deal> bothHandsAreFullHouse = GetDealsWhereBothHandsAreSamePokerType(PokerHandType.FullHouse);
+            List<Deal> bothHandsAreFlush = GetDealsWhereBothHandsAreSamePokerType(PokerHandType.Flush);
+            List<Deal> bothHandsAreStraight = GetDealsWhereBothHandsAreSamePokerType(PokerHandType.Straight);
+            List<Deal> bothHandsAreThreeOfKind = GetDealsWhereBothHandsAreSamePokerType(PokerHandType.ThreeOfKind);
+            List<Deal> bothHandsAreTwoPair = GetDealsWhereBothHandsAreSamePokerType(PokerHandType.TwoPair);
+            List<Deal> bothHandsAreOnePair = GetDealsWhereBothHandsAreSamePokerType(PokerHandType.OnePair);
+            List<Deal> bothHandsAreHighCard = GetDealsWhereBothHandsAreSamePokerType(PokerHandType.HighCard);
+
+            WriteLine($"bothHandsAreRoyalFlush    = {bothHandsAreRoyalFlush.Count}");
+            WriteLine($"bothHandsAreStraightFlush = {bothHandsAreStraightFlush.Count}");
+            WriteLine($"bothHandsAreFourOfKind    = {bothHandsAreFourOfKind.Count}");
+            WriteLine($"bothHandsAreFullHouse     = {bothHandsAreFullHouse.Count}");
+            WriteLine($"bothHandsAreFlush         = {bothHandsAreFlush.Count}");
+            WriteLine($"bothHandsAreStraight      = {bothHandsAreStraight.Count}");
+            WriteLine($"bothHandsAreThreeOfKind   = {bothHandsAreThreeOfKind.Count}");
+            WriteLine($"bothHandsAreTwoPair       = {bothHandsAreTwoPair.Count}");
+            WriteLine($"bothHandsAreOnePair       = {bothHandsAreOnePair.Count}");
+            WriteLine($"bothHandsAreHighCard      = {bothHandsAreHighCard.Count}");
+            
+            // Therefore it is only necessary to break ties for High-Card and One-Pair
+        }
                 
-//        private static void GetTiedHands(PokerHandType pokerhandType)
-//        {
-//            List<Deal> deals = ReadDeals();
-//
-//            foreach (Deal deal in deals)
-//            {
-//                PokerHandType pokerhandType1 = deal.Hand1.GetPokerHandType();
-//                PokerHandType pokerhandType2 = deal.Hand2.GetPokerHandType();
-//
-//                bool isTie = pokerhandType1 == pokerhandType2;
-//
-//                if (isTie && pokerhandType1 == pokerhandType)
-//                {
-//                    // todo: Add to list
-//                    Console.WriteLine($"{deal}");
-//                }
-//            }
-//        }
+        private static List<Deal> GetDealsWhereBothHandsAreSamePokerType(PokerHandType pokerhandType)
+        {
+            List<Deal> deals = ReadDeals();
+            List<Deal> bothHandsAreSamePokerTypeList = new List<Deal>();
+
+            foreach (Deal deal in deals)
+            {
+                bool areHandsSamePokerType = deal.AreHand1AndHand2TheSamePokerType();
+
+                if (areHandsSamePokerType && deal.Hand1.GetPokerHandType() == pokerhandType)
+                {
+                    bothHandsAreSamePokerTypeList.Add(deal);
+                }
+            }
+
+            return bothHandsAreSamePokerTypeList;
+        }
+
+        private bool AreHand1AndHand2TheSamePokerType()
+        {
+            PokerHandType pokerHandType1 = Hand1.GetPokerHandType();
+            PokerHandType pokerHandType2 = Hand2.GetPokerHandType();
+
+            return pokerHandType1 == pokerHandType2;
+        }
     }
 }

@@ -8,6 +8,9 @@ namespace Problem54
         public static void Main()
         {
             WriteLine("Problem 54");
+            
+            Deal.GetDealsWhereBothHandsAreSamePokerType();
+            
             int answer = Problem54.Solve();
             WriteLine($"answer = {answer}");
         }
