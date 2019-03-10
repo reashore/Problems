@@ -702,7 +702,6 @@ namespace Problems.Tests
         }
         
         [Test]
-        [Ignore("Not finished")]
         public void Problem54Test()
         {
             // Arrange
