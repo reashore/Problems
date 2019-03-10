@@ -7,6 +7,14 @@ namespace Problem54
 {
     public class Hand
     {
+        private List<Card> _cardList;
+
+        private Card Card1 { get; }
+        private Card Card2 { get; }
+        private Card Card3 { get; }
+        private Card Card4 { get; }
+        private Card Card5 { get; }
+
         public Hand(string card0String, string card1String, string card2String, string card3String, string card4String)
         {
             Card1 = new Card(card0String);
@@ -17,14 +25,6 @@ namespace Problem54
 
             AddCardsToList();
         }
-
-        private List<Card> _cardList;
-
-        private Card Card1 { get; }
-        private Card Card2 { get; }
-        private Card Card3 { get; }
-        private Card Card4 { get; }
-        private Card Card5 { get; }
 
         private void AddCardsToList()
         {
@@ -51,7 +51,6 @@ namespace Problem54
             return handStringBuilder.ToString().TrimEnd();
         }
 
-        // todo add high card
         public PokerHandType GetPokerHandType()
         {
             PokerHandType pokerHandType = PokerHandType.HighCard;
@@ -100,7 +99,7 @@ namespace Problem54
             return pokerHandType;
         }
         
-        //----------------------------
+        //-----------------------------------------------------------------------------------------
 
         public bool IsRoyalFlush()
         {
@@ -155,7 +154,7 @@ namespace Problem54
 
             bool isFourOfKind = false;
             
-            foreach (Rank rank in GetAllRanks())
+            foreach (Rank rank in GetAllCardRanks())
             {
                 isFourOfKind = ContainsCardOfRankAndSuit(rank, Suit.Clubs) &&
                                ContainsCardOfRankAndSuit(rank, Suit.Diamonds) &&
@@ -182,7 +181,7 @@ namespace Problem54
             bool onePair = false;
             Rank threeOfKindRank = Rank.C2;
 
-            foreach (Rank rank in GetAllRanks())
+            foreach (Rank rank in GetAllCardRanks())
             {
                 if (NumberCardsOfRank(rank) == 3)
                 {
@@ -197,7 +196,7 @@ namespace Problem54
                 return false;
             }
             
-            foreach (Rank rank in GetAllRanks())
+            foreach (Rank rank in GetAllCardRanks())
             {
                 if (rank != threeOfKindRank && NumberCardsOfRank(rank) == 2 )
                 {
@@ -252,7 +251,7 @@ namespace Problem54
             
             bool threeOfKind = false;
 
-            foreach (Rank rank in GetAllRanks())
+            foreach (Rank rank in GetAllCardRanks())
             {
                 if (NumberCardsOfRank(rank) == 3)
                 {
@@ -275,7 +274,7 @@ namespace Problem54
             bool secondPair = false;
             Rank firstPairRank = Rank.C2;
 
-            foreach (Rank rank in GetAllRanks())
+            foreach (Rank rank in GetAllCardRanks())
             {
                 if (NumberCardsOfRank(rank) == 2)
                 {
@@ -290,7 +289,7 @@ namespace Problem54
                 return false;
             }
             
-            foreach (Rank rank in GetAllRanks())
+            foreach (Rank rank in GetAllCardRanks())
             {
                 if (rank != firstPairRank && NumberCardsOfRank(rank) == 2 )
                 {
@@ -311,7 +310,7 @@ namespace Problem54
             
             bool onePair = false;
 
-            foreach (Rank rank in GetAllRanks())
+            foreach (Rank rank in GetAllCardRanks())
             {
                 if (NumberCardsOfRank(rank) == 2)
                 {
@@ -333,9 +332,9 @@ namespace Problem54
             return true;
         }
 
-        //----------------------------
+        //-----------------------------------------------------------------------------------------
 
-        private static IEnumerable<Rank> GetAllRanks()
+        private static IEnumerable<Rank> GetAllCardRanks()
         {
             Rank[] ranks = (Rank[]) Enum.GetValues(typeof(Rank));
             return ranks;
@@ -539,10 +538,10 @@ namespace Problem54
             return false;
         }
         
-        public List<Rank> GetSortedCardRanks()
+        public List<Rank> GetSortedRanks()
         {
             List<Rank> sortedCardRankList = _cardList.Select(card => card.Rank)
-                                                    .OrderByDescending(rank => (int)rank).ToList();
+                                                     .OrderByDescending(rank => (int)rank).ToList();
 
             return sortedCardRankList;
         }

@@ -12,9 +12,7 @@ namespace Problem54.Test
         [TestCase("9C 7C 5C AC AD 9H 7D 4D AH AS", true)]
         [TestCase("9C 7C 5C AC AD 9H 6D 4D AH AS", true)]
         [TestCase("9C 7C 5C AC AD 8H 7D 4D AH AS", true)]
-        public void Hand1WithOnePairWinsTie(
-            string dealString, 
-            bool expectedHand1WinsTie)
+        public void Hand1WithOnePairWinsTest(string dealString, bool expectedHand1WinsTie)
         {
             string[] dealStringArray = dealString.Split(' ');
             string hand1Card1String = dealStringArray[0];
@@ -45,7 +43,7 @@ namespace Problem54.Test
             Deal deal = new Deal(hand1, hand2);
 
             // Act
-            bool actualHand1WinsTie = deal.Hand1WithOnePairWinsTie();
+            bool actualHand1WinsTie = deal.IsHand1WithOnePairWinner();
             
             // Assert
             Assert.That(actualHand1WinsTie, Is.EqualTo(expectedHand1WinsTie));
@@ -56,9 +54,9 @@ namespace Problem54.Test
         [TestCase("AC KC TC 9C 7C AD KD TD 8D 6D", true)]
         [TestCase("AC KC JC 9C 7C AD KD TD 8D 6D", true)]
         [TestCase("AC KC JC 9C 7C AD QD TD 8D 6D", true)]
-        public void Hand1WithHighCardWinsTieTest(
-            string dealString, 
-            bool expectedHand1WinsTie)
+        
+        [TestCase("9C 7C 4C 3C 2C AD QD TD 8D 6D", false)]
+        public void Hand1WithHighCardWinsTest(string dealString, bool expectedHand1WinsTie)
         {
             string[] dealStringArray = dealString.Split(' ');
             string hand1Card1String = dealStringArray[0];
@@ -89,7 +87,7 @@ namespace Problem54.Test
             Deal deal = new Deal(hand1, hand2);
 
             // Act
-            bool actualHand1WinsTie = deal.Hand1WithHighCardWinsTie();
+            bool actualHand1WinsTie = deal.IsHand1WithHighCardWinner();
             
             // Assert
             Assert.That(actualHand1WinsTie, Is.EqualTo(expectedHand1WinsTie));

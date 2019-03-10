@@ -9,10 +9,10 @@ namespace Problem54
         {
             WriteLine("Problem 54");
             
-            Deal.GetDealsWhereBothHandsAreSamePokerType();
+            //Deal.GetDealsWhereBothHandsAreSamePokerType();
             
-            int answer = Problem54.Solve();
-            WriteLine($"answer = {answer}");
+            int answer = Problem54.Solve();                
+            WriteLine($"answer = {answer}");                // 376
         }
     }
 }

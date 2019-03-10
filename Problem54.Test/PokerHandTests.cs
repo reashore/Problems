@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace Problem54.Test
@@ -1085,5 +1086,43 @@ namespace Problem54.Test
             // Assert
             Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
+        
+        [TestCase("2C", "3C", "4C", "5C", "6C", "65432")]
+        public void GetSortedHandRanksTest(
+            string card1String, 
+            string card2String, 
+            string card3String, 
+            string card4String, 
+            string card5String, 
+            string expectedResult)
+        {
+            // Arrange
+            Hand hand = new Hand(
+                card1String, 
+                card2String, 
+                card3String, 
+                card4String, 
+                card5String);
+
+            // Act
+            List<Rank> sortedRanks = hand.GetSortedRanks();
+            string actualResult = ConvertRanksToString(sortedRanks);
+
+            // Assert
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
+        }
+
+        private static string ConvertRanksToString(List<Rank> ranks)
+        {
+            string result = "";
+            
+            foreach (Rank rank in ranks)
+            {
+                result += ((int)rank).ToString();
+            }
+
+            return result;
+        }
+
     }
 }

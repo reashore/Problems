@@ -69,10 +69,10 @@ namespace Problem54
             switch (pokerHandType)
             {
                 case PokerHandType.HighCard:
-                    return Hand1WithHighCardWinsTie();
+                    return IsHand1WithHighCardWinner();
                     
                 case PokerHandType.OnePair:
-                    return Hand1WithOnePairWinsTie();
+                    return IsHand1WithOnePairWinner();
 
                 case PokerHandType.TwoPair:
                 case PokerHandType.ThreeOfKind:
@@ -89,7 +89,7 @@ namespace Problem54
             }
         }
 
-        public bool Hand1WithOnePairWinsTie()
+        public bool IsHand1WithOnePairWinner()
         {
             PokerHandType pokerHandType1 = Hand1.GetPokerHandType();
 
@@ -99,7 +99,7 @@ namespace Problem54
             }
 
             Rank hand1HighRank = Rank.C2;
-            List<Rank> sortedHand1Ranks= Hand1.GetSortedCardRanks();
+            List<Rank> sortedHand1Ranks= Hand1.GetSortedRanks();
             
             foreach (Rank rank in sortedHand1Ranks)
             {
@@ -111,7 +111,7 @@ namespace Problem54
             }
             
             Rank hand2HighRank = Rank.C2;
-            List<Rank> sortedHand2Ranks = Hand2.GetSortedCardRanks();
+            List<Rank> sortedHand2Ranks = Hand2.GetSortedRanks();
             
             foreach (Rank rank in sortedHand2Ranks)
             {
@@ -122,32 +122,49 @@ namespace Problem54
                 }
             }
 
-            if (hand1HighRank > hand2HighRank)
+            if ((int) hand1HighRank > (int) hand2HighRank)
             {
                 return true;
             }
             
-            for (int n = 0; n < 5; n++)
+            if ((int) hand1HighRank < (int) hand2HighRank)
             {
-                if (sortedHand1Ranks[n] > sortedHand2Ranks[n])
+                return false;
+            }
+
+            sortedHand1Ranks.Remove(hand1HighRank);
+            sortedHand1Ranks.Remove(hand1HighRank);
+            
+            sortedHand2Ranks.Remove(hand2HighRank);
+            sortedHand2Ranks.Remove(hand2HighRank);
+            
+            for (int n = 0; n <sortedHand1Ranks.Count; n++)
+            {
+                int value1 = (int) sortedHand1Ranks[n];
+                int value2 = (int) sortedHand2Ranks[n];
+                
+                if (value1 != value2)
                 {
-                    return true;
+                    return (value1 > value2);
                 }
             }
             
             return false;
         }
 
-        public bool Hand1WithHighCardWinsTie()
+        public bool IsHand1WithHighCardWinner()
         {
-            List<Rank> sortedCardRanksForHand1 = Hand1.GetSortedCardRanks();
-            List<Rank> sortedCardRanksForHand2 = Hand2.GetSortedCardRanks();
+            List<Rank> sortedHand1Ranks = Hand1.GetSortedRanks();
+            List<Rank> sortedHand2Ranks = Hand2.GetSortedRanks();
 
             for (int n = 0; n < 5; n++)
             {
-                if (sortedCardRanksForHand1[n] > sortedCardRanksForHand2[n])
+                int value1 = (int) sortedHand1Ranks[n];
+                int value2 = (int) sortedHand2Ranks[n];
+                
+                if (value1 != value2)
                 {
-                    return true;
+                    return (value1 > value2);
                 }
             }
             

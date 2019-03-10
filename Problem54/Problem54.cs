@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using static System.Console;
+
 
 namespace Problem54
 {
@@ -20,11 +22,11 @@ namespace Problem54
                 
                 bool isHand1Winner = deal.IsHand1Winner();
                 
-//                WriteLine("----------------------------------------------------------");
-//                WriteLine($"Deal Number = {dealNumber}");
-//                WriteLine($"{deal}");
-//                WriteLine($"hand1Type = {pokerhandType1}, hand2Type = {pokerhandType2}");
-//                WriteLine($"Hand 1 wins = {isHand1Winner}");
+                WriteLine("----------------------------------------------------------");
+                WriteLine($"Deal Number = {dealNumber}");
+                WriteLine($"{deal}");
+                WriteLine($"hand1Type = {pokerhandType1}, hand2Type = {pokerhandType2}");
+                WriteLine($"Hand 1 wins = {isHand1Winner}");
 
                 if (isHand1Winner)
                 {
