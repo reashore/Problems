@@ -1,53 +1,129 @@
 using System;
-using Common;
+using System.Collections.Generic;
+using static System.Console;
 
 namespace Problem60
 {
-    public static class Problem60
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public class Problem60
     {
         public static int Solve()
         {
-            const int upperBound = 10_000;
+            const int upperBound = 1_000_000;
+            PrimesUtility primesUtility = new PrimesUtility(upperBound);
             
-            for (int n = 1; n <= upperBound; n++)
-            {
-                bool isPrime1 = IsPrime(n);
-                bool isPrime2 = Utilities.IsPrime(n);
-                
-                Console.WriteLine($"{n, 5} {isPrime1}");
-            }
-            
-            return 0;
+            //int answer = SolvePrime4Problem(primesUtility);
+            int answer = SolvePrime5Problem(primesUtility);
+
+            return answer;
         }
-        
-        private static bool IsPrime(int number) {
-            // Sieve of Eratosthenes.
-            if (number < 2)
-            {
-                return false;
-            }
 
-            // Reserve place for val + 1 and set with true.
-            bool[] mark = new bool[number + 1];
-            
-            for(int i = 2; i <= number; i++)
-            {
-                mark[i] = true;
-            }
+        public static int SolvePrime4Problem(PrimesUtility primesUtility)
+        {
+            int maxPrimeIndex = primesUtility.Primes.Count;
 
-            for (int i = 2; i <= Math.Sqrt(number); i++)
+            for (int n1 = 1; n1 < maxPrimeIndex; n1++)
             {
-                if (mark[i])
+                for (int n2 = n1 + 1; n2 < maxPrimeIndex; n2++)
                 {
-                    // Cross out every i-th number in the places after i (all the multiples of i).
-                    for (int j = (i * i); j <= number; j += i)
+                    for (int n3 = n2 + 1; n3 < maxPrimeIndex; n3++)
                     {
-                        mark[j] = false;
+                        for (int n4 = n3 + 1; n4 < maxPrimeIndex; n4++)
+                        {
+                            int prime1 = primesUtility.Primes[n1];
+                            int prime2 = primesUtility.Primes[n2];
+                            int prime3 = primesUtility.Primes[n3];
+                            int prime4 = primesUtility.Primes[n4];
+
+                            List<int> candidatePrimes = new List<int> {prime1, prime2, prime3, prime4};
+                            bool areConcatenatedPrimesPrime = AreConcatenatedPrimesPrime(candidatePrimes, primesUtility);
+
+                            if (areConcatenatedPrimesPrime)
+                            {
+                                WriteLine($"n1 = {n1}, n2 = {n2}, n3 = {n3}, n4 = {4}");
+                                return n1 + n2 + n3 + n4;
+                            }
+                        }
                     }
                 }
             }
 
-            return mark[number];
+            return 0;
+        }
+        
+        private static int SolvePrime5Problem(PrimesUtility primesUtility)
+        {
+            int maxPrimeIndex = primesUtility.Primes.Count;
+
+            for (int n1 = 1; n1 < maxPrimeIndex; n1++)
+            {
+                for (int n2 = n1 + 1; n2 < maxPrimeIndex; n2++)
+                {
+                    for (int n3 = n2 + 1; n3 < maxPrimeIndex; n3++)
+                    {
+                        for (int n4 = n3 + 1; n4 < maxPrimeIndex; n4++)
+                        {
+                            for (int n5 = n4 + 1; n5 < maxPrimeIndex; n5++)
+                            {
+                                int prime1 = primesUtility.Primes[n1];
+                                int prime2 = primesUtility.Primes[n2];
+                                int prime3 = primesUtility.Primes[n3];
+                                int prime4 = primesUtility.Primes[n4];
+                                int prime5 = primesUtility.Primes[n5];
+
+                                List<int> candidatePrimes = new List<int> {prime1, prime2, prime3, prime4, prime5};
+                                bool areConcatenatedPrimesPrime = AreConcatenatedPrimesPrime(candidatePrimes, primesUtility);
+
+                                if (areConcatenatedPrimesPrime)
+                                {
+                                    WriteLine($"n1 = {n1}, n2 = {n2}, n3 = {n3}, n4 = {4}, n5 = {n5}");
+                                    return n1 + n2 + n3 + n4 + n5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return 0;
+        }
+
+        public static bool AreConcatenatedPrimesPrime(IReadOnlyCollection<int> primes, PrimesUtility primesUtility)
+        {
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            foreach (int prime1 in primes)
+            {
+                // ReSharper disable once LoopCanBeConvertedToQuery
+                foreach (int prime2 in primes)
+                {
+                    if (prime1 >= prime2)
+                    {
+                        continue;
+                    }
+
+                    string prime1String = prime1.ToString();
+                    string prime2String = prime2.ToString();
+
+                    string prime12String = prime1String + prime2String;
+                    string prime21String = prime2String + prime1String;
+
+                    int prime12 = Convert.ToInt32(prime12String);
+                    int prime21 = Convert.ToInt32(prime21String);
+
+                    bool isPrime12 = primesUtility.IsPrimeFast(prime12);
+                    bool isPrime21 = primesUtility.IsPrimeFast(prime21);
+
+                    bool bothPrime = isPrime12 && isPrime21;
+
+                    if (!bothPrime)
+                    {
+                        //WriteLine($"prime1 = {prime1}, prime2 = {prime2}");
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 }
