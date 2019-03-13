@@ -755,6 +755,21 @@ namespace Problems.Tests
         }
                 
         [Test]
+        [Category("Slow")]
+        [Explicit]
+        public void Problem61Test()
+        {
+            // Arrange
+            const int expectedResult = 28684;
+            
+            // Act
+            long answer = Problem61.Problem61.Solve();
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
+                
+        [Test]
         public void Problem63Test()
         {
             // Arrange
