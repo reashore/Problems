@@ -8,12 +8,12 @@ namespace Problem61
     {
         public static long Solve()
         {
-            List<int> pentagonal3List = PentagonalNumbers.GetPentagonal3List();
-            List<int> pentagonal4List = PentagonalNumbers.GetPentagonal4List();
-            List<int> pentagonal5List = PentagonalNumbers.GetPentagonal5List();
-            List<int> pentagonal6List = PentagonalNumbers.GetPentagonal6List();
-            List<int> pentagonal7List = PentagonalNumbers.GetPentagonal7List();
-            List<int> pentagonal8List = PentagonalNumbers.GetPentagonal8List();
+            var pentagonal3List = PentagonalNumbers.GetPentagonal3List();
+            var pentagonal4List = PentagonalNumbers.GetPentagonal4List();
+            var pentagonal5List = PentagonalNumbers.GetPentagonal5List();
+            var pentagonal6List = PentagonalNumbers.GetPentagonal6List();
+            var pentagonal7List = PentagonalNumbers.GetPentagonal7List();
+            var pentagonal8List = PentagonalNumbers.GetPentagonal8List();
 
             foreach (int p3Number in pentagonal3List)
             {
@@ -36,12 +36,13 @@ namespace Problem61
                                         p7Number,
                                         p8Number
                                     };
+                                    long sum = pentagonalList.Sum(n => n);
 
-                                    bool isCyclicSet = IsCyclicSet(pentagonalList);
+                                    bool isCyclicNumberSet = IsCyclicNumberSet(pentagonalList);
 
-                                    if (isCyclicSet)
+                                    if (isCyclicNumberSet)
                                     {
-                                        long sum = pentagonalList.Sum(n => n);
+                                        WriteLine($"p3 = {p3Number}, p4 = {p4Number}, p5 = {p5Number}, p6 = {p6Number}, p7 = {p7Number}, p8 = {p8Number}");
                                         return sum;
                                     }
                                 }
@@ -54,45 +55,43 @@ namespace Problem61
             return 0;
         }
 
-        private static bool IsCyclicSet(List<int> pentagonalList)
+        public static bool IsCyclicNumberSet(List<int> pentagonalList)
         {
-            // select first number and remove from list
-            // get first 2 digits
-            // is there a number in list beginning with those digits?
-            // if no return false
-            // if yes, get first 2 digits of that number
-            // goto step 3
-            
-            //pentagonalList.
-            
-            return true;
-        }
+            int firstElement = pentagonalList[0];
+            pentagonalList.Remove(firstElement);
+            string lastTwoDigits = GetLastTwoDigits(firstElement);
 
-        public static void Solve2()
+            while (pentagonalList.Count > 0)
+            {
+                int element = pentagonalList.FirstOrDefault(n => GetFirstTwoDigits(n) == lastTwoDigits);
+                if (element == 0)
+                {
+                    return false;
+                }
+                pentagonalList.Remove(element);
+                lastTwoDigits = GetLastTwoDigits(element);
+            }
+
+            bool finalCheck = lastTwoDigits == GetFirstTwoDigits(firstElement);
+            
+            return finalCheck;
+        }
+        
+        public static string GetFirstTwoDigits(int number)
         {
-            List<int> pentagonal3List = PentagonalNumbers.GetPentagonal3List();
-            List<int> pentagonal4List = PentagonalNumbers.GetPentagonal4List();
-            List<int> pentagonal5List = PentagonalNumbers.GetPentagonal5List();
-            List<int> pentagonal6List = PentagonalNumbers.GetPentagonal6List();
-            List<int> pentagonal7List = PentagonalNumbers.GetPentagonal7List();
-            List<int> pentagonal8List = PentagonalNumbers.GetPentagonal8List();
-            
-            int count3 = pentagonal3List.Count;
-            int count4 = pentagonal4List.Count;
-            int count5 = pentagonal5List.Count;
-            int count6 = pentagonal6List.Count;
-            int count7 = pentagonal7List.Count;
-            int count8 = pentagonal8List.Count;
-            
-            WriteLine($"count3 = {count3}");
-            WriteLine($"count4 = {count4}");
-            WriteLine($"count5 = {count5}");
-            WriteLine($"count6 = {count6}");
-            WriteLine($"count7 = {count7}");
-            WriteLine($"count8 = {count8}");
+            string numberString = number.ToString();
+            string firstTwoDigits = numberString.Substring(0, 2);
 
-            int product = count3 * count4 * count5 * count6 * count7 * count8;
-            WriteLine($"product = {product}");
+            return firstTwoDigits;
         }
+        
+        public  static string GetLastTwoDigits(int number)
+        {
+            string numberString = number.ToString();
+            int length = numberString.Length;
+            string firstTwoDigits = numberString.Substring(length - 2, 2);
+
+            return firstTwoDigits;
+        } 
     }
 }
