@@ -9,6 +9,7 @@ namespace Problem100
             WriteLine("Problem 100");
 
             WriteLine(int.MaxValue);                    // 2147483647
+            WriteLine(uint.MaxValue);                   // 4294967295
                                                         // 5000000058
 
             int row = 6;
