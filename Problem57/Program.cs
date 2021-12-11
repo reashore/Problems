@@ -13,16 +13,3 @@ namespace Problem57
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
