@@ -6,7 +6,7 @@ namespace Problem79.Tests
     {
         public static LinkedList<int> CreatePasswordLinkedList(string password)
         {
-            LinkedList<int> passwordLinkedList = new LinkedList<int>();
+            LinkedList<int> passwordLinkedList = new();
             
             foreach (char character in password)
             {

@@ -16,7 +16,7 @@ namespace Problem21
 
         private static IEnumerable<int> GetAmicableNumbers(int upperBound)
         {
-            List<int> amicableNumbers = new List<int>();
+            List<int> amicableNumbers = new();
 
             for (int n = 1; n < upperBound; n++)
             {
@@ -35,7 +35,7 @@ namespace Problem21
 
         private static IEnumerable<int> GetProperDivisors(int number)
         {
-            List<int> divisors = new List<int>();
+            List<int> divisors = new();
 
             for (int n = 1; n < number; n++)
             {
@@ -73,7 +73,7 @@ namespace Problem21
         {
             if (!IsAmicableNumber(amicableNumber))
             {
-                throw new ArgumentException(nameof(amicableNumber));
+                throw new ArgumentException(" not an amicable number");
             }
 
             return SumOfProperDivisors(amicableNumber);

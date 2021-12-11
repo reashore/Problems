@@ -39,7 +39,7 @@ namespace Problem61
 
         private static List<int> GetPentagonalNumberList(Func<int, int> getPentagonalNumber)
         {
-            List<int> pentagonalNumberList = new List<int>();
+            List<int> pentagonalNumberList = new();
 
             int number = 1;
             

@@ -25,14 +25,14 @@ namespace Problem24
 
             if (sequence.Count == 2) 
             {
-                yield return new List<T>(sequence);
-                yield return new List<T> { sequence[1], sequence[0] };
+                yield return new(sequence);
+                yield return new() { sequence[1], sequence[0] };
             }
             else
             {
                 foreach (T element in sequence) 
                 {
-                    List<T> rList = new List<T>(sequence); 
+                    List<T> rList = new(sequence); 
                     rList.Remove(element); 
 
                     foreach (List<T> retList in Permutate(rList))

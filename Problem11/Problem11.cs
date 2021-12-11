@@ -39,7 +39,7 @@ namespace Problem11
                                         "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48";
 
             string[] matrixArray = matrixString.Split(new[] { ' ' });
-            List<int> matrixList = new List<int>();
+            List<int> matrixList = new();
 
             // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (string digitString in matrixArray)

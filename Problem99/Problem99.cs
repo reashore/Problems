@@ -39,12 +39,12 @@ namespace Problem99
         {
             const string fileName = "BaseExponents.txt";
             string[] baseExponentLines = File.ReadAllLines(fileName);
-            List<BaseExponentPair> baseExponentList = new List<BaseExponentPair>();
+            List<BaseExponentPair> baseExponentList = new();
 
             foreach (string line in baseExponentLines)
             {
                 string[] lineArray = line.Split(',');
-                BaseExponentPair baseExponentPair = new BaseExponentPair
+                BaseExponentPair baseExponentPair = new()
                 {
                     Base = Convert.ToInt32(lineArray[0]),
                     Exponent = Convert.ToInt32(lineArray[1])

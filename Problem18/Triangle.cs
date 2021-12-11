@@ -58,7 +58,7 @@ namespace Problem18
         {
             string[] delimiters = { " ", "  " };
             string[] triangleArray = triangleString.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-            List<int> triangleList = new List<int>();
+            List<int> triangleList = new();
 
             // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (string valueString in triangleArray)
@@ -75,7 +75,7 @@ namespace Problem18
             // Convert to ragged array with one row for each level of triangle
 
             int skip = 0;
-            _triangle = new List<List<int>>();
+            _triangle = new();
 
             for (int depth = 1; depth <= MaxDepth; depth++)
             {
@@ -90,7 +90,7 @@ namespace Problem18
         {
             int depth = node.Depth;
             int index = node.Index;
-            List<Node> children = new List<Node>();
+            List<Node> children = new();
 
             // leaf nodes return empty child list
             if (depth + 1 >= MaxDepth)
@@ -103,7 +103,7 @@ namespace Problem18
                 int childDepth = depth + 1;
                 int childIndex = index + n;
 
-                Node child = new Node(childDepth, childIndex);
+                Node child = new(childDepth, childIndex);
 
                 children.Add(child);
             }

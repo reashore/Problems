@@ -11,7 +11,7 @@ namespace Problem57.Tests
             // Arrange
             const long a = 2 * 3 * 5 * 7;
             const long b = 5 * 7 * 11 * 13;
-            BigRational rational = new BigRational(a, b);
+            BigRational rational = new(a, b);
             
             BigInteger expectedNumerator = 6;
             BigInteger expectedDenominator = 143;
@@ -33,7 +33,7 @@ namespace Problem57.Tests
             // Arrange
             const long a = 12;
             const long b = 5 ;
-            BigRational rational = new BigRational(a, b);
+            BigRational rational = new(a, b);
             
             BigInteger expectedNumerator = a;
             BigInteger expectedDenominator = b;
@@ -55,16 +55,16 @@ namespace Problem57.Tests
             // Arrange
             const long a = 3;
             const long b = 4;
-            BigRational rational1 = new BigRational(a, b);
+            BigRational rational1 = new(a, b);
             
             const long c = 5;
             const long d = 6;
-            BigRational rational2 = new BigRational(c, d);
+            BigRational rational2 = new(c, d);
            
             BigInteger expectedNumerator = a * d + b * c;
             BigInteger expectedDenominator = b * d;
             
-            BigRational expectedSum = new BigRational(expectedNumerator, expectedDenominator);
+            BigRational expectedSum = new(expectedNumerator, expectedDenominator);
             BigRational reducedExpectedSum = BigRational.Reduce(expectedSum);
 
             BigInteger reducedExpectedNumerator = reducedExpectedSum.Numerator;
@@ -87,16 +87,16 @@ namespace Problem57.Tests
             // Arrange
             const long a = 3;
             const long b = 4;
-            BigRational rational1 = new BigRational(a, b);
+            BigRational rational1 = new(a, b);
             
             const long c = 5;
             const long d = 6;
-            BigRational rational2 = new BigRational(c, d);
+            BigRational rational2 = new(c, d);
 
             BigInteger expectedNumerator = a * d;
             BigInteger expectedDenominator = b * c;
             
-            BigRational expectedQuotient = new BigRational(expectedNumerator, expectedDenominator);
+            BigRational expectedQuotient = new(expectedNumerator, expectedDenominator);
             BigRational reducedExpectedQuotient = BigRational.Reduce(expectedQuotient);
 
             BigInteger reducedExpectedNumerator = reducedExpectedQuotient.Numerator;

@@ -12,7 +12,7 @@ namespace Problem97
             BigInteger result = factor * power + 1;
             string resultString = result.ToString();
             int length = resultString.Length;
-            string last10Digits = resultString.Substring(length -10);
+            string last10Digits = resultString.Substring(length - 10);
             //WriteLine($"resultString = {resultString}");
             
             return last10Digits;

@@ -8,7 +8,7 @@ namespace Problem1
         public static int Solve()
         {
             const int upperLimit = 1000;
-            List<int> factors = new List<int>();
+            List<int> factors = new();
 
             for (int n = 3; n < upperLimit; n++)
             {

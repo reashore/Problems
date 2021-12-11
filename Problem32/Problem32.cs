@@ -18,7 +18,7 @@ namespace Problem32
             Utilities.Assert(squareRootBound * squareRootBound <= upperBound);
             Utilities.Assert((squareRootBound + 1) * (squareRootBound + 1) >= upperBound);
 
-            List<long> pandigitalProductsList = new List<long>();
+            List<long> pandigitalProductsList = new();
 
             for (int n = 1; n <= squareRootBound; n++)
             {

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using static System.Console;
+// ReSharper disable All
 
 namespace Problem61
 {
@@ -27,7 +28,7 @@ namespace Problem61
                             {
                                 foreach (int p8Number in pentagonal8List)
                                 {
-                                    List<int> pentagonalList = new List<int>
+                                    List<int> pentagonalList = new()
                                     {
                                         p3Number, 
                                         p4Number, 

@@ -8,7 +8,7 @@ namespace Problem17
     {
         public static int Solve()
         {
-            SortedDictionary<int, string> numbersDictionary = new SortedDictionary<int, string>();
+            SortedDictionary<int, string> numbersDictionary = new();
 
             AssignBasicNumbers(numbersDictionary);
             AssignNumbers21To99(numbersDictionary);
@@ -92,7 +92,7 @@ namespace Problem17
 
         private static int CountLetters(SortedDictionary<int, string> numbersDictionary)
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new();
 
             foreach (KeyValuePair<int, string> item in numbersDictionary)
             {

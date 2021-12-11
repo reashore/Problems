@@ -12,7 +12,7 @@ namespace Problem60.Tests
         public void SetUp()
         {
             const int upperBound = 700_000;
-            _primesUtility = new PrimesUtility(upperBound);   
+            _primesUtility = new(upperBound);   
         }
         
         [Test]
@@ -37,7 +37,7 @@ namespace Problem60.Tests
         public void ConcatenatedPrimesArePrimesTest()
         {
             // Arrange
-            List<int> specialPrimes = new List<int> {3, 7, 109, 673};
+            List<int> specialPrimes = new() {3, 7, 109, 673};
             const bool expectedResult = true;
             
             // Act

@@ -10,7 +10,7 @@ namespace Problem79
         {
             List<string> passcodeList = ReadPasscodes();
             List<int> digitList = GetDigitsFromPasscodes(passcodeList); // 31968027
-            LinkedList<int> passwordLinkedList = new LinkedList<int>();
+            LinkedList<int> passwordLinkedList = new();
 
             foreach (int digit in digitList)
             {
@@ -46,14 +46,14 @@ namespace Problem79
         {
             const string fileName = "Passcodes.txt";
             string[] passcodesArray = File.ReadAllLines(fileName);
-            List<string> passcodeList = new List<string>(passcodesArray);
+            List<string> passcodeList = new(passcodesArray);
 
             return passcodeList;
         }
 
         private static List<int> GetDigitsFromPasscodes(List<string> passcodeList)
         {
-            List<int> digitList = new List<int>();
+            List<int> digitList = new();
 
             foreach (string passcode in passcodeList)
             {

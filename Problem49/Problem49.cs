@@ -63,7 +63,7 @@ namespace Problem49
 
         private static IEnumerable<int> ConvertStringToList(string stringValue)
         {
-            List<int> list = new List<int>();
+            List<int> list = new();
 
             foreach (char character in stringValue)
             {

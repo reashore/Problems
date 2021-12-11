@@ -65,8 +65,8 @@ namespace Problem59
         {
             int length = encyptedList.Count;
             int passwordLength = password.Length;
-            List<int> xorList = new List<int>();
-            List<int> decryptedList = new List<int>();
+            List<int> xorList = new();
+            List<int> decryptedList = new();
             string decryptedData = "";
 
             for (int n = 0; n < length; n++)
@@ -111,7 +111,7 @@ namespace Problem59
 
         private static IEnumerable<string> GetCommonWordsList()
         {
-            List<string> commonWorList = new List<string>
+            List<string> commonWorList = new()
             {
                 "the",
                 "of",

@@ -91,7 +91,7 @@ namespace Common
             }
 
             const string allDigits = "123456789";
-            string digits = allDigits.Substring(0, n);
+            string digits = allDigits[..n];
 
             foreach (char digit in digits)
             {
@@ -106,14 +106,14 @@ namespace Common
 
         public static IEnumerable<long> GetPrimeFactors(long number)
         {
-            List<long> primeFactors = new List<long>();
+            List<long> primeFactors = new();
 
             for (long divisor = 2; divisor <= number; divisor++)
             {
                 while (number % divisor == 0)
                 {
                     primeFactors.Add(divisor);
-                    number = number / divisor;
+                    number /= divisor;
                 }
             }
 
@@ -122,14 +122,14 @@ namespace Common
 
         public static List<int> GetPrimeFactors(int number)
         {
-            List<int> primeFactors = new List<int>();
+            List<int> primeFactors = new();
 
             for (int divisor = 2; divisor <= number; divisor++)
             {
                 while (number % divisor == 0)
                 {
                     primeFactors.Add(divisor);
-                    number = number / divisor;
+                    number /= divisor;
                 }
             }
 
@@ -139,7 +139,7 @@ namespace Common
         // ReSharper disable once ReturnTypeCanBeEnumerable.Local
         public static List<int> ConvertNumericStringToList(string numericString)
         {
-            List<int> digitsList = new List<int>();
+            List<int> digitsList = new();
 
             foreach (char character in numericString)
             {
@@ -165,11 +165,11 @@ namespace Common
 
         public static string ConvertListToStringFast(IEnumerable<int> list)
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new();
 
             foreach (int n in list)
             {
-                stringBuilder.Append(n.ToString());
+                stringBuilder.Append(n);
             }
 
             return stringBuilder.ToString();
@@ -246,12 +246,12 @@ namespace Common
         {
             if (n < 1)
             {
-                throw new ArgumentException(nameof(n));
+                throw new ArgumentException("Argument cannot be negative");
             }
 
             if (n == 1 || n == 2)
             {
-                return new BigInteger(1);
+                return new(1);
             }
 
             return Fibonacci(n - 1) + Fibonacci(n - 2);

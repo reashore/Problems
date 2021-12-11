@@ -89,8 +89,8 @@ namespace Problem26
 
         private static string GetRepeatingDecimalDigits(int denominator)
         {
-            List<int> digitList1 = new List<int>();
-            List<int> digitList2 = new List<int>();
+            List<int> digitList1 = new();
+            List<int> digitList2 = new();
             int power = 1;
 
             // first pass through repeating digits

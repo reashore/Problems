@@ -8,7 +8,7 @@ namespace Problem57
         public static int Solve()
         {
             const int maxIterations = 1000;
-            BigRational two = new BigRational(2);
+            BigRational two = new(2);
             BigRational start = two;
             int count = 0;
 
@@ -58,8 +58,8 @@ namespace Problem57
 
         private static BigRational CalculateInnerExpressionFast(BigRational rational)
         {
-            BigRational one = new BigRational(1);
-            BigRational two = new BigRational(2);
+            BigRational one = new(1);
+            BigRational two = new(2);
 
             BigRational expression1 = BigRational.DivideFast(one, rational);
             BigRational expression2 = BigRational.AddFast(two, expression1);
@@ -69,7 +69,7 @@ namespace Problem57
 
         private static BigRational CalculateOuterExpressionFast(BigRational rational)
         {
-            BigRational one = new BigRational(1);
+            BigRational one = new(1);
 
             BigRational expression1 = BigRational.DivideFast(one, rational);
             BigRational expression2 = BigRational.AddFast(one, expression1);

@@ -28,19 +28,19 @@ namespace Problem54.Test
             string hand2Card5String = dealStringArray[9];
             
             // Arrange
-            Hand hand1 = new Hand(
+            Hand hand1 = new(
                 hand1Card1String, 
                 hand1Card2String, 
                 hand1Card3String, 
                 hand1Card4String, 
                 hand1Card5String);
-            Hand hand2 = new Hand(
+            Hand hand2 = new(
                 hand2Card1String, 
                 hand2Card2String, 
                 hand2Card3String, 
                 hand2Card4String, 
                 hand2Card5String);
-            Deal deal = new Deal(hand1, hand2);
+            Deal deal = new(hand1, hand2);
 
             // Act
             bool actualHand1WinsTie = deal.IsHand1WithOnePairWinner();
@@ -72,19 +72,19 @@ namespace Problem54.Test
             string hand2Card5String = dealStringArray[9];
             
             // Arrange
-            Hand hand1 = new Hand(
+            Hand hand1 = new(
                 hand1Card1String, 
                 hand1Card2String, 
                 hand1Card3String, 
                 hand1Card4String, 
                 hand1Card5String);
-            Hand hand2 = new Hand(
+            Hand hand2 = new(
                 hand2Card1String, 
                 hand2Card2String, 
                 hand2Card3String, 
                 hand2Card4String, 
                 hand2Card5String);
-            Deal deal = new Deal(hand1, hand2);
+            Deal deal = new(hand1, hand2);
 
             // Act
             bool actualHand1WinsTie = deal.IsHand1WithHighCardWinner();

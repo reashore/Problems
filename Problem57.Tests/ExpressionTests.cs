@@ -10,7 +10,7 @@ namespace Problem57.Tests
         public void InnerExpressionTest()
         {
             // Arrange
-            BigRational two = new BigRational(2);
+            BigRational two = new(2);
             
             BigInteger expectedNumerator = 5;
             BigInteger expectedDenominator = 2;
@@ -30,7 +30,7 @@ namespace Problem57.Tests
         public void OuterExpressionTest()
         {
             // Arrange
-            BigRational two = new BigRational(2);
+            BigRational two = new(2);
             
             BigInteger expectedNumerator = 3;
             BigInteger expectedDenominator = 2;
@@ -50,7 +50,7 @@ namespace Problem57.Tests
         public void Iteration1Test()
         {
             // Arrange
-            BigRational two = new BigRational(2);
+            BigRational two = new(2);
             
             BigInteger expectedNumerator = 7;
             BigInteger expectedDenominator = 5;
@@ -71,7 +71,7 @@ namespace Problem57.Tests
         public void Iteration2Test()
         {
             // Arrange
-            BigRational two = new BigRational(2);
+            BigRational two = new(2);
             
             BigInteger expectedNumerator = 17;
             BigInteger expectedDenominator = 12;
@@ -93,7 +93,7 @@ namespace Problem57.Tests
         public void Iteration3Test()
         {
             // Arrange
-            BigRational two = new BigRational(2);
+            BigRational two = new(2);
             
             BigInteger expectedNumerator = 41;
             BigInteger expectedDenominator = 29;
@@ -116,7 +116,7 @@ namespace Problem57.Tests
         public void Iteration4Test()
         {
             // Arrange
-            BigRational two = new BigRational(2);
+            BigRational two = new(2);
             
             BigInteger expectedNumerator = 99;
             BigInteger expectedDenominator = 70;
@@ -140,7 +140,7 @@ namespace Problem57.Tests
         public void Iteration5Test()
         {
             // Arrange
-            BigRational two = new BigRational(2);
+            BigRational two = new(2);
             
             BigInteger expectedNumerator = 239;
             BigInteger expectedDenominator = 169;
@@ -165,7 +165,7 @@ namespace Problem57.Tests
         public void Iteration6Test()
         {
             // Arrange
-            BigRational two = new BigRational(2);
+            BigRational two = new(2);
             
             BigInteger expectedNumerator = 577;
             BigInteger expectedDenominator = 408;
@@ -191,7 +191,7 @@ namespace Problem57.Tests
         public void Iteration7Test()
         {
             // Arrange
-            BigRational two = new BigRational(2);
+            BigRational two = new(2);
             
             BigInteger expectedNumerator = 1393;
             BigInteger expectedDenominator = 985;

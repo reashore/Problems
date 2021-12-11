@@ -17,18 +17,18 @@ namespace Problem54
 
         public Hand(string card0String, string card1String, string card2String, string card3String, string card4String)
         {
-            Card1 = new Card(card0String);
-            Card2 = new Card(card1String);
-            Card3 = new Card(card2String);
-            Card4 = new Card(card3String);
-            Card5 = new Card(card4String);
+            Card1 = new(card0String);
+            Card2 = new(card1String);
+            Card3 = new(card2String);
+            Card4 = new(card3String);
+            Card5 = new(card4String);
 
             AddCardsToList();
         }
 
         private void AddCardsToList()
         {
-            _cardList = new List<Card>
+            _cardList = new()
             {
                 Card1,
                 Card2,
@@ -40,7 +40,7 @@ namespace Problem54
 
         public override string ToString()
         {
-            StringBuilder handStringBuilder = new StringBuilder();
+            StringBuilder handStringBuilder = new();
             
             foreach (Card card in _cardList)
             {

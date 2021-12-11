@@ -12,7 +12,7 @@ namespace Problem20
             const int number = 100;
             BigInteger factorial = Factorial(number);
             int sumOfDigits = SumDigits(factorial);
-            Console.WriteLine($"Factorial({number}) = {factorial.ToString()}");
+            Console.WriteLine($"Factorial({number}) = {factorial}");
             Console.WriteLine($"SumDigits = {sumOfDigits}");
             return sumOfDigits;
         }
@@ -30,7 +30,7 @@ namespace Problem20
         private static int SumDigits(BigInteger value)
         {
             string valueString = value.ToString();
-            List<int> digitList = new List<int>();
+            List<int> digitList = new();
 
             foreach (char c in valueString)
             {

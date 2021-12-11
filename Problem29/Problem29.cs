@@ -9,7 +9,7 @@ namespace Problem29
         {
             const int lowerBound = 2;
             const int upperBound = 100;
-            List<BigInteger> distinctPowers = new List<BigInteger>();
+            List<BigInteger> distinctPowers = new();
 
             for (int n = lowerBound; n <= upperBound; n++)
             {

@@ -49,7 +49,7 @@ namespace Problem57
             BigInteger sumNumerator = a * d + b * c;
             BigInteger sumDenominator = b * d;
 
-            BigRational sum = new BigRational(sumNumerator, sumDenominator);
+            BigRational sum = new(sumNumerator, sumDenominator);
             
             return sum;
         }
@@ -74,7 +74,7 @@ namespace Problem57
             BigInteger quotientNumerator = a * d;
             BigInteger quotientDenominator = b * c;
                 
-            BigRational quotient = new BigRational(quotientNumerator, quotientDenominator);
+            BigRational quotient = new(quotientNumerator, quotientDenominator);
 
             return quotient;
         }
@@ -89,7 +89,7 @@ namespace Problem57
             BigInteger reducedNumerator = BigInteger.Divide(numerator, gcd);
             BigInteger reducedDenominator = BigInteger.Divide(denominator, gcd);
             
-            BigRational reducedRational = new BigRational(reducedNumerator, reducedDenominator);
+            BigRational reducedRational = new(reducedNumerator, reducedDenominator);
 
             return reducedRational;
         }

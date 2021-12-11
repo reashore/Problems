@@ -10,7 +10,7 @@ namespace Problem60
         public static int Solve()
         {
             const int upperBound = 1_000_000;
-            PrimesUtility primesUtility = new PrimesUtility(upperBound);
+            PrimesUtility primesUtility = new(upperBound);
             
             //int answer = SolvePrime4Problem(primesUtility);
             int answer = SolvePrime5Problem(primesUtility);
@@ -35,7 +35,7 @@ namespace Problem60
                             int prime3 = primesUtility.Primes[n3];
                             int prime4 = primesUtility.Primes[n4];
 
-                            List<int> candidatePrimes = new List<int> {prime1, prime2, prime3, prime4};
+                            List<int> candidatePrimes = new() {prime1, prime2, prime3, prime4};
                             bool areConcatenatedPrimesPrime = AreConcatenatedPrimesPrime(candidatePrimes, primesUtility);
 
                             if (areConcatenatedPrimesPrime)
@@ -71,7 +71,7 @@ namespace Problem60
                                 int prime4 = primesUtility.Primes[n4];
                                 int prime5 = primesUtility.Primes[n5];
 
-                                List<int> candidatePrimes = new List<int> {prime1, prime2, prime3, prime4, prime5};
+                                List<int> candidatePrimes = new() {prime1, prime2, prime3, prime4, prime5};
                                 bool areConcatenatedPrimesPrime = AreConcatenatedPrimesPrime(candidatePrimes, primesUtility);
 
                                 if (areConcatenatedPrimesPrime)

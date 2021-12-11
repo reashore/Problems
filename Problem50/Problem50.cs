@@ -11,7 +11,7 @@ namespace Problem50
             const long upperBound = 1000000;
             long maxNumberConsecutivePrimes = 0;
             long maxPrime = 0;
-            List<long> primes = new List<long> {2};
+            List<long> primes = new() {2};
 
             for (long number = 3; number < upperBound; number += 2)
             {

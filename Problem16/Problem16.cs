@@ -10,8 +10,8 @@ namespace Problem16
         public static int Solve()
         {
             const int exponent = 1000;
-            BigInteger product = new BigInteger(1);
-            BigInteger two = new BigInteger(2);
+            BigInteger product = new(1);
+            BigInteger two = new(2);
 
             for (int n = 1; n <= exponent; n++)
             {
@@ -19,7 +19,7 @@ namespace Problem16
             }
 
             string productString = product.ToString();
-            List<int> productList = new List<int>();
+            List<int> productList = new();
 
             foreach (char c in productString)
             {

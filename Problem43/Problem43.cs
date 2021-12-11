@@ -32,7 +32,7 @@ namespace Problem43
         {
             string numberString = number.ToString();
             Utilities.Assert(numberString.Length == 10);
-            List<string> digitList = new List<string>();
+            List<string> digitList = new();
 
             foreach (char c in numberString)
             {

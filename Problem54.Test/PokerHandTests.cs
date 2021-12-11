@@ -23,7 +23,7 @@ namespace Problem54.Test
             bool expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 
@@ -92,7 +92,7 @@ namespace Problem54.Test
             bool expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 
@@ -174,7 +174,7 @@ namespace Problem54.Test
             bool expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 
@@ -269,7 +269,7 @@ namespace Problem54.Test
             bool expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 
@@ -373,7 +373,7 @@ namespace Problem54.Test
             bool expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 
@@ -488,7 +488,7 @@ namespace Problem54.Test
             bool expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 
@@ -618,7 +618,7 @@ namespace Problem54.Test
             bool expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 
@@ -760,7 +760,7 @@ namespace Problem54.Test
             bool expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 
@@ -918,7 +918,7 @@ namespace Problem54.Test
             bool expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 
@@ -1073,7 +1073,7 @@ namespace Problem54.Test
             bool expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 
@@ -1097,7 +1097,7 @@ namespace Problem54.Test
             string expectedResult)
         {
             // Arrange
-            Hand hand = new Hand(
+            Hand hand = new(
                 card1String, 
                 card2String, 
                 card3String, 

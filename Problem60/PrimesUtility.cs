@@ -16,8 +16,8 @@ namespace Problem60
         public PrimesUtility(int upperBound)
         {
             _upperBound = upperBound;
-            _primeBitArray = new BitArray(_upperBound);
-            Primes = new List<int>();
+            _primeBitArray = new(_upperBound);
+            Primes = new();
             CreatePrimeLookupArray();
         }
         

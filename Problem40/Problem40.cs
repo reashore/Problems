@@ -53,7 +53,7 @@ namespace Problem40
 
         private static List<int> ConvertNumberToList(long number)
         {
-            List<int> digitList = new List<int>();
+            List<int> digitList = new();
 
             string numberString = number.ToString();
 

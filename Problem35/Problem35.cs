@@ -37,7 +37,7 @@ namespace Problem35
 
         private static IEnumerable<long> GetDigitRotations(long number)
         {
-            List<long> digitRotations = new List<long>();
+            List<long> digitRotations = new();
             string numberString = number.ToString();
 
             digitRotations.Add(number);
@@ -71,7 +71,7 @@ namespace Problem35
                 return value;
             }
 
-            string leftCharacter = value.Substring(0, 1);
+            string leftCharacter = value[..1];
             string rest = value.Substring(1);
             string rotatedValue = rest + leftCharacter;
 

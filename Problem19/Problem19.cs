@@ -6,8 +6,8 @@ namespace Problem19
     {
         public static int Solve()
         {
-            DateTime startDate = new DateTime(1901, 1, 1);
-            DateTime endDate = new DateTime(2000, 12, 31);
+            DateTime startDate = new(1901, 1, 1);
+            DateTime endDate = new(2000, 12, 31);
             TimeSpan oneDay = TimeSpan.FromDays(1);
             int numberSundaysOnFirstOfMonth = 0;
             DateTime dateTime = startDate;

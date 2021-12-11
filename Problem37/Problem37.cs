@@ -32,7 +32,7 @@ namespace Problem37
         {
             string numberString = number.ToString();
             int length = numberString.Length;
-            List<long> truncations = new List<long>{ number };
+            List<long> truncations = new() { number };
 
             if (length == 1)
             {

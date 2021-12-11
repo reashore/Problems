@@ -24,7 +24,7 @@ namespace Problem30
             // Beyond empirically determined upperLimit, the digits sum always exceeds the number
             const int upperLimit = 200000;
             long number = 2;
-            List<long> specialNumbersList = new List<long>();
+            List<long> specialNumbersList = new();
 
             while (number < upperLimit)
             {

@@ -20,17 +20,17 @@ namespace Problem54
         {
             const string fileName = "PokerHands.txt";
             string[] dealStrings = File.ReadAllLines(fileName);
-            List<Deal> dealList = new List<Deal>();
+            List<Deal> dealList = new();
 
             // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (var dealString in dealStrings)
             {
                 string[] hands = dealString.Split(' ');
 
-                Hand hand1 = new Hand(hands[0], hands[1], hands[2], hands[3], hands[4]);
-                Hand hand2 = new Hand(hands[5], hands[6], hands[7], hands[8], hands[9]);
+                Hand hand1 = new(hands[0], hands[1], hands[2], hands[3], hands[4]);
+                Hand hand2 = new(hands[5], hands[6], hands[7], hands[8], hands[9]);
 
-                Deal deal = new Deal(hand1, hand2);
+                Deal deal = new(hand1, hand2);
                 dealList.Add(deal);
             }
 
@@ -66,27 +66,27 @@ namespace Problem54
 
         private bool IsHand1WinnerWhereBothHandsHaveSamePokerType(PokerHandType pokerHandType)
         {
-            switch (pokerHandType)
+            return pokerHandType switch
             {
-                case PokerHandType.HighCard:
-                    return IsHand1WithHighCardWinner();
-                    
-                case PokerHandType.OnePair:
-                    return IsHand1WithOnePairWinner();
-
-                case PokerHandType.TwoPair:
-                case PokerHandType.ThreeOfKind:
-                case PokerHandType.Straight:
-                case PokerHandType.Flush:
-                case PokerHandType.FullHouse:
-                case PokerHandType.FourOfKind:
-                case PokerHandType.StraightFlush:
-                case PokerHandType.RoyalFlush:
-                    throw new Exception("There are no deals where both hands have this poker type");
-                    
-                default:
-                    throw new Exception("Should not get here");
-            }
+                PokerHandType.HighCard => IsHand1WithHighCardWinner(),
+                PokerHandType.OnePair => IsHand1WithOnePairWinner(),
+                PokerHandType.TwoPair =>
+                    throw new Exception("There are no deals where both hands have this poker type"),
+                PokerHandType.ThreeOfKind => throw new Exception(
+                    "There are no deals where both hands have this poker type"),
+                PokerHandType.Straight => throw new Exception(
+                    "There are no deals where both hands have this poker type"),
+                PokerHandType.Flush => throw new Exception("There are no deals where both hands have this poker type"),
+                PokerHandType.FullHouse => throw new Exception(
+                    "There are no deals where both hands have this poker type"),
+                PokerHandType.FourOfKind => throw new Exception(
+                    "There are no deals where both hands have this poker type"),
+                PokerHandType.StraightFlush => throw new Exception(
+                    "There are no deals where both hands have this poker type"),
+                PokerHandType.RoyalFlush => throw new Exception(
+                    "There are no deals where both hands have this poker type"),
+                _ => throw new Exception("Should not get here")
+            };
         }
 
         public bool IsHand1WithOnePairWinner()
@@ -95,7 +95,7 @@ namespace Problem54
 
             if (pokerHandType1 != PokerHandType.OnePair)
             {
-                throw new Exception("Hands should both be one pair");
+                throw new("Hands should both be one pair");
             }
 
             Rank hand1HighRank = Rank.C2;
@@ -203,7 +203,7 @@ namespace Problem54
         private static List<Deal> GetDealsWhereBothHandsAreSamePokerType(PokerHandType pokerhandType)
         {
             List<Deal> deals = ReadDeals();
-            List<Deal> bothHandsAreSamePokerTypeList = new List<Deal>();
+            List<Deal> bothHandsAreSamePokerTypeList = new();
 
             foreach (Deal deal in deals)
             {

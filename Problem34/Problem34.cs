@@ -10,7 +10,7 @@ namespace Problem34
         public static long Solve()
         {
             const int upperBound = 10000000;
-            List<long> digitFactorials = new List<long>();
+            List<long> digitFactorials = new();
 
             for (long number = 3; number < upperBound; number++)
             {

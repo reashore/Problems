@@ -22,7 +22,7 @@ namespace Problem31
                                     {
                                         for (uint p1 = 0; p1 <= 200; p1++)
                                         {
-                                            Money money = new Money(p200, p100, p50, p20, p10, p5, p2, p1);
+                                            Money money = new(p200, p100, p50, p20, p10, p5, p2, p1);
 
                                             if (money.Value == 200)
                                             {

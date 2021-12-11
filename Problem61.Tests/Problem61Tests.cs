@@ -26,7 +26,7 @@ namespace Problem61.Tests
         public void AreCyclicNumbersTest()
         {
             // Arrange
-            List<int> cyclicNumberList = new List<int>
+            List<int> cyclicNumberList = new()
             {
                 8128,
                 2882,

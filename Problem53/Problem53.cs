@@ -50,7 +50,7 @@ namespace Problem53
 
             for (int i = 2; i <= n; i++)
             {
-                BigInteger factor = new BigInteger(i);
+                BigInteger factor = new(i);
                 factorial *= factor;
             }
 

@@ -96,7 +96,7 @@
 
         public static Money GetMoneyFromValue(uint value)
         {
-            Money money = new Money();
+            Money money = new();
             Normalize(money, value);
 
             return money;

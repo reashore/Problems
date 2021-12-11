@@ -9,7 +9,7 @@ namespace Problem33
     {
         public static long Solve()
         {
-            List<Fraction> cancellingFactionsList = new List<Fraction>();
+            List<Fraction> cancellingFactionsList = new();
 
             for (int num = 10; num < 100; num++)
             {
@@ -53,7 +53,7 @@ namespace Problem33
                     // ReSharper disable once InvertIf
                     if (num * denominator == numerator * den)
                     {
-                        Fraction fraction = new Fraction(num, den);
+                        Fraction fraction = new(num, den);
                         cancellingFactionsList.Add(fraction);
                         Console.WriteLine($"fraction = {num}/{den}");
                     }
@@ -100,7 +100,7 @@ namespace Problem33
 
         private static IEnumerable<int> GetCommonFactors(IEnumerable<int> numeratorPrimeFactors, IEnumerable<int> denominatorPrimeFactors)
         {
-            List<int> commonFactors = new List<int>();
+            List<int> commonFactors = new();
             List<int> denominatorPrimeFactorsCopy = CopyList(denominatorPrimeFactors);
 
             foreach (var factor in numeratorPrimeFactors)
@@ -118,7 +118,7 @@ namespace Problem33
 
         private static List<int> CopyList(IEnumerable<int> originalList)
         {
-            List<int> copyList = new List<int>(0);
+            List<int> copyList = new(0);
 
             foreach (int item in originalList)
             {

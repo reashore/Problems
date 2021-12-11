@@ -15,7 +15,7 @@ namespace Problem13
             // BigInt -> string -> List<int>
 
             string sumString = sum.ToString();
-            List<int> digits = new List<int>();
+            List<int> digits = new();
 
             foreach (char c in sumString)
             {
@@ -146,7 +146,7 @@ namespace Problem13
         private static BigInteger Sum(string numbers)
         {
             string[] numbersArray = numbers.Split(new[] { ',' });
-            List<BigInteger> numbersList = new List<BigInteger>();
+            List<BigInteger> numbersList = new();
 
             // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (string numberString in numbersArray)

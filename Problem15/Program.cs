@@ -49,21 +49,21 @@ namespace Problem15
 
         private List<Node> GetChildren(Node node)
         {
-            List<Node> children = new List<Node>();
+            List<Node> children = new();
             int row = node.Row;
             int col = node.Col;
             Node child;
 
             if (col < GridSize)
             {
-                child = new Node(row, col + 1);
+                child = new(row, col + 1);
                 children.Add(child);
             }
 
             // ReSharper disable once InvertIf
             if (row < GridSize)
             {
-                child = new Node(row + 1, col);
+                child = new(row + 1, col);
                 children.Add(child);
             }
 

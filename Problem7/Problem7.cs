@@ -15,7 +15,7 @@ namespace Problem7
                 throw new ArgumentException(nameof(topPrime));
             }
 
-            List<int> primesList = new List<int>();
+            List<int> primesList = new();
 
             for (int n = 2; ; n++)
             {

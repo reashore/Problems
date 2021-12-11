@@ -10,7 +10,7 @@ namespace Problem8
         {
             string numberString = GetNumberString();
             const int take = 13;
-            List<long> numberList = new List<long>();
+            List<long> numberList = new();
             long maxProduct = 0;
 
             foreach (char c in numberString)

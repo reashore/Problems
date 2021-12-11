@@ -73,7 +73,7 @@ namespace Problem54.Test
         public void ConvertCardsFromStringAndToStringTest(string expectedCardString)
         {
             // Arrange
-            Card card = new Card(expectedCardString);
+            Card card = new(expectedCardString);
             
             // Act
             string actualCardString = card.ToString();

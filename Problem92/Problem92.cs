@@ -25,7 +25,7 @@ namespace Problem92
         }
         public static int CreateSquareDigitSumChain(int number)
         {
-            List<int> squareDigitSumList = new List<int>();
+            List<int> squareDigitSumList = new();
             int chainTerminator;
 
             while (true)
@@ -64,7 +64,7 @@ namespace Problem92
         
         private static List<int> ConvertNumericStringToDigitList(string numericString)
         {
-            List<int> digitsList = new List<int>();
+            List<int> digitsList = new();
 
             foreach (char character in numericString)
             {

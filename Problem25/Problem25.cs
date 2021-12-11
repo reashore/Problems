@@ -11,8 +11,8 @@ namespace Problem25
             const int numberDigits = 1000;
             int n = 3;
             int index;
-            BigInteger termMinus1 = new BigInteger(1);
-            BigInteger termMinus2 = new BigInteger(1);
+            BigInteger termMinus1 = new(1);
+            BigInteger termMinus2 = new(1);
 
             while (true)
             {
@@ -39,7 +39,7 @@ namespace Problem25
         private static int CountDigits(BigInteger value)
         {
             string valueString = value.ToString();
-            List<int> digitList = new List<int>();
+            List<int> digitList = new();
 
             foreach (char c in valueString)
             {
