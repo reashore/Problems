@@ -7,12 +7,20 @@ namespace Problem100
         public static void Main()
         {
             WriteLine("Problem 100");
+
+            WriteLine(int.MaxValue);                    // 2147483647
+                                                        // 5000000058
+
             int row = 6;
             int col = 3;
-            int answer = Problem100.Solve(row, col);
+            long answer = Problem100.Solve(row, col);
             WriteLine($"answer = {answer}");            // 25
 
-            //Problem100.TestRowPair();
+            row = 1000000011;
+            col = 5;
+            answer = Problem100.Solve(row, col);
+            WriteLine($"answer = {answer}");            // 5000000058
+
             //Problem100.Test();
         }
     }

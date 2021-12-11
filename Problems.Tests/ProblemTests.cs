@@ -835,5 +835,21 @@ namespace Problems.Tests
             // Assert
             Assert.That(answer, Is.EqualTo(expectedResult));
         }
+        
+        [Test]
+        [Explicit]
+        public void Problem100Test()
+        {
+            // Arrange
+            const int expectedResult = 25;
+            const int row = 6;
+            const int col = 3;
+            
+            // Act
+            long answer = Problem100.Problem100.Solve(row, col);
+
+            // Assert
+            Assert.That(answer, Is.EqualTo(expectedResult));
+        }
     }
 }
